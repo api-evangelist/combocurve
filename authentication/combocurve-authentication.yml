@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/combocurve-openapi.yml
+docs: https://docs.api.combocurve.com/api/getting-started
+flow:
+  style: dual-header
+  note: Every request requires BOTH an Authorization signed bearer token AND the x-api-key header.
+  credentials_source: https://yourcompany.combocurve.com/company/api-sync (CREATE & DOWNLOAD)
+  authorization: Signed JWT bearer token generated from the downloaded Service Account Key.
+  api_key: Company API key issued on the ComboCurve API & Sync page.
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: Company API key from the ComboCurve API & Sync page.
+  sources:
+  - openapi/combocurve-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: Signed bearer token generated from the Service Account Key.
+  sources:
+  - openapi/combocurve-openapi.yml
