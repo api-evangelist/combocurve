@@ -1,0 +1,514 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 daily-productions API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 daily-productions
+  description: daily-productions operations
+paths:
+  /v1/daily-productions:
+    delete:
+      operationId: delete-daily-productions
+      summary: delete-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Delete the daily productions documents that match the given filters.
+      parameters:
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: (Required) filter by well ID
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by startDate
+      - name: endDate
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by endDate
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    head:
+      operationId: head-daily-productions
+      summary: head-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Returns metadata about the existing daily production documents in the company scope.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by date
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-daily-productions
+      summary: get-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Returns a list of daily production documents in the company scope.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by date
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    post:
+      operationId: post-daily-productions
+      summary: post-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Upserts a list of daily production documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  date:
+                    type: string
+                    format: date
+                  bottomHolePressure:
+                    type: number
+                  casingHeadPressure:
+                    type: number
+                  choke:
+                    type: number
+                  chosenID:
+                    type: string
+                  co2Injection:
+                    type: number
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  dataSource:
+                    type: string
+                  flowlinePressure:
+                    type: number
+                  gas:
+                    type: number
+                  gasInjection:
+                    type: number
+                  gasLiftInjectionPressure:
+                    type: number
+                  hoursOn:
+                    type: number
+                  ngl:
+                    type: number
+                  oil:
+                    type: number
+                  operationalTag:
+                    type: string
+                  steamInjection:
+                    type: number
+                  tubingHeadPressure:
+                    type: number
+                  vesselSeparatorPressure:
+                    type: number
+                  water:
+                    type: number
+                  waterInjection:
+                    type: number
+                  well:
+                    type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    put:
+      operationId: put-daily-productions
+      summary: put-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Upserts a list of daily production documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  date:
+                    type: string
+                    format: date
+                  bottomHolePressure:
+                    type: number
+                  casingHeadPressure:
+                    type: number
+                  choke:
+                    type: number
+                  chosenID:
+                    type: string
+                  co2Injection:
+                    type: number
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  dataSource:
+                    type: string
+                  flowlinePressure:
+                    type: number
+                  gas:
+                    type: number
+                  gasInjection:
+                    type: number
+                  gasLiftInjectionPressure:
+                    type: number
+                  hoursOn:
+                    type: number
+                  ngl:
+                    type: number
+                  oil:
+                    type: number
+                  operationalTag:
+                    type: string
+                  steamInjection:
+                    type: number
+                  tubingHeadPressure:
+                    type: number
+                  vesselSeparatorPressure:
+                    type: number
+                  water:
+                    type: number
+                  waterInjection:
+                    type: number
+                  well:
+                    type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    patch:
+      operationId: patch-daily-productions
+      summary: patch-daily-productions
+      tags:
+      - v1 daily-productions
+      description: Patch a list of daily production documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  date:
+                    type: string
+                    format: date
+                  bottomHolePressure:
+                    type: number
+                  casingHeadPressure:
+                    type: number
+                  choke:
+                    type: number
+                  chosenID:
+                    type: string
+                  co2Injection:
+                    type: number
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  dataSource:
+                    type: string
+                  flowlinePressure:
+                    type: number
+                  gas:
+                    type: number
+                  gasInjection:
+                    type: number
+                  gasLiftInjectionPressure:
+                    type: number
+                  hoursOn:
+                    type: number
+                  ngl:
+                    type: number
+                  oil:
+                    type: number
+                  operationalTag:
+                    type: string
+                  steamInjection:
+                    type: number
+                  tubingHeadPressure:
+                    type: number
+                  vesselSeparatorPressure:
+                    type: number
+                  water:
+                    type: number
+                  waterInjection:
+                    type: number
+                  well:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

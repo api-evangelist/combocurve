@@ -1,0 +1,3181 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 wells API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 wells
+  description: wells operations
+paths:
+  /v1/wells:
+    delete:
+      operationId: delete-wells
+      summary: delete-wells
+      tags:
+      - v1 wells
+      description: Delete the wells documents that match the given filters.
+      parameters:
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by chosenID
+      - name: dataSource
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by dataSource
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by id
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    head:
+      operationId: head-wells
+      summary: head-wells
+      tags:
+      - v1 wells
+      description: Returns metadata about the existing well documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: api10
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api10
+      - name: api12
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api12
+      - name: county
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by county
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by state
+      - name: wellName
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by wellName
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by chosenID
+      - name: inptID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by inptID
+      - name: api14
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api14
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-wells
+      summary: get-wells
+      tags:
+      - v1 wells
+      description: Returns a list of well documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: api10
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api10
+      - name: api12
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api12
+      - name: county
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by county
+      - name: state
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by state
+      - name: wellName
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by wellName
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by chosenID
+      - name: inptID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by inptID
+      - name: api14
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by api14
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      - name: dataSource
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by dataSource
+      - name: currentOperator
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by dataSource
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    patch:
+      operationId: patch-wells
+      summary: patch-wells
+      tags:
+      - v1 wells
+      description: Updates a list of well documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  abstract:
+                    type: string
+                  acreSpacing:
+                    type: number
+                  allocationType:
+                    type: string
+                  api10:
+                    type: string
+                  api12:
+                    type: string
+                  api14:
+                    type: string
+                  ariesId:
+                    type: string
+                  azimuth:
+                    type: number
+                  basin:
+                    type: string
+                  bg:
+                    type: number
+                  block:
+                    type: string
+                  bo:
+                    type: number
+                  bubblePointPress:
+                    type: number
+                  casingId:
+                    type: number
+                  chokeSize:
+                    type: number
+                  chosenID:
+                    type: string
+                  chosenKeyID:
+                    type: string
+                  completionDesign:
+                    type: string
+                  completionEndDate:
+                    type: string
+                    format: date
+                  completionStartDate:
+                    type: string
+                    format: date
+                  country:
+                    type: string
+                  county:
+                    type: string
+                  currentOperator:
+                    type: string
+                  currentOperatorAlias:
+                    type: string
+                  currentOperatorCode:
+                    type: string
+                  currentOperatorTicker:
+                    type: string
+                  customBool0:
+                    type: boolean
+                  customBool1:
+                    type: boolean
+                  customBool2:
+                    type: boolean
+                  customBool3:
+                    type: boolean
+                  customBool4:
+                    type: boolean
+                  customDate0:
+                    type: string
+                    format: date
+                  customDate1:
+                    type: string
+                    format: date
+                  customDate2:
+                    type: string
+                    format: date
+                  customDate3:
+                    type: string
+                    format: date
+                  customDate4:
+                    type: string
+                    format: date
+                  customDate5:
+                    type: string
+                    format: date
+                  customDate6:
+                    type: string
+                    format: date
+                  customDate7:
+                    type: string
+                    format: date
+                  customDate8:
+                    type: string
+                    format: date
+                  customDate9:
+                    type: string
+                    format: date
+                  customDate10:
+                    type: string
+                    format: date
+                  customDate11:
+                    type: string
+                    format: date
+                  customDate12:
+                    type: string
+                    format: date
+                  customDate13:
+                    type: string
+                    format: date
+                  customDate14:
+                    type: string
+                    format: date
+                  customDate15:
+                    type: string
+                    format: date
+                  customDate16:
+                    type: string
+                    format: date
+                  customDate17:
+                    type: string
+                    format: date
+                  customDate18:
+                    type: string
+                    format: date
+                  customDate19:
+                    type: string
+                    format: date
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customString0:
+                    type: string
+                  customString1:
+                    type: string
+                  customString10:
+                    type: string
+                  customString11:
+                    type: string
+                  customString12:
+                    type: string
+                  customString13:
+                    type: string
+                  customString14:
+                    type: string
+                  customString15:
+                    type: string
+                  customString16:
+                    type: string
+                  customString17:
+                    type: string
+                  customString18:
+                    type: string
+                  customString19:
+                    type: string
+                  customString2:
+                    type: string
+                  customString3:
+                    type: string
+                  customString4:
+                    type: string
+                  customString5:
+                    type: string
+                  customString6:
+                    type: string
+                  customString7:
+                    type: string
+                  customString8:
+                    type: string
+                  customString9:
+                    type: string
+                  customString20:
+                    type: string
+                  customString21:
+                    type: string
+                  customString22:
+                    type: string
+                  customString23:
+                    type: string
+                  customString24:
+                    type: string
+                  customString25:
+                    type: string
+                  customString26:
+                    type: string
+                  customString27:
+                    type: string
+                  customString28:
+                    type: string
+                  customString29:
+                    type: string
+                  customString30:
+                    type: string
+                  customString31:
+                    type: string
+                  customString32:
+                    type: string
+                  customString33:
+                    type: string
+                  customString34:
+                    type: string
+                  dataSource:
+                    type: string
+                  dataSourceCustomName:
+                    type: string
+                  dateRigRelease:
+                    type: string
+                    format: date
+                  dewPointPress:
+                    type: number
+                  distanceFromBaseOfZone:
+                    type: number
+                  distanceFromTopOfZone:
+                    type: number
+                  district:
+                    type: string
+                  drainageArea:
+                    type: number
+                  drillEndDate:
+                    type: string
+                    format: date
+                  drillStartDate:
+                    type: string
+                    format: date
+                  drillinginfoId:
+                    type: string
+                  elevation:
+                    type: number
+                  elevationType:
+                    type: string
+                  field:
+                    type: string
+                  firstAdditiveVolume:
+                    type: number
+                  firstClusterCount:
+                    type: number
+                  firstFluidVolume:
+                    type: number
+                  firstFracVendor:
+                    type: string
+                  firstMaxInjectionPressure:
+                    type: number
+                  firstMaxInjectionRate:
+                    type: number
+                  firstProdDate:
+                    type: string
+                    format: date
+                  firstPropWeight:
+                    type: number
+                  firstStageCount:
+                    type: number
+                  firstTestFlowTbgPress:
+                    type: number
+                  firstTestGasVol:
+                    type: number
+                  firstTestGor:
+                    type: number
+                  firstTestOilVol:
+                    type: number
+                  firstTestWaterVol:
+                    type: number
+                  firstTreatmentType:
+                    type: string
+                  flowPath:
+                    type: string
+                  fluidType:
+                    type: string
+                  footageInLandingZone:
+                    type: number
+                  formationThicknessMean:
+                    type: number
+                  fractureConductivity:
+                    type: number
+                  gasAnalysisDate:
+                    type: string
+                    format: date
+                  gasC1:
+                    type: number
+                  gasC2:
+                    type: number
+                  gasC3:
+                    type: number
+                  gasCo2:
+                    type: number
+                  gasGatherer:
+                    type: string
+                  gasH2:
+                    type: number
+                  gasH2o:
+                    type: number
+                  gasH2s:
+                    type: number
+                  gasHe:
+                    type: number
+                  gasIc4:
+                    type: number
+                  gasIc5:
+                    type: number
+                  gasN2:
+                    type: number
+                  gasNc10:
+                    type: number
+                  gasNc4:
+                    type: number
+                  gasNc5:
+                    type: number
+                  gasNc6:
+                    type: number
+                  gasNc7:
+                    type: number
+                  gasNc8:
+                    type: number
+                  gasNc9:
+                    type: number
+                  gasO2:
+                    type: number
+                  gasSpecificGravity:
+                    type: number
+                  grossPerforatedInterval:
+                    type: number
+                  groundElevation:
+                    type: number
+                  heelLatitude:
+                    type: number
+                  heelLongitude:
+                    type: number
+                  holeDirection:
+                    type: string
+                  horizontalSpacing:
+                    type: number
+                  hzWellSpacingAnyZone:
+                    type: number
+                  hzWellSpacingSameZone:
+                    type: number
+                  id:
+                    type: string
+                  ihsId:
+                    type: string
+                  initialRespress:
+                    type: number
+                  initialRestemp:
+                    type: number
+                  landingZone:
+                    type: string
+                  landingZoneBase:
+                    type: number
+                  landingZoneTop:
+                    type: number
+                  lateralLength:
+                    type: number
+                  leaseName:
+                    type: string
+                  leaseNumber:
+                    type: string
+                  lowerPerforation:
+                    type: number
+                  matrixPermeability:
+                    type: number
+                  measuredDepth:
+                    type: number
+                  nglGatherer:
+                    type: string
+                  numTreatmentRecords:
+                    type: number
+                  oilApiGravity:
+                    type: number
+                  oilGatherer:
+                    type: string
+                  oilSpecificGravity:
+                    type: number
+                  padName:
+                    type: string
+                  parentChildAnyZone:
+                    type: string
+                  parentChildSameZone:
+                    type: string
+                  percentInZone:
+                    type: number
+                  perfLateralLength:
+                    type: number
+                  permitDate:
+                    type: string
+                    format: date
+                  phdwinId:
+                    type: string
+                  play:
+                    type: string
+                  porosity:
+                    type: number
+                  previousOperator:
+                    type: string
+                  previousOperatorAlias:
+                    type: string
+                  previousOperatorCode:
+                    type: string
+                  previousOperatorTicker:
+                    type: string
+                  primaryProduct:
+                    type: string
+                  prmsReservesCategory:
+                    type: string
+                  prmsReservesSubCategory:
+                    type: string
+                  prmsResourcesClass:
+                    type: string
+                  productionMethod:
+                    type: string
+                  proppantMeshSize:
+                    type: string
+                  proppantType:
+                    type: string
+                  range:
+                    type: string
+                  recoveryMethod:
+                    type: string
+                  refracAdditiveVolume:
+                    type: number
+                  refracClusterCount:
+                    type: number
+                  refracDate:
+                    type: string
+                    format: date
+                  refracFluidVolume:
+                    type: number
+                  refracFracVendor:
+                    type: string
+                  refracMaxInjectionPressure:
+                    type: number
+                  refracMaxInjectionRate:
+                    type: number
+                  refracPropWeight:
+                    type: number
+                  refracStageCount:
+                    type: number
+                  refracTreatmentType:
+                    type: string
+                  rig:
+                    type: string
+                  rs:
+                    type: number
+                  rsegId:
+                    type: string
+                  section:
+                    type: string
+                  sg:
+                    type: number
+                  so:
+                    type: number
+                  spudDate:
+                    type: string
+                    format: date
+                  stageSpacing:
+                    type: number
+                  state:
+                    type: string
+                  status:
+                    type: string
+                  subplay:
+                    type: string
+                  surfaceLatitude:
+                    type: number
+                  surfaceLongitude:
+                    type: number
+                  survey:
+                    type: string
+                  sw:
+                    type: number
+                  targetFormation:
+                    type: string
+                  tgsId:
+                    type: string
+                  spgciId:
+                    type: string
+                  thickness:
+                    type: number
+                  til:
+                    type: string
+                    format: date
+                  toeInLandingZone:
+                    type: string
+                  toeLatitude:
+                    type: number
+                  toeLongitude:
+                    type: number
+                  toeUp:
+                    type: string
+                  township:
+                    type: string
+                  trueVerticalDepth:
+                    type: number
+                  tubingDepth:
+                    type: number
+                  tubingId:
+                    type: number
+                  typeCurveArea:
+                    type: string
+                  upperPerforation:
+                    type: number
+                  verticalSpacing:
+                    type: number
+                  vtWellSpacingAnyZone:
+                    type: number
+                  vtWellSpacingSameZone:
+                    type: number
+                  wellName:
+                    type: string
+                  wellNumber:
+                    type: string
+                  wellType:
+                    type: string
+                  zi:
+                    type: number
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    post:
+      operationId: post-wells
+      summary: post-wells
+      tags:
+      - v1 wells
+      description: Inserts a list of well documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  dataSource:
+                    type: string
+                  abstract:
+                    type: string
+                  acreSpacing:
+                    type: number
+                  allocationType:
+                    type: string
+                  api10:
+                    type: string
+                  api12:
+                    type: string
+                  api14:
+                    type: string
+                  ariesId:
+                    type: string
+                  azimuth:
+                    type: number
+                  basin:
+                    type: string
+                  bg:
+                    type: number
+                  block:
+                    type: string
+                  bo:
+                    type: number
+                  bubblePointPress:
+                    type: number
+                  casingId:
+                    type: number
+                  chokeSize:
+                    type: number
+                  chosenID:
+                    type: string
+                  chosenKeyID:
+                    type: string
+                  completionDesign:
+                    type: string
+                  completionEndDate:
+                    type: string
+                    format: date
+                  completionStartDate:
+                    type: string
+                    format: date
+                  country:
+                    type: string
+                  county:
+                    type: string
+                  currentOperator:
+                    type: string
+                  currentOperatorAlias:
+                    type: string
+                  currentOperatorCode:
+                    type: string
+                  currentOperatorTicker:
+                    type: string
+                  customBool0:
+                    type: boolean
+                  customBool1:
+                    type: boolean
+                  customBool2:
+                    type: boolean
+                  customBool3:
+                    type: boolean
+                  customBool4:
+                    type: boolean
+                  customDate0:
+                    type: string
+                    format: date
+                  customDate1:
+                    type: string
+                    format: date
+                  customDate2:
+                    type: string
+                    format: date
+                  customDate3:
+                    type: string
+                    format: date
+                  customDate4:
+                    type: string
+                    format: date
+                  customDate5:
+                    type: string
+                    format: date
+                  customDate6:
+                    type: string
+                    format: date
+                  customDate7:
+                    type: string
+                    format: date
+                  customDate8:
+                    type: string
+                    format: date
+                  customDate9:
+                    type: string
+                    format: date
+                  customDate10:
+                    type: string
+                    format: date
+                  customDate11:
+                    type: string
+                    format: date
+                  customDate12:
+                    type: string
+                    format: date
+                  customDate13:
+                    type: string
+                    format: date
+                  customDate14:
+                    type: string
+                    format: date
+                  customDate15:
+                    type: string
+                    format: date
+                  customDate16:
+                    type: string
+                    format: date
+                  customDate17:
+                    type: string
+                    format: date
+                  customDate18:
+                    type: string
+                    format: date
+                  customDate19:
+                    type: string
+                    format: date
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customString0:
+                    type: string
+                  customString1:
+                    type: string
+                  customString10:
+                    type: string
+                  customString11:
+                    type: string
+                  customString12:
+                    type: string
+                  customString13:
+                    type: string
+                  customString14:
+                    type: string
+                  customString15:
+                    type: string
+                  customString16:
+                    type: string
+                  customString17:
+                    type: string
+                  customString18:
+                    type: string
+                  customString19:
+                    type: string
+                  customString20:
+                    type: string
+                  customString21:
+                    type: string
+                  customString22:
+                    type: string
+                  customString23:
+                    type: string
+                  customString24:
+                    type: string
+                  customString25:
+                    type: string
+                  customString26:
+                    type: string
+                  customString27:
+                    type: string
+                  customString28:
+                    type: string
+                  customString29:
+                    type: string
+                  customString30:
+                    type: string
+                  customString31:
+                    type: string
+                  customString32:
+                    type: string
+                  customString33:
+                    type: string
+                  customString34:
+                    type: string
+                  customString2:
+                    type: string
+                  customString3:
+                    type: string
+                  customString4:
+                    type: string
+                  customString5:
+                    type: string
+                  customString6:
+                    type: string
+                  customString7:
+                    type: string
+                  customString8:
+                    type: string
+                  customString9:
+                    type: string
+                  dataSourceCustomName:
+                    type: string
+                  dateRigRelease:
+                    type: string
+                    format: date
+                  dewPointPress:
+                    type: number
+                  distanceFromBaseOfZone:
+                    type: number
+                  distanceFromTopOfZone:
+                    type: number
+                  district:
+                    type: string
+                  drainageArea:
+                    type: number
+                  drillEndDate:
+                    type: string
+                    format: date
+                  drillStartDate:
+                    type: string
+                    format: date
+                  drillinginfoId:
+                    type: string
+                  elevation:
+                    type: number
+                  elevationType:
+                    type: string
+                  field:
+                    type: string
+                  firstAdditiveVolume:
+                    type: number
+                  firstClusterCount:
+                    type: number
+                  firstFluidVolume:
+                    type: number
+                  firstFracVendor:
+                    type: string
+                  firstMaxInjectionPressure:
+                    type: number
+                  firstMaxInjectionRate:
+                    type: number
+                  firstProdDate:
+                    type: string
+                    format: date
+                  firstPropWeight:
+                    type: number
+                  firstStageCount:
+                    type: number
+                  firstTestFlowTbgPress:
+                    type: number
+                  firstTestGasVol:
+                    type: number
+                  firstTestGor:
+                    type: number
+                  firstTestOilVol:
+                    type: number
+                  firstTestWaterVol:
+                    type: number
+                  firstTreatmentType:
+                    type: string
+                  flowPath:
+                    type: string
+                  fluidType:
+                    type: string
+                  footageInLandingZone:
+                    type: number
+                  formationThicknessMean:
+                    type: number
+                  fractureConductivity:
+                    type: number
+                  gasAnalysisDate:
+                    type: string
+                    format: date
+                  gasC1:
+                    type: number
+                  gasC2:
+                    type: number
+                  gasC3:
+                    type: number
+                  gasCo2:
+                    type: number
+                  gasGatherer:
+                    type: string
+                  gasH2:
+                    type: number
+                  gasH2o:
+                    type: number
+                  gasH2s:
+                    type: number
+                  gasHe:
+                    type: number
+                  gasIc4:
+                    type: number
+                  gasIc5:
+                    type: number
+                  gasN2:
+                    type: number
+                  gasNc10:
+                    type: number
+                  gasNc4:
+                    type: number
+                  gasNc5:
+                    type: number
+                  gasNc6:
+                    type: number
+                  gasNc7:
+                    type: number
+                  gasNc8:
+                    type: number
+                  gasNc9:
+                    type: number
+                  gasO2:
+                    type: number
+                  gasSpecificGravity:
+                    type: number
+                  grossPerforatedInterval:
+                    type: number
+                  groundElevation:
+                    type: number
+                  heelLatitude:
+                    type: number
+                  heelLongitude:
+                    type: number
+                  holeDirection:
+                    type: string
+                  horizontalSpacing:
+                    type: number
+                  hzWellSpacingAnyZone:
+                    type: number
+                  hzWellSpacingSameZone:
+                    type: number
+                  id:
+                    type: string
+                  ihsId:
+                    type: string
+                  initialRespress:
+                    type: number
+                  initialRestemp:
+                    type: number
+                  landingZone:
+                    type: string
+                  landingZoneBase:
+                    type: number
+                  landingZoneTop:
+                    type: number
+                  lateralLength:
+                    type: number
+                  leaseName:
+                    type: string
+                  leaseNumber:
+                    type: string
+                  lowerPerforation:
+                    type: number
+                  matrixPermeability:
+                    type: number
+                  measuredDepth:
+                    type: number
+                  nglGatherer:
+                    type: string
+                  numTreatmentRecords:
+                    type: number
+                  oilApiGravity:
+                    type: number
+                  oilGatherer:
+                    type: string
+                  oilSpecificGravity:
+                    type: number
+                  padName:
+                    type: string
+                  parentChildAnyZone:
+                    type: string
+                  parentChildSameZone:
+                    type: string
+                  percentInZone:
+                    type: number
+                  perfLateralLength:
+                    type: number
+                  permitDate:
+                    type: string
+                    format: date
+                  phdwinId:
+                    type: string
+                  play:
+                    type: string
+                  porosity:
+                    type: number
+                  previousOperator:
+                    type: string
+                  previousOperatorAlias:
+                    type: string
+                  previousOperatorCode:
+                    type: string
+                  previousOperatorTicker:
+                    type: string
+                  primaryProduct:
+                    type: string
+                  prmsReservesCategory:
+                    type: string
+                  prmsReservesSubCategory:
+                    type: string
+                  prmsResourcesClass:
+                    type: string
+                  productionMethod:
+                    type: string
+                  proppantMeshSize:
+                    type: string
+                  proppantType:
+                    type: string
+                  range:
+                    type: string
+                  recoveryMethod:
+                    type: string
+                  refracAdditiveVolume:
+                    type: number
+                  refracClusterCount:
+                    type: number
+                  refracDate:
+                    type: string
+                    format: date
+                  refracFluidVolume:
+                    type: number
+                  refracFracVendor:
+                    type: string
+                  refracMaxInjectionPressure:
+                    type: number
+                  refracMaxInjectionRate:
+                    type: number
+                  refracPropWeight:
+                    type: number
+                  refracStageCount:
+                    type: number
+                  refracTreatmentType:
+                    type: string
+                  rig:
+                    type: string
+                  rs:
+                    type: number
+                  rsegId:
+                    type: string
+                  section:
+                    type: string
+                  sg:
+                    type: number
+                  so:
+                    type: number
+                  spudDate:
+                    type: string
+                    format: date
+                  stageSpacing:
+                    type: number
+                  state:
+                    type: string
+                  status:
+                    type: string
+                  subplay:
+                    type: string
+                  surfaceLatitude:
+                    type: number
+                  surfaceLongitude:
+                    type: number
+                  survey:
+                    type: string
+                  sw:
+                    type: number
+                  targetFormation:
+                    type: string
+                  tgsId:
+                    type: string
+                  spgciId:
+                    type: string
+                  thickness:
+                    type: number
+                  til:
+                    type: string
+                    format: date
+                  toeInLandingZone:
+                    type: string
+                  toeLatitude:
+                    type: number
+                  toeLongitude:
+                    type: number
+                  toeUp:
+                    type: string
+                  township:
+                    type: string
+                  trueVerticalDepth:
+                    type: number
+                  tubingDepth:
+                    type: number
+                  tubingId:
+                    type: number
+                  typeCurveArea:
+                    type: string
+                  upperPerforation:
+                    type: number
+                  verticalSpacing:
+                    type: number
+                  vtWellSpacingAnyZone:
+                    type: number
+                  vtWellSpacingSameZone:
+                    type: number
+                  wellName:
+                    type: string
+                  wellNumber:
+                    type: string
+                  wellType:
+                    type: string
+                  zi:
+                    type: number
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    put:
+      operationId: put-wells
+      summary: put-wells
+      tags:
+      - v1 wells
+      description: Replaces a list of well documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  dataSource:
+                    type: string
+                  abstract:
+                    type: string
+                  acreSpacing:
+                    type: number
+                  allocationType:
+                    type: string
+                  api10:
+                    type: string
+                  api12:
+                    type: string
+                  api14:
+                    type: string
+                  ariesId:
+                    type: string
+                  azimuth:
+                    type: number
+                  basin:
+                    type: string
+                  bg:
+                    type: number
+                  block:
+                    type: string
+                  bo:
+                    type: number
+                  bubblePointPress:
+                    type: number
+                  casingId:
+                    type: number
+                  chokeSize:
+                    type: number
+                  chosenID:
+                    type: string
+                  chosenKeyID:
+                    type: string
+                  completionDesign:
+                    type: string
+                  completionEndDate:
+                    type: string
+                    format: date
+                  completionStartDate:
+                    type: string
+                    format: date
+                  country:
+                    type: string
+                  county:
+                    type: string
+                  currentOperator:
+                    type: string
+                  currentOperatorAlias:
+                    type: string
+                  currentOperatorCode:
+                    type: string
+                  currentOperatorTicker:
+                    type: string
+                  customBool0:
+                    type: boolean
+                  customBool1:
+                    type: boolean
+                  customBool2:
+                    type: boolean
+                  customBool3:
+                    type: boolean
+                  customBool4:
+                    type: boolean
+                  customDate0:
+                    type: string
+                    format: date
+                  customDate1:
+                    type: string
+                    format: date
+                  customDate2:
+                    type: string
+                    format: date
+                  customDate3:
+                    type: string
+                    format: date
+                  customDate4:
+                    type: string
+                    format: date
+                  customDate5:
+                    type: string
+                    format: date
+                  customDate6:
+                    type: string
+                    format: date
+                  customDate7:
+                    type: string
+                    format: date
+                  customDate8:
+                    type: string
+                    format: date
+                  customDate9:
+                    type: string
+                    format: date
+                  customDate10:
+                    type: string
+                    format: date
+                  customDate11:
+                    type: string
+                    format: date
+                  customDate12:
+                    type: string
+                    format: date
+                  customDate13:
+                    type: string
+                    format: date
+                  customDate14:
+                    type: string
+                    format: date
+                  customDate15:
+                    type: string
+                    format: date
+                  customDate16:
+                    type: string
+                    format: date
+                  customDate17:
+                    type: string
+                    format: date
+                  customDate18:
+                    type: string
+                    format: date
+                  customDate19:
+                    type: string
+                    format: date
+                  customNumber0:
+                    type: number
+                  customNumber1:
+                    type: number
+                  customNumber10:
+                    type: number
+                  customNumber11:
+                    type: number
+                  customNumber12:
+                    type: number
+                  customNumber13:
+                    type: number
+                  customNumber14:
+                    type: number
+                  customNumber15:
+                    type: number
+                  customNumber16:
+                    type: number
+                  customNumber17:
+                    type: number
+                  customNumber18:
+                    type: number
+                  customNumber19:
+                    type: number
+                  customNumber2:
+                    type: number
+                  customNumber3:
+                    type: number
+                  customNumber4:
+                    type: number
+                  customNumber5:
+                    type: number
+                  customNumber6:
+                    type: number
+                  customNumber7:
+                    type: number
+                  customNumber8:
+                    type: number
+                  customNumber9:
+                    type: number
+                  customString0:
+                    type: string
+                  customString1:
+                    type: string
+                  customString10:
+                    type: string
+                  customString11:
+                    type: string
+                  customString12:
+                    type: string
+                  customString13:
+                    type: string
+                  customString14:
+                    type: string
+                  customString15:
+                    type: string
+                  customString16:
+                    type: string
+                  customString17:
+                    type: string
+                  customString18:
+                    type: string
+                  customString19:
+                    type: string
+                  customString20:
+                    type: string
+                  customString21:
+                    type: string
+                  customString22:
+                    type: string
+                  customString23:
+                    type: string
+                  customString24:
+                    type: string
+                  customString25:
+                    type: string
+                  customString26:
+                    type: string
+                  customString27:
+                    type: string
+                  customString28:
+                    type: string
+                  customString29:
+                    type: string
+                  customString30:
+                    type: string
+                  customString31:
+                    type: string
+                  customString32:
+                    type: string
+                  customString33:
+                    type: string
+                  customString34:
+                    type: string
+                  customString2:
+                    type: string
+                  customString3:
+                    type: string
+                  customString4:
+                    type: string
+                  customString5:
+                    type: string
+                  customString6:
+                    type: string
+                  customString7:
+                    type: string
+                  customString8:
+                    type: string
+                  customString9:
+                    type: string
+                  dataSourceCustomName:
+                    type: string
+                  dateRigRelease:
+                    type: string
+                    format: date
+                  dewPointPress:
+                    type: number
+                  distanceFromBaseOfZone:
+                    type: number
+                  distanceFromTopOfZone:
+                    type: number
+                  district:
+                    type: string
+                  drainageArea:
+                    type: number
+                  drillEndDate:
+                    type: string
+                    format: date
+                  drillStartDate:
+                    type: string
+                    format: date
+                  drillinginfoId:
+                    type: string
+                  elevation:
+                    type: number
+                  elevationType:
+                    type: string
+                  field:
+                    type: string
+                  firstAdditiveVolume:
+                    type: number
+                  firstClusterCount:
+                    type: number
+                  firstFluidVolume:
+                    type: number
+                  firstFracVendor:
+                    type: string
+                  firstMaxInjectionPressure:
+                    type: number
+                  firstMaxInjectionRate:
+                    type: number
+                  firstProdDate:
+                    type: string
+                    format: date
+                  firstPropWeight:
+                    type: number
+                  firstStageCount:
+                    type: number
+                  firstTestFlowTbgPress:
+                    type: number
+                  firstTestGasVol:
+                    type: number
+                  firstTestGor:
+                    type: number
+                  firstTestOilVol:
+                    type: number
+                  firstTestWaterVol:
+                    type: number
+                  firstTreatmentType:
+                    type: string
+                  flowPath:
+                    type: string
+                  fluidType:
+                    type: string
+                  footageInLandingZone:
+                    type: number
+                  formationThicknessMean:
+                    type: number
+                  fractureConductivity:
+                    type: number
+                  gasAnalysisDate:
+                    type: string
+                    format: date
+                  gasC1:
+                    type: number
+                  gasC2:
+                    type: number
+                  gasC3:
+                    type: number
+                  gasCo2:
+                    type: number
+                  gasGatherer:
+                    type: string
+                  gasH2:
+                    type: number
+                  gasH2o:
+                    type: number
+                  gasH2s:
+                    type: number
+                  gasHe:
+                    type: number
+                  gasIc4:
+                    type: number
+                  gasIc5:
+                    type: number
+                  gasN2:
+                    type: number
+                  gasNc10:
+                    type: number
+                  gasNc4:
+                    type: number
+                  gasNc5:
+                    type: number
+                  gasNc6:
+                    type: number
+                  gasNc7:
+                    type: number
+                  gasNc8:
+                    type: number
+                  gasNc9:
+                    type: number
+                  gasO2:
+                    type: number
+                  gasSpecificGravity:
+                    type: number
+                  grossPerforatedInterval:
+                    type: number
+                  groundElevation:
+                    type: number
+                  heelLatitude:
+                    type: number
+                  heelLongitude:
+                    type: number
+                  holeDirection:
+                    type: string
+                  horizontalSpacing:
+                    type: number
+                  hzWellSpacingAnyZone:
+                    type: number
+                  hzWellSpacingSameZone:
+                    type: number
+                  id:
+                    type: string
+                  ihsId:
+                    type: string
+                  initialRespress:
+                    type: number
+                  initialRestemp:
+                    type: number
+                  landingZone:
+                    type: string
+                  landingZoneBase:
+                    type: number
+                  landingZoneTop:
+                    type: number
+                  lateralLength:
+                    type: number
+                  leaseName:
+                    type: string
+                  leaseNumber:
+                    type: string
+                  lowerPerforation:
+                    type: number
+                  matrixPermeability:
+                    type: number
+                  measuredDepth:
+                    type: number
+                  nglGatherer:
+                    type: string
+                  numTreatmentRecords:
+                    type: number
+                  oilApiGravity:
+                    type: number
+                  oilGatherer:
+                    type: string
+                  oilSpecificGravity:
+                    type: number
+                  padName:
+                    type: string
+                  parentChildAnyZone:
+                    type: string
+                  parentChildSameZone:
+                    type: string
+                  percentInZone:
+                    type: number
+                  perfLateralLength:
+                    type: number
+                  permitDate:
+                    type: string
+                    format: date
+                  phdwinId:
+                    type: string
+                  play:
+                    type: string
+                  porosity:
+                    type: number
+                  previousOperator:
+                    type: string
+                  previousOperatorAlias:
+                    type: string
+                  previousOperatorCode:
+                    type: string
+                  previousOperatorTicker:
+                    type: string
+                  primaryProduct:
+                    type: string
+                  prmsReservesCategory:
+                    type: string
+                  prmsReservesSubCategory:
+                    type: string
+                  prmsResourcesClass:
+                    type: string
+                  productionMethod:
+                    type: string
+                  proppantMeshSize:
+                    type: string
+                  proppantType:
+                    type: string
+                  range:
+                    type: string
+                  recoveryMethod:
+                    type: string
+                  refracAdditiveVolume:
+                    type: number
+                  refracClusterCount:
+                    type: number
+                  refracDate:
+                    type: string
+                    format: date
+                  refracFluidVolume:
+                    type: number
+                  refracFracVendor:
+                    type: string
+                  refracMaxInjectionPressure:
+                    type: number
+                  refracMaxInjectionRate:
+                    type: number
+                  refracPropWeight:
+                    type: number
+                  refracStageCount:
+                    type: number
+                  refracTreatmentType:
+                    type: string
+                  rig:
+                    type: string
+                  rs:
+                    type: number
+                  rsegId:
+                    type: string
+                  section:
+                    type: string
+                  sg:
+                    type: number
+                  so:
+                    type: number
+                  spudDate:
+                    type: string
+                    format: date
+                  stageSpacing:
+                    type: number
+                  state:
+                    type: string
+                  status:
+                    type: string
+                  subplay:
+                    type: string
+                  surfaceLatitude:
+                    type: number
+                  surfaceLongitude:
+                    type: number
+                  survey:
+                    type: string
+                  sw:
+                    type: number
+                  targetFormation:
+                    type: string
+                  tgsId:
+                    type: string
+                  spgciId:
+                    type: string
+                  thickness:
+                    type: number
+                  til:
+                    type: string
+                    format: date
+                  toeInLandingZone:
+                    type: string
+                  toeLatitude:
+                    type: number
+                  toeLongitude:
+                    type: number
+                  toeUp:
+                    type: string
+                  township:
+                    type: string
+                  trueVerticalDepth:
+                    type: number
+                  tubingDepth:
+                    type: number
+                  tubingId:
+                    type: number
+                  typeCurveArea:
+                    type: string
+                  upperPerforation:
+                    type: number
+                  verticalSpacing:
+                    type: number
+                  vtWellSpacingAnyZone:
+                    type: number
+                  vtWellSpacingSameZone:
+                    type: number
+                  wellName:
+                    type: string
+                  wellNumber:
+                    type: string
+                  wellType:
+                    type: string
+                  zi:
+                    type: number
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v1/wells/{id}:
+    delete:
+      operationId: delete-well-by-id
+      summary: delete-well-by-id
+      tags:
+      - v1 wells
+      description: Delete the well document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-well-by-id
+      summary: get-well-by-id
+      tags:
+      - v1 wells
+      description: Returns the well document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    patch:
+      operationId: patch-well-by-id
+      summary: patch-well-by-id
+      tags:
+      - v1 wells
+      description: Updates the well document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                abstract:
+                  type: string
+                acreSpacing:
+                  type: number
+                allocationType:
+                  type: string
+                api10:
+                  type: string
+                api12:
+                  type: string
+                api14:
+                  type: string
+                ariesId:
+                  type: string
+                azimuth:
+                  type: number
+                basin:
+                  type: string
+                bg:
+                  type: number
+                block:
+                  type: string
+                bo:
+                  type: number
+                bubblePointPress:
+                  type: number
+                casingId:
+                  type: number
+                chokeSize:
+                  type: number
+                chosenID:
+                  type: string
+                chosenKeyID:
+                  type: string
+                completionDesign:
+                  type: string
+                completionEndDate:
+                  type: string
+                  format: date
+                completionStartDate:
+                  type: string
+                  format: date
+                country:
+                  type: string
+                county:
+                  type: string
+                currentOperator:
+                  type: string
+                currentOperatorAlias:
+                  type: string
+                currentOperatorCode:
+                  type: string
+                currentOperatorTicker:
+                  type: string
+                customBool0:
+                  type: boolean
+                customBool1:
+                  type: boolean
+                customBool2:
+                  type: boolean
+                customBool3:
+                  type: boolean
+                customBool4:
+                  type: boolean
+                customDate0:
+                  type: string
+                  format: date
+                customDate1:
+                  type: string
+                  format: date
+                customDate2:
+                  type: string
+                  format: date
+                customDate3:
+                  type: string
+                  format: date
+                customDate4:
+                  type: string
+                  format: date
+                customDate5:
+                  type: string
+                  format: date
+                customDate6:
+                  type: string
+                  format: date
+                customDate7:
+                  type: string
+                  format: date
+                customDate8:
+                  type: string
+                  format: date
+                customDate9:
+                  type: string
+                  format: date
+                customDate10:
+                  type: string
+                  format: date
+                customDate11:
+                  type: string
+                  format: date
+                customDate12:
+                  type: string
+                  format: date
+                customDate13:
+                  type: string
+                  format: date
+                customDate14:
+                  type: string
+                  format: date
+                customDate15:
+                  type: string
+                  format: date
+                customDate16:
+                  type: string
+                  format: date
+                customDate17:
+                  type: string
+                  format: date
+                customDate18:
+                  type: string
+                  format: date
+                customDate19:
+                  type: string
+                  format: date
+                customNumber0:
+                  type: number
+                customNumber1:
+                  type: number
+                customNumber10:
+                  type: number
+                customNumber11:
+                  type: number
+                customNumber12:
+                  type: number
+                customNumber13:
+                  type: number
+                customNumber14:
+                  type: number
+                customNumber15:
+                  type: number
+                customNumber16:
+                  type: number
+                customNumber17:
+                  type: number
+                customNumber18:
+                  type: number
+                customNumber19:
+                  type: number
+                customNumber2:
+                  type: number
+                customNumber3:
+                  type: number
+                customNumber4:
+                  type: number
+                customNumber5:
+                  type: number
+                customNumber6:
+                  type: number
+                customNumber7:
+                  type: number
+                customNumber8:
+                  type: number
+                customNumber9:
+                  type: number
+                customString0:
+                  type: string
+                customString1:
+                  type: string
+                customString10:
+                  type: string
+                customString11:
+                  type: string
+                customString12:
+                  type: string
+                customString13:
+                  type: string
+                customString14:
+                  type: string
+                customString15:
+                  type: string
+                customString16:
+                  type: string
+                customString17:
+                  type: string
+                customString18:
+                  type: string
+                customString19:
+                  type: string
+                customString2:
+                  type: string
+                customString3:
+                  type: string
+                customString4:
+                  type: string
+                customString5:
+                  type: string
+                customString6:
+                  type: string
+                customString7:
+                  type: string
+                customString8:
+                  type: string
+                customString9:
+                  type: string
+                customString20:
+                  type: string
+                customString21:
+                  type: string
+                customString22:
+                  type: string
+                customString23:
+                  type: string
+                customString24:
+                  type: string
+                customString25:
+                  type: string
+                customString26:
+                  type: string
+                customString27:
+                  type: string
+                customString28:
+                  type: string
+                customString29:
+                  type: string
+                customString30:
+                  type: string
+                customString31:
+                  type: string
+                customString32:
+                  type: string
+                customString33:
+                  type: string
+                customString34:
+                  type: string
+                dataSource:
+                  type: string
+                dataSourceCustomName:
+                  type: string
+                dateRigRelease:
+                  type: string
+                  format: date
+                dewPointPress:
+                  type: number
+                distanceFromBaseOfZone:
+                  type: number
+                distanceFromTopOfZone:
+                  type: number
+                district:
+                  type: string
+                drainageArea:
+                  type: number
+                drillEndDate:
+                  type: string
+                  format: date
+                drillStartDate:
+                  type: string
+                  format: date
+                drillinginfoId:
+                  type: string
+                elevation:
+                  type: number
+                elevationType:
+                  type: string
+                field:
+                  type: string
+                firstAdditiveVolume:
+                  type: number
+                firstClusterCount:
+                  type: number
+                firstFluidVolume:
+                  type: number
+                firstFracVendor:
+                  type: string
+                firstMaxInjectionPressure:
+                  type: number
+                firstMaxInjectionRate:
+                  type: number
+                firstProdDate:
+                  type: string
+                  format: date
+                firstPropWeight:
+                  type: number
+                firstStageCount:
+                  type: number
+                firstTestFlowTbgPress:
+                  type: number
+                firstTestGasVol:
+                  type: number
+                firstTestGor:
+                  type: number
+                firstTestOilVol:
+                  type: number
+                firstTestWaterVol:
+                  type: number
+                firstTreatmentType:
+                  type: string
+                flowPath:
+                  type: string
+                fluidType:
+                  type: string
+                footageInLandingZone:
+                  type: number
+                formationThicknessMean:
+                  type: number
+                fractureConductivity:
+                  type: number
+                gasAnalysisDate:
+                  type: string
+                  format: date
+                gasC1:
+                  type: number
+                gasC2:
+                  type: number
+                gasC3:
+                  type: number
+                gasCo2:
+                  type: number
+                gasGatherer:
+                  type: string
+                gasH2:
+                  type: number
+                gasH2o:
+                  type: number
+                gasH2s:
+                  type: number
+                gasHe:
+                  type: number
+                gasIc4:
+                  type: number
+                gasIc5:
+                  type: number
+                gasN2:
+                  type: number
+                gasNc10:
+                  type: number
+                gasNc4:
+                  type: number
+                gasNc5:
+                  type: number
+                gasNc6:
+                  type: number
+                gasNc7:
+                  type: number
+                gasNc8:
+                  type: number
+                gasNc9:
+                  type: number
+                gasO2:
+                  type: number
+                gasSpecificGravity:
+                  type: number
+                grossPerforatedInterval:
+                  type: number
+                groundElevation:
+                  type: number
+                heelLatitude:
+                  type: number
+                heelLongitude:
+                  type: number
+                holeDirection:
+                  type: string
+                horizontalSpacing:
+                  type: number
+                hzWellSpacingAnyZone:
+                  type: number
+                hzWellSpacingSameZone:
+                  type: number
+                id:
+                  type: string
+                ihsId:
+                  type: string
+                initialRespress:
+                  type: number
+                initialRestemp:
+                  type: number
+                landingZone:
+                  type: string
+                landingZoneBase:
+                  type: number
+                landingZoneTop:
+                  type: number
+                lateralLength:
+                  type: number
+                leaseName:
+                  type: string
+                leaseNumber:
+                  type: string
+                lowerPerforation:
+                  type: number
+                matrixPermeability:
+                  type: number
+                measuredDepth:
+                  type: number
+                nglGatherer:
+                  type: string
+                numTreatmentRecords:
+                  type: number
+                oilApiGravity:
+                  type: number
+                oilGatherer:
+                  type: string
+                oilSpecificGravity:
+                  type: number
+                padName:
+                  type: string
+                parentChildAnyZone:
+                  type: string
+                parentChildSameZone:
+                  type: string
+                percentInZone:
+                  type: number
+                perfLateralLength:
+                  type: number
+                permitDate:
+                  type: string
+                  format: date
+                phdwinId:
+                  type: string
+                play:
+                  type: string
+                porosity:
+                  type: number
+                previousOperator:
+                  type: string
+                previousOperatorAlias:
+                  type: string
+                previousOperatorCode:
+                  type: string
+                previousOperatorTicker:
+                  type: string
+                primaryProduct:
+                  type: string
+                prmsReservesCategory:
+                  type: string
+                prmsReservesSubCategory:
+                  type: string
+                prmsResourcesClass:
+                  type: string
+                productionMethod:
+                  type: string
+                proppantMeshSize:
+                  type: string
+                proppantType:
+                  type: string
+                range:
+                  type: string
+                recoveryMethod:
+                  type: string
+                refracAdditiveVolume:
+                  type: number
+                refracClusterCount:
+                  type: number
+                refracDate:
+                  type: string
+                  format: date
+                refracFluidVolume:
+                  type: number
+                refracFracVendor:
+                  type: string
+                refracMaxInjectionPressure:
+                  type: number
+                refracMaxInjectionRate:
+                  type: number
+                refracPropWeight:
+                  type: number
+                refracStageCount:
+                  type: number
+                refracTreatmentType:
+                  type: string
+                rig:
+                  type: string
+                rs:
+                  type: number
+                rsegId:
+                  type: string
+                section:
+                  type: string
+                sg:
+                  type: number
+                so:
+                  type: number
+                spudDate:
+                  type: string
+                  format: date
+                stageSpacing:
+                  type: number
+                state:
+                  type: string
+                status:
+                  type: string
+                subplay:
+                  type: string
+                surfaceLatitude:
+                  type: number
+                surfaceLongitude:
+                  type: number
+                survey:
+                  type: string
+                sw:
+                  type: number
+                targetFormation:
+                  type: string
+                tgsId:
+                  type: string
+                spgciId:
+                  type: string
+                thickness:
+                  type: number
+                til:
+                  type: string
+                  format: date
+                toeInLandingZone:
+                  type: string
+                toeLatitude:
+                  type: number
+                toeLongitude:
+                  type: number
+                toeUp:
+                  type: string
+                township:
+                  type: string
+                trueVerticalDepth:
+                  type: number
+                tubingDepth:
+                  type: number
+                tubingId:
+                  type: number
+                typeCurveArea:
+                  type: string
+                upperPerforation:
+                  type: number
+                verticalSpacing:
+                  type: number
+                vtWellSpacingAnyZone:
+                  type: number
+                vtWellSpacingSameZone:
+                  type: number
+                wellName:
+                  type: string
+                wellNumber:
+                  type: string
+                wellType:
+                  type: string
+                zi:
+                  type: number
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    put:
+      operationId: put-well-by-id
+      summary: put-well-by-id
+      tags:
+      - v1 wells
+      description: Replaces the well document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dataSource:
+                  type: string
+                abstract:
+                  type: string
+                acreSpacing:
+                  type: number
+                allocationType:
+                  type: string
+                api10:
+                  type: string
+                api12:
+                  type: string
+                api14:
+                  type: string
+                ariesId:
+                  type: string
+                azimuth:
+                  type: number
+                basin:
+                  type: string
+                bg:
+                  type: number
+                block:
+                  type: string
+                bo:
+                  type: number
+                bubblePointPress:
+                  type: number
+                casingId:
+                  type: number
+                chokeSize:
+                  type: number
+                chosenID:
+                  type: string
+                chosenKeyID:
+                  type: string
+                completionDesign:
+                  type: string
+                completionEndDate:
+                  type: string
+                  format: date
+                completionStartDate:
+                  type: string
+                  format: date
+                country:
+                  type: string
+                county:
+                  type: string
+                currentOperator:
+                  type: string
+                currentOperatorAlias:
+                  type: string
+                currentOperatorCode:
+                  type: string
+                currentOperatorTicker:
+                  type: string
+                customBool0:
+                  type: boolean
+                customBool1:
+                  type: boolean
+                customBool2:
+                  type: boolean
+                customBool3:
+                  type: boolean
+                customBool4:
+                  type: boolean
+                customDate0:
+                  type: string
+                  format: date
+                customDate1:
+                  type: string
+                  format: date
+                customDate2:
+                  type: string
+                  format: date
+                customDate3:
+                  type: string
+                  format: date
+                customDate4:
+                  type: string
+                  format: date
+                customDate5:
+                  type: string
+                  format: date
+                customDate6:
+                  type: string
+                  format: date
+                customDate7:
+                  type: string
+                  format: date
+                customDate8:
+                  type: string
+                  format: date
+                customDate9:
+                  type: string
+                  format: date
+                customDate10:
+                  type: string
+                  format: date
+                customDate11:
+                  type: string
+                  format: date
+                customDate12:
+                  type: string
+                  format: date
+                customDate13:
+                  type: string
+                  format: date
+                customDate14:
+                  type: string
+                  format: date
+                customDate15:
+                  type: string
+                  format: date
+                customDate16:
+                  type: string
+                  format: date
+                customDate17:
+                  type: string
+                  format: date
+                customDate18:
+                  type: string
+                  format: date
+                customDate19:
+                  type: string
+                  format: date
+                customNumber0:
+                  type: number
+                customNumber1:
+                  type: number
+                customNumber10:
+                  type: number
+                customNumber11:
+                  type: number
+                customNumber12:
+                  type: number
+                customNumber13:
+                  type: number
+                customNumber14:
+                  type: number
+                customNumber15:
+                  type: number
+                customNumber16:
+                  type: number
+                customNumber17:
+                  type: number
+                customNumber18:
+                  type: number
+                customNumber19:
+                  type: number
+                customNumber2:
+                  type: number
+                customNumber3:
+                  type: number
+                customNumber4:
+                  type: number
+                customNumber5:
+                  type: number
+                customNumber6:
+                  type: number
+                customNumber7:
+                  type: number
+                customNumber8:
+                  type: number
+                customNumber9:
+                  type: number
+                customString0:
+                  type: string
+                customString1:
+                  type: string
+                customString10:
+                  type: string
+                customString11:
+                  type: string
+                customString12:
+                  type: string
+                customString13:
+                  type: string
+                customString14:
+                  type: string
+                customString15:
+                  type: string
+                customString16:
+                  type: string
+                customString17:
+                  type: string
+                customString18:
+                  type: string
+                customString19:
+                  type: string
+                customString20:
+                  type: string
+                customString21:
+                  type: string
+                customString22:
+                  type: string
+                customString23:
+                  type: string
+                customString24:
+                  type: string
+                customString25:
+                  type: string
+                customString26:
+                  type: string
+                customString27:
+                  type: string
+                customString28:
+                  type: string
+                customString29:
+                  type: string
+                customString30:
+                  type: string
+                customString31:
+                  type: string
+                customString32:
+                  type: string
+                customString33:
+                  type: string
+                customString34:
+                  type: string
+                customString2:
+                  type: string
+                customString3:
+                  type: string
+                customString4:
+                  type: string
+                customString5:
+                  type: string
+                customString6:
+                  type: string
+                customString7:
+                  type: string
+                customString8:
+                  type: string
+                customString9:
+                  type: string
+                dataSourceCustomName:
+                  type: string
+                dateRigRelease:
+                  type: string
+                  format: date
+                dewPointPress:
+                  type: number
+                distanceFromBaseOfZone:
+                  type: number
+                distanceFromTopOfZone:
+                  type: number
+                district:
+                  type: string
+                drainageArea:
+                  type: number
+                drillEndDate:
+                  type: string
+                  format: date
+                drillStartDate:
+                  type: string
+                  format: date
+                drillinginfoId:
+                  type: string
+                elevation:
+                  type: number
+                elevationType:
+                  type: string
+                field:
+                  type: string
+                firstAdditiveVolume:
+                  type: number
+                firstClusterCount:
+                  type: number
+                firstFluidVolume:
+                  type: number
+                firstFracVendor:
+                  type: string
+                firstMaxInjectionPressure:
+                  type: number
+                firstMaxInjectionRate:
+                  type: number
+                firstProdDate:
+                  type: string
+                  format: date
+                firstPropWeight:
+                  type: number
+                firstStageCount:
+                  type: number
+                firstTestFlowTbgPress:
+                  type: number
+                firstTestGasVol:
+                  type: number
+                firstTestGor:
+                  type: number
+                firstTestOilVol:
+                  type: number
+                firstTestWaterVol:
+                  type: number
+                firstTreatmentType:
+                  type: string
+                flowPath:
+                  type: string
+                fluidType:
+                  type: string
+                footageInLandingZone:
+                  type: number
+                formationThicknessMean:
+                  type: number
+                fractureConductivity:
+                  type: number
+                gasAnalysisDate:
+                  type: string
+                  format: date
+                gasC1:
+                  type: number
+                gasC2:
+                  type: number
+                gasC3:
+                  type: number
+                gasCo2:
+                  type: number
+                gasGatherer:
+                  type: string
+                gasH2:
+                  type: number
+                gasH2o:
+                  type: number
+                gasH2s:
+                  type: number
+                gasHe:
+                  type: number
+                gasIc4:
+                  type: number
+                gasIc5:
+                  type: number
+                gasN2:
+                  type: number
+                gasNc10:
+                  type: number
+                gasNc4:
+                  type: number
+                gasNc5:
+                  type: number
+                gasNc6:
+                  type: number
+                gasNc7:
+                  type: number
+                gasNc8:
+                  type: number
+                gasNc9:
+                  type: number
+                gasO2:
+                  type: number
+                gasSpecificGravity:
+                  type: number
+                grossPerforatedInterval:
+                  type: number
+                groundElevation:
+                  type: number
+                heelLatitude:
+                  type: number
+                heelLongitude:
+                  type: number
+                holeDirection:
+                  type: string
+                horizontalSpacing:
+                  type: number
+                hzWellSpacingAnyZone:
+                  type: number
+                hzWellSpacingSameZone:
+                  type: number
+                id:
+                  type: string
+                ihsId:
+                  type: string
+                initialRespress:
+                  type: number
+                initialRestemp:
+                  type: number
+                landingZone:
+                  type: string
+                landingZoneBase:
+                  type: number
+                landingZoneTop:
+                  type: number
+                lateralLength:
+                  type: number
+                leaseName:
+                  type: string
+                leaseNumber:
+                  type: string
+                lowerPerforation:
+                  type: number
+                matrixPermeability:
+                  type: number
+                measuredDepth:
+                  type: number
+                nglGatherer:
+                  type: string
+                numTreatmentRecords:
+                  type: number
+                oilApiGravity:
+                  type: number
+                oilGatherer:
+                  type: string
+                oilSpecificGravity:
+                  type: number
+                padName:
+                  type: string
+                parentChildAnyZone:
+                  type: string
+                parentChildSameZone:
+                  type: string
+                percentInZone:
+                  type: number
+                perfLateralLength:
+                  type: number
+                permitDate:
+                  type: string
+                  format: date
+                phdwinId:
+                  type: string
+                play:
+                  type: string
+                porosity:
+                  type: number
+                previousOperator:
+                  type: string
+                previousOperatorAlias:
+                  type: string
+                previousOperatorCode:
+                  type: string
+                previousOperatorTicker:
+                  type: string
+                primaryProduct:
+                  type: string
+                prmsReservesCategory:
+                  type: string
+                prmsReservesSubCategory:
+                  type: string
+                prmsResourcesClass:
+                  type: string
+                productionMethod:
+                  type: string
+                proppantMeshSize:
+                  type: string
+                proppantType:
+                  type: string
+                range:
+                  type: string
+                recoveryMethod:
+                  type: string
+                refracAdditiveVolume:
+                  type: number
+                refracClusterCount:
+                  type: number
+                refracDate:
+                  type: string
+                  format: date
+                refracFluidVolume:
+                  type: number
+                refracFracVendor:
+                  type: string
+                refracMaxInjectionPressure:
+                  type: number
+                refracMaxInjectionRate:
+                  type: number
+                refracPropWeight:
+                  type: number
+                refracStageCount:
+                  type: number
+                refracTreatmentType:
+                  type: string
+                rig:
+                  type: string
+                rs:
+                  type: number
+                rsegId:
+                  type: string
+                section:
+                  type: string
+                sg:
+                  type: number
+                so:
+                  type: number
+                spudDate:
+                  type: string
+                  format: date
+                stageSpacing:
+                  type: number
+                state:
+                  type: string
+                status:
+                  type: string
+                subplay:
+                  type: string
+                surfaceLatitude:
+                  type: number
+                surfaceLongitude:
+                  type: number
+                survey:
+                  type: string
+                sw:
+                  type: number
+                targetFormation:
+                  type: string
+                tgsId:
+                  type: string
+                spgciId:
+                  type: string
+                thickness:
+                  type: number
+                til:
+                  type: string
+                  format: date
+                toeInLandingZone:
+                  type: string
+                toeLatitude:
+                  type: number
+                toeLongitude:
+                  type: number
+                toeUp:
+                  type: string
+                township:
+                  type: string
+                trueVerticalDepth:
+                  type: number
+                tubingDepth:
+                  type: number
+                tubingId:
+                  type: number
+                typeCurveArea:
+                  type: string
+                upperPerforation:
+                  type: number
+                verticalSpacing:
+                  type: number
+                vtWellSpacingAnyZone:
+                  type: number
+                vtWellSpacingSameZone:
+                  type: number
+                wellName:
+                  type: string
+                wellNumber:
+                  type: string
+                wellType:
+                  type: string
+                zi:
+                  type: number
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

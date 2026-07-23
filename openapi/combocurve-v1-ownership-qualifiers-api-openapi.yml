@@ -1,0 +1,1047 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 ownership-qualifiers API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 ownership-qualifiers
+  description: ownership-qualifiers operations
+paths:
+  /v1/ownership-qualifiers:
+    head:
+      operationId: head-ownership-qualifiers
+      summary: head-ownership-qualifiers
+      tags:
+      - v1 ownership-qualifiers
+      description: Returns metadata about the existing ownership qualifiers documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by chosenID
+      - name: qualifierKey
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by qualifierKey
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-ownership-qualifiers
+      summary: get-ownership-qualifiers
+      tags:
+      - v1 ownership-qualifiers
+      description: Returns a list of ownership qualifiers documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by chosenID
+      - name: qualifierKey
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by qualifierKey
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    post:
+      operationId: post-ownership-qualifiers
+      summary: post-ownership-qualifiers
+      tags:
+      - v1 ownership-qualifiers
+      description: Inserts a list of ownership qualifiers documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  qualifierKey:
+                    type: string
+                  ownership:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      initialOwnership:
+                        type: object
+                        properties:
+                          workingInterest:
+                            type: number
+                          netProfitInterestType:
+                            type: string
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                      firstReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      secondReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      thirdReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      fourthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      fifthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      sixthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      seventhReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      eighthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      ninthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      tenthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                  chosenID:
+                    type: string
+                  dataSource:
+                    type: string
+                  well:
+                    type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    put:
+      operationId: put-ownership-qualifiers
+      summary: put-ownership-qualifiers
+      tags:
+      - v1 ownership-qualifiers
+      description: Replace or create a list of ownership qualifiers documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  qualifierKey:
+                    type: string
+                  ownership:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      initialOwnership:
+                        type: object
+                        properties:
+                          workingInterest:
+                            type: number
+                          netProfitInterestType:
+                            type: string
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                      firstReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      secondReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      thirdReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      fourthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      fifthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      sixthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      seventhReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      eighthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      ninthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                      tenthReversion:
+                        type: object
+                        properties:
+                          reversionType:
+                            type: string
+                          balance:
+                            type: string
+                          includeNetProfitInterest:
+                            type: string
+                          workingInterest:
+                            type: number
+                          revBasisWorkingInterest:
+                            type: number
+                          revBasisNetRevenueInterest:
+                            type: number
+                          netProfitInterest:
+                            type: number
+                          netRevenueInterest:
+                            type: number
+                          leaseNetRevenueInterest:
+                            type: number
+                          oilNetRevenueInterest:
+                            type: number
+                          gasNetRevenueInterest:
+                            type: number
+                          nglNetRevenueInterest:
+                            type: number
+                          dripCondensateNetRevenueInterest:
+                            type: number
+                          reversionTiedTo:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                              value:
+                                type: string
+                                format: date
+                  chosenID:
+                    type: string
+                  dataSource:
+                    type: string
+                  well:
+                    type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v1/ownership-qualifiers/{id}:
+    get:
+      operationId: get-ownership-qualifiers-by-id
+      summary: get-ownership-qualifiers-by-id
+      tags:
+      - v1 ownership-qualifiers
+      description: Returns the ownership qualifier document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

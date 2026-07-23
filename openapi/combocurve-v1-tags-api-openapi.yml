@@ -1,0 +1,139 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 tags API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 tags
+  description: tags operations
+paths:
+  /v1/tags:
+    head:
+      operationId: head-tags
+      summary: head-tags
+      tags:
+      - v1 tags
+      description: Returns metadata about the existing tag documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by name
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-tags
+      summary: get-tags
+      tags:
+      - v1 tags
+      description: Returns a list of tag documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by name
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

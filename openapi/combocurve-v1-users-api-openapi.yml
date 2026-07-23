@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 users API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 users
+  description: users operations
+paths:
+  /v1/users/roles:
+    get:
+      operationId: get-users-roles
+      summary: get-users-roles
+      tags:
+      - v1 users
+      description: Returns a list of user resource role documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: userId
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by userId
+      - name: email
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by user email
+      - name: project
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by project
+      - name: role
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by role
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

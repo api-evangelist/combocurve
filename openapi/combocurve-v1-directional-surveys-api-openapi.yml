@@ -1,0 +1,364 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 directional-surveys API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 directional-surveys
+  description: directional-surveys operations
+paths:
+  /v1/directional-surveys:
+    post:
+      operationId: post-directional-surveys
+      summary: post-directional-surveys
+      tags:
+      - v1 directional-surveys
+      description: Insert a new directional Survey.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chosenID:
+                  type: string
+                dataSource:
+                  type: string
+                spatialDataType:
+                  type: string
+                measuredDepth:
+                  type: array
+                  items:
+                    type: number
+                trueVerticalDepth:
+                  type: array
+                  items:
+                    type: number
+                azimuth:
+                  type: array
+                  items:
+                    type: number
+                inclination:
+                  type: array
+                  items:
+                    type: number
+                deviationEW:
+                  type: array
+                  items:
+                    type: number
+                deviationNS:
+                  type: array
+                  items:
+                    type: number
+                latitude:
+                  type: array
+                  items:
+                    type: number
+                longitude:
+                  type: array
+                  items:
+                    type: number
+                projectID:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    head:
+      operationId: head-directional-surveys
+      summary: head-directional-surveys
+      tags:
+      - v1 directional-surveys
+      description: Returns metadata about the existing directional surveys documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well ID
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well chosenID
+      - name: project
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by project ID
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-directional-surveys
+      summary: get-directional-surveys
+      tags:
+      - v1 directional-surveys
+      description: Returns a list of directional surveys documents.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well ID
+      - name: chosenID
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well chosenID
+      - name: measures
+        in: query
+        required: false
+        schema:
+          type: string
+        description: configure the measures fields to be returned
+      - name: project
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by project ID
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v1/directional-surveys/{id}:
+    put:
+      operationId: put-directional-surveys
+      summary: put-directional-surveys
+      tags:
+      - v1 directional-surveys
+      description: Update a Directional Survey.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                spatialDataType:
+                  type: string
+                dataSource:
+                  type: string
+                update:
+                  type: object
+                  properties:
+                    measuredDepth:
+                      type: array
+                      items:
+                        type: number
+                    trueVerticalDepth:
+                      type: array
+                      items:
+                        type: number
+                    latitude:
+                      type: array
+                      items:
+                        type: number
+                    longitude:
+                      type: array
+                      items:
+                        type: number
+                    azimuth:
+                      type: array
+                      items:
+                        type: number
+                    inclination:
+                      type: array
+                      items:
+                        type: number
+                    deviationEW:
+                      type: array
+                      items:
+                        type: number
+                    deviationNS:
+                      type: array
+                      items:
+                        type: number
+                add:
+                  type: object
+                  properties:
+                    measuredDepth:
+                      type: array
+                      items:
+                        type: number
+                    trueVerticalDepth:
+                      type: array
+                      items:
+                        type: number
+                    azimuth:
+                      type: array
+                      items:
+                        type: number
+                    inclination:
+                      type: array
+                      items:
+                        type: number
+                    deviationEW:
+                      type: array
+                      items:
+                        type: number
+                    deviationNS:
+                      type: array
+                      items:
+                        type: number
+                    latitude:
+                      type: array
+                      items:
+                        type: number
+                    longitude:
+                      type: array
+                      items:
+                        type: number
+                remove:
+                  type: array
+                  items:
+                    type: number
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-directional-surveys-by-id
+      summary: get-directional-surveys-by-id
+      tags:
+      - v1 directional-surveys
+      description: Returns the DS document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    delete:
+      operationId: delete-directional-surveys-by-id
+      summary: delete-directional-surveys-by-id
+      tags:
+      - v1 directional-surveys
+      description: Delete the directional survey document that matches the given id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

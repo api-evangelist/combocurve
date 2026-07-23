@@ -1,0 +1,361 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v2 exports API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v2 exports
+  description: exports operations
+paths:
+  /v2/exports/forecast-parameters:
+    post:
+      operationId: Trigger a forecast parameters export job
+      summary: Trigger a forecast parameters export job
+      tags:
+      - v2 exports
+      description: 'Triggers a forecast parameters export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
+
+        '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: string
+                forecastId:
+                  type: string
+                fileType:
+                  type: string
+                phases:
+                  type: object
+                  properties:
+                    oil:
+                      type: object
+                      properties:
+                        startDate:
+                          type: string
+                    gas:
+                      type: object
+                      properties:
+                        startDate:
+                          type: string
+                    water:
+                      type: object
+                      properties:
+                        startDate:
+                          type: string
+                adjustParameters:
+                  type: boolean
+                options:
+                  type: object
+                  properties:
+                    series:
+                      type: array
+                      items:
+                        type: string
+                    wells:
+                      type: array
+                      items:
+                        type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/forecast-parameters/{jobId}:
+    get:
+      operationId: Get forecast parameters export job status
+      summary: Get forecast parameters export job status
+      tags:
+      - v2 exports
+      description: 'Retrieves the current status and result of a forecast parameters export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
+
+        '
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expirationHours
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Number of hours the signed URL will remain valid (default 24)
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/forecast-volumes:
+    post:
+      operationId: Trigger a forecast volumes export job
+      summary: Trigger a forecast volumes export job
+      tags:
+      - v2 exports
+      description: 'Triggers a forecast volumes export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
+
+        '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: string
+                forecastId:
+                  type: string
+                mergeForecastAndProduction:
+                  type: boolean
+                fileType:
+                  type: string
+                phases:
+                  type: array
+                  items:
+                    type: string
+                forecast:
+                  type: object
+                  properties:
+                    resolution:
+                      type: string
+                    start:
+                      type: string
+                      format: date
+                    end:
+                      type: string
+                      format: date
+                production:
+                  type: object
+                  properties:
+                    resolution:
+                      type: string
+                    start:
+                      type: string
+                      format: date
+                    end:
+                      type: string
+                      format: date
+                wells:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/forecast-volumes/{jobId}:
+    get:
+      operationId: Get forecast volumes export job status
+      summary: Get forecast volumes export job status
+      tags:
+      - v2 exports
+      description: 'Retrieves the current status and result of a forecast volumes export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
+
+        '
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expirationHours
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Number of hours the signed URL will remain valid (default 24)
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/econ-monthly:
+    post:
+      operationId: Trigger an economic monthly export job
+      summary: Trigger an economic monthly export job
+      tags:
+      - v2 exports
+      description: 'Triggers an economic monthly export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
+
+        '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: string
+                scenarioId:
+                  type: string
+                runId:
+                  type: string
+                fileType:
+                  type: string
+                timeZone:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/econ-monthly/{jobId}:
+    get:
+      operationId: Get economic monthly export job status
+      summary: Get economic monthly export job status
+      tags:
+      - v2 exports
+      description: 'Retrieves the current status and result of an economic monthly export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.
+
+        '
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expirationHours
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Number of hours the signed URL will remain valid (default 24)
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/econ-one-liners:
+    post:
+      operationId: Trigger an economic one-liners export job
+      summary: Trigger an economic one-liners export job
+      tags:
+      - v2 exports
+      description: 'Triggers an economic one-liners export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
+
+        '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId:
+                  type: string
+                scenarioId:
+                  type: string
+                runId:
+                  type: string
+                fileType:
+                  type: string
+                timeZone:
+                  type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v2/exports/econ-one-liners/{jobId}:
+    get:
+      operationId: Get economic one-liners export job status
+      summary: Get economic one-liners export job status
+      tags:
+      - v2 exports
+      description: 'Retrieves the current status and result of an economic one-liners export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.
+
+        '
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expirationHours
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Number of hours the signed URL will remain valid (default 24)
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

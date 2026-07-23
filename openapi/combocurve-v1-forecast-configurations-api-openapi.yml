@@ -1,0 +1,1131 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 forecast-configurations API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 forecast-configurations
+  description: forecast-configurations operations
+paths:
+  /v1/forecast-configurations:
+    head:
+      operationId: head-forecast-configurations
+      summary: head-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: Returns metadata about the existing forecast configuration documents (count and pagination links) without a body. Supports the same filters as GET.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: forecastType
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Filter by forecast type: probabilistic | deterministic.'
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by exact name.
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by createdAt timestamp.
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by updatedAt timestamp.
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-forecast-configurations
+      summary: get-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: Returns the list of forecast configurations visible to the API user. Reads are tenant-wide regardless of the configuration's `project` field.
+      parameters:
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          type: string
+        description: used in pagination to get the next page
+      - name: forecastType
+        in: query
+        required: false
+        schema:
+          type: string
+        description: 'Filter by forecast type: probabilistic | deterministic.'
+      - name: name
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by exact name.
+      - name: createdAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by createdAt timestamp.
+      - name: updatedAt
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter by updatedAt timestamp.
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    post:
+      operationId: post-forecast-configurations
+      summary: post-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: Create one or more forecast configurations. The body may be a single object or an array; single-object bodies are coerced to a one-item array and the response is always 207 Multi-Status. `forecastType` is required and immutable. For `deterministic` configurations `project` is required; for `probabilistic` configurations `project` is prohibited (probabilistic configurations are user-scoped). `isAdmin` and `userDefault` in the request body are rejected.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  forecastType:
+                    type: string
+                  project:
+                    type: string
+                  forecastScope:
+                    type: object
+                    properties:
+                      auto:
+                        type: boolean
+                      proximity:
+                        type: boolean
+                  resolution:
+                    type: string
+                  overwriteManual:
+                    type: boolean
+                  automaticForecast:
+                    type: object
+                    properties:
+                      streamConfigurations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            streams:
+                              type: array
+                              items:
+                                type: string
+                            configuration:
+                              type: object
+                              properties:
+                                modelParameters:
+                                  type: object
+                                  properties:
+                                    modelName:
+                                      type: string
+                                    b:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    b2:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    c:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D2_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff_range:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_decline_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_elf_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_peak_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t1_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_end:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_start:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    t_linear_duration:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff:
+                                      type: number
+                                    b_prior:
+                                      type: number
+                                    b_strength:
+                                      type: string
+                                    enforce_sw:
+                                      type: boolean
+                                axisCombo:
+                                  type: string
+                                basePhase:
+                                  type: string
+                                valueRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                timeDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    headerRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                        max:
+                                          type: string
+                                weightDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    value:
+                                      type: number
+                                wellLifeDict:
+                                  type: object
+                                  properties:
+                                    wellLifeMethod:
+                                      type: string
+                                    num:
+                                      type: number
+                                    unit:
+                                      type: string
+                                    fixedDate:
+                                      type: string
+                                      format: date
+                                matchEur:
+                                  type: object
+                                  properties:
+                                    matchType:
+                                      type: string
+                                    matchForecastId:
+                                      type: string
+                                    matchPercentChange:
+                                      type: number
+                                    matchEurNum:
+                                      type: number
+                                    errorPercentage:
+                                      type: number
+                                dispersion:
+                                  type: number
+                                flatForecastThres:
+                                  type: number
+                                internalFilter:
+                                  type: string
+                                internalFilterAll:
+                                  type: boolean
+                                lowDataThreshold:
+                                  type: number
+                                movingAverageDays:
+                                  type: number
+                                peakPreference:
+                                  type: string
+                                peakSensitivity:
+                                  type: string
+                                percentileRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                qFinal:
+                                  type: number
+                                remove0:
+                                  type: boolean
+                                shortProdThreshold:
+                                  type: number
+                                useLowDataForecast:
+                                  type: boolean
+                                useMinimumData:
+                                  type: boolean
+                                validIdx:
+                                  type: number
+                                percentile:
+                                  type: array
+                                  items:
+                                    type: number
+                                probPara:
+                                  type: array
+                                  items:
+                                    type: string
+                            name:
+                              type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    put:
+      operationId: put-forecast-configurations
+      summary: put-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: Bulk upsert by natural key. The natural key is `(name, project)` for deterministic configurations and `(name, createdBy)` for probabilistic configurations. When a matching configuration owned by the API user exists it is replaced; otherwise a new configuration is created. Any `id` supplied in the body is ignored (read-only). Configurations matched by natural key but owned by a different user produce a `403` per-record multi-status entry.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  forecastType:
+                    type: string
+                  project:
+                    type: string
+                  forecastScope:
+                    type: object
+                    properties:
+                      auto:
+                        type: boolean
+                      proximity:
+                        type: boolean
+                  resolution:
+                    type: string
+                  overwriteManual:
+                    type: boolean
+                  automaticForecast:
+                    type: object
+                    properties:
+                      streamConfigurations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            streams:
+                              type: array
+                              items:
+                                type: string
+                            configuration:
+                              type: object
+                              properties:
+                                modelParameters:
+                                  type: object
+                                  properties:
+                                    modelName:
+                                      type: string
+                                    b:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    b2:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    c:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D2_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff_range:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_decline_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_elf_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_peak_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t1_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_end:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_start:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    t_linear_duration:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff:
+                                      type: number
+                                    b_prior:
+                                      type: number
+                                    b_strength:
+                                      type: string
+                                    enforce_sw:
+                                      type: boolean
+                                axisCombo:
+                                  type: string
+                                basePhase:
+                                  type: string
+                                valueRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                timeDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    headerRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                        max:
+                                          type: string
+                                weightDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    value:
+                                      type: number
+                                wellLifeDict:
+                                  type: object
+                                  properties:
+                                    wellLifeMethod:
+                                      type: string
+                                    num:
+                                      type: number
+                                    unit:
+                                      type: string
+                                    fixedDate:
+                                      type: string
+                                      format: date
+                                matchEur:
+                                  type: object
+                                  properties:
+                                    matchType:
+                                      type: string
+                                    matchForecastId:
+                                      type: string
+                                    matchPercentChange:
+                                      type: number
+                                    matchEurNum:
+                                      type: number
+                                    errorPercentage:
+                                      type: number
+                                dispersion:
+                                  type: number
+                                flatForecastThres:
+                                  type: number
+                                internalFilter:
+                                  type: string
+                                internalFilterAll:
+                                  type: boolean
+                                lowDataThreshold:
+                                  type: number
+                                movingAverageDays:
+                                  type: number
+                                peakPreference:
+                                  type: string
+                                peakSensitivity:
+                                  type: string
+                                percentileRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                qFinal:
+                                  type: number
+                                remove0:
+                                  type: boolean
+                                shortProdThreshold:
+                                  type: number
+                                useLowDataForecast:
+                                  type: boolean
+                                useMinimumData:
+                                  type: boolean
+                                validIdx:
+                                  type: number
+                                percentile:
+                                  type: array
+                                  items:
+                                    type: number
+                                probPara:
+                                  type: array
+                                  items:
+                                    type: string
+                            name:
+                              type: string
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    patch:
+      operationId: patch-forecast-configurations
+      summary: patch-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: 'Bulk partial update by natural key. The natural key is the same as for PUT: `(name, project)` for deterministic configurations and `(name, createdBy)` for probabilistic configurations. Records whose natural key does not match an existing configuration produce a `404` per-record multi-status entry (PATCH never inserts). `forecastType` is required for routing; it cannot be changed.'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  forecastType:
+                    type: string
+                  project:
+                    type: string
+                  forecastScope:
+                    type: object
+                    properties:
+                      auto:
+                        type: boolean
+                      proximity:
+                        type: boolean
+                  resolution:
+                    type: string
+                  overwriteManual:
+                    type: boolean
+                  automaticForecast:
+                    type: object
+                    properties:
+                      streamConfigurations:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            streams:
+                              type: array
+                              items:
+                                type: string
+                            configuration:
+                              type: object
+                              properties:
+                                modelParameters:
+                                  type: object
+                                  properties:
+                                    modelName:
+                                      type: string
+                                    b:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    b2:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    c:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D2_eff:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff_range:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_decline_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_elf_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t_peak_t0:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    minus_t1_t_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_end:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_peak:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    q_start:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    t_linear_duration:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    D_lim_eff:
+                                      type: number
+                                    b_prior:
+                                      type: number
+                                    b_strength:
+                                      type: string
+                                    enforce_sw:
+                                      type: boolean
+                                axisCombo:
+                                  type: string
+                                basePhase:
+                                  type: string
+                                valueRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                timeDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    headerRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                        max:
+                                          type: string
+                                weightDict:
+                                  type: object
+                                  properties:
+                                    mode:
+                                      type: string
+                                    unit:
+                                      type: string
+                                    numRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: number
+                                        max:
+                                          type: number
+                                    absoluteRange:
+                                      type: object
+                                      properties:
+                                        min:
+                                          type: string
+                                          format: date
+                                        max:
+                                          type: string
+                                          format: date
+                                    value:
+                                      type: number
+                                wellLifeDict:
+                                  type: object
+                                  properties:
+                                    wellLifeMethod:
+                                      type: string
+                                    num:
+                                      type: number
+                                    unit:
+                                      type: string
+                                    fixedDate:
+                                      type: string
+                                      format: date
+                                matchEur:
+                                  type: object
+                                  properties:
+                                    matchType:
+                                      type: string
+                                    matchForecastId:
+                                      type: string
+                                    matchPercentChange:
+                                      type: number
+                                    matchEurNum:
+                                      type: number
+                                    errorPercentage:
+                                      type: number
+                                dispersion:
+                                  type: number
+                                flatForecastThres:
+                                  type: number
+                                internalFilter:
+                                  type: string
+                                internalFilterAll:
+                                  type: boolean
+                                lowDataThreshold:
+                                  type: number
+                                movingAverageDays:
+                                  type: number
+                                peakPreference:
+                                  type: string
+                                peakSensitivity:
+                                  type: string
+                                percentileRange:
+                                  type: object
+                                  properties:
+                                    min:
+                                      type: number
+                                    max:
+                                      type: number
+                                qFinal:
+                                  type: number
+                                remove0:
+                                  type: boolean
+                                shortProdThreshold:
+                                  type: number
+                                useLowDataForecast:
+                                  type: boolean
+                                useMinimumData:
+                                  type: boolean
+                                validIdx:
+                                  type: number
+                                percentile:
+                                  type: array
+                                  items:
+                                    type: number
+                                probPara:
+                                  type: array
+                                  items:
+                                    type: string
+                            name:
+                              type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    delete:
+      operationId: delete-forecast-configurations
+      summary: delete-forecast-configurations
+      tags:
+      - v1 forecast-configurations
+      description: Bulk delete by id. Pass one or more forecast configuration ids as repeated `id` query parameters. Configurations owned by other users return a `403` per-record multi-status entry; ids that do not exist return `404`.
+      parameters:
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: One or more forecast configuration ids to delete.
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+  /v1/forecast-configurations/{id}:
+    get:
+      operationId: get-forecast-configuration-by-id
+      summary: get-forecast-configuration-by-id
+      tags:
+      - v1 forecast-configurations
+      description: Returns a single forecast configuration by id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    delete:
+      operationId: delete-forecast-configuration-by-id
+      summary: delete-forecast-configuration-by-id
+      tags:
+      - v1 forecast-configurations
+      description: Delete a single forecast configuration by id. Only configurations owned by the API user may be deleted.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

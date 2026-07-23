@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 forecast-monthly-volumes API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 forecast-monthly-volumes
+  description: forecast-monthly-volumes operations
+paths:
+  /v1/forecast-monthly-volumes:
+    head:
+      operationId: head-root-forecast-monthly-volumes
+      summary: head-root-forecast-monthly-volumes
+      tags:
+      - v1 forecast-monthly-volumes
+      description: Returns metadata about the existing forecast volumes
+      parameters:
+      - name: project
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by project
+      - name: forecast
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by forecast
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+    get:
+      operationId: get-root-forecast-monthly-volumes
+      summary: get-root-forecast-monthly-volumes
+      tags:
+      - v1 forecast-monthly-volumes
+      description: Returns a list of forecast volumes
+      parameters:
+      - name: project
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by project
+      - name: forecast
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by forecast
+      - name: well
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by well
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: number of items to skip
+      - name: take
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: max records to return
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by startDate. Returns all records with a startDate greater than or equal to the specified value.
+      - name: endDate
+        in: query
+        required: false
+        schema:
+          type: string
+        description: filter by endDate. Returns all records with a endDate less than or equal to the specified value.
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.

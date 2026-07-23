@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: ComboCurve REST v1 custom-columns v1 wells-identifiers API
+  version: v1
+  description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
+  contact:
+    name: ComboCurve API Support
+    url: https://forum.api.combocurve.com/
+servers:
+- url: https://api.combocurve.com
+  description: Production
+security:
+- apiKeyAuth: []
+  bearerAuth: []
+tags:
+- name: v1 wells-identifiers
+  description: wells-identifiers operations
+paths:
+  /v1/wells-identifiers:
+    patch:
+      operationId: patch-wells-identifiers
+      summary: patch-wells-identifiers
+      tags:
+      - v1 wells-identifiers
+      description: Updates identifiers of a list of well documents.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  wellId:
+                    type: string
+                  newInfo:
+                    type: object
+                    properties:
+                      chosenKeyID:
+                        type: string
+                      companyScope:
+                        type: boolean
+                      dataSource:
+                        type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+        '429':
+          description: Too many requests - rate limit exceeded
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: Company API key from the ComboCurve API & Sync page.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Signed bearer token generated from the Service Account Key.
