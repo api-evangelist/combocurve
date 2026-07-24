@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/combocurve-openapi.yml responses + docs.api.combocurve.com
+format: http-status
+note: ComboCurve returns standard HTTP status codes with JSON error bodies; no RFC 9457 problem+json is
+  documented. Catalog derived from documented status codes and rate-limit rules.
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Malformed request, invalid field, or request body over 24 MB / string field over 16 KB.
+  remediation: Validate JSON payload, field types, and size limits.
+- status: 401
+  title: Unauthorized
+  meaning: Missing/invalid x-api-key or expired signed bearer token.
+  remediation: Regenerate the signed bearer token from the Service Account Key and confirm the x-api-key.
+- status: 403
+  title: Forbidden
+  meaning: Authenticated but not permitted for the company/project resource.
+  remediation: Confirm the service account has access to the project/company scope.
+- status: 404
+  title: Not Found
+  meaning: Resource (well, forecast, project, econ-model) does not exist.
+  remediation: Verify the id / chosenID and project scope.
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit exceeded (800 read/min or 200 write/min).
+  remediation: Back off and retry; batch writes to stay under 200/min.
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected server error.
+  remediation: Retry with backoff; contact support via the API forum if persistent.

@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/combocurve-openapi.yml + docs.api.combocurve.com
+standards:
+- id: rest
+  conforms: true
+  evidence: resource-oriented HTTP CRUD across 380 operations
+- id: openapi-3.1
+  conforms: true
+  evidence: API Evangelist derived OpenAPI 3.1 from the official Postman collection
+- id: oauth2
+  conforms: false
+  evidence: auth is x-api-key + signed JWT bearer, not OAuth2 authorization flows
+- id: http-bearer-jwt
+  conforms: true
+  evidence: Authorization bearer token (JWT) signed from Service Account Key
+- id: api-key
+  conforms: true
+  evidence: x-api-key header required on all requests
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no application/problem+json documented
+- id: pagination
+  conforms: true
+  evidence: skip/take offset plus cursor pagination with sort
+- id: rate-limiting
+  conforms: true
+  evidence: documented 800 read / 200 write per minute, HTTP 429
+- id: json
+  conforms: true
+  evidence: application/json request/response bodies

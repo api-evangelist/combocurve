@@ -1,0 +1,88 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/combocurve-openapi.yml path/resource nesting
+entities:
+- name: well
+  id: chosenID / _id
+  domain: well headers
+  description: Well header record — the central entity keyed by chosenID/dataSource.
+- name: daily-production
+  description: Daily production volumes for a well.
+- name: monthly-production
+  description: Monthly production volumes for a well.
+- name: directional-survey
+  description: Directional survey deviation data for a well.
+- name: project
+  description: Container for wells, forecasts, econ-models, scenarios.
+- name: forecast
+  description: Production forecast within a project.
+- name: forecast-configuration
+  description: Reusable forecast settings.
+- name: econ-model
+  description: Economics model (capex, expenses, differentials, escalations, depreciation, ownership-reversions,
+    etc.).
+- name: econ-run
+  description: Executed economics run under a scenario.
+- name: scenario
+  description: Economics scenario within a project.
+- name: ownership-qualifier
+  description: Ownership qualifier for a well.
+- name: tag
+  description: Company tag.
+- name: user
+  description: Company user.
+- name: well-comment
+  description: Comment attached to a well.
+- name: custom-column
+  description: Custom column definitions per collection.
+- name: export
+  description: Async export job (v2) or export request (v1).
+relationships:
+- from: daily-production
+  to: well
+  type: belongs_to
+  via: well/chosenID
+- from: monthly-production
+  to: well
+  type: belongs_to
+  via: well/chosenID
+- from: directional-survey
+  to: well
+  type: belongs_to
+  via: well
+- from: project
+  to: well
+  type: has_many
+  via: project-wells
+- from: forecast
+  to: project
+  type: belongs_to
+  via: projectId
+- from: forecast
+  to: well
+  type: has_many
+  via: wellId
+- from: econ-model
+  to: project
+  type: belongs_to
+  via: projectId
+- from: scenario
+  to: project
+  type: belongs_to
+  via: projectId
+- from: econ-run
+  to: scenario
+  type: belongs_to
+  via: scenarioId
+- from: econ-run
+  to: export
+  type: has_many
+  via: monthly-exports
+- from: ownership-qualifier
+  to: well
+  type: belongs_to
+  via: well
+- from: well-comment
+  to: well
+  type: belongs_to
+  via: well

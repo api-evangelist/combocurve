@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.combocurve.com/api/getting-started
+authentication:
+  style: dual-header
+  headers:
+  - Authorization (signed JWT bearer from Service Account Key)
+  - x-api-key
+  ref: authentication/combocurve-authentication.yml
+pagination:
+  style: offset+cursor
+  params:
+  - skip
+  - take
+  - cursor
+  - sort
+  defaults:
+    skip: 0
+    take: 25
+  note: skip/take offset pagination; cursor returned for next page; sort field prefixed +/- for asc/desc.
+rate_limiting:
+  read: 800/min
+  write: 200/min
+  status: 429
+  ref: ComboCurve throttles per client; exceeding returns HTTP 429.
+limits:
+  max_request_body: 24 MB
+  max_string_field: 16 KB (UTF-8)
+idempotency:
+  supported: false
+  note: No idempotency-key header is documented; bulk PUT upserts are keyed on well identifiers (chosenID/dataSource).
+content_type: application/json
+versioning:
+  style: uri-path
+  ref: lifecycle/combocurve-lifecycle.yml
+error_envelope:
+  style: http-status + json body
+  ref: errors/combocurve-problem-types.yml
+bulk:
+  note: Most collection endpoints accept arrays for bulk insert/update; upserts match on well identifier
+    fields.

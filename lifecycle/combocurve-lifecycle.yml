@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: searched
+source: docs.api.combocurve.com + status.combocurve.com
+versioning:
+  scheme: uri-path
+  versions:
+  - v1
+  - v2
+  current: v2
+  docs: https://docs.api.combocurve.com/api/getting-started
+  note: v1 is the primary CRUD surface; v2 adds asynchronous export jobs (econ-monthly, econ-one-liners,
+    forecast-parameters, forecast-volumes).
+status_page: https://status.combocurve.com/
+support: https://forum.api.combocurve.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation/sunset policy is published; v1 and v2 both remain active.
+deprecated_operations: []

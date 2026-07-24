@@ -1,0 +1,1150 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/combocurve-openapi.yml
+note: No official hosted ComboCurve MCP server was found. Candidate tool surface derived one-to-one from
+  the REST API operations for a future MCP wrapper.
+server:
+  name: combocurve
+  transport: stdio
+tools:
+- name: delete_daily_productions
+  description: DELETE /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#delete-daily-productions
+- name: head_daily_productions
+  description: HEAD /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#head-daily-productions
+- name: get_daily_productions
+  description: GET /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#get-daily-productions
+- name: post_daily_productions
+  description: POST /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#post-daily-productions
+- name: put_daily_productions
+  description: PUT /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#put-daily-productions
+- name: patch_daily_productions
+  description: PATCH /v1/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#patch-daily-productions
+- name: delete_monthly_productions
+  description: DELETE /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#delete-monthly-productions
+- name: head_monthly_productions
+  description: HEAD /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#head-monthly-productions
+- name: get_monthly_productions
+  description: GET /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#get-monthly-productions
+- name: post_monthly_productions
+  description: POST /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#post-monthly-productions
+- name: put_monthly_productions
+  description: PUT /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#put-monthly-productions
+- name: patch_monthly_productions
+  description: PATCH /v1/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#patch-monthly-productions
+- name: head_ownership_qualifiers
+  description: HEAD /v1/ownership-qualifiers
+  source_operation: openapi/combocurve-openapi.yml#head-ownership-qualifiers
+- name: get_ownership_qualifiers
+  description: GET /v1/ownership-qualifiers
+  source_operation: openapi/combocurve-openapi.yml#get-ownership-qualifiers
+- name: post_ownership_qualifiers
+  description: POST /v1/ownership-qualifiers
+  source_operation: openapi/combocurve-openapi.yml#post-ownership-qualifiers
+- name: put_ownership_qualifiers
+  description: PUT /v1/ownership-qualifiers
+  source_operation: openapi/combocurve-openapi.yml#put-ownership-qualifiers
+- name: get_ownership_qualifiers_by_id
+  description: GET /v1/ownership-qualifiers/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-ownership-qualifiers-by-id
+- name: head_projects
+  description: HEAD /v1/projects
+  source_operation: openapi/combocurve-openapi.yml#head-projects
+- name: get_projects
+  description: GET /v1/projects
+  source_operation: openapi/combocurve-openapi.yml#get-projects
+- name: post_projects
+  description: POST /v1/projects
+  source_operation: openapi/combocurve-openapi.yml#post-projects
+- name: delete_project_by_id
+  description: DELETE /v1/projects/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-project-by-id
+- name: get_project_by_id
+  description: GET /v1/projects/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-project-by-id
+- name: delete_project_company_wells
+  description: DELETE /v1/projects/{projectId}/company-wells
+  source_operation: openapi/combocurve-openapi.yml#delete-project-company-wells
+- name: head_project_company_wells
+  description: HEAD /v1/projects/{projectId}/company-wells
+  source_operation: openapi/combocurve-openapi.yml#head-project-company-wells
+- name: get_project_company_wells
+  description: GET /v1/projects/{projectId}/company-wells
+  source_operation: openapi/combocurve-openapi.yml#get-project-company-wells
+- name: post_project_company_wells
+  description: POST /v1/projects/{projectId}/company-wells
+  source_operation: openapi/combocurve-openapi.yml#post-project-company-wells
+- name: patch_project_company_wells
+  description: PATCH /v1/projects/{projectId}/company-wells
+  source_operation: openapi/combocurve-openapi.yml#patch-project-company-wells
+- name: get_project_company_well_by_id
+  description: GET /v1/projects/{projectId}/company-wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-project-company-well-by-id
+- name: delete_project_daily_productions
+  description: DELETE /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#delete-project-daily-productions
+- name: head_projects_daily_productions
+  description: HEAD /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#head-projects-daily-productions
+- name: get_projects_daily_productions
+  description: GET /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#get-projects-daily-productions
+- name: post_projects_daily_productions
+  description: POST /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#post-projects-daily-productions
+- name: put_projects_daily_productions
+  description: PUT /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#put-projects-daily-productions
+- name: patch_projects_daily_productions
+  description: PATCH /v1/projects/{projectId}/daily-productions
+  source_operation: openapi/combocurve-openapi.yml#patch-projects-daily-productions
+- name: head_forecasts
+  description: HEAD /v1/projects/{projectId}/forecasts
+  source_operation: openapi/combocurve-openapi.yml#head-forecasts
+- name: get_forecasts
+  description: GET /v1/projects/{projectId}/forecasts
+  source_operation: openapi/combocurve-openapi.yml#get-forecasts
+- name: post_forecasts
+  description: POST /v1/projects/{projectId}/forecasts
+  source_operation: openapi/combocurve-openapi.yml#post-forecasts
+- name: get_forecast_by_id
+  description: GET /v1/projects/{projectId}/forecasts/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-by-id
+- name: delete_forecast_by_id
+  description: DELETE /v1/projects/{projectId}/forecasts/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-forecast-by-id
+- name: patch_forecast
+  description: PATCH /v1/projects/{projectId}/forecasts/{id}
+  source_operation: openapi/combocurve-openapi.yml#patch-forecast
+- name: post_wells_to_forecast
+  description: POST /v1/projects/{projectId}/forecasts/{id}/wells
+  source_operation: openapi/combocurve-openapi.yml#post-wells-to-forecast
+- name: post_projects_forecast_segment_parameters
+  description: POST /v1/projects/{projectId}/forecasts/{forecastId}/parameters/{wellId}/{phase}/{series}
+  source_operation: openapi/combocurve-openapi.yml#post-projects-forecast-segment-parameters
+- name: put_projects_forecast_segment_parameters
+  description: PUT /v1/projects/{projectId}/forecasts/{forecastId}/parameters/{wellId}/{phase}/{series}
+  source_operation: openapi/combocurve-openapi.yml#put-projects-forecast-segment-parameters
+- name: delete_projects_forecast_segment_parameters
+  description: DELETE /v1/projects/{projectId}/forecasts/{forecastId}/parameters/{wellId}/{phase}/{series}
+  source_operation: openapi/combocurve-openapi.yml#delete-projects-forecast-segment-parameters
+- name: put_version_two_projects_forecast_segment_parameters
+  description: PUT /v1/projects/{projectId}/forecasts/{forecastId}/parameters
+  source_operation: openapi/combocurve-openapi.yml#put-version-two-projects-forecast-segment-parameters
+- name: head_aries_forecast
+  description: HEAD /v1/projects/{projectId}/forecasts/{forecastId}/aries
+  source_operation: openapi/combocurve-openapi.yml#head-aries-forecast
+- name: get_aries_forecast
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/aries
+  source_operation: openapi/combocurve-openapi.yml#get-aries-forecast
+- name: head_forecast_outputs
+  description: HEAD /v1/projects/{projectId}/forecasts/{forecastId}/outputs
+  source_operation: openapi/combocurve-openapi.yml#head-forecast-outputs
+- name: get_forecast_outputs
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/outputs
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-outputs
+- name: get_forecast_output_by_id
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/outputs/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-output-by-id
+- name: head_forecast_daily_volumes
+  description: HEAD /v1/projects/{projectId}/forecasts/{forecastId}/daily-volumes
+  source_operation: openapi/combocurve-openapi.yml#head-forecast-daily-volumes
+- name: get_forecast_daily_volumes
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/daily-volumes
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-daily-volumes
+- name: head_forecast_monthly_volumes
+  description: HEAD /v1/projects/{projectId}/forecasts/{forecastId}/monthly-volumes
+  source_operation: openapi/combocurve-openapi.yml#head-forecast-monthly-volumes
+- name: get_forecast_monthly_volumes
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/monthly-volumes
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-monthly-volumes
+- name: post_forecast_run
+  description: POST /v1/projects/{projectId}/forecasts/{forecastId}/run
+  source_operation: openapi/combocurve-openapi.yml#post-forecast-run
+- name: get_forecast_run_status
+  description: GET /v1/projects/{projectId}/forecasts/{forecastId}/run/{jobId}
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-run-status
+- name: delete_project_monthly_productions
+  description: DELETE /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#delete-project-monthly-productions
+- name: head_projects_monthly_productions
+  description: HEAD /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#head-projects-monthly-productions
+- name: get_projects_monthly_productions
+  description: GET /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#get-projects-monthly-productions
+- name: post_projects_monthly_productions
+  description: POST /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#post-projects-monthly-productions
+- name: put_projects_monthly_productions
+  description: PUT /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#put-projects-monthly-productions
+- name: patch_projects_monthly_productions
+  description: PATCH /v1/projects/{projectId}/monthly-productions
+  source_operation: openapi/combocurve-openapi.yml#patch-projects-monthly-productions
+- name: head_scenarios
+  description: HEAD /v1/projects/{projectId}/scenarios
+  source_operation: openapi/combocurve-openapi.yml#head-scenarios
+- name: get_scenarios
+  description: GET /v1/projects/{projectId}/scenarios
+  source_operation: openapi/combocurve-openapi.yml#get-scenarios
+- name: post_project_scenarios
+  description: POST /v1/projects/{projectId}/scenarios
+  source_operation: openapi/combocurve-openapi.yml#post-project-scenarios
+- name: put_project_scenarios
+  description: PUT /v1/projects/{projectId}/scenarios
+  source_operation: openapi/combocurve-openapi.yml#put-project-scenarios
+- name: delete_project_scenarios
+  description: DELETE /v1/projects/{projectId}/scenarios
+  source_operation: openapi/combocurve-openapi.yml#delete-project-scenarios
+- name: delete_scenarios
+  description: DELETE /v1/projects/{projectId}/scenarios/head
+  source_operation: openapi/combocurve-openapi.yml#delete-scenarios
+- name: get_scenario_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-by-id
+- name: head_scenario_lookup_tables
+  description: HEAD /v1/projects/{projectId}/scenarios/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#head-scenario-lookup-tables
+- name: get_scenario_lookup_tables
+  description: GET /v1/projects/{projectId}/scenarios/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-lookup-tables
+- name: post_scenario_lookup_tables
+  description: POST /v1/projects/{projectId}/scenarios/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#post-scenario-lookup-tables
+- name: put_scenario_lookup_tables
+  description: PUT /v1/projects/{projectId}/scenarios/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#put-scenario-lookup-tables
+- name: get_scenario_lookup_table_by_id
+  description: GET /v1/projects/{projectId}/scenarios/lookup-tables/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-lookup-table-by-id
+- name: delete_scenario_lookup_table_by_id
+  description: DELETE /v1/projects/{projectId}/scenarios/lookup-tables/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-scenario-lookup-table-by-id
+- name: head_econ_runs
+  description: HEAD /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs
+  source_operation: openapi/combocurve-openapi.yml#head-econ-runs
+- name: get_econ_runs
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs
+  source_operation: openapi/combocurve-openapi.yml#get-econ-runs
+- name: get_econ_run_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-econ-run-by-id
+- name: get_monthly_econ_result_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-econ-results
+  source_operation: openapi/combocurve-openapi.yml#get-monthly-econ-result-by-id
+- name: head_monthly_exports
+  description: HEAD /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-exports
+  source_operation: openapi/combocurve-openapi.yml#head-monthly-exports
+- name: post_monthly_exports
+  description: POST /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-exports
+  source_operation: openapi/combocurve-openapi.yml#post-monthly-exports
+- name: get_monthly_export_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-exports/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-monthly-export-by-id
+- name: head_one_liners
+  description: HEAD /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/one-liners
+  source_operation: openapi/combocurve-openapi.yml#head-one-liners
+- name: get_one_liners
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/one-liners
+  source_operation: openapi/combocurve-openapi.yml#get-one-liners
+- name: get_one_liner_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/one-liners/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-one-liner-by-id
+- name: get_one_liners_combo_names
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/one-liners/combo-names
+  source_operation: openapi/combocurve-openapi.yml#get-one-liners-combo-names
+- name: head_scenario_combos_count
+  description: HEAD /v1/projects/{projectId}/scenarios/{scenarioId}/combos
+  source_operation: openapi/combocurve-openapi.yml#head-scenario-combos-count
+- name: get_scenario_combos_read
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/combos
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-combos-read
+- name: post_scenario_combos_upsert
+  description: POST /v1/projects/{projectId}/scenarios/{scenarioId}/combos
+  source_operation: openapi/combocurve-openapi.yml#post-scenario-combos-upsert
+- name: put_scenario_combos_upsert
+  description: PUT /v1/projects/{projectId}/scenarios/{scenarioId}/combos
+  source_operation: openapi/combocurve-openapi.yml#put-scenario-combos-upsert
+- name: delete_scenario_combos_delete
+  description: DELETE /v1/projects/{projectId}/scenarios/{scenarioId}/combos
+  source_operation: openapi/combocurve-openapi.yml#delete-scenario-combos-delete
+- name: get_qualifiers_read
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/qualifiers
+  source_operation: openapi/combocurve-openapi.yml#get-qualifiers-read
+- name: post_qualifiers_upsert
+  description: POST /v1/projects/{projectId}/scenarios/{scenarioId}/qualifiers
+  source_operation: openapi/combocurve-openapi.yml#post-qualifiers-upsert
+- name: put_qualifiers_upsert
+  description: PUT /v1/projects/{projectId}/scenarios/{scenarioId}/qualifiers
+  source_operation: openapi/combocurve-openapi.yml#put-qualifiers-upsert
+- name: delete_qualifiers_delete
+  description: DELETE /v1/projects/{projectId}/scenarios/{scenarioId}/qualifiers
+  source_operation: openapi/combocurve-openapi.yml#delete-qualifiers-delete
+- name: get_scenario_wells_read
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/well-assignments
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-wells-read
+- name: post_scenario_wells_upsert
+  description: POST /v1/projects/{projectId}/scenarios/{scenarioId}/well-assignments
+  source_operation: openapi/combocurve-openapi.yml#post-scenario-wells-upsert
+- name: put_scenario_wells_upsert
+  description: PUT /v1/projects/{projectId}/scenarios/{scenarioId}/well-assignments
+  source_operation: openapi/combocurve-openapi.yml#put-scenario-wells-upsert
+- name: delete_scenario_wells_delete
+  description: DELETE /v1/projects/{projectId}/scenarios/{scenarioId}/well-assignments
+  source_operation: openapi/combocurve-openapi.yml#delete-scenario-wells-delete
+- name: get_scenario_lookup_tables_assignments
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/assignments/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-lookup-tables-assignments
+- name: put_scenario_lookup_tables_assignments
+  description: PUT /v1/projects/{projectId}/scenarios/{scenarioId}/assignments/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#put-scenario-lookup-tables-assignments
+- name: get_scenario_lookup_tables_assignments_by_id
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/assignments/lookup-tables/{lookupTableId}
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-lookup-tables-assignments-by-id
+- name: delete_scenario_lookup_tables_assignments
+  description: DELETE /v1/projects/{projectId}/scenarios/{scenarioId}/assignments/lookup-tables/{lookupTableId}
+  source_operation: openapi/combocurve-openapi.yml#delete-scenario-lookup-tables-assignments
+- name: get_scenario_econ_model_assignments
+  description: GET /v1/projects/{projectId}/scenarios/{scenarioId}/assignments/econ-models
+  source_operation: openapi/combocurve-openapi.yml#get-scenario-econ-model-assignments
+- name: head_type_curves
+  description: HEAD /v1/projects/{projectId}/type-curves
+  source_operation: openapi/combocurve-openapi.yml#head-type-curves
+- name: get_type_curves
+  description: GET /v1/projects/{projectId}/type-curves
+  source_operation: openapi/combocurve-openapi.yml#get-type-curves
+- name: post_type_curves
+  description: POST /v1/projects/{projectId}/type-curves
+  source_operation: openapi/combocurve-openapi.yml#post-type-curves
+- name: put_type_curves
+  description: PUT /v1/projects/{projectId}/type-curves
+  source_operation: openapi/combocurve-openapi.yml#put-type-curves
+- name: delete_type_curves
+  description: DELETE /v1/projects/{projectId}/type-curves
+  source_operation: openapi/combocurve-openapi.yml#delete-type-curves
+- name: get_type_curve_by_id
+  description: GET /v1/projects/{projectId}/type-curves/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-by-id
+- name: get_type_curve_daily_fits
+  description: GET /v1/projects/{projectId}/type-curves/{id}/fits/daily
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-daily-fits
+- name: get_type_curve_monthly_fits
+  description: GET /v1/projects/{projectId}/type-curves/{id}/fits/monthly
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-monthly-fits
+- name: get_type_curve_representative_wells
+  description: GET /v1/projects/{projectId}/type-curves/{id}/representative-wells
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-representative-wells
+- name: head_type_curve_lookup_tables
+  description: HEAD /v1/projects/{projectId}/type-curves/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#head-type-curve-lookup-tables
+- name: get_type_curve_lookup_tables
+  description: GET /v1/projects/{projectId}/type-curves/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-lookup-tables
+- name: post_type_curve_lookup_tables
+  description: POST /v1/projects/{projectId}/type-curves/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#post-type-curve-lookup-tables
+- name: put_type_curve_lookup_tables
+  description: PUT /v1/projects/{projectId}/type-curves/lookup-tables
+  source_operation: openapi/combocurve-openapi.yml#put-type-curve-lookup-tables
+- name: get_type_curve_lookup_table_by_id
+  description: GET /v1/projects/{projectId}/type-curves/lookup-tables/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-type-curve-lookup-table-by-id
+- name: delete_type_curve_lookup_table_by_id
+  description: DELETE /v1/projects/{projectId}/type-curves/lookup-tables/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-type-curve-lookup-table-by-id
+- name: head_project_wells
+  description: HEAD /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#head-project-wells
+- name: get_project_wells
+  description: GET /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#get-project-wells
+- name: patch_project_wells
+  description: PATCH /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#patch-project-wells
+- name: post_projects_wells
+  description: POST /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#post-projects-wells
+- name: put_projects_wells
+  description: PUT /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#put-projects-wells
+- name: delete_project_wells
+  description: DELETE /v1/projects/{projectId}/wells
+  source_operation: openapi/combocurve-openapi.yml#delete-project-wells
+- name: get_project_well_by_id
+  description: GET /v1/projects/{projectId}/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-project-well-by-id
+- name: patch_project_well_by_id
+  description: PATCH /v1/projects/{projectId}/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#patch-project-well-by-id
+- name: put_projects_wells_by_id
+  description: PUT /v1/projects/{projectId}/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#put-projects-wells-by-id
+- name: delete_project_well_by_id
+  description: DELETE /v1/projects/{projectId}/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-project-well-by-id
+- name: head_econ_models
+  description: HEAD /v1/projects/{projectId}/econ-models
+  source_operation: openapi/combocurve-openapi.yml#head-econ-models
+- name: get_econ_models
+  description: GET /v1/projects/{projectId}/econ-models
+  source_operation: openapi/combocurve-openapi.yml#get-econ-models
+- name: get_econ_model_by_id
+  description: GET /v1/projects/{projectId}/econ-models/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-econ-model-by-id
+- name: head_econ_models_assignments_count
+  description: HEAD /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments
+  source_operation: openapi/combocurve-openapi.yml#head-econ-models-assignments-count
+- name: get_econ_models_assignments_read
+  description: GET /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments
+  source_operation: openapi/combocurve-openapi.yml#get-econ-models-assignments-read
+- name: post_econ_model_assignment_upsert
+  description: POST /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments
+  source_operation: openapi/combocurve-openapi.yml#post-econ-model-assignment-upsert
+- name: put_econ_model_assignment_upsert
+  description: PUT /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments
+  source_operation: openapi/combocurve-openapi.yml#put-econ-model-assignment-upsert
+- name: delete_econ_model_assignment_delete
+  description: DELETE /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments
+  source_operation: openapi/combocurve-openapi.yml#delete-econ-model-assignment-delete
+- name: head_actual_forecast
+  description: HEAD /v1/projects/{projectId}/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#head-actual-forecast
+- name: get_actual_forecast
+  description: GET /v1/projects/{projectId}/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#get-actual-forecast
+- name: post_actual_forecast
+  description: POST /v1/projects/{projectId}/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#post-actual-forecast
+- name: put_actual_forecast
+  description: PUT /v1/projects/{projectId}/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#put-actual-forecast
+- name: get_actual_forecast_by_id
+  description: GET /v1/projects/{projectId}/econ-models/actual-forecast/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-actual-forecast-by-id
+- name: delete_actual_forecast_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/actual-forecast/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-actual-forecast-by-id
+- name: head_general_options
+  description: HEAD /v1/projects/{projectId}/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#head-general-options
+- name: get_general_options
+  description: GET /v1/projects/{projectId}/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#get-general-options
+- name: post_general_options
+  description: POST /v1/projects/{projectId}/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#post-general-options
+- name: put_general_options
+  description: PUT /v1/projects/{projectId}/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#put-general-options
+- name: get_general_options_by_id
+  description: GET /v1/projects/{projectId}/econ-models/general-options/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-general-options-by-id
+- name: delete_general_options_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/general-options/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-general-options-by-id
+- name: head_reserves_categories
+  description: HEAD /v1/projects/{projectId}/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#head-reserves-categories
+- name: get_reserves_categories
+  description: GET /v1/projects/{projectId}/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#get-reserves-categories
+- name: post_reserves_categories
+  description: POST /v1/projects/{projectId}/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#post-reserves-categories
+- name: put_reserves_categories
+  description: PUT /v1/projects/{projectId}/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#put-reserves-categories
+- name: get_reserves_category_by_id
+  description: GET /v1/projects/{projectId}/econ-models/reserves-categories/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-reserves-category-by-id
+- name: delete_reserves_category_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/reserves-categories/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-reserves-category-by-id
+- name: head_escalations
+  description: HEAD /v1/projects/{projectId}/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#head-escalations
+- name: get_escalations
+  description: GET /v1/projects/{projectId}/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#get-escalations
+- name: post_escalations
+  description: POST /v1/projects/{projectId}/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#post-escalations
+- name: put_escalations
+  description: PUT /v1/projects/{projectId}/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#put-escalations
+- name: get_escalation_by_id
+  description: GET /v1/projects/{projectId}/econ-models/escalations/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-escalation-by-id
+- name: delete_escalation_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/escalations/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-escalation-by-id
+- name: head_differentials
+  description: HEAD /v1/projects/{projectId}/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#head-differentials
+- name: get_differentials
+  description: GET /v1/projects/{projectId}/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#get-differentials
+- name: post_differentials
+  description: POST /v1/projects/{projectId}/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#post-differentials
+- name: put_differentials
+  description: PUT /v1/projects/{projectId}/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#put-differentials
+- name: get_differential_by_id
+  description: GET /v1/projects/{projectId}/econ-models/differentials/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-differential-by-id
+- name: delete_differential_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/differentials/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-differential-by-id
+- name: head_pricing
+  description: HEAD /v1/projects/{projectId}/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#head-pricing
+- name: get_pricing
+  description: GET /v1/projects/{projectId}/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#get-pricing
+- name: post_pricing
+  description: POST /v1/projects/{projectId}/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#post-pricing
+- name: put_pricing
+  description: PUT /v1/projects/{projectId}/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#put-pricing
+- name: get_pricing_by_id
+  description: GET /v1/projects/{projectId}/econ-models/pricing/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-pricing-by-id
+- name: delete_pricing_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/pricing/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-pricing-by-id
+- name: head_ownership_reversions
+  description: HEAD /v1/projects/{projectId}/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#head-ownership-reversions
+- name: get_ownership_reversions
+  description: GET /v1/projects/{projectId}/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#get-ownership-reversions
+- name: post_ownership_reversions
+  description: POST /v1/projects/{projectId}/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#post-ownership-reversions
+- name: put_ownership_reversions
+  description: PUT /v1/projects/{projectId}/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#put-ownership-reversions
+- name: get_ownership_reversion_by_id
+  description: GET /v1/projects/{projectId}/econ-models/ownership-reversions/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-ownership-reversion-by-id
+- name: delete_ownership_reversion_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/ownership-reversions/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-ownership-reversion-by-id
+- name: head_production_taxes
+  description: HEAD /v1/projects/{projectId}/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#head-production-taxes
+- name: get_production_taxes
+  description: GET /v1/projects/{projectId}/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#get-production-taxes
+- name: post_production_taxes
+  description: POST /v1/projects/{projectId}/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#post-production-taxes
+- name: put_production_taxes
+  description: PUT /v1/projects/{projectId}/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#put-production-taxes
+- name: get_production_taxes_by_id
+  description: GET /v1/projects/{projectId}/econ-models/production-taxes/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-production-taxes-by-id
+- name: delete_production_taxes_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/production-taxes/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-production-taxes-by-id
+- name: head_riskings
+  description: HEAD /v1/projects/{projectId}/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#head-riskings
+- name: get_riskings
+  description: GET /v1/projects/{projectId}/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#get-riskings
+- name: post_riskings
+  description: POST /v1/projects/{projectId}/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#post-riskings
+- name: put_riskings
+  description: PUT /v1/projects/{projectId}/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#put-riskings
+- name: get_risking_by_id
+  description: GET /v1/projects/{projectId}/econ-models/riskings/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-risking-by-id
+- name: delete_riskings_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/riskings/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-riskings-by-id
+- name: head_stream_properties
+  description: HEAD /v1/projects/{projectId}/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#head-stream-properties
+- name: get_stream_properties
+  description: GET /v1/projects/{projectId}/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#get-stream-properties
+- name: post_stream_properties
+  description: POST /v1/projects/{projectId}/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#post-stream-properties
+- name: put_stream_properties
+  description: PUT /v1/projects/{projectId}/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#put-stream-properties
+- name: get_stream_properties_by_id
+  description: GET /v1/projects/{projectId}/econ-models/stream-properties/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-stream-properties-by-id
+- name: delete_stream_properties_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/stream-properties/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-stream-properties-by-id
+- name: head_expenses
+  description: HEAD /v1/projects/{projectId}/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#head-expenses
+- name: get_expenses
+  description: GET /v1/projects/{projectId}/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#get-expenses
+- name: post_expenses
+  description: POST /v1/projects/{projectId}/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#post-expenses
+- name: put_expenses
+  description: PUT /v1/projects/{projectId}/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#put-expenses
+- name: get_expenses_by_id
+  description: GET /v1/projects/{projectId}/econ-models/expenses/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-expenses-by-id
+- name: delete_expenses_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/expenses/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-expenses-by-id
+- name: head_emissions
+  description: HEAD /v1/projects/{projectId}/econ-models/emissions
+  source_operation: openapi/combocurve-openapi.yml#head-emissions
+- name: get_emissions
+  description: GET /v1/projects/{projectId}/econ-models/emissions
+  source_operation: openapi/combocurve-openapi.yml#get-emissions
+- name: post_emissions
+  description: POST /v1/projects/{projectId}/econ-models/emissions
+  source_operation: openapi/combocurve-openapi.yml#post-emissions
+- name: put_emissions
+  description: PUT /v1/projects/{projectId}/econ-models/emissions
+  source_operation: openapi/combocurve-openapi.yml#put-emissions
+- name: get_emission_by_id
+  description: GET /v1/projects/{projectId}/econ-models/emissions/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-emission-by-id
+- name: delete_emission_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/emissions/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-emission-by-id
+- name: head_fluid_models
+  description: HEAD /v1/projects/{projectId}/econ-models/fluid-models
+  source_operation: openapi/combocurve-openapi.yml#head-fluid-models
+- name: get_fluid_models
+  description: GET /v1/projects/{projectId}/econ-models/fluid-models
+  source_operation: openapi/combocurve-openapi.yml#get-fluid-models
+- name: post_fluid_models
+  description: POST /v1/projects/{projectId}/econ-models/fluid-models
+  source_operation: openapi/combocurve-openapi.yml#post-fluid-models
+- name: put_fluid_models
+  description: PUT /v1/projects/{projectId}/econ-models/fluid-models
+  source_operation: openapi/combocurve-openapi.yml#put-fluid-models
+- name: get_fluid_model_by_id
+  description: GET /v1/projects/{projectId}/econ-models/fluid-models/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-fluid-model-by-id
+- name: delete_fluid_model_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/fluid-models/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-fluid-model-by-id
+- name: head_operations
+  description: HEAD /v1/projects/{projectId}/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#head-operations
+- name: get_operations
+  description: GET /v1/projects/{projectId}/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#get-operations
+- name: post_operations
+  description: POST /v1/projects/{projectId}/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#post-operations
+- name: put_operations
+  description: PUT /v1/projects/{projectId}/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#put-operations
+- name: get_operations_by_id
+  description: GET /v1/projects/{projectId}/econ-models/operations/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-operations-by-id
+- name: delete_operations_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/operations/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-operations-by-id
+- name: head_capex
+  description: HEAD /v1/projects/{projectId}/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#head-capex
+- name: get_capex
+  description: GET /v1/projects/{projectId}/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#get-capex
+- name: post_capex
+  description: POST /v1/projects/{projectId}/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#post-capex
+- name: put_capex
+  description: PUT /v1/projects/{projectId}/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#put-capex
+- name: get_capex_by_id
+  description: GET /v1/projects/{projectId}/econ-models/capex/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-capex-by-id
+- name: delete_capex_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/capex/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-capex-by-id
+- name: head_date_settings
+  description: HEAD /v1/projects/{projectId}/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#head-date-settings
+- name: get_date_settings
+  description: GET /v1/projects/{projectId}/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#get-date-settings
+- name: post_date_settings
+  description: POST /v1/projects/{projectId}/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#post-date-settings
+- name: put_date_settings
+  description: PUT /v1/projects/{projectId}/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#put-date-settings
+- name: get_date_settings_by_id
+  description: GET /v1/projects/{projectId}/econ-models/date-settings/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-date-settings-by-id
+- name: delete_date_settings_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/date-settings/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-date-settings-by-id
+- name: head_depreciation
+  description: HEAD /v1/projects/{projectId}/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#head-depreciation
+- name: get_depreciation
+  description: GET /v1/projects/{projectId}/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#get-depreciation
+- name: post_depreciation
+  description: POST /v1/projects/{projectId}/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#post-depreciation
+- name: put_depreciation
+  description: PUT /v1/projects/{projectId}/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#put-depreciation
+- name: get_depreciation_by_id
+  description: GET /v1/projects/{projectId}/econ-models/depreciation/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-depreciation-by-id
+- name: delete_depreciation_by_id
+  description: DELETE /v1/projects/{projectId}/econ-models/depreciation/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-depreciation-by-id
+- name: get_project_custom_columns
+  description: GET /v1/projects/{projectId}/custom-columns/{customColumn}
+  source_operation: openapi/combocurve-openapi.yml#get-project-custom-columns
+- name: head_root_forecast_daily_volumes
+  description: HEAD /v1/forecast-daily-volumes
+  source_operation: openapi/combocurve-openapi.yml#head-root-forecast-daily-volumes
+- name: get_root_forecast_daily_volumes
+  description: GET /v1/forecast-daily-volumes
+  source_operation: openapi/combocurve-openapi.yml#get-root-forecast-daily-volumes
+- name: head_root_forecast_monthly_volumes
+  description: HEAD /v1/forecast-monthly-volumes
+  source_operation: openapi/combocurve-openapi.yml#head-root-forecast-monthly-volumes
+- name: get_root_forecast_monthly_volumes
+  description: GET /v1/forecast-monthly-volumes
+  source_operation: openapi/combocurve-openapi.yml#get-root-forecast-monthly-volumes
+- name: head_root_econ_runs
+  description: HEAD /v1/econ-runs
+  source_operation: openapi/combocurve-openapi.yml#head-root-econ-runs
+- name: get_root_econ_runs
+  description: GET /v1/econ-runs
+  source_operation: openapi/combocurve-openapi.yml#get-root-econ-runs
+- name: get_root_econ_run_by_id
+  description: GET /v1/econ-runs/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-root-econ-run-by-id
+- name: head_tags
+  description: HEAD /v1/tags
+  source_operation: openapi/combocurve-openapi.yml#head-tags
+- name: get_tags
+  description: GET /v1/tags
+  source_operation: openapi/combocurve-openapi.yml#get-tags
+- name: delete_wells
+  description: DELETE /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#delete-wells
+- name: head_wells
+  description: HEAD /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#head-wells
+- name: get_wells
+  description: GET /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#get-wells
+- name: patch_wells
+  description: PATCH /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#patch-wells
+- name: post_wells
+  description: POST /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#post-wells
+- name: put_wells
+  description: PUT /v1/wells
+  source_operation: openapi/combocurve-openapi.yml#put-wells
+- name: delete_well_by_id
+  description: DELETE /v1/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-well-by-id
+- name: get_well_by_id
+  description: GET /v1/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-well-by-id
+- name: patch_well_by_id
+  description: PATCH /v1/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#patch-well-by-id
+- name: put_well_by_id
+  description: PUT /v1/wells/{id}
+  source_operation: openapi/combocurve-openapi.yml#put-well-by-id
+- name: head_well_comments
+  description: HEAD /v1/well-comments
+  source_operation: openapi/combocurve-openapi.yml#head-well-comments
+- name: get_well_comments
+  description: GET /v1/well-comments
+  source_operation: openapi/combocurve-openapi.yml#get-well-comments
+- name: patch_wells_identifiers
+  description: PATCH /v1/wells-identifiers
+  source_operation: openapi/combocurve-openapi.yml#patch-wells-identifiers
+- name: post_directional_surveys
+  description: POST /v1/directional-surveys
+  source_operation: openapi/combocurve-openapi.yml#post-directional-surveys
+- name: head_directional_surveys
+  description: HEAD /v1/directional-surveys
+  source_operation: openapi/combocurve-openapi.yml#head-directional-surveys
+- name: get_directional_surveys
+  description: GET /v1/directional-surveys
+  source_operation: openapi/combocurve-openapi.yml#get-directional-surveys
+- name: put_directional_surveys
+  description: PUT /v1/directional-surveys/{id}
+  source_operation: openapi/combocurve-openapi.yml#put-directional-surveys
+- name: get_directional_surveys_by_id
+  description: GET /v1/directional-surveys/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-directional-surveys-by-id
+- name: delete_directional_surveys_by_id
+  description: DELETE /v1/directional-surveys/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-directional-surveys-by-id
+- name: get_custom_columns
+  description: GET /v1/custom-columns/{collection}
+  source_operation: openapi/combocurve-openapi.yml#get-custom-columns
+- name: get_users_roles
+  description: GET /v1/users/roles
+  source_operation: openapi/combocurve-openapi.yml#get-users-roles
+- name: head_company_econ_models
+  description: HEAD /v1/econ-models
+  source_operation: openapi/combocurve-openapi.yml#head-company-econ-models
+- name: get_company_econ_models
+  description: GET /v1/econ-models
+  source_operation: openapi/combocurve-openapi.yml#get-company-econ-models
+- name: get_company_econ_model_by_id
+  description: GET /v1/econ-models/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-econ-model-by-id
+- name: head_company_actual_forecast
+  description: HEAD /v1/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#head-company-actual-forecast
+- name: get_company_actual_forecast
+  description: GET /v1/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#get-company-actual-forecast
+- name: post_company_actual_forecast
+  description: POST /v1/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#post-company-actual-forecast
+- name: put_company_actual_forecast
+  description: PUT /v1/econ-models/actual-forecast
+  source_operation: openapi/combocurve-openapi.yml#put-company-actual-forecast
+- name: get_company_actual_forecast_by_id
+  description: GET /v1/econ-models/actual-forecast/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-actual-forecast-by-id
+- name: delete_company_actual_forecast_by_id
+  description: DELETE /v1/econ-models/actual-forecast/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-actual-forecast-by-id
+- name: head_company_capex
+  description: HEAD /v1/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#head-company-capex
+- name: get_company_capex
+  description: GET /v1/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#get-company-capex
+- name: post_company_capex
+  description: POST /v1/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#post-company-capex
+- name: put_company_capex
+  description: PUT /v1/econ-models/capex
+  source_operation: openapi/combocurve-openapi.yml#put-company-capex
+- name: get_company_capex_by_id
+  description: GET /v1/econ-models/capex/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-capex-by-id
+- name: delete_company_capex_by_id
+  description: DELETE /v1/econ-models/capex/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-capex-by-id
+- name: head_company_date_settings
+  description: HEAD /v1/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#head-company-date-settings
+- name: get_company_date_settings
+  description: GET /v1/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#get-company-date-settings
+- name: post_company_date_settings
+  description: POST /v1/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#post-company-date-settings
+- name: put_company_date_settings
+  description: PUT /v1/econ-models/date-settings
+  source_operation: openapi/combocurve-openapi.yml#put-company-date-settings
+- name: get_company_date_settings_by_id
+  description: GET /v1/econ-models/date-settings/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-date-settings-by-id
+- name: delete_company_date_settings_by_id
+  description: DELETE /v1/econ-models/date-settings/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-date-settings-by-id
+- name: head_company_depreciation
+  description: HEAD /v1/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#head-company-depreciation
+- name: get_company_depreciation
+  description: GET /v1/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#get-company-depreciation
+- name: post_company_depreciation
+  description: POST /v1/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#post-company-depreciation
+- name: put_company_depreciation
+  description: PUT /v1/econ-models/depreciation
+  source_operation: openapi/combocurve-openapi.yml#put-company-depreciation
+- name: get_company_depreciation_by_id
+  description: GET /v1/econ-models/depreciation/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-depreciation-by-id
+- name: delete_company_depreciation_by_id
+  description: DELETE /v1/econ-models/depreciation/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-depreciation-by-id
+- name: head_company_differentials
+  description: HEAD /v1/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#head-company-differentials
+- name: get_company_differentials
+  description: GET /v1/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#get-company-differentials
+- name: post_company_differentials
+  description: POST /v1/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#post-company-differentials
+- name: put_company_differentials
+  description: PUT /v1/econ-models/differentials
+  source_operation: openapi/combocurve-openapi.yml#put-company-differentials
+- name: get_company_differential_by_id
+  description: GET /v1/econ-models/differentials/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-differential-by-id
+- name: delete_company_differential_by_id
+  description: DELETE /v1/econ-models/differentials/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-differential-by-id
+- name: head_company_escalations
+  description: HEAD /v1/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#head-company-escalations
+- name: get_company_escalations
+  description: GET /v1/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#get-company-escalations
+- name: post_company_escalations
+  description: POST /v1/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#post-company-escalations
+- name: put_company_escalations
+  description: PUT /v1/econ-models/escalations
+  source_operation: openapi/combocurve-openapi.yml#put-company-escalations
+- name: get_company_escalation_by_id
+  description: GET /v1/econ-models/escalations/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-escalation-by-id
+- name: delete_company_escalation_by_id
+  description: DELETE /v1/econ-models/escalations/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-escalation-by-id
+- name: head_company_expenses
+  description: HEAD /v1/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#head-company-expenses
+- name: get_company_expenses
+  description: GET /v1/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#get-company-expenses
+- name: post_company_expenses
+  description: POST /v1/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#post-company-expenses
+- name: put_company_expenses
+  description: PUT /v1/econ-models/expenses
+  source_operation: openapi/combocurve-openapi.yml#put-company-expenses
+- name: get_company_expenses_by_id
+  description: GET /v1/econ-models/expenses/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-expenses-by-id
+- name: delete_company_expenses_by_id
+  description: DELETE /v1/econ-models/expenses/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-expenses-by-id
+- name: head_company_general_options
+  description: HEAD /v1/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#head-company-general-options
+- name: get_company_general_options
+  description: GET /v1/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#get-company-general-options
+- name: post_company_general_options
+  description: POST /v1/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#post-company-general-options
+- name: put_company_general_options
+  description: PUT /v1/econ-models/general-options
+  source_operation: openapi/combocurve-openapi.yml#put-company-general-options
+- name: get_company_general_options_by_id
+  description: GET /v1/econ-models/general-options/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-general-options-by-id
+- name: delete_company_general_options_by_id
+  description: DELETE /v1/econ-models/general-options/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-general-options-by-id
+- name: head_company_ownership_reversions
+  description: HEAD /v1/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#head-company-ownership-reversions
+- name: get_company_ownership_reversions
+  description: GET /v1/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#get-company-ownership-reversions
+- name: post_company_ownership_reversions
+  description: POST /v1/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#post-company-ownership-reversions
+- name: put_company_ownership_reversions
+  description: PUT /v1/econ-models/ownership-reversions
+  source_operation: openapi/combocurve-openapi.yml#put-company-ownership-reversions
+- name: get_company_ownership_reversion_by_id
+  description: GET /v1/econ-models/ownership-reversions/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-ownership-reversion-by-id
+- name: delete_company_ownership_reversion_by_id
+  description: DELETE /v1/econ-models/ownership-reversions/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-ownership-reversion-by-id
+- name: head_company_pricing
+  description: HEAD /v1/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#head-company-pricing
+- name: get_company_pricing
+  description: GET /v1/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#get-company-pricing
+- name: post_company_pricing
+  description: POST /v1/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#post-company-pricing
+- name: put_company_pricing
+  description: PUT /v1/econ-models/pricing
+  source_operation: openapi/combocurve-openapi.yml#put-company-pricing
+- name: get_company_pricing_by_id
+  description: GET /v1/econ-models/pricing/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-pricing-by-id
+- name: delete_company_pricing_by_id
+  description: DELETE /v1/econ-models/pricing/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-pricing-by-id
+- name: head_company_production_taxes
+  description: HEAD /v1/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#head-company-production-taxes
+- name: get_company_production_taxes
+  description: GET /v1/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#get-company-production-taxes
+- name: post_company_production_taxes
+  description: POST /v1/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#post-company-production-taxes
+- name: put_company_production_taxes
+  description: PUT /v1/econ-models/production-taxes
+  source_operation: openapi/combocurve-openapi.yml#put-company-production-taxes
+- name: get_company_production_taxes_by_id
+  description: GET /v1/econ-models/production-taxes/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-production-taxes-by-id
+- name: delete_company_production_taxes_by_id
+  description: DELETE /v1/econ-models/production-taxes/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-production-taxes-by-id
+- name: head_company_reserves_categories
+  description: HEAD /v1/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#head-company-reserves-categories
+- name: get_company_reserves_categories
+  description: GET /v1/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#get-company-reserves-categories
+- name: post_company_reserves_categories
+  description: POST /v1/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#post-company-reserves-categories
+- name: put_company_reserves_categories
+  description: PUT /v1/econ-models/reserves-categories
+  source_operation: openapi/combocurve-openapi.yml#put-company-reserves-categories
+- name: get_company_reserves_category_by_id
+  description: GET /v1/econ-models/reserves-categories/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-reserves-category-by-id
+- name: delete_company_reserves_category_by_id
+  description: DELETE /v1/econ-models/reserves-categories/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-reserves-category-by-id
+- name: head_company_riskings
+  description: HEAD /v1/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#head-company-riskings
+- name: get_company_riskings
+  description: GET /v1/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#get-company-riskings
+- name: post_company_riskings
+  description: POST /v1/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#post-company-riskings
+- name: put_company_riskings
+  description: PUT /v1/econ-models/riskings
+  source_operation: openapi/combocurve-openapi.yml#put-company-riskings
+- name: get_company_risking_by_id
+  description: GET /v1/econ-models/riskings/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-risking-by-id
+- name: delete_company_riskings_by_id
+  description: DELETE /v1/econ-models/riskings/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-riskings-by-id
+- name: head_company_operations
+  description: HEAD /v1/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#head-company-operations
+- name: get_company_operations
+  description: GET /v1/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#get-company-operations
+- name: post_company_operations
+  description: POST /v1/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#post-company-operations
+- name: put_company_operations
+  description: PUT /v1/econ-models/operations
+  source_operation: openapi/combocurve-openapi.yml#put-company-operations
+- name: get_company_operations_by_id
+  description: GET /v1/econ-models/operations/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-operations-by-id
+- name: delete_company_operations_by_id
+  description: DELETE /v1/econ-models/operations/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-operations-by-id
+- name: head_company_stream_properties
+  description: HEAD /v1/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#head-company-stream-properties
+- name: get_company_stream_properties
+  description: GET /v1/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#get-company-stream-properties
+- name: post_company_stream_properties
+  description: POST /v1/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#post-company-stream-properties
+- name: put_company_stream_properties
+  description: PUT /v1/econ-models/stream-properties
+  source_operation: openapi/combocurve-openapi.yml#put-company-stream-properties
+- name: get_company_stream_properties_by_id
+  description: GET /v1/econ-models/stream-properties/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-company-stream-properties-by-id
+- name: delete_company_stream_properties_by_id
+  description: DELETE /v1/econ-models/stream-properties/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-company-stream-properties-by-id
+- name: head_forecast_configurations
+  description: HEAD /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#head-forecast-configurations
+- name: get_forecast_configurations
+  description: GET /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-configurations
+- name: post_forecast_configurations
+  description: POST /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#post-forecast-configurations
+- name: put_forecast_configurations
+  description: PUT /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#put-forecast-configurations
+- name: patch_forecast_configurations
+  description: PATCH /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#patch-forecast-configurations
+- name: delete_forecast_configurations
+  description: DELETE /v1/forecast-configurations
+  source_operation: openapi/combocurve-openapi.yml#delete-forecast-configurations
+- name: get_forecast_configuration_by_id
+  description: GET /v1/forecast-configurations/{id}
+  source_operation: openapi/combocurve-openapi.yml#get-forecast-configuration-by-id
+- name: delete_forecast_configuration_by_id
+  description: DELETE /v1/forecast-configurations/{id}
+  source_operation: openapi/combocurve-openapi.yml#delete-forecast-configuration-by-id
+- name: post_exports
+  description: POST /v1/exports
+  source_operation: openapi/combocurve-openapi.yml#post-exports
+- name: trigger_a_forecast_parameters_export_job
+  description: POST /v2/exports/forecast-parameters
+  source_operation: openapi/combocurve-openapi.yml#Trigger a forecast parameters export job
+- name: get_forecast_parameters_export_job_status
+  description: GET /v2/exports/forecast-parameters/{jobId}
+  source_operation: openapi/combocurve-openapi.yml#Get forecast parameters export job status
+- name: trigger_a_forecast_volumes_export_job
+  description: POST /v2/exports/forecast-volumes
+  source_operation: openapi/combocurve-openapi.yml#Trigger a forecast volumes export job
+- name: get_forecast_volumes_export_job_status
+  description: GET /v2/exports/forecast-volumes/{jobId}
+  source_operation: openapi/combocurve-openapi.yml#Get forecast volumes export job status
+- name: trigger_an_economic_monthly_export_job
+  description: POST /v2/exports/econ-monthly
+  source_operation: openapi/combocurve-openapi.yml#Trigger an economic monthly export job
+- name: get_economic_monthly_export_job_status
+  description: GET /v2/exports/econ-monthly/{jobId}
+  source_operation: openapi/combocurve-openapi.yml#Get economic monthly export job status
+- name: trigger_an_economic_one_liners_export_job
+  description: POST /v2/exports/econ-one-liners
+  source_operation: openapi/combocurve-openapi.yml#Trigger an economic one-liners export job
+- name: get_economic_one_liners_export_job_status
+  description: GET /v2/exports/econ-one-liners/{jobId}
+  source_operation: openapi/combocurve-openapi.yml#Get economic one-liners export job status

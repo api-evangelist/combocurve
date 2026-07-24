@@ -1,0 +1,24 @@
+# ComboCurve
+
+> ComboCurve is an oil & gas well forecasting, type-curve, reserves and economics platform for petroleum engineers, operators, private equity, and A&D teams. Its REST API exposes well headers, production data, directional surveys, forecasts, econ-models, economics runs, and export jobs at https://api.combocurve.com.
+
+Authentication requires two headers on every request: an `Authorization` signed JWT bearer token generated from a Service Account Key, and an `x-api-key` company API key (both obtained from the ComboCurve API & Sync page). Versions v1 (CRUD) and v2 (async export jobs). Rate limits: 800 read / 200 write per minute (HTTP 429). Offset (skip/take) plus cursor pagination.
+
+## APIs
+- [ComboCurve REST API (OpenAPI, derived)](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/openapi/combocurve-openapi.yml): 380 operations across wells, productions, forecasts, econ-models, projects, exports.
+- [Postman Collection (official)](https://docs.api.combocurve.com/downloads/combocurve-api.postman_collection.json): source of the derived OpenAPI.
+
+## Docs
+- [API Documentation](https://docs.api.combocurve.com/)
+- [Getting Started](https://docs.api.combocurve.com/api/getting-started)
+- [API Forum](https://forum.api.combocurve.com/)
+- [Status Page](https://status.combocurve.com/)
+- [Website](https://combocurve.com/)
+
+## Artifacts
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/authentication/combocurve-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/conventions/combocurve-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/errors/combocurve-problem-types.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/lifecycle/combocurve-lifecycle.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/data-model/combocurve-data-model.yml)
+- [Agent Skills](https://raw.githubusercontent.com/api-evangelist/combocurve/refs/heads/main/skills/_index.yml)

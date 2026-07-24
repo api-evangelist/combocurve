@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/combocurve-openapi.yml
+skills:
+- file: combocurve-import-wells-and-production.md
+  name: Import wells and production data
+  api: openapi/combocurve-openapi.yml
+  operations: [post-wells, get-wells, put-wells, post-daily-productions, post-monthly-productions]
+- file: combocurve-forecast-and-export-economics.md
+  name: Forecast wells and export economics
+  api: openapi/combocurve-openapi.yml
+  operations: [get-forecasts, post-forecasts, get-forecast-monthly-volumes, get-econ-runs, post-exports]

@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://pypi.org/project/combocurve-api-helper/
+note: No first-party ComboCurve SDK is published to public registries; the ComboCurve API is distributed
+  as a Postman collection. A well-known community Python client exists.
+packages:
+- language: python
+  registry: pypi
+  name: combocurve-api-helper
+  url: https://pypi.org/project/combocurve-api-helper/
+  install: pip install combocurve-api-helper
+  version: 1.2.0
+  license: MIT
+  repository: https://github.com/petbox-dev/combocurve-api-helper
+  official: false
+  maintainer: Petroleum Engineering Toolbox (David S. Fulford)
+  description: A library mapped to ComboCurve's API (community-maintained).

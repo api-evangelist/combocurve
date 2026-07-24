@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: live probes of /.well-known/* on api.combocurve.com and combocurve.com
+note: No /.well-known discovery documents are published. Absence is recorded data.
+documents:
+- host: https://api.combocurve.com
+  path: /.well-known/security.txt
+  status: 404
+- host: https://api.combocurve.com
+  path: /.well-known/openid-configuration
+  status: 404
+- host: https://api.combocurve.com
+  path: /.well-known/oauth-authorization-server
+  status: 404
+- host: https://api.combocurve.com
+  path: /.well-known/api-catalog
+  status: 404
+- host: https://api.combocurve.com
+  path: /.well-known/ai-plugin.json
+  status: 404
+- host: https://combocurve.com
+  path: /.well-known/security.txt
+  status: 404

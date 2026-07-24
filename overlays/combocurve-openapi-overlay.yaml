@@ -1,0 +1,17 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for ComboCurve REST API
+  version: 1.0.0
+extends: openapi/combocurve-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-source: derived from official ComboCurve Postman collection
+    x-api-industry: oil-and-gas
+    x-rate-limit-read: 800/min
+    x-rate-limit-write: 200/min
+    x-max-request-body: 24MB
+- target: $.paths.*.*
+  update:
+    x-apievangelist-rate-limited: true

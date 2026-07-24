@@ -1,0 +1,14 @@
+{
+  "repo": "combocurve",
+  "feeds": [
+    {
+      "source": "https://forum.api.combocurve.com/",
+      "feed_url": "https://forum.api.combocurve.com/posts.rss",
+      "title": "",
+      "saved": 1,
+      "method": "discovered"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-07-20T13:31:34Z"
+}
