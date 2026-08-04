@@ -2,13 +2,20 @@
   "repo": "combocurve",
   "feeds": [
     {
+      "source": "https://forum.api.combocurve.com/posts.rss",
+      "feed_url": "https://forum.api.combocurve.com/posts.rss",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "https://forum.api.combocurve.com/",
       "feed_url": "https://forum.api.combocurve.com/posts.rss",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "discovered"
     }
   ],
-  "post_count": 1,
-  "fetched": "2026-07-20T13:31:34Z"
+  "post_count": 18,
+  "fetched": "2026-08-01T15:49:00Z"
 }
