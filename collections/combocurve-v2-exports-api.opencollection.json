@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns v2 exports API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v2 exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trigger a forecast parameters export job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v2/exports/forecast-parameters",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a forecast parameters export job. Returns a job ID that can be used to check the status of the export and download the result when complete.\n"
+        },
+        {
+          "info": {
+            "name": "Get forecast parameters export job status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v2/exports/forecast-parameters/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expirationHours",
+                "value": "",
+                "type": "query",
+                "description": "Number of hours the signed URL will remain valid (default 24)"
+              }
+            ]
+          },
+          "docs": "Retrieves the current status and result of a forecast parameters export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.\n"
+        },
+        {
+          "info": {
+            "name": "Trigger a forecast volumes export job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v2/exports/forecast-volumes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers a forecast volumes export job. Returns a job ID that can be used to check the status of the export and download the result when complete.\n"
+        },
+        {
+          "info": {
+            "name": "Get forecast volumes export job status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v2/exports/forecast-volumes/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expirationHours",
+                "value": "",
+                "type": "query",
+                "description": "Number of hours the signed URL will remain valid (default 24)"
+              }
+            ]
+          },
+          "docs": "Retrieves the current status and result of a forecast volumes export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.\n"
+        },
+        {
+          "info": {
+            "name": "Trigger an economic monthly export job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v2/exports/econ-monthly",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers an economic monthly export job. Returns a job ID that can be used to check the status of the export and download the result when complete.\n"
+        },
+        {
+          "info": {
+            "name": "Get economic monthly export job status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v2/exports/econ-monthly/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expirationHours",
+                "value": "",
+                "type": "query",
+                "description": "Number of hours the signed URL will remain valid (default 24)"
+              }
+            ]
+          },
+          "docs": "Retrieves the current status and result of an economic monthly export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.\n"
+        },
+        {
+          "info": {
+            "name": "Trigger an economic one-liners export job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v2/exports/econ-one-liners",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Triggers an economic one-liners export job. Returns a job ID that can be used to check the status of the export and download the result when complete.\n"
+        },
+        {
+          "info": {
+            "name": "Get economic one-liners export job status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v2/exports/econ-one-liners/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "expirationHours",
+                "value": "",
+                "type": "query",
+                "description": "Number of hours the signed URL will remain valid (default 24)"
+              }
+            ]
+          },
+          "docs": "Retrieves the current status and result of an economic one-liners export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

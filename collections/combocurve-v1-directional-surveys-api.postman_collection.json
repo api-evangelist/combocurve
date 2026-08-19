@@ -1,0 +1,2051 @@
+{
+  "item": [
+    {
+      "id": "9aa3c662-4b3b-4049-8e5c-1a2cdff7a17f",
+      "name": "v1 directional-surveys",
+      "description": {
+        "content": "directional-surveys operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2646f0e-c460-4df0-901c-3cb235835ce0",
+          "name": "post-directional-surveys",
+          "request": {
+            "name": "post-directional-surveys",
+            "description": {
+              "content": "Insert a new directional Survey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f39f28b-cd22-4a6e-b7e5-d109aa29cead",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6ef7243-8a0a-4a6e-aa77-54fbda287887",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01a1dfde-b65f-41e2-9956-e2319c6048a4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab06d41a-8e26-4450-ad67-467034a6565b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca22589c-18e7-4436-8137-b2e2901e2d76",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"chosenID\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"spatialDataType\": \"<string>\",\n  \"measuredDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"trueVerticalDepth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"azimuth\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"inclination\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationEW\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"deviationNS\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"latitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"longitude\": [\n    \"<number>\",\n    \"<number>\"\n  ],\n  \"projectID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3721732e-a72d-492d-9885-ff9b5f75cea6",
+          "name": "head-directional-surveys",
+          "request": {
+            "name": "head-directional-surveys",
+            "description": {
+              "content": "Returns metadata about the existing directional surveys documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "chosenID",
+                  "value": "<string>",
+                  "description": "filter by well chosenID"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<string>",
+                  "description": "filter by project ID"
+                }
+              ],
+              "variable": []
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5af2449d-5e80-4cca-9c9e-5fb419e6bf15",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89e90e00-4055-4c2a-a7d1-13863fce3e5d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "684a3acd-00b8-4080-b7f8-98739f932061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a581fa6-fa7e-4acf-a5a0-780ca9d6e1b1",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d05329a8-6efa-405b-b451-4ea629038d16",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fd20844-7176-4004-ab55-d82eef6421e2",
+          "name": "get-directional-surveys",
+          "request": {
+            "name": "get-directional-surveys",
+            "description": {
+              "content": "Returns a list of directional surveys documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "used in pagination to get the next page"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "chosenID",
+                  "value": "<string>",
+                  "description": "filter by well chosenID"
+                },
+                {
+                  "disabled": false,
+                  "key": "measures",
+                  "value": "<string>",
+                  "description": "configure the measures fields to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<string>",
+                  "description": "filter by project ID"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08f91762-c40d-4487-ab0b-631d095ffd0b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "measures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40c3bcaa-4377-4013-b9ae-afe3a801b300",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "measures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "201b6e91-e139-4454-af6a-2b1a50a0f0f3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "measures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "570651de-0868-468f-9158-ff6dbccfa6d9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "measures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e05a1d38-4ca7-4ee1-84c7-34a9f2ecd155",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "chosenID",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "measures",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ac91e2a-8d1e-479d-a989-d4adfe1175b9",
+          "name": "put-directional-surveys",
+          "request": {
+            "name": "put-directional-surveys",
+            "description": {
+              "content": "Update a Directional Survey.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0499be44-aa69-4e45-bbf7-915ec851b6fe",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8842c2f9-3b18-4563-9cc8-7f162036c386",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab748ed6-531e-4389-b3bf-1dbea603bbf9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69c91559-479e-4089-afed-56eccb2199e2",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "78fa6055-b26d-45ed-a688-9120331366ad",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"spatialDataType\": \"<string>\",\n  \"dataSource\": \"<string>\",\n  \"update\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"add\": {\n    \"measuredDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"trueVerticalDepth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"azimuth\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"inclination\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationEW\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"deviationNS\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"latitude\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"longitude\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"remove\": [\n    \"<number>\",\n    \"<number>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d595ff8-3171-4fc9-9384-d6749592852c",
+          "name": "get-directional-surveys-by-id",
+          "request": {
+            "name": "get-directional-surveys-by-id",
+            "description": {
+              "content": "Returns the DS document that matches the given id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42986661-9f60-44b7-95d5-d3f97fed8442",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d0e32e8-3d68-4e2f-9b14-c93c450eed99",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6238ed73-a34f-4864-be5c-757ce1dac8e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "65262adc-b7ab-4f7a-8af5-53ab52cd81d8",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98cd9c96-ac8c-41f3-bfe3-ddb4e0dcf512",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbcbe648-45cc-4f8c-a954-c45a20bb5e95",
+          "name": "delete-directional-surveys-by-id",
+          "request": {
+            "name": "delete-directional-surveys-by-id",
+            "description": {
+              "content": "Delete the directional survey document that matches the given id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "directional-surveys",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4ff829d-0e61-446c-be1e-c205a209ba0e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0c27b511-22b3-468b-9ccb-033b60343fcb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9835a97-11dc-4cc6-8b5f-26bd39327b9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d8cf9dbc-2ccd-4fec-aa1f-3d21214d5f05",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2fdbc4a-4e35-4e74-8196-1fed3fd7410b",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "directional-surveys",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.combocurve.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "72fdb11d-6010-483e-be3d-8281d4e43d98",
+    "name": "ComboCurve REST v1 custom-columns v1 directional-surveys API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.\n\nContact Support:\n Name: ComboCurve API Support",
+      "type": "text/plain"
+    }
+  }
+}

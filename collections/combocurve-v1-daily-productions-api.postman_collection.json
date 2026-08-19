@@ -1,0 +1,2054 @@
+{
+  "item": [
+    {
+      "id": "e186c6d9-50af-48c2-9d8b-6bde61e6d11c",
+      "name": "v1 daily-productions",
+      "description": {
+        "content": "daily-productions operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4997182e-f1ce-42fb-84ae-7457950d392b",
+          "name": "delete-daily-productions",
+          "request": {
+            "name": "delete-daily-productions",
+            "description": {
+              "content": "Delete the daily productions documents that match the given filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "(Required) filter by well ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "filter by startDate"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "filter by endDate"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3a0602b2-1c85-4006-b3a8-4f2e3169e522",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17e4f8dd-2669-487e-a148-ac9c5abe5c27",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "53791dbf-77f9-4e40-a045-dee07ab746c7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35d3673b-726a-4efd-9ed2-237fd2450845",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28ef9cff-0fc7-4cf3-a44f-9ddbed4d3f75",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bea509b-5be2-4c3c-b634-b3cc01185b78",
+          "name": "head-daily-productions",
+          "request": {
+            "name": "head-daily-productions",
+            "description": {
+              "content": "Returns metadata about the existing daily production documents in the company scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "filter by date"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+                }
+              ],
+              "variable": []
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e20850e0-5316-4847-927c-1c6ebd1712ee",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac9adc58-d04b-4092-9ec9-1256bf603a45",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b918e41f-294a-4e8f-9431-91e2aeb723e8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48124a17-f8a8-4e41-85ff-fb399f2d7d62",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "576afbbd-c91b-4d02-98e5-d6a2949699a2",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96c31133-d8d0-4b78-91cf-ef120eb9a83f",
+          "name": "get-daily-productions",
+          "request": {
+            "name": "get-daily-productions",
+            "description": {
+              "content": "Returns a list of daily production documents in the company scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "used in pagination to get the next page"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "filter by date"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d678cabe-1213-46c5-8e49-d45916af1c97",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1cc12411-6757-4012-b2d0-a6a7e9bfb886",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8d7252ba-f6b1-486b-a219-96ce4af31af1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "edbaadaa-48ed-4736-9e7f-c62260d31d43",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03d01502-e8a6-485d-aaca-f059cbb818ba",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91ce2b0f-4ebf-4388-b278-a4e530156530",
+          "name": "post-daily-productions",
+          "request": {
+            "name": "post-daily-productions",
+            "description": {
+              "content": "Upserts a list of daily production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3de8dcaa-9138-4943-8a46-c6e008281cec",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89b8832a-16d5-4816-8dba-c3040bb17f69",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abf290f8-5db8-4202-821b-a3264d92bf1e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6d2b046c-572b-4195-94ba-1b89319fbeb7",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b994d01-5d8a-428d-bfe3-e46f9c88f487",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf65ae3e-00e0-425a-98fb-8c754611a758",
+          "name": "put-daily-productions",
+          "request": {
+            "name": "put-daily-productions",
+            "description": {
+              "content": "Upserts a list of daily production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21569d39-30a8-4544-9990-3695693065de",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3c203ad-9a68-456c-adb8-ed953136c643",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73886e3c-547e-4064-af7f-c509e582c7f1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b8356cd-b375-4919-af3e-761bf6898931",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42202a53-7688-4c77-a9f3-04909ca1b5da",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6ca7ba8-320c-4a63-95f6-83f48d14e6f8",
+          "name": "patch-daily-productions",
+          "request": {
+            "name": "patch-daily-productions",
+            "description": {
+              "content": "Patch a list of daily production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "daily-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57be9638-dc95-4e82-b033-60111e8e120e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4c8bd67-6f0f-40d5-9c3d-8a9370140206",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "197d00c2-34ff-4c2e-a3e5-cf9367f86e8c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3521f2c6-0322-48bd-8384-73be8e111650",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2787b19-e28c-4a8d-b0b4-e4d72df11c9d",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "daily-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"bottomHolePressure\": \"<number>\",\n    \"casingHeadPressure\": \"<number>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"flowlinePressure\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"gasLiftInjectionPressure\": \"<number>\",\n    \"hoursOn\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"tubingHeadPressure\": \"<number>\",\n    \"vesselSeparatorPressure\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.combocurve.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8bb17bd0-ee5a-4ee1-adb3-36e098e8f278",
+    "name": "ComboCurve REST v1 custom-columns v1 daily-productions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.\n\nContact Support:\n Name: ComboCurve API Support",
+      "type": "text/plain"
+    }
+  }
+}

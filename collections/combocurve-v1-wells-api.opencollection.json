@@ -1,0 +1,376 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns v1 wells API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1 wells",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/wells",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "api10",
+                "value": "",
+                "type": "query",
+                "description": "filter by api10"
+              },
+              {
+                "name": "api12",
+                "value": "",
+                "type": "query",
+                "description": "filter by api12"
+              },
+              {
+                "name": "county",
+                "value": "",
+                "type": "query",
+                "description": "filter by county"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "filter by state"
+              },
+              {
+                "name": "wellName",
+                "value": "",
+                "type": "query",
+                "description": "filter by wellName"
+              },
+              {
+                "name": "chosenID",
+                "value": "",
+                "type": "query",
+                "description": "filter by chosenID"
+              },
+              {
+                "name": "inptID",
+                "value": "",
+                "type": "query",
+                "description": "filter by inptID"
+              },
+              {
+                "name": "api14",
+                "value": "",
+                "type": "query",
+                "description": "filter by api14"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "dataSource",
+                "value": "",
+                "type": "query",
+                "description": "filter by dataSource"
+              },
+              {
+                "name": "currentOperator",
+                "value": "",
+                "type": "query",
+                "description": "filter by dataSource"
+              }
+            ]
+          },
+          "docs": "Returns a list of well documents."
+        },
+        {
+          "info": {
+            "name": "post-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/wells",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of well documents."
+        },
+        {
+          "info": {
+            "name": "put-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/wells",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces a list of well documents."
+        },
+        {
+          "info": {
+            "name": "patch-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.combocurve.com/v1/wells",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a list of well documents."
+        },
+        {
+          "info": {
+            "name": "delete-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/wells",
+            "params": [
+              {
+                "name": "chosenID",
+                "value": "",
+                "type": "query",
+                "description": "filter by chosenID"
+              },
+              {
+                "name": "dataSource",
+                "value": "",
+                "type": "query",
+                "description": "filter by dataSource"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "filter by id"
+              }
+            ]
+          },
+          "docs": "Delete the wells documents that match the given filters."
+        },
+        {
+          "info": {
+            "name": "head-wells",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/wells",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "api10",
+                "value": "",
+                "type": "query",
+                "description": "filter by api10"
+              },
+              {
+                "name": "api12",
+                "value": "",
+                "type": "query",
+                "description": "filter by api12"
+              },
+              {
+                "name": "county",
+                "value": "",
+                "type": "query",
+                "description": "filter by county"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "filter by state"
+              },
+              {
+                "name": "wellName",
+                "value": "",
+                "type": "query",
+                "description": "filter by wellName"
+              },
+              {
+                "name": "chosenID",
+                "value": "",
+                "type": "query",
+                "description": "filter by chosenID"
+              },
+              {
+                "name": "inptID",
+                "value": "",
+                "type": "query",
+                "description": "filter by inptID"
+              },
+              {
+                "name": "api14",
+                "value": "",
+                "type": "query",
+                "description": "filter by api14"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing well documents."
+        },
+        {
+          "info": {
+            "name": "get-well-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/wells/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the well document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "put-well-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/wells/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replaces the well document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "patch-well-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.combocurve.com/v1/wells/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the well document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-well-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/wells/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the well document that matches the given id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

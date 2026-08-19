@@ -1,0 +1,2924 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns v1 econ-models API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1 econ-models",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-company-econ-models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of econ model documents."
+        },
+        {
+          "info": {
+            "name": "head-company-econ-models",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models",
+            "params": [
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing econ model documents."
+        },
+        {
+          "info": {
+            "name": "get-company-econ-model-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the econ model document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "get-company-actual-forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of actual of forecast documents."
+        },
+        {
+          "info": {
+            "name": "post-company-actual-forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of actual or forecast documents."
+        },
+        {
+          "info": {
+            "name": "put-company-actual-forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of actual or forecast documents."
+        },
+        {
+          "info": {
+            "name": "head-company-actual-forecast",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing actual or forecast documents."
+        },
+        {
+          "info": {
+            "name": "get-company-actual-forecast-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the actual forecast document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-actual-forecast-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/actual-forecast/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-capex",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/capex",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of capex documents."
+        },
+        {
+          "info": {
+            "name": "post-company-capex",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/capex",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of capex documents."
+        },
+        {
+          "info": {
+            "name": "put-company-capex",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/capex",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of capex documents."
+        },
+        {
+          "info": {
+            "name": "head-company-capex",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/capex",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing capex documents."
+        },
+        {
+          "info": {
+            "name": "get-company-capex-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/capex/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the capex document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-capex-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/capex/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-date-settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of date-settings documents."
+        },
+        {
+          "info": {
+            "name": "post-company-date-settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of date-settings documents."
+        },
+        {
+          "info": {
+            "name": "put-company-date-settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of date-settings documents."
+        },
+        {
+          "info": {
+            "name": "head-company-date-settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing date-settings documents."
+        },
+        {
+          "info": {
+            "name": "get-company-date-settings-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the date-settings document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-date-settings-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/date-settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to the company level"
+        },
+        {
+          "info": {
+            "name": "get-company-depreciation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of depreciation documents."
+        },
+        {
+          "info": {
+            "name": "post-company-depreciation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of depreciation documents."
+        },
+        {
+          "info": {
+            "name": "put-company-depreciation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of depreciation documents."
+        },
+        {
+          "info": {
+            "name": "head-company-depreciation",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing depreciation documents."
+        },
+        {
+          "info": {
+            "name": "get-company-depreciation-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the depreciation document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-depreciation-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/depreciation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-differentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of differentials documents."
+        },
+        {
+          "info": {
+            "name": "post-company-differentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of differentials documents."
+        },
+        {
+          "info": {
+            "name": "put-company-differentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of differentials documents."
+        },
+        {
+          "info": {
+            "name": "head-company-differentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing differentials documents."
+        },
+        {
+          "info": {
+            "name": "get-company-differential-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the differential document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-differential-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/differentials/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-escalations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of escalation models documents."
+        },
+        {
+          "info": {
+            "name": "post-company-escalations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of escalation models documents."
+        },
+        {
+          "info": {
+            "name": "put-company-escalations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of escalation models documents."
+        },
+        {
+          "info": {
+            "name": "head-company-escalations",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing escalation models documents."
+        },
+        {
+          "info": {
+            "name": "get-company-escalation-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the escalation model document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-escalation-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/escalations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-expenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of expenses documents."
+        },
+        {
+          "info": {
+            "name": "post-company-expenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of expenses documents."
+        },
+        {
+          "info": {
+            "name": "put-company-expenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of expenses documents."
+        },
+        {
+          "info": {
+            "name": "head-company-expenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing expenses documents."
+        },
+        {
+          "info": {
+            "name": "get-company-expenses-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the expenses document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-expenses-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/expenses/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-general-options",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of general options documents."
+        },
+        {
+          "info": {
+            "name": "post-company-general-options",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of general options documents."
+        },
+        {
+          "info": {
+            "name": "put-company-general-options",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of general options documents."
+        },
+        {
+          "info": {
+            "name": "head-company-general-options",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing general options documents."
+        },
+        {
+          "info": {
+            "name": "get-company-general-options-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the general options document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-general-options-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/general-options/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-ownership-reversions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of ownership reversions documents."
+        },
+        {
+          "info": {
+            "name": "post-company-ownership-reversions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of ownership reversions documents."
+        },
+        {
+          "info": {
+            "name": "put-company-ownership-reversions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of ownership reversions documents."
+        },
+        {
+          "info": {
+            "name": "head-company-ownership-reversions",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing ownership reversions documents."
+        },
+        {
+          "info": {
+            "name": "get-company-ownership-reversion-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the Ownership Reversions document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-ownership-reversion-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/ownership-reversions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of pricing documents."
+        },
+        {
+          "info": {
+            "name": "post-company-pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of pricing documents."
+        },
+        {
+          "info": {
+            "name": "put-company-pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of pricing documents."
+        },
+        {
+          "info": {
+            "name": "head-company-pricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing pricing documents."
+        },
+        {
+          "info": {
+            "name": "get-company-pricing-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the pricing document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-pricing-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/pricing/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-production-taxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of production-taxes documents."
+        },
+        {
+          "info": {
+            "name": "post-company-production-taxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of production-taxes documents."
+        },
+        {
+          "info": {
+            "name": "put-company-production-taxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of production-taxes documents."
+        },
+        {
+          "info": {
+            "name": "head-company-production-taxes",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing production-taxes documents."
+        },
+        {
+          "info": {
+            "name": "get-company-production-taxes-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the production taxes document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-production-taxes-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/production-taxes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-reserves-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of reserves categories documents."
+        },
+        {
+          "info": {
+            "name": "post-company-reserves-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of reserves categories documents."
+        },
+        {
+          "info": {
+            "name": "put-company-reserves-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of reserves categories documents."
+        },
+        {
+          "info": {
+            "name": "head-company-reserves-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing reserves categories documents."
+        },
+        {
+          "info": {
+            "name": "get-company-reserves-category-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the reserves category document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-reserves-category-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/reserves-categories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-riskings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of riskings models documents."
+        },
+        {
+          "info": {
+            "name": "post-company-riskings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of riskings models documents."
+        },
+        {
+          "info": {
+            "name": "put-company-riskings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of riskings models documents."
+        },
+        {
+          "info": {
+            "name": "head-company-riskings",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing riskings models documents."
+        },
+        {
+          "info": {
+            "name": "get-company-risking-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the riskings model document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-riskings-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/riskings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        },
+        {
+          "info": {
+            "name": "get-company-operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/operations",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a list of company-level operations documents."
+        },
+        {
+          "info": {
+            "name": "post-company-operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/operations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts company-level operations documents."
+        },
+        {
+          "info": {
+            "name": "put-company-operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/operations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create company-level operations documents."
+        },
+        {
+          "info": {
+            "name": "head-company-operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/operations",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing company-level operations documents."
+        },
+        {
+          "info": {
+            "name": "get-company-operations-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/operations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "get-company-operations-by-id"
+        },
+        {
+          "info": {
+            "name": "delete-company-operations-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/operations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "delete-company-operations-by-id"
+        },
+        {
+          "info": {
+            "name": "get-company-stream-properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of stream-properties models documents."
+        },
+        {
+          "info": {
+            "name": "post-company-stream-properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Inserts a list of stream-properties models documents."
+        },
+        {
+          "info": {
+            "name": "put-company-stream-properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace or create a list of stream-properties models documents."
+        },
+        {
+          "info": {
+            "name": "head-company-stream-properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "filter by name"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "unique",
+                "value": "",
+                "type": "query",
+                "description": "filter by unique"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing stream properties models documents."
+        },
+        {
+          "info": {
+            "name": "get-company-stream-properties-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the stream-properties model document that matches the given id."
+        },
+        {
+          "info": {
+            "name": "delete-company-stream-properties-by-id",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/econ-models/stream-properties/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the assumptions document that matches the given id scoped to company level"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

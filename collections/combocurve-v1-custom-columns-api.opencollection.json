@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1 custom-columns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-custom-columns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/custom-columns/:collection",
+            "params": [
+              {
+                "name": "collection",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the custom column that matches the given collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

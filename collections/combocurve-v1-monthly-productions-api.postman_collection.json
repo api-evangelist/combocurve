@@ -1,0 +1,2054 @@
+{
+  "item": [
+    {
+      "id": "4d1584e7-8e52-45ad-80d2-3e3695c2a964",
+      "name": "v1 monthly-productions",
+      "description": {
+        "content": "monthly-productions operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14269829-4215-42e3-9cc5-1e3fa90441c6",
+          "name": "delete-monthly-productions",
+          "request": {
+            "name": "delete-monthly-productions",
+            "description": {
+              "content": "Delete the monthly productions documents that match the given filters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "(Required) filter by well ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "filter by startDate"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "filter by endDate"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00027bfb-3089-4809-99f2-c36979ed1690",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b0049991-a5a6-463e-ba82-853411fa52c5",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4d312d3-b1fd-47e5-8127-9235de7639f7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de048e65-a5dc-4864-ab5d-79b59f7ecd3a",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd50183c-8eb6-4b0c-baa9-a29ea81c025c",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b36b1d62-561f-4512-9d7c-74aa8b14cf3a",
+          "name": "head-monthly-productions",
+          "request": {
+            "name": "head-monthly-productions",
+            "description": {
+              "content": "Returns metadata about the existing monthly production documents in the company scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "filter by date"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+                }
+              ],
+              "variable": []
+            },
+            "method": "HEAD",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "972d9d51-781c-4f5f-b1a3-58431befc7d2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a758c318-fe39-4d3b-89a3-8478fc4e44e1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aee04802-c39e-4c18-a508-d02ae76ce9cf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebb8719f-a048-4d46-9faa-404375dd31bf",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80095f53-e43c-4ee4-b8f7-31c4601dc548",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "HEAD",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46e86cef-070e-4637-aba5-55f689c1d9c5",
+          "name": "get-monthly-productions",
+          "request": {
+            "name": "get-monthly-productions",
+            "description": {
+              "content": "Returns a list of monthly production documents in the company scope.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "number of items to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "used in pagination to get the next page"
+                },
+                {
+                  "disabled": false,
+                  "key": "take",
+                  "value": "<integer>",
+                  "description": "max records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAt",
+                  "value": "<string>",
+                  "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "filter by date"
+                },
+                {
+                  "disabled": false,
+                  "key": "well",
+                  "value": "<string>",
+                  "description": "filter by well"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAt",
+                  "value": "<string>",
+                  "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9107bf7-52ac-403d-9907-737f506a9fc6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3be698a4-21ee-4331-adf6-6eaf2d98a586",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5775fe9c-413a-4a47-9764-9fb304bf34c3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1a9c9a9-8a56-4780-925c-adafd2e94ffe",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a4fdb77-bff7-4f26-8eea-7819e11335d9",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "take",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "createdAt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "well",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updatedAt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a5c5f18-11a3-4cf5-9c0d-c9a92f2324c5",
+          "name": "post-monthly-productions",
+          "request": {
+            "name": "post-monthly-productions",
+            "description": {
+              "content": "Upserts a list of monthly production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1487698c-4e75-4d6c-b50c-3c5df00f154f",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e40f4925-dbfc-4067-8352-242dd8c88fde",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1310b2d3-b0f1-4079-b066-9e3551997990",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17541b4a-a86a-45b4-94ac-c18eb23eca95",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "927f5962-4920-4a2a-adab-61609e8db1dc",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a7bb191-4fb8-46e2-8f19-b68ef54c75ca",
+          "name": "put-monthly-productions",
+          "request": {
+            "name": "put-monthly-productions",
+            "description": {
+              "content": "Upserts a list of monthly production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a61e3ea-0afb-4077-af70-ad2f28fe8a47",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9af92b9-defa-4dc2-ab83-ab18460dbdaf",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ee98f2e-b2ea-46ca-a9bc-d4bd2fc4d57d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "302710bd-18ff-40fb-9dad-2e63036af73c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a0612fb-437f-4878-8ee1-6f12a2df7d53",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8091ff5-b527-489d-9cd9-7671974d13c9",
+          "name": "patch-monthly-productions",
+          "request": {
+            "name": "patch-monthly-productions",
+            "description": {
+              "content": "Patch a list of monthly production documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "monthly-productions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5f7c390-49f9-4804-845f-5b9a22f927a4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c28922f8-ded7-4610-847f-f89c10711031",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1c9d528-97b9-4cf6-ab10-e1f7303b24d2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cc0e3d47-3b8f-4f7b-9643-7194b1b47dfd",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77e2642a-39d9-475a-8cdf-4b4936164405",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "monthly-productions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  },\n  {\n    \"date\": \"<date>\",\n    \"choke\": \"<number>\",\n    \"chosenID\": \"<string>\",\n    \"co2Injection\": \"<number>\",\n    \"customNumber0\": \"<number>\",\n    \"customNumber1\": \"<number>\",\n    \"customNumber2\": \"<number>\",\n    \"customNumber3\": \"<number>\",\n    \"customNumber4\": \"<number>\",\n    \"customNumber5\": \"<number>\",\n    \"customNumber6\": \"<number>\",\n    \"customNumber7\": \"<number>\",\n    \"customNumber8\": \"<number>\",\n    \"customNumber9\": \"<number>\",\n    \"customNumber10\": \"<number>\",\n    \"customNumber11\": \"<number>\",\n    \"customNumber12\": \"<number>\",\n    \"customNumber13\": \"<number>\",\n    \"customNumber14\": \"<number>\",\n    \"customNumber15\": \"<number>\",\n    \"customNumber16\": \"<number>\",\n    \"customNumber17\": \"<number>\",\n    \"customNumber18\": \"<number>\",\n    \"customNumber19\": \"<number>\",\n    \"dataSource\": \"<string>\",\n    \"daysOn\": \"<number>\",\n    \"gas\": \"<number>\",\n    \"gasInjection\": \"<number>\",\n    \"ngl\": \"<number>\",\n    \"oil\": \"<number>\",\n    \"operationalTag\": \"<string>\",\n    \"steamInjection\": \"<number>\",\n    \"water\": \"<number>\",\n    \"waterInjection\": \"<number>\",\n    \"well\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.combocurve.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "41fc7b03-5a5a-4988-a759-6513a1abcb85",
+    "name": "ComboCurve REST v1 custom-columns v1 monthly-productions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.\n\nContact Support:\n Name: ComboCurve API Support",
+      "type": "text/plain"
+    }
+  }
+}

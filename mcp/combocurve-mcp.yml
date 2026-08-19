@@ -1148,3 +1148,9 @@ tools:
 - name: get_economic_one_liners_export_job_status
   description: GET /v2/exports/econ-one-liners/{jobId}
   source_operation: openapi/combocurve-openapi.yml#Get economic one-liners export job status
+deployment:
+  mode: none
+  verified: derived
+  tools: 380
+  checked: '2026-08-12'
+  source: catalog MCP census

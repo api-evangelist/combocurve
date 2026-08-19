@@ -1,0 +1,334 @@
+{
+  "item": [
+    {
+      "id": "3a4b358b-16f0-427a-b87f-f8ede11c1601",
+      "name": "v1 wells-identifiers",
+      "description": {
+        "content": "wells-identifiers operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36918b10-349d-44cd-a9fb-e07a39c84907",
+          "name": "patch-wells-identifiers",
+          "request": {
+            "name": "patch-wells-identifiers",
+            "description": {
+              "content": "Updates identifiers of a list of well documents.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "wells-identifiers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53e4e4df-20ae-416e-9179-a6389dbfc78d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wells-identifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e41b10ed-2197-42ee-aca0-5489ad4c2cde",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wells-identifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e36c2115-903f-4399-9164-f225ad8026a1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wells-identifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "11a5c8cc-1463-4312-ae20-61f510e2359c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wells-identifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7dbf4b32-cec7-43c4-9ba4-13ab95d46f86",
+              "name": "Too many requests - rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "wells-identifiers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  },\n  {\n    \"wellId\": \"<string>\",\n    \"newInfo\": {\n      \"chosenKeyID\": \"<string>\",\n      \"companyScope\": \"<boolean>\",\n      \"dataSource\": \"<string>\"\n    }\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.combocurve.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7fa7f988-926f-481a-be42-ed72d3b6f380",
+    "name": "ComboCurve REST v1 custom-columns v1 wells-identifiers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.\n\nContact Support:\n Name: ComboCurve API Support",
+      "type": "text/plain"
+    }
+  }
+}

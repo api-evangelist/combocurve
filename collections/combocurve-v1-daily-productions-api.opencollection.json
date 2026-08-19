@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns v1 daily-productions API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1 daily-productions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "filter by date"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns a list of daily production documents in the company scope."
+        },
+        {
+          "info": {
+            "name": "post-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upserts a list of daily production documents."
+        },
+        {
+          "info": {
+            "name": "put-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upserts a list of daily production documents."
+        },
+        {
+          "info": {
+            "name": "patch-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patch a list of daily production documents."
+        },
+        {
+          "info": {
+            "name": "delete-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "params": [
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "(Required) filter by well ID"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "filter by startDate"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "filter by endDate"
+              }
+            ]
+          },
+          "docs": "Delete the daily productions documents that match the given filters."
+        },
+        {
+          "info": {
+            "name": "head-daily-productions",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/daily-productions",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "createdAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "filter by date"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              },
+              {
+                "name": "updatedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing daily production documents in the company scope."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

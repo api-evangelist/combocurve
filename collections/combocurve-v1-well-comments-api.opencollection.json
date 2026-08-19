@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ComboCurve REST v1 custom-columns v1 well-comments API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "v1 well-comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get-well-comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.combocurve.com/v1/well-comments",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "field to sort by, including + or - at the beginning for ascending or descending order, respectively"
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "used in pagination to get the next page"
+              },
+              {
+                "name": "commentedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by commentedAt"
+              },
+              {
+                "name": "forecast",
+                "value": "",
+                "type": "query",
+                "description": "filter by forecast"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "filter by project"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              }
+            ]
+          },
+          "docs": "Returns a list of well comment documents."
+        },
+        {
+          "info": {
+            "name": "head-well-comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://api.combocurve.com/v1/well-comments",
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "number of items to skip"
+              },
+              {
+                "name": "take",
+                "value": "",
+                "type": "query",
+                "description": "max records to return"
+              },
+              {
+                "name": "commentedAt",
+                "value": "",
+                "type": "query",
+                "description": "filter by commentedAt, can be used for incremental pull"
+              },
+              {
+                "name": "forecast",
+                "value": "",
+                "type": "query",
+                "description": "filter by forecast"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "filter by project"
+              },
+              {
+                "name": "well",
+                "value": "",
+                "type": "query",
+                "description": "filter by well"
+              }
+            ]
+          },
+          "docs": "Returns metadata about the existing well comment documents."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
