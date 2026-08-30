@@ -235,7 +235,7 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1-projects
+  - v1 projects
   tags_raw:
   - v1 projects
   properties:
@@ -253,7 +253,7 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - '[v1] Tags'
+  - v1 tags
   tags_raw:
   - v1 tags
   properties:
@@ -271,7 +271,7 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 - Users
+  - v1 users
   tags_raw:
   - v1 users
   properties:
