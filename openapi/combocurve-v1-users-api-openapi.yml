@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ComboCurve REST v1 custom-columns v1 users API
+  title: ComboCurve REST v1 users API
   version: v1
   description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
   contact:
@@ -13,7 +13,7 @@ security:
 - apiKeyAuth: []
   bearerAuth: []
 tags:
-- name: v1 users
+- name: V1 Users
   description: users operations
 paths:
   /v1/users/roles:
@@ -21,7 +21,7 @@ paths:
       operationId: get-users-roles
       summary: get-users-roles
       tags:
-      - v1 users
+      - V1 Users
       description: Returns a list of user resource role documents.
       parameters:
       - name: skip

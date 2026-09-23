@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ComboCurve REST v1 custom-columns v1 projects API
+  title: ComboCurve REST v1 projects API
   version: v1
   description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
   contact:
@@ -12597,7 +12597,7 @@ paths:
       summary: post-projects-wells
       tags:
       - v1 projects
-      description: Inserts a list of well documents into the specified project's scope.  Project Custom Headers fields must be sent as string
+      description: Inserts a list of well documents into the specified project's scope. Project Custom Headers fields must be sent as string
       parameters:
       - name: projectId
         in: path

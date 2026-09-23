@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ComboCurve REST v1 custom-columns v2 exports API
+  title: ComboCurve REST v2 exports API
   version: v1
   description: 'ComboCurve REST API for oil & gas well forecasting, type curves, production data, reserves and economics. Base URL https://api.combocurve.com. Authentication requires two headers: a signed bearer token (Authorization) generated from a Service Account Key, and an x-api-key. Derived by API Evangelist from the official public ComboCurve Postman collection.'
   contact:
@@ -22,9 +22,7 @@ paths:
       summary: Trigger a forecast parameters export job
       tags:
       - v2 exports
-      description: 'Triggers a forecast parameters export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
-
-        '
+      description: Triggers a forecast parameters export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
       requestBody:
         required: true
         content:
@@ -86,9 +84,7 @@ paths:
       summary: Get forecast parameters export job status
       tags:
       - v2 exports
-      description: 'Retrieves the current status and result of a forecast parameters export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
-
-        '
+      description: Retrieves the current status and result of a forecast parameters export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
       parameters:
       - name: jobId
         in: path
@@ -118,9 +114,7 @@ paths:
       summary: Trigger a forecast volumes export job
       tags:
       - v2 exports
-      description: 'Triggers a forecast volumes export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
-
-        '
+      description: Triggers a forecast volumes export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
       requestBody:
         required: true
         content:
@@ -183,9 +177,7 @@ paths:
       summary: Get forecast volumes export job status
       tags:
       - v2 exports
-      description: 'Retrieves the current status and result of a forecast volumes export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
-
-        '
+      description: Retrieves the current status and result of a forecast volumes export job. When the export is complete and successful, the response will include a URL to download the generated parquet file.
       parameters:
       - name: jobId
         in: path
@@ -215,9 +207,7 @@ paths:
       summary: Trigger an economic monthly export job
       tags:
       - v2 exports
-      description: 'Triggers an economic monthly export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
-
-        '
+      description: Triggers an economic monthly export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
       requestBody:
         required: true
         content:
@@ -252,9 +242,7 @@ paths:
       summary: Get economic monthly export job status
       tags:
       - v2 exports
-      description: 'Retrieves the current status and result of an economic monthly export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.
-
-        '
+      description: Retrieves the current status and result of an economic monthly export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes, the export will be marked as failed.
       parameters:
       - name: jobId
         in: path
@@ -284,9 +272,7 @@ paths:
       summary: Trigger an economic one-liners export job
       tags:
       - v2 exports
-      description: 'Triggers an economic one-liners export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
-
-        '
+      description: Triggers an economic one-liners export job. Returns a job ID that can be used to check the status of the export and download the result when complete.
       requestBody:
         required: true
         content:
@@ -321,9 +307,7 @@ paths:
       summary: Get economic one-liners export job status
       tags:
       - v2 exports
-      description: 'Retrieves the current status and result of an economic one-liners export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes,  the export will be marked as failed.
-
-        '
+      description: Retrieves the current status and result of an economic one-liners export job. When the export is complete and successful, the response will include URLs to download the generated export files. If no files are generated within the expected time window of 10 minutes, the export will be marked as failed.
       parameters:
       - name: jobId
         in: path
