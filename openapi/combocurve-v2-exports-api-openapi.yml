@@ -18,7 +18,7 @@ tags:
 paths:
   /v2/exports/forecast-parameters:
     post:
-      operationId: Trigger a forecast parameters export job
+      operationId: TriggerAForecastParametersExportJob
       summary: Trigger a forecast parameters export job
       tags:
       - v2 exports
@@ -78,9 +78,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Trigger a forecast parameters export job
   /v2/exports/forecast-parameters/{jobId}:
     get:
-      operationId: Get forecast parameters export job status
+      operationId: GetForecastParametersExportJobStatus
       summary: Get forecast parameters export job status
       tags:
       - v2 exports
@@ -108,9 +110,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Get forecast parameters export job status
   /v2/exports/forecast-volumes:
     post:
-      operationId: Trigger a forecast volumes export job
+      operationId: TriggerAForecastVolumesExportJob
       summary: Trigger a forecast volumes export job
       tags:
       - v2 exports
@@ -171,9 +175,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Trigger a forecast volumes export job
   /v2/exports/forecast-volumes/{jobId}:
     get:
-      operationId: Get forecast volumes export job status
+      operationId: GetForecastVolumesExportJobStatus
       summary: Get forecast volumes export job status
       tags:
       - v2 exports
@@ -201,9 +207,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Get forecast volumes export job status
   /v2/exports/econ-monthly:
     post:
-      operationId: Trigger an economic monthly export job
+      operationId: TriggerAnEconomicMonthlyExportJob
       summary: Trigger an economic monthly export job
       tags:
       - v2 exports
@@ -236,9 +244,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Trigger an economic monthly export job
   /v2/exports/econ-monthly/{jobId}:
     get:
-      operationId: Get economic monthly export job status
+      operationId: GetEconomicMonthlyExportJobStatus
       summary: Get economic monthly export job status
       tags:
       - v2 exports
@@ -266,9 +276,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Get economic monthly export job status
   /v2/exports/econ-one-liners:
     post:
-      operationId: Trigger an economic one-liners export job
+      operationId: TriggerAnEconomicOne-linersExportJob
       summary: Trigger an economic one-liners export job
       tags:
       - v2 exports
@@ -301,9 +313,11 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Trigger an economic one-liners export job
   /v2/exports/econ-one-liners/{jobId}:
     get:
-      operationId: Get economic one-liners export job status
+      operationId: GetEconomicOne-linersExportJobStatus
       summary: Get economic one-liners export job status
       tags:
       - v2 exports
@@ -331,6 +345,8 @@ paths:
           description: Not found
         '429':
           description: Too many requests - rate limit exceeded
+      x-operation-id-source: normalized
+      x-operation-id-original: Get economic one-liners export job status
 components:
   securitySchemes:
     apiKeyAuth:
