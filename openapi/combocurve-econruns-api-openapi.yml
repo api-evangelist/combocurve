@@ -1,0 +1,559 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Econ Runs API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: EconRuns
+paths:
+  /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs:
+    head:
+      description: Returns metadata about the existing econ run documents scoped to projectId project and scenarioId scenario.
+      operationId: head-econ-runs
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: runDate
+        in: query
+        description: filter by runDate, can be used for incremental pull
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: tags
+        in: query
+        description: filter by tag name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - EconRuns
+      summary: Head econ runs
+      x-summary-source: derived
+    get:
+      description: Returns a list of econ run documents scoped to projectId project and scenarioId scenario.
+      operationId: get-econ-runs
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: runDate
+        in: query
+        description: filter by runDate
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: tags
+        in: query
+        description: filter by tag name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconRunList'
+              example:
+              - id: 5e5981b9e23dae0012624d72
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 622d373726543548d040cb86
+                scenario: 622d373724539878d040cb85
+                outputParams:
+                  prodAnalyticsType: calendar
+              - id: 5e9999e23dae0012243e99
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 62b1c13e2750130012ee4515
+                scenario: 62befdc048cddf001246d674
+                outputParams:
+                  prodAnalyticsType: calendar
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconRuns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get econ runs
+      x-summary-source: derived
+  /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{id}:
+    get:
+      description: Returns the econ run document that matches the given id scoped to projectId project and scenarioId scenario.
+      operationId: get-econ-run-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconRun'
+              example:
+                id: 5e5981b9e23dae0012624d72
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 622d373726543548d040cb86
+                scenario: 622d373724539878d040cb85
+                outputParams:
+                  prodAnalyticsType: calendar
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconRuns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get econ run by id
+      x-summary-source: derived
+  /v1/econ-runs:
+    head:
+      description: Returns metadata about the existing econ run documents.
+      operationId: head-root-econ-runs
+      parameters:
+      - in: query
+        name: project
+        description: filter by project id
+        schema:
+          type: string
+      - in: query
+        name: scenario
+        description: filter by scenario id
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: runDate
+        in: query
+        description: filter by runDate, can be used for incremental pull
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: tags
+        in: query
+        description: filter by tag name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - EconRuns
+      summary: Head root econ runs
+      x-summary-source: derived
+    get:
+      description: Returns a list of econ run documents.
+      operationId: get-root-econ-runs
+      parameters:
+      - in: query
+        name: project
+        description: filter by project id
+        schema:
+          type: string
+      - in: query
+        name: scenario
+        description: filter by scenario id
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: runDate
+        in: query
+        description: filter by runDate
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: tags
+        in: query
+        description: filter by tag name
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconRunList'
+              example:
+              - id: 5e5981b9e23dae0012624d72
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 622d373726543548d040cb86
+                scenario: 622d373724539878d040cb85
+                outputParams:
+                  prodAnalyticsType: calendar
+              - id: 5e9999e23dae0012243e99
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 62b1c13e2750130012ee4515
+                scenario: 62befdc048cddf001246d674
+                outputParams:
+                  prodAnalyticsType: calendar
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconRuns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get root econ runs
+      x-summary-source: derived
+  /v1/econ-runs/{id}:
+    get:
+      description: Returns the econ run document that matches the given id.
+      operationId: get-root-econ-run-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconRun'
+              example:
+                id: 5e5981b9e23dae0012624d72
+                runDate: '2020-06-08T19:14:22.012Z'
+                status: complete
+                tags:
+                - name: Test tag
+                  description: Test tag description
+                project: 622d373726543548d040cb86
+                scenario: 622d373724539878d040cb85
+                outputParams:
+                  prodAnalyticsType: calendar
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconRuns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get root econ run by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    EconRunList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EconRun'
+      maxItems: 200
+      example:
+      - id: 5e5981b9e23dae0012624d72
+        runDate: '2020-06-08T19:14:22.012Z'
+        status: complete
+        tags:
+        - name: Test tag
+          description: Test tag description
+        project: 622d373726543548d040cb86
+        scenario: 622d373724539878d040cb85
+        outputParams:
+          prodAnalyticsType: calendar
+      - id: 5e9999e23dae0012243e99
+        runDate: '2020-06-08T19:14:22.012Z'
+        status: complete
+        tags:
+        - name: Test tag
+          description: Test tag description
+        project: 62b1c13e2750130012ee4515
+        scenario: 62befdc048cddf001246d674
+        outputParams:
+          prodAnalyticsType: calendar
+    EconRun:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID
+        project:
+          type: string
+          description: Project ID
+        runDate:
+          type: string
+          format: date
+          description: Run Date
+        scenario:
+          type: string
+          description: Scenario ID
+        status:
+          type: string
+          description: Status
+        tags:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                maxLength: 16384
+                description: Name
+              description:
+                type: string
+                maxLength: 16384
+                description: Description
+        outputParams:
+          type: object
+          properties:
+            prodAnalyticsType:
+              type: string
+              enum:
+              - calendar
+              - daysOn
+              - none
+              description: Production Analytics Type
+      example:
+        id: 5e5981b9e23dae0012624d72
+        runDate: '2020-06-08T19:14:22.012Z'
+        status: complete
+        tags:
+        - name: Test tag
+          description: Test tag description
+        project: 622d373726543548d040cb86
+        scenario: 622d373724539878d040cb85
+        outputParams:
+          prodAnalyticsType: calendar
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

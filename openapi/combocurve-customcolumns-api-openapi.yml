@@ -1,0 +1,346 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Custom Columns API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: CustomColumns
+paths:
+  /v1/custom-columns/{collection}:
+    get:
+      description: Returns the custom column that matches the given collection.
+      operationId: get-custom-columns
+      parameters:
+      - in: path
+        name: collection
+        required: true
+        schema:
+          type: string
+          enum:
+          - wells
+          - daily-productions
+          - monthly-productions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomColumns'
+              example:
+                customString0: PS comp text 1
+                customString1: Biodiversity
+                customString2: Sub Type Curve Area
+                customString3: LPI random Header
+                customString4: CustomHeaderNew
+                customString5: Congo Region DK
+                customString6: US NAVY BASE
+                customString7: Scout
+                customString8: new new name for Text Header 9
+                customString9: text header ten new name
+                customString10: 1-ThankYou
+                customString11: Custom Text Header 12
+                customString12: Custom Text Header 13
+                customString13: new name for Text Header 14
+                customString14: On-Site Fuel Type
+                customString15: Facility Type
+                customString16: Facility Name
+                customString17: Facility Design Version
+                customString18: Surface/Pad ID
+                customString19: Surface/Pad Location Name
+                customNumber0: PS Comp Number 1
+                customNumber1: Shota Header2
+                customNumber2: EXETAT DK
+                customNumber3: Employees size
+                customNumber4: QA Smoke Test Number 5
+                customNumber5: Custom Number Header 6
+                customNumber6: Custom Number Header 7
+                customNumber7: Custom Number Header 8
+                customNumber8: Custom Number Header 9
+                customNumber9: _My custom field definition_
+                customNumber10: umer_heat map
+                customNumber11: Custom Number Header 12
+                customNumber12: Custom Number Header 13
+                customNumber13: jhjhjhj
+                customNumber14: Custom Number Header 15
+                customNumber15: Custom Number Header 16
+                customNumber16: Custom Number Header 17
+                customNumber17: Custom Number Header 18
+                customNumber18: Pneumatic Device Count 2021
+                customNumber19: Pneumatic Device Count 2018
+                customDate0: PS Comp Date 1
+                customDate1: Inauguration Date
+                customDate2: Custom Date Header 3
+                customDate3: Custom Date Header 4
+                customDate4: Custom Date Header 5
+                customDate5: Custom Date Header 6
+                customDate6: Custom Date Header 7
+                customDate7: Custom Date Header 8
+                customDate8: Custom Date Header 9
+                customDate9: Custom Date Header 10
+                customBool0: PS Comp Boolean 1
+                customBool1: Ecole DK
+                customBool2: Electric Compressor
+                customBool3: Tankless
+                customBool4: Custom Boolean Header 5
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - CustomColumns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get custom columns
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    CustomColumns:
+      type: object
+      properties:
+        customNumber19:
+          type: string
+        customNumber18:
+          type: string
+        customNumber17:
+          type: string
+        customNumber16:
+          type: string
+        customNumber15:
+          type: string
+        customNumber14:
+          type: string
+        customNumber13:
+          type: string
+        customNumber12:
+          type: string
+        customNumber11:
+          type: string
+        customNumber10:
+          type: string
+        customNumber9:
+          type: string
+        customNumber8:
+          type: string
+        customNumber7:
+          type: string
+        customNumber6:
+          type: string
+        customNumber5:
+          type: string
+        customNumber4:
+          type: string
+        customNumber3:
+          type: string
+        customNumber2:
+          type: string
+        customNumber1:
+          type: string
+        customNumber0:
+          type: string
+        customString24:
+          type: string
+        customString23:
+          type: string
+        customString22:
+          type: string
+        customString21:
+          type: string
+        customString20:
+          type: string
+        customString19:
+          type: string
+        customString18:
+          type: string
+        customString17:
+          type: string
+        customString16:
+          type: string
+        customString15:
+          type: string
+        customString14:
+          type: string
+        customString13:
+          type: string
+        customString12:
+          type: string
+        customString11:
+          type: string
+        customString10:
+          type: string
+        customString9:
+          type: string
+        customString8:
+          type: string
+        customString7:
+          type: string
+        customString6:
+          type: string
+        customString5:
+          type: string
+        customString4:
+          type: string
+        customString3:
+          type: string
+        customString2:
+          type: string
+        customString1:
+          type: string
+        customString0:
+          type: string
+        customDate9:
+          type: string
+        customDate8:
+          type: string
+        customDate7:
+          type: string
+        customDate6:
+          type: string
+        customDate5:
+          type: string
+        customDate4:
+          type: string
+        customDate3:
+          type: string
+        customDate2:
+          type: string
+        customDate1:
+          type: string
+        customDate0:
+          type: string
+        customBool4:
+          type: string
+        customBool3:
+          type: string
+        customBool2:
+          type: string
+        customBool1:
+          type: string
+        customBool0:
+          type: string
+      example:
+        customString0: PS comp text 1
+        customString1: Biodiversity
+        customString2: Sub Type Curve Area
+        customString3: LPI random Header
+        customString4: CustomHeaderNew
+        customString5: Congo Region DK
+        customString6: US NAVY BASE
+        customString7: Scout
+        customString8: new new name for Text Header 9
+        customString9: text header ten new name
+        customString10: 1-ThankYou
+        customString11: Custom Text Header 12
+        customString12: Custom Text Header 13
+        customString13: new name for Text Header 14
+        customString14: On-Site Fuel Type
+        customString15: Facility Type
+        customString16: Facility Name
+        customString17: Facility Design Version
+        customString18: Surface/Pad ID
+        customString19: Surface/Pad Location Name
+        customNumber0: PS Comp Number 1
+        customNumber1: Shota Header2
+        customNumber2: EXETAT DK
+        customNumber3: Employees size
+        customNumber4: QA Smoke Test Number 5
+        customNumber5: Custom Number Header 6
+        customNumber6: Custom Number Header 7
+        customNumber7: Custom Number Header 8
+        customNumber8: Custom Number Header 9
+        customNumber9: _My custom field definition_
+        customNumber10: umer_heat map
+        customNumber11: Custom Number Header 12
+        customNumber12: Custom Number Header 13
+        customNumber13: jhjhjhj
+        customNumber14: Custom Number Header 15
+        customNumber15: Custom Number Header 16
+        customNumber16: Custom Number Header 17
+        customNumber17: Custom Number Header 18
+        customNumber18: Pneumatic Device Count 2021
+        customNumber19: Pneumatic Device Count 2018
+        customDate0: PS Comp Date 1
+        customDate1: Inauguration Date
+        customDate2: Custom Date Header 3
+        customDate3: Custom Date Header 4
+        customDate4: Custom Date Header 5
+        customDate5: Custom Date Header 6
+        customDate6: Custom Date Header 7
+        customDate7: Custom Date Header 8
+        customDate8: Custom Date Header 9
+        customDate9: Custom Date Header 10
+        customBool0: PS Comp Boolean 1
+        customBool1: Ecole DK
+        customBool2: Electric Compressor
+        customBool3: Tankless
+        customBool4: Custom Boolean Header 5
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

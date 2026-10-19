@@ -1,0 +1,426 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Projects API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Projects
+paths:
+  /v1/projects:
+    head:
+      description: Returns metadata about the existing project documents.
+      operationId: head-projects
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Projects
+      summary: Head projects
+      x-summary-source: derived
+    get:
+      description: Returns a list of project documents.
+      operationId: get-projects
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectList'
+              example:
+              - createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test project
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Projects
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get projects
+      x-summary-source: derived
+    post:
+      description: Inserts a list of project documents.
+      operationId: post-projects
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'dataSource' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: Acme Royalties 2021-10-28
+                  id: 61698aa08eca904d9cc5b622
+                - status: Success
+                  code: 200
+                  name: Acme Royalties 2021-10-28
+                  id: 61698aa08eca904d9cc5b623
+                failedCount: 2
+                successCount: 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Projects
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectInputList'
+        description: Project document(s) to insert. See ProjectInputList.
+      summary: Post projects
+      x-summary-source: derived
+  /v1/projects/{id}:
+    get:
+      description: Returns the project document that matches the given id.
+      operationId: get-project-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+              example:
+                createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test project
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Projects
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get project by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ProjectList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Project'
+      maxItems: 200
+      example:
+      - createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test project
+        updatedAt: '2020-01-21T17:58:08.986Z'
+    ProjectInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProjectInput'
+      maxItems: 200
+      example:
+      - name: test
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    ProjectInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Name
+      example:
+        name: test
+    ProjectMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'id' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'dataSource' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: Acme Royalties 2021-10-28
+          id: 61698aa08eca904d9cc5b622
+        - status: Success
+          code: 200
+          name: Acme Royalties 2021-10-28
+          id: 61698aa08eca904d9cc5b623
+        failedCount: 2
+        successCount: 2
+    Project:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date
+          description: Project Creation Date
+        id:
+          type: string
+          description: ID
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+      example:
+        createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test project
+        updatedAt: '2020-01-21T17:58:08.986Z'
+    ProjectStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        id:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: Acme Royalties 2021-10-28
+        id: 61698aa08eca904d9cc5b622
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

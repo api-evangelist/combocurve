@@ -1,0 +1,12 @@
+{
+ "url": "https://storage.googleapis.com/beta-combocurve-api-docs/openapi-spec.yaml",
+ "final": "https://storage.googleapis.com/beta-combocurve-api-docs/openapi-spec.yaml",
+ "status": 200,
+ "content_type": "text/yaml",
+ "bytes": 2341676,
+ "sha256": "3f8548a9c73304f10607939c53415d6083925308218d788c617623be5fe3ab4d",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

@@ -1,0 +1,239 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Well Indentifiers API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: WellIndentifiers
+paths:
+  /v1/wells-identifiers:
+    patch:
+      description: Updates identifiers of a list of well documents.
+      operationId: patch-wells-identifiers
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WellIdentifierMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'dataSource' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  id: 62b1c13e2750169012ee4515
+                - status: Success
+                  code: 200
+                  id: 62b1c13e4857169000ee4613
+                failedCount: 2
+                successCount: 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - WellIndentifiers
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      x-is-patch: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WellIdentifierPatchInputList'
+        description: Well documents to update identifiers. See WellIdentifierPatchInput.
+      summary: Patch wells identifiers
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    WellIdentifierStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        wellId:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        wellId: 62b1c13e2750169012ee4515
+        createdAt: '2023-01-01T00:00:00.000Z'
+        updatedAt: '2023-01-01T00:00:00.000Z'
+    WellIdentifierMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/WellIdentifierStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'id' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'dataSource' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          id: 62b1c13e2750169012ee4515
+        - status: Success
+          code: 200
+          id: 62b1c13e4857169000ee4613
+        failedCount: 2
+        successCount: 2
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    WellIdentifierPatchInput:
+      type: object
+      required:
+      - wellId
+      properties:
+        wellId:
+          type: string
+          description: Well ID
+        newInfo:
+          type: object
+          properties:
+            chosenKeyID:
+              type: string
+              description: Chosen ID Key
+              enum:
+              - inptID
+              - api10
+              - api12
+              - api14
+              - aries_id
+              - phdwin_id
+            companyScope:
+              type: boolean
+              description: Whether Well should be moved to company level
+            dataSource:
+              type: string
+              description: Data Source
+              enum:
+              - di
+              - ihs
+              - phdwin
+              - aries
+              - internal
+              - other
+              - tgs
+              - spgci
+      x-is-patch: true
+      example:
+        wellId: 9E5F5CC579867509254700023
+        newInfo:
+          chosenKeyID: api14
+          companyScope: 'true'
+          dataSource: internal
+    WellIdentifierPatchInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/WellIdentifierPatchInput'
+      maxItems: 200
+      x-is-patch: true
+      example:
+      - wellId: 9E5F5CC579867509254700023
+        newInfo:
+          chosenKeyID: api14
+          companyScope: 'true'
+          dataSource: internal
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

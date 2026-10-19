@@ -1,0 +1,644 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Forecast Parameters API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: ForecastParameters
+paths:
+  /v1/projects/{projectId}/forecasts/{forecastId}/parameters/{wellId}/{phase}/{series}:
+    post:
+      description: Inserts a list of segments in a forecast for a defined well, phase, and series.
+      operationId: post-projects-forecast-segment-parameters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      - name: forecastId
+        in: path
+        required: true
+        description: The forecast's id.
+        schema:
+          type: string
+      - name: wellId
+        in: path
+        required: true
+        description: The specified well's id.
+        schema:
+          type: string
+      - name: phase
+        in: path
+        required: true
+        description: The phase of the forecast. oil | gas | water
+        schema:
+          type: string
+      - name: series
+        in: path
+        required: true
+        description: The series of the forecast. p10 | p50 | p90 | best. Currently only best is supported.
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersSuccessResponse'
+              example:
+                status: success
+                segmentCount: 8,
+                id: 62b1c13e2750169012ee4515
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+              example:
+                status: error
+                errors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                errorCount: 2
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+              example:
+                status: error
+                errors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                errorCount: 2
+      tags:
+      - ForecastParameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForecastSegmentInputList'
+        description: Forecast segments to insert. See SegmentInputArray.
+      summary: Post projects forecast segment parameters
+      x-summary-source: derived
+    put:
+      description: Updates all segments with provided list of new segments for a defined well, phase, and series.
+      operationId: put-projects-forecast-segment-parameters
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: The forecast's id.
+        schema:
+          type: string
+      - in: path
+        name: wellId
+        required: true
+        description: The specified well's id.
+        schema:
+          type: string
+      - in: path
+        name: phase
+        required: true
+        description: oil | gas | water
+        schema:
+          type: string
+      - in: path
+        name: series
+        required: true
+        description: p10 | p50 | p90 | best
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersSuccessResponse'
+              example:
+                status: success
+                segmentCount: 8,
+                id: 62b1c13e2750169012ee4515
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+              example:
+                status: error
+                errors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                errorCount: 2
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+              example:
+                status: error
+                errors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                errorCount: 2
+      tags:
+      - ForecastParameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForecastSegmentInputList'
+        description: Forecast segments to update. See SegmentInputArray.
+      summary: Put projects forecast segment parameters
+      x-summary-source: derived
+    delete:
+      description: Removes all of the segments for a defined well, phase, and series
+      operationId: delete-projects-forecast-segment-parameters
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      - name: forecastId
+        in: path
+        required: true
+        description: The forecast's id.
+        schema:
+          type: string
+      - name: wellId
+        in: path
+        required: true
+        description: The specified well's id.
+        schema:
+          type: string
+      - name: phase
+        in: path
+        required: true
+        description: oil | gas | water
+        schema:
+          type: string
+      - name: series
+        in: path
+        required: true
+        description: p10 | p50 | p90 | best
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParametersErrorResponse'
+      tags:
+      - ForecastParameters
+      summary: Delete projects forecast segment parameters
+      x-summary-source: derived
+  /v1/projects/{projectId}/forecasts/{forecastId}/parameters:
+    put:
+      description: Updates multiple forecast segments for multiple wells, phases, and series in a single request.
+      operationId: put-v2-projects-forecast-segment-parameters
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: The forecast's id.
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastParameterMultiStatusResponse'
+              example:
+                errors:
+                - name: ValidationError
+                  message: Well '5e61a3afbc3de5d21ee23366' is not present in forecast
+                  location: In body of request at position [2]
+                results:
+                - status: upserted
+                  code: 201
+                - status: upserted
+                  code: 201
+                - status: failed
+                  code: 400
+                  errors:
+                  - name: ValidationError
+                    message: Well '5e61a3afbc3de5d21ee23366' is not present in forecast
+                failedCount: 1
+                successCount: 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ForecastParameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForecastParametersV2InputList'
+        description: Forecast parameters to update. See ForecastParametersV2InputList.
+      summary: Put v2 projects forecast segment parameters
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ForecastSegmentInput:
+      type: object
+      required:
+      - segmentType
+      - startDate
+      - endDate
+      properties:
+        segmentType:
+          type: string
+          description: arps | arps_modified | arps_inc | exp_dec | exp_inc | flat | linear | empty
+        startDate:
+          type: string
+          description: Start date of the segment in (YYYY-MM-DD)
+        endDate:
+          type: string
+          description: End date of the segment (YYYY-MM-DD)
+        qStart:
+          type: number
+          description: Start of segment (BBL/D)
+        qEnd:
+          type: number
+          description: End of segment (BBL/D) *deprecated*
+        diEffSec:
+          type: number
+          description: D Effective (Percentage as a decimal) *deprecated*
+        b:
+          type: number
+          description: b factor
+        targetDSwEffSec:
+          type: number
+          description: Target D Effective Switch (Percentage as a decimal) *deprecated*
+        flatValue:
+          type: number
+          description: Flat (BBL/D) *deprecated*
+        slope:
+          type: number
+          description: slope (BBL/D/D) *deprecated*
+        realizedDEffSw:
+          type: number
+          description: Realized D Effective Switch (Percentage as a decimal)
+        k:
+          type: number
+          description: slope (linear segment)
+        d:
+          type: number
+          description: d factor
+      example:
+        segmentType: arps_modified
+        startDate: '2028-07-27'
+        endDate: '2037-07-14'
+        qStart: 497.54078888022735
+        qEnd: 108.2303
+        diEffSec: 0.2708
+        b: 0.9
+        targetDSwEffSec: 0.06
+        realizedDEffSw: 0.06
+        k: -0.00137
+        d: 0.18
+    ForecastParameterMultiStatusResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastParameterStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        errors:
+        - name: ValidationError
+          message: Well '5e61a3afbc3de5d21ee23366' is not present in forecast
+          location: In body of request at position [2]
+        results:
+        - status: upserted
+          code: 201
+        - status: upserted
+          code: 201
+        - status: failed
+          code: 400
+          errors:
+          - name: ValidationError
+            message: Well '5e61a3afbc3de5d21ee23366' is not present in forecast
+        failedCount: 1
+        successCount: 2
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    ForecastParametersV2Input:
+      type: object
+      required:
+      - well
+      - forecastType
+      - phase
+      - series
+      - segments
+      properties:
+        well:
+          type: string
+          description: The well id
+        forecastType:
+          type: string
+          description: The forecast type (rate | ratio)
+        phase:
+          type: string
+          description: The phase (oil | gas | water)
+        series:
+          type: string
+          description: The series (best)
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastSegmentInput'
+        dataFrequency:
+          type: string
+          description: The data frequency (daily | monthly)
+          default: monthly
+        basePhase:
+          type: string
+          description: The base phase for ratio forecasts (oil | gas | water)
+      example:
+        well: 5e61a3afbc3de5d21ee23364
+        forecastType: rate
+        phase: water
+        dataFrequency: daily
+        series: best
+        segments:
+        - segmentType: arps
+          startDate: '2023-01-04'
+          endDate: '2023-01-05'
+          qStart: 1500
+          d: 0.25
+          b: 1.2
+        - segmentType: linear
+          startDate: '2023-01-06'
+          endDate: '2023-01-07'
+          qStart: 950
+          k: -0.00137
+        - segmentType: exp_dec
+          startDate: '2023-01-08'
+          endDate: '2023-01-09'
+          qStart: 700
+          d: 0.15
+        - segmentType: flat
+          startDate: '2023-01-10'
+          endDate: '2023-01-11'
+          qStart: 500
+        - segmentType: empty
+          startDate: '2023-01-12'
+          endDate: '2023-01-13'
+        - segmentType: arps_modified
+          startDate: '2023-01-14'
+          endDate: '2023-01-15'
+          qStart: 450
+          d: 0.18
+          b: 0.9
+          realizedDEffSw: 0.06
+    ForecastSegmentInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ForecastSegmentInput'
+      maxItems: 25
+      example:
+      - segmentType: arps
+        startDate: '2022-07-28'
+        endDate: '2028-07-26'
+        qStart: 497.54078888022735
+        qEnd: 169.85103
+        diEffSec: 0.2708
+        b: 1.3
+      - segmentType: arps_modified
+        startDate: '2028-07-27'
+        endDate: '2037-07-14'
+        qStart: 497.54078888022735
+        qEnd: 108.2303
+        diEffSec: 0.2708
+        b: 0.9
+        targetDSwEffSec: 0.06
+    ForecastParametersSuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        segmentCount:
+          type: integer
+        id:
+          type: string
+      example:
+        status: success
+        segmentCount: 8,
+        id: 62b1c13e2750169012ee4515
+    ForecastParametersErrorResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        errorCount:
+          type: integer
+      example:
+        status: error
+        errors:
+        - name: ValidationError
+          message: The field 'id' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        errorCount: 2
+    ForecastParameterStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: upserted
+        code: 201
+    ForecastParametersV2InputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ForecastParametersV2Input'
+      maxItems: 25
+      example:
+      - well: 5e61a3afbc3de5d21ee23364
+        forecastType: rate
+        phase: water
+        dataFrequency: daily
+        series: best
+        segments:
+        - segmentType: arps
+          startDate: '2023-01-04'
+          endDate: '2023-01-05'
+          qStart: 1500
+          d: 0.25
+          b: 1.2
+      - well: 5e61a3afbc3de5d21ee23365
+        forecastType: rate
+        phase: oil
+        series: best
+        segments:
+        - segmentType: linear
+          startDate: '2023-01-06'
+          endDate: '2023-01-07'
+          qStart: 950
+          k: -0.00137
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

@@ -1,0 +1,647 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Daily Volumes API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: DailyVolumes
+paths:
+  /v1/projects/{projectId}/forecasts/{forecastId}/daily-volumes:
+    head:
+      description: Returns metadata about the existing forecast volumes scoped to projectId project, forecastId forecast, and well.
+      operationId: head-forecast-daily-volumes
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DailyVolumes
+      summary: Head forecast daily volumes
+      x-summary-source: derived
+    get:
+      description: Returns a list of forecast volumes scoped to projectId project, forecastId forecast, and well.
+      operationId: get-forecast-daily-volumes
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        description: filter by startDate. Returns all records with a startDate greater than or equal to the specified value.
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        description: filter by endDate. Returns all records with a endDate less than or equal to the specified value.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastVolumesList'
+              example:
+              - project: 63bdcdf1dc401f0012613185
+                forecast: 63bdce14dc401f00126131a7
+                well: 63bdcdf56782656f8aaad644
+                resolution: daily
+                phases:
+                - phase: gas
+                  forecastOutputId: 63bdce17dc401f0012614f34
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 1980202.8287785284
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+                - phase: oil
+                  forecastOutputId: 63bdce17dc401f0012614f34
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 610156.72736362
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+              - project: 63bdcdf1dc401f0012613185
+                forecast: 63bdce14dc401f00126131a7
+                well: 63bdcdf56782654efaaad6ca
+                resolution: daily
+                phases:
+                - phase: gas
+                  forecastOutputId: 63bdce17dc401f00126150f5
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 1980202.8287785284
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+                - phase: oil
+                  forecastOutputId: 63bdce17dc401f00126150f5
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 610156.72736362
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DailyVolumes
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get forecast daily volumes
+      x-summary-source: derived
+  /v1/projects/{projectId}/forecasts/{forecastId}/monthly-volumes:
+    head:
+      description: Returns metadata about the existing forecast volumes scoped to projectId project, forecastId forecast, and well.
+      operationId: head-forecast-monthly-volumes
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DailyVolumes
+      summary: Head forecast monthly volumes
+      x-summary-source: derived
+    get:
+      description: Returns a list of forecast volumes scoped to projectId project, forecastId forecast, and well.
+      operationId: get-forecast-monthly-volumes
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        description: filter by startDate. Returns all records with a startDate greater than or equal to the specified value.
+        schema:
+          type: string
+          format: date
+      - name: endDate
+        in: query
+        description: filter by endDate. Returns all records with a endDate less than or equal to the specified value.
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastVolumesList'
+              example:
+              - project: 63bdcdf1dc401f0012613185
+                forecast: 63bdce14dc401f00126131a7
+                well: 63bdcdf56782656f8aaad644
+                resolution: daily
+                phases:
+                - phase: gas
+                  forecastOutputId: 63bdce17dc401f0012614f34
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 1980202.8287785284
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+                - phase: oil
+                  forecastOutputId: 63bdce17dc401f0012614f34
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 610156.72736362
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+              - project: 63bdcdf1dc401f0012613185
+                forecast: 63bdce14dc401f00126131a7
+                well: 63bdcdf56782654efaaad6ca
+                resolution: daily
+                phases:
+                - phase: gas
+                  forecastOutputId: 63bdce17dc401f00126150f5
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 1980202.8287785284
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+                - phase: oil
+                  forecastOutputId: 63bdce17dc401f00126150f5
+                  series:
+                  - series: best
+                    startDate: '2020-03-15T00:00:00.000Z'
+                    endDate: '2025-03-15T00:00:00.000Z'
+                    eur: 610156.72736362
+                    volumes:
+                    - 0
+                    - 1
+                    - 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DailyVolumes
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get forecast monthly volumes
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ForecastVolumes:
+      type: object
+      properties:
+        project:
+          type: string
+          description: Project Id
+        forecast:
+          type: string
+          description: Forecast Id
+        forecastType:
+          type: string
+          enum:
+          - deterministic
+          - probabilistic
+        well:
+          type: string
+          description: Well Id
+        resolution:
+          type: string
+          description: Volume resolution
+          enum:
+          - daily
+          - monthly
+        phases:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastPhaseVolumes'
+      example:
+        project: 63bdcdf1dc401f0012613185
+        forecast: 63bdce14dc401f00126131a7
+        well: 63bdcdf56782656f8aaad644
+        resolution: daily
+    ForecastPhaseVolumes:
+      type: object
+      properties:
+        phase:
+          type: string
+          description: Phase
+          enum:
+          - oil
+          - gas
+          - water
+          - customNumber0
+          - customNumber1
+          - customNumber2
+          - customNumber3
+          - customNumber4
+          - customNumber5
+          - customNumber6
+          - customNumber7
+          - customNumber8
+          - customNumber9
+          - customNumber10
+          - customNumber11
+          - customNumber12
+          - customNumber13
+          - customNumber14
+          - customNumber15
+          - customNumber16
+          - customNumber17
+          - customNumber18
+          - customNumber19
+          - _project_custom_stream_0
+          - _project_custom_stream_1
+          - _project_custom_stream_2
+          - _project_custom_stream_3
+          - _project_custom_stream_4
+          - _project_custom_stream_5
+          - _project_custom_stream_6
+          - _project_custom_stream_7
+          - _project_custom_stream_8
+          - _project_custom_stream_9
+          - _project_custom_stream_10
+          - _project_custom_stream_11
+          - _project_custom_stream_12
+          - _project_custom_stream_13
+          - _project_custom_stream_14
+          - _project_custom_stream_15
+          - _project_custom_stream_16
+          - _project_custom_stream_17
+          - _project_custom_stream_18
+          - _project_custom_stream_19
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastSeriesVolumes'
+        forecastOutputId:
+          type: string
+          description: Id of the forecast output used to generate the volumes
+        ratio:
+          $ref: '#/components/schemas/ForecastRatioVolumes'
+      example:
+        phase: gas
+        forecastOutputId: 63bdce17dc401f0012614f34
+    ForecastRatioVolumes:
+      type: object
+      properties:
+        eur:
+          type: number
+          description: Eur
+        basePhase:
+          type: string
+          description: Base Phase
+          enum:
+          - oil
+          - gas
+          - water
+        startDate:
+          type: string
+          format: date
+          description: Start Date
+        endDate:
+          type: string
+          format: date
+          description: End Date
+        volumes:
+          type: array
+          items:
+            type:
+            - number
+            - 'null'
+      example:
+        basePhase: oil
+        startDate: '2020-03-15T00:00:00.000Z'
+        endDate: '2025-03-15T00:00:00.000Z'
+        eur: 610156.72736362
+        volumes:
+        - 0
+        - 1
+        - 2
+    ForecastVolumesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ForecastVolumes'
+      maxItems: 200
+      example:
+      - project: 63bdcdf1dc401f0012613185
+        forecast: 63bdce14dc401f00126131a7
+        well: 63bdcdf56782656f8aaad644
+        resolution: daily
+        phases:
+        - phase: gas
+          forecastOutputId: 63bdce17dc401f0012614f34
+          series:
+          - series: best
+            startDate: '2020-03-15T00:00:00.000Z'
+            endDate: '2025-03-15T00:00:00.000Z'
+            eur: 1980202.8287785284
+            volumes:
+            - 0
+            - 1
+            - 2
+        - phase: oil
+          forecastOutputId: 63bdce17dc401f0012614f34
+          series:
+          - series: best
+            startDate: '2020-03-15T00:00:00.000Z'
+            endDate: '2025-03-15T00:00:00.000Z'
+            eur: 610156.72736362
+            volumes:
+            - 0
+            - 1
+            - 2
+      - project: 63bdcdf1dc401f0012613185
+        forecast: 63bdce14dc401f00126131a7
+        well: 63bdcdf56782654efaaad6ca
+        resolution: daily
+        phases:
+        - phase: gas
+          forecastOutputId: 63bdce17dc401f00126150f5
+          series:
+          - series: best
+            startDate: '2020-03-15T00:00:00.000Z'
+            endDate: '2025-03-15T00:00:00.000Z'
+            eur: 1980202.8287785284
+            volumes:
+            - 0
+            - 1
+            - 2
+        - phase: oil
+          forecastOutputId: 63bdce17dc401f00126150f5
+          series:
+          - series: best
+            startDate: '2020-03-15T00:00:00.000Z'
+            endDate: '2025-03-15T00:00:00.000Z'
+            eur: 610156.72736362
+            volumes:
+            - 0
+            - 1
+            - 2
+    ForecastSeriesVolumes:
+      type: object
+      properties:
+        eur:
+          type: number
+          description: Eur
+        series:
+          type: string
+          description: Series
+          enum:
+          - P10
+          - P50
+          - P90
+          - best
+        startDate:
+          type: string
+          format: date
+          description: Start Date
+        endDate:
+          type: string
+          format: date
+          description: End Date
+        volumes:
+          type: array
+          items:
+            type:
+            - number
+            - 'null'
+      example:
+        series: best
+        startDate: '2020-03-15T00:00:00.000Z'
+        endDate: '2025-03-15T00:00:00.000Z'
+        eur: 610156.72736362
+        volumes:
+        - 0
+        - 1
+        - 2
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

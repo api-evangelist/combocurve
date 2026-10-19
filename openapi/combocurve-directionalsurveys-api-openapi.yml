@@ -1,0 +1,803 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Directional Surveys API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: DirectionalSurveys
+paths:
+  /v1/directional-surveys:
+    post:
+      description: Insert a new directional Survey.
+      operationId: post-directional-surveys
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyCreatedResponse'
+              example:
+                status: success
+                code: 201
+                chosenID: 64a5d81cdf46498bc8941a00
+                errors:
+                - name: RequestStructureError
+                  message: The request body is not valid.
+                  location: body
+                  chosenID: 64a5d81cdf46498bc8941a00
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyCreatedResponse'
+              example:
+                status: success
+                code: 201
+                chosenID: 64a5d81cdf46498bc8941a00
+                errors:
+                - name: RequestStructureError
+                  message: The request body is not valid.
+                  location: body
+                  chosenID: 64a5d81cdf46498bc8941a00
+      tags:
+      - DirectionalSurveys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DirectionalSurveyInsertRequest'
+        description: Directional Survey document.
+      summary: Post directional surveys
+      x-summary-source: derived
+    head:
+      description: Returns metadata about the existing directional surveys documents.
+      operationId: head-directional-surveys
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: well
+        in: query
+        description: filter by well ID
+        schema:
+          type: string
+      - name: chosenID
+        in: query
+        description: filter by well chosenID
+        schema:
+          type: string
+      - name: project
+        in: query
+        description: filter by project ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DirectionalSurveys
+      summary: Head directional surveys
+      x-summary-source: derived
+    get:
+      description: Returns a list of directional surveys documents.
+      operationId: get-directional-surveys
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: well
+        in: query
+        description: filter by well ID
+        schema:
+          type: string
+      - name: chosenID
+        in: query
+        description: filter by well chosenID
+        schema:
+          type: string
+      - name: measures
+        in: query
+        description: configure the measures fields to be returned
+        schema:
+          type: boolean
+          default: true
+      - name: project
+        in: query
+        description: filter by project ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyResponseList'
+              example:
+              - id: 64a5d81cdf46498bc8941a00
+                well: 64a5d81cdf46498bc8941a00
+                project: 64a5d81cdf46498bc8941a00
+                dataSource: IHS
+                spatialDataType: NAD27
+                measuredDepth:
+                - 0
+                - 10
+                trueVerticalDepth:
+                - 0
+                - 10
+                azimuth:
+                - 0
+                - 10
+                inclination:
+                - 0
+                - 10
+                deviationEW:
+                - 0
+                - 10
+                deviationNS:
+                - 0
+                - 10
+                latitude:
+                - 0
+                - 10
+                longitude:
+                - 0
+                - 10
+                createdAt: '2019-01-01T00:00:00.000Z'
+                updatedAt: '2019-01-01T00:00:00.000Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DirectionalSurveys
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 4
+      summary: Get directional surveys
+      x-summary-source: derived
+  /v1/directional-surveys/{id}:
+    put:
+      description: Update a Directional Survey.
+      operationId: put-directional-surveys
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyCreatedResponse'
+              example:
+                status: success
+                code: 201
+                chosenID: 64a5d81cdf46498bc8941a00
+                errors:
+                - name: RequestStructureError
+                  message: The request body is not valid.
+                  location: body
+                  chosenID: 64a5d81cdf46498bc8941a00
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyCreatedResponse'
+              example:
+                status: success
+                code: 201
+                chosenID: 64a5d81cdf46498bc8941a00
+                errors:
+                - name: RequestStructureError
+                  message: The request body is not valid.
+                  location: body
+                  chosenID: 64a5d81cdf46498bc8941a00
+      tags:
+      - DirectionalSurveys
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DirectionalSurveyUpdateRequest'
+        description: Update Directional Survey input.
+      summary: Put directional surveys
+      x-summary-source: derived
+    get:
+      description: Returns the DS document that matches the given id.
+      operationId: get-directional-surveys-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: the directional survey ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectionalSurveyResponse'
+              example:
+                id: 64a5d81cdf46498bc8941a00
+                well: 64a5d81cdf46498bc8941a00
+                project: 64a5d81cdf46498bc8941a00
+                dataSource: IHS
+                spatialDataType: NAD27
+                measuredDepth:
+                - 0
+                - 10
+                trueVerticalDepth:
+                - 0
+                - 10
+                azimuth:
+                - 0
+                - 10
+                inclination:
+                - 0
+                - 10
+                deviationEW:
+                - 0
+                - 10
+                deviationNS:
+                - 0
+                - 10
+                latitude:
+                - 0
+                - 10
+                longitude:
+                - 0
+                - 10
+                createdAt: '2019-01-01T00:00:00.000Z'
+                updatedAt: '2019-01-01T00:00:00.000Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+        '404':
+          description: Was not found any item that matches with the given id.
+      tags:
+      - DirectionalSurveys
+      summary: Get directional surveys by id
+      x-summary-source: derived
+    delete:
+      description: Delete the directional survey document that matches the given id.
+      operationId: delete-directional-surveys-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: the directional survey ID
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DirectionalSurveys
+      summary: Delete directional surveys by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    DirectionalSurveyInsertRequest:
+      type: object
+      required:
+      - chosenID
+      - dataSource
+      - spatialDataType
+      - measuredDepth
+      - trueVerticalDepth
+      - azimuth
+      - inclination
+      - deviationEW
+      - deviationNS
+      - latitude
+      - longitude
+      properties:
+        chosenID:
+          type: string
+        dataSource:
+          type: string
+        spatialDataType:
+          type: string
+          enum:
+          - NAD27
+          - NAD83
+          - WGS84
+        measuredDepth:
+          type: array
+          items:
+            type: number
+        trueVerticalDepth:
+          type: array
+          items:
+            type: number
+        azimuth:
+          type: array
+          items:
+            type: number
+        inclination:
+          type: array
+          items:
+            type: number
+        deviationEW:
+          type: array
+          items:
+            type: number
+        deviationNS:
+          type: array
+          items:
+            type: number
+        latitude:
+          type: array
+          items:
+            type: number
+        longitude:
+          type: array
+          items:
+            type: number
+        projectID:
+          type: string
+      example:
+        chosenID: 123_my_chosen
+        dataSource: IHS
+        spatialDataType: NAD27
+        measuredDepth:
+        - 0
+        - 10
+        trueVerticalDepth:
+        - 0
+        - 10
+        azimuth:
+        - 0
+        - 10
+        inclination:
+        - 0
+        - 10
+        deviationEW:
+        - 0
+        - 10
+        deviationNS:
+        - 0
+        - 10
+        latitude:
+        - 0
+        - 10
+        longitude:
+        - 0
+        - 10
+    DirectionalSurveyResponse:
+      type: object
+      required:
+      - id
+      - well
+      - measuredDepth
+      - trueVerticalDepth
+      - azimuth
+      - inclination
+      - deviationNS
+      - deviationEW
+      - latitude
+      - longitude
+      properties:
+        id:
+          type: string
+        well:
+          type: string
+        measuredDepth:
+          type: array
+          items:
+            type: number
+        trueVerticalDepth:
+          type: array
+          items:
+            type: number
+        azimuth:
+          type: array
+          items:
+            type: number
+        inclination:
+          type: array
+          items:
+            type: number
+        deviationNS:
+          type: array
+          items:
+            type: number
+        deviationEW:
+          type: array
+          items:
+            type: number
+        latitude:
+          type: array
+          items:
+            type: number
+        longitude:
+          type: array
+          items:
+            type: number
+        project:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      example:
+        id: 64a5d81cdf46498bc8941a00
+        well: 64a5d81cdf46498bc8941a00
+        project: 64a5d81cdf46498bc8941a00
+        dataSource: IHS
+        spatialDataType: NAD27
+        measuredDepth:
+        - 0
+        - 10
+        trueVerticalDepth:
+        - 0
+        - 10
+        azimuth:
+        - 0
+        - 10
+        inclination:
+        - 0
+        - 10
+        deviationEW:
+        - 0
+        - 10
+        deviationNS:
+        - 0
+        - 10
+        latitude:
+        - 0
+        - 10
+        longitude:
+        - 0
+        - 10
+        createdAt: '2019-01-01T00:00:00.000Z'
+        updatedAt: '2019-01-01T00:00:00.000Z'
+    DirectionalSurveyCreatedResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        code:
+          type: number
+        chosenID:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              message:
+                type: string
+              location:
+                type: string
+              chosenID:
+                type: string
+      example:
+        status: success
+        code: 201
+        chosenID: 64a5d81cdf46498bc8941a00
+        errors:
+        - name: RequestStructureError
+          message: The request body is not valid.
+          location: body
+          chosenID: 64a5d81cdf46498bc8941a00
+    DirectionalSurveyResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DirectionalSurveyResponse'
+      maxItems: 1000
+      example:
+      - id: 64a5d81cdf46498bc8941a00
+        well: 64a5d81cdf46498bc8941a00
+        project: 64a5d81cdf46498bc8941a00
+        dataSource: IHS
+        spatialDataType: NAD27
+        measuredDepth:
+        - 0
+        - 10
+        trueVerticalDepth:
+        - 0
+        - 10
+        azimuth:
+        - 0
+        - 10
+        inclination:
+        - 0
+        - 10
+        deviationEW:
+        - 0
+        - 10
+        deviationNS:
+        - 0
+        - 10
+        latitude:
+        - 0
+        - 10
+        longitude:
+        - 0
+        - 10
+        createdAt: '2019-01-01T00:00:00.000Z'
+        updatedAt: '2019-01-01T00:00:00.000Z'
+    DirectionalSurveyUpdateRequest:
+      type: object
+      properties:
+        spatialDataType:
+          type: string
+          enum:
+          - NAD27
+          - NAD83
+          - WGS84
+        dataSource:
+          type: string
+        update:
+          type: object
+          required:
+          - measuredDepth
+          - trueVerticalDepth
+          - latitude
+          - longitude
+          - azimuth
+          - inclination
+          - deviationEW
+          - deviationNS
+          properties:
+            measuredDepth:
+              type: array
+              items:
+                type: number
+            trueVerticalDepth:
+              type: array
+              items:
+                type: number
+            azimuth:
+              type: array
+              items:
+                type: number
+            inclination:
+              type: array
+              items:
+                type: number
+            deviationEW:
+              type: array
+              items:
+                type: number
+            deviationNS:
+              type: array
+              items:
+                type: number
+            latitude:
+              type: array
+              items:
+                type: number
+            longitude:
+              type: array
+              items:
+                type: number
+        add:
+          type: object
+          required:
+          - measuredDepth
+          - trueVerticalDepth
+          - azimuth
+          - inclination
+          - deviationEW
+          - deviationNS
+          - latitude
+          - longitude
+          properties:
+            measuredDepth:
+              type: array
+              items:
+                type: number
+            trueVerticalDepth:
+              type: array
+              items:
+                type: number
+            azimuth:
+              type: array
+              items:
+                type: number
+            inclination:
+              type: array
+              items:
+                type: number
+            deviationEW:
+              type: array
+              items:
+                type: number
+            deviationNS:
+              type: array
+              items:
+                type: number
+            latitude:
+              type: array
+              items:
+                type: number
+            longitude:
+              type: array
+              items:
+                type: number
+        remove:
+          type: array
+          items:
+            type: number
+      example:
+        spatialDataType: NAD27
+        update:
+          measuredDepth:
+          - 0
+          - 10
+          trueVerticalDepth:
+          - 0
+          - 10
+          azimuth:
+          - 0
+          - 10
+          inclination:
+          - 0
+          - 10
+          deviationEW:
+          - 0
+          - 10
+          deviationNS:
+          - 0
+          - 10
+          latitude:
+          - 0
+          - 10
+          longitude:
+          - 0
+          - 10
+        add:
+          measuredDepth:
+          - 0
+          - 10
+          trueVerticalDepth:
+          - 0
+          - 10
+          azimuth:
+          - 0
+          - 10
+          inclination:
+          - 0
+          - 10
+          deviationEW:
+          - 0
+          - 10
+          deviationNS:
+          - 0
+          - 10
+          latitude:
+          - 0
+          - 10
+          longitude:
+          - 0
+          - 10
+        remove:
+        - 1
+        - 2
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

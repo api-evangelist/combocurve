@@ -1,0 +1,1048 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Forecast Output API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: ForecastOutput
+paths:
+  /v1/projects/{projectId}/forecasts/{forecastId}/outputs:
+    head:
+      description: Returns metadata about the existing forecast data documents scoped to projectId project and forecastId forecast.
+      operationId: head-forecast-outputs
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: forecastedAt
+        in: query
+        description: filter by forecastedAt
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: phase
+        in: query
+        description: filter by phase
+        schema:
+          type: string
+      - name: reviewedAt
+        in: query
+        description: filter by reviewedAt
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - ForecastOutput
+      summary: Head forecast outputs
+      x-summary-source: derived
+    get:
+      description: Returns a list of forecast data documents scoped to projectId project and forecastId forecast.
+      operationId: get-forecast-outputs
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: forecastedAt
+        in: query
+        description: filter by forecastedAt, can be used for incremental pull
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: phase
+        in: query
+        description: filter by phase
+        schema:
+          type: string
+      - name: reviewedAt
+        in: query
+        description: filter by reviewedAt, can be used for incremental pull
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastOutputList'
+              example:
+              - best:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.603721736666588
+                    diNominal: 0.005491514853419089
+                    endDate: '2001-02-12T00:00:00.000Z'
+                    qEnd: 0.10001738801851469
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-07-17T02:09:12.931Z'
+                  eur: 539853.3300559863
+                createdAt: '2020-01-21T16:58:08.986Z'
+                forecasted: true
+                forecastedAt: '2020-01-31T22:58:50.578Z'
+                forecastedBy: 5e272d39b78910dd2a1bd8ea
+                id: 5e272f1d4b97ed0013313088
+                forecast: 6285655e2448a0ec88951dba
+                p10:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.461422453817678
+                    diNominal: 0.0027926834451796035
+                    endDate: '2005-11-15T00:00:00.000Z'
+                    qEnd: 0.10000470857720545
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-03-21T18:28:58.327Z'
+                  eur: 539853.3300559863
+                p50:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.603721736666588
+                    diNominal: 0.005491514853419089
+                    endDate: '2001-02-12T00:00:00.000Z'
+                    qEnd: 0.10001738801851469
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-07-17T02:09:12.931Z'
+                p90:
+                  segments:
+                  - b: 1.4864126197388372
+                    diEffSec: 0.6377483484117903
+                    diNominal: 0.006490343943301474
+                    endDate: '1999-10-06T00:00:00.000Z'
+                    qEnd: 0.1000051797269731
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-08-30T11:51:00.367Z'
+                  eur: 539853.3300559863
+                phase: oil
+                reviewedAt: '2020-01-31T23:00:00.00Z'
+                reviewedBy: 5e272d38b78910dd2a1bd6b5
+                runDate: '2020-01-31T22:58:50.578Z'
+                status: in_progress
+                typeCurveData:
+                  name: applied-type-curve
+                  type: ratio
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                well: 5e272d39b78910dd2a1bd8fe
+                data_freq: monthly
+              - best:
+                  segments:
+                  - b: 0.5871650672699218
+                    diEffSec: 0.5717582558912915
+                    diNominal: 0.003009175917809707
+                    endDate: '2015-06-16T00:00:00.000Z'
+                    qEnd: 92.20980498278352
+                    qStart: 423.3332616779596
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '2013-03-19T00:00:00.000Z'
+                    swDate: '2031-08-05T06:08:36.544Z'
+                  eur: 539853.3300559863
+                createdAt: '2020-01-21T16:58:08.986Z'
+                forecasted: true
+                forecastedAt: '2020-01-31T22:58:50.578Z'
+                forecastedBy: 5e272d39b78910dd2a1bd8ea
+                id: 5f24af6537794900129b17af
+                forecast: 6285655e2448a0ec88951dba
+                phase: oil
+                reviewedAt: '2020-01-31T23:00:00.00Z'
+                reviewedBy: 5e272d38b78910dd2a1bd6b5
+                runDate: '2020-07-31T23:57:20.352Z'
+                status: in_progress
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                well: 5ed67b2ec3629ac71ded298b
+                data_freq: monthly
+              - createdAt: '2020-01-21T16:58:08.986Z'
+                forecasted: true
+                forecastedAt: '2020-01-31T22:58:50.578Z'
+                forecastedBy: 5e272d39b78910dd2a1bd8ea
+                id: 5f24af6537794900129b17af
+                forecast: 6285655e2448a0ec88951dba
+                phase: oil
+                ratio:
+                  basePhase: oil
+                  segments:
+                  - b: 0.5871650672699218
+                    diEffSec: 0.5717582558912915
+                    diNominal: 0.003009175917809707
+                    endDate: '2015-06-16T00:00:00.000Z'
+                    qEnd: 92.20980498278352
+                    qStart: 423.3332616779596
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '2013-03-19T00:00:00.000Z'
+                    swDate: '2031-08-05T06:08:36.544Z'
+                  eur: 4544.45
+                reviewedAt: '2020-01-31T23:00:00.00Z'
+                reviewedBy: 5e272d38b78910dd2a1bd6b5
+                runDate: '2020-07-31T23:57:20.352Z'
+                status: in_progress
+                typeCurveData:
+                  name: applied-type-curve
+                  type: ratio
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                well: 5ed67b2ec3629ac71ded298b
+                data_freq: monthly
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ForecastOutput
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get forecast outputs
+      x-summary-source: derived
+  /v1/projects/{projectId}/forecasts/{forecastId}/outputs/{id}:
+    get:
+      description: Returns the forecast data document that matches the given id scoped to projectId project and forecastId forecast.
+      operationId: get-forecast-output-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: forecastId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastOutput'
+              example:
+                best:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.603721736666588
+                    diNominal: 0.005491514853419089
+                    endDate: '2001-02-12T00:00:00.000Z'
+                    qEnd: 0.10001738801851469
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-07-17T02:09:12.931Z'
+                  eur: 539853.3300559863
+                createdAt: '2020-01-21T16:58:08.986Z'
+                forecasted: true
+                forecastedAt: '2020-01-31T22:58:50.578Z'
+                forecastedBy: 5e272d39b78910dd2a1bd8ea
+                id: 5e272f1d4b97ed0013313088
+                forecast: 6285655e2448a0ec88951dba
+                p10:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.461422453817678
+                    diNominal: 0.0027926834451796035
+                    endDate: '2005-11-15T00:00:00.000Z'
+                    qEnd: 0.10000470857720545
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-03-21T18:28:58.327Z'
+                  eur: 539853.3300559863
+                p50:
+                  segments:
+                  - b: 1.5
+                    diEffSec: 0.603721736666588
+                    diNominal: 0.005491514853419089
+                    endDate: '2001-02-12T00:00:00.000Z'
+                    qEnd: 0.10001738801851469
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-07-17T02:09:12.931Z'
+                p90:
+                  segments:
+                  - b: 1.4864126197388372
+                    diEffSec: 0.6377483484117903
+                    diNominal: 0.006490343943301474
+                    endDate: '1999-10-06T00:00:00.000Z'
+                    qEnd: 0.1000051797269731
+                    qStart: 2.2340862422997945
+                    realizedDSwEffSec: 0.07999999999999996
+                    segmentIndex: 1
+                    segmentType: arps_modified
+                    startDate: '1982-05-15T00:00:00.000Z'
+                    swDate: '1989-08-30T11:51:00.367Z'
+                  eur: 539853.3300559863
+                phase: OIL
+                reviewedAt: '2020-01-31T23:00:00.00Z'
+                reviewedBy: 5e272d38b78910dd2a1bd6b5
+                runDate: '2020-01-31T22:58:50.578Z'
+                status: in_progress
+                typeCurveData:
+                  name: applied-type-curve
+                  type: ratio
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                well: 5e272d39b78910dd2a1bd8fe
+                data_freq: monthly
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ForecastOutput
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get forecast output by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ForecastOutput:
+      type: object
+      properties:
+        best:
+          type: object
+          properties:
+            segments:
+              type: array
+              items:
+                type: object
+                properties:
+                  b:
+                    type: number
+                    description: B factor
+                  diEffSec:
+                    type: number
+                    description: Initial Decline Rate Secant
+                  diNominal:
+                    type: number
+                    description: Nominal Decline Rate
+                  endDate:
+                    type: string
+                    format: date
+                    description: End Date
+                  qEnd:
+                    type: number
+                    description: Ending Rate
+                  qStart:
+                    type: number
+                    description: Start Rate
+                  realizedDSwEffSec:
+                    type: number
+                    description: Hyperbolic to Exponential Switch Rate
+                  segmentIndex:
+                    type: integer
+                    description: Segment Index
+                  segmentType:
+                    type: string
+                    maxLength: 16384
+                    description: Segment Type
+                  startDate:
+                    type: string
+                    format: date
+                    description: Start Date
+                  swDate:
+                    type: string
+                    format: date
+                    description: Hyperbolic to Exponential Switch Date
+            eur:
+              type: number
+              description: Eur
+        createdAt:
+          type: string
+          format: date
+          description: Forecast Output Creation Date
+        forecasted:
+          type: boolean
+          description: Forecasted
+        forecastedAt:
+          type: string
+          format: date
+          description: Forecasted At
+        forecastedBy:
+          type: string
+          description: Forecasted By
+        id:
+          type: string
+          description: ID
+        forecast:
+          type: string
+          description: Forecast ID
+        forecastType:
+          type: string
+          description: Forecast Type
+        forecastSubType:
+          type: string
+          description: Forecast Sub Type
+        p10:
+          type: object
+          properties:
+            segments:
+              type: array
+              items:
+                type: object
+                properties:
+                  b:
+                    type: number
+                    description: B factor
+                  diEffSec:
+                    type: number
+                    description: Initial Decline Rate Secant
+                  diNominal:
+                    type: number
+                    description: Nominal Decline Rate
+                  endDate:
+                    type: string
+                    format: date
+                    description: End Date
+                  qEnd:
+                    type: number
+                    description: Ending Rate
+                  qStart:
+                    type: number
+                    description: Start Rate
+                  realizedDSwEffSec:
+                    type: number
+                    description: Hyperbolic to Exponential Switch Rate
+                  segmentIndex:
+                    type: integer
+                    description: Segment Index
+                  segmentType:
+                    type: string
+                    maxLength: 16384
+                    description: Segment Type
+                  startDate:
+                    type: string
+                    format: date
+                    description: Start Date
+                  swDate:
+                    type: string
+                    format: date
+                    description: Hyperbolic to Exponential Switch Date
+            eur:
+              type: number
+              description: Eur
+        p50:
+          type: object
+          properties:
+            segments:
+              type: array
+              items:
+                type: object
+                properties:
+                  b:
+                    type: number
+                    description: B factor
+                  diEffSec:
+                    type: number
+                    description: Initial Decline Rate Secant
+                  diNominal:
+                    type: number
+                    description: Nominal Decline Rate
+                  endDate:
+                    type: string
+                    format: date
+                    description: End Date
+                  qEnd:
+                    type: number
+                    description: Ending Rate
+                  qStart:
+                    type: number
+                    description: Start Rate
+                  realizedDSwEffSec:
+                    type: number
+                    description: Hyperbolic to Exponential Switch Rate
+                  segmentIndex:
+                    type: integer
+                    description: Segment Index
+                  segmentType:
+                    type: string
+                    maxLength: 16384
+                    description: Segment Type
+                  startDate:
+                    type: string
+                    format: date
+                    description: Start Date
+                  swDate:
+                    type: string
+                    format: date
+                    description: Hyperbolic to Exponential Switch Date
+            eur:
+              type: number
+              description: Eur
+        p90:
+          type: object
+          properties:
+            segments:
+              type: array
+              items:
+                type: object
+                properties:
+                  b:
+                    type: number
+                    description: B factor
+                  diEffSec:
+                    type: number
+                    description: Initial Decline Rate Secant
+                  diNominal:
+                    type: number
+                    description: Nominal Decline Rate
+                  endDate:
+                    type: string
+                    format: date
+                    description: End Date
+                  qEnd:
+                    type: number
+                    description: Ending Rate
+                  qStart:
+                    type: number
+                    description: Start Rate
+                  realizedDSwEffSec:
+                    type: number
+                    description: Hyperbolic to Exponential Switch Rate
+                  segmentIndex:
+                    type: integer
+                    description: Segment Index
+                  segmentType:
+                    type: string
+                    maxLength: 16384
+                    description: Segment Type
+                  startDate:
+                    type: string
+                    format: date
+                    description: Start Date
+                  swDate:
+                    type: string
+                    format: date
+                    description: Hyperbolic to Exponential Switch Date
+            eur:
+              type: number
+              description: Eur
+        phase:
+          type: string
+          description: Phase
+        ratio:
+          type: object
+          properties:
+            segments:
+              type: array
+              items:
+                type: object
+                properties:
+                  b:
+                    type: number
+                    description: B factor
+                  diEffSec:
+                    type: number
+                    description: Initial Decline Rate Secant
+                  diNominal:
+                    type: number
+                    description: Nominal Decline Rate
+                  endDate:
+                    type: string
+                    format: date
+                    description: End Date
+                  qEnd:
+                    type: number
+                    description: Ending Rate
+                  qStart:
+                    type: number
+                    description: Start Rate
+                  realizedDSwEffSec:
+                    type: number
+                    description: Hyperbolic to Exponential Switch Rate
+                  segmentIndex:
+                    type: integer
+                    description: Segment Index
+                  segmentType:
+                    type: string
+                    maxLength: 16384
+                    description: Segment Type
+                  startDate:
+                    type: string
+                    format: date
+                    description: Start Date
+                  swDate:
+                    type: string
+                    format: date
+                    description: Hyperbolic to Exponential Switch Date
+            basePhase:
+              type: string
+              description: Phase
+            eur:
+              type: number
+              description: Eur
+        reviewedAt:
+          type: string
+          format: date
+          description: Reviewed At
+        reviewedBy:
+          type: string
+          description: Reviewed By
+        runDate:
+          type: string
+          format: date
+          description: Run Date
+        status:
+          type: string
+          description: Status
+        typeCurve:
+          type: string
+        typeCurveApplySettings:
+          type: object
+          properties:
+            applyNormalization:
+              type: boolean
+            fpdSource:
+              type: string
+            riskFactor:
+              type: number
+        typeCurveData:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        well:
+          type: string
+          description: Well ID
+        data_freq:
+          type: string
+          description: Data Frequency
+      example:
+        best:
+          segments:
+          - b: 1.5
+            diEffSec: 0.603721736666588
+            diNominal: 0.005491514853419089
+            endDate: '2001-02-12T00:00:00.000Z'
+            qEnd: 0.10001738801851469
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-07-17T02:09:12.931Z'
+          eur: 539853.3300559863
+        createdAt: '2020-01-21T16:58:08.986Z'
+        forecasted: true
+        forecastedAt: '2020-01-31T22:58:50.578Z'
+        forecastedBy: 5e272d39b78910dd2a1bd8ea
+        id: 5e272f1d4b97ed0013313088
+        forecast: 6285655e2448a0ec88951dba
+        p10:
+          segments:
+          - b: 1.5
+            diEffSec: 0.461422453817678
+            diNominal: 0.0027926834451796035
+            endDate: '2005-11-15T00:00:00.000Z'
+            qEnd: 0.10000470857720545
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-03-21T18:28:58.327Z'
+          eur: 539853.3300559863
+        p50:
+          segments:
+          - b: 1.5
+            diEffSec: 0.603721736666588
+            diNominal: 0.005491514853419089
+            endDate: '2001-02-12T00:00:00.000Z'
+            qEnd: 0.10001738801851469
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-07-17T02:09:12.931Z'
+        p90:
+          segments:
+          - b: 1.4864126197388372
+            diEffSec: 0.6377483484117903
+            diNominal: 0.006490343943301474
+            endDate: '1999-10-06T00:00:00.000Z'
+            qEnd: 0.1000051797269731
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-08-30T11:51:00.367Z'
+          eur: 539853.3300559863
+        phase: OIL
+        reviewedAt: '2020-01-31T23:00:00.00Z'
+        reviewedBy: 5e272d38b78910dd2a1bd6b5
+        runDate: '2020-01-31T22:58:50.578Z'
+        status: in_progress
+        typeCurveData:
+          name: applied-type-curve
+          type: ratio
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        well: 5e272d39b78910dd2a1bd8fe
+        data_freq: monthly
+    ForecastOutputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ForecastOutput'
+      maxItems: 1000
+      example:
+      - best:
+          segments:
+          - b: 1.5
+            diEffSec: 0.603721736666588
+            diNominal: 0.005491514853419089
+            endDate: '2001-02-12T00:00:00.000Z'
+            qEnd: 0.10001738801851469
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-07-17T02:09:12.931Z'
+          eur: 539853.3300559863
+        createdAt: '2020-01-21T16:58:08.986Z'
+        forecasted: true
+        forecastedAt: '2020-01-31T22:58:50.578Z'
+        forecastedBy: 5e272d39b78910dd2a1bd8ea
+        id: 5e272f1d4b97ed0013313088
+        forecast: 6285655e2448a0ec88951dba
+        p10:
+          segments:
+          - b: 1.5
+            diEffSec: 0.461422453817678
+            diNominal: 0.0027926834451796035
+            endDate: '2005-11-15T00:00:00.000Z'
+            qEnd: 0.10000470857720545
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-03-21T18:28:58.327Z'
+          eur: 539853.3300559863
+        p50:
+          segments:
+          - b: 1.5
+            diEffSec: 0.603721736666588
+            diNominal: 0.005491514853419089
+            endDate: '2001-02-12T00:00:00.000Z'
+            qEnd: 0.10001738801851469
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-07-17T02:09:12.931Z'
+        p90:
+          segments:
+          - b: 1.4864126197388372
+            diEffSec: 0.6377483484117903
+            diNominal: 0.006490343943301474
+            endDate: '1999-10-06T00:00:00.000Z'
+            qEnd: 0.1000051797269731
+            qStart: 2.2340862422997945
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '1982-05-15T00:00:00.000Z'
+            swDate: '1989-08-30T11:51:00.367Z'
+          eur: 539853.3300559863
+        phase: oil
+        reviewedAt: '2020-01-31T23:00:00.00Z'
+        reviewedBy: 5e272d38b78910dd2a1bd6b5
+        runDate: '2020-01-31T22:58:50.578Z'
+        status: in_progress
+        typeCurveData:
+          name: applied-type-curve
+          type: ratio
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        well: 5e272d39b78910dd2a1bd8fe
+        data_freq: monthly
+      - best:
+          segments:
+          - b: 0.5871650672699218
+            diEffSec: 0.5717582558912915
+            diNominal: 0.003009175917809707
+            endDate: '2015-06-16T00:00:00.000Z'
+            qEnd: 92.20980498278352
+            qStart: 423.3332616779596
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '2013-03-19T00:00:00.000Z'
+            swDate: '2031-08-05T06:08:36.544Z'
+          eur: 539853.3300559863
+        createdAt: '2020-01-21T16:58:08.986Z'
+        forecasted: true
+        forecastedAt: '2020-01-31T22:58:50.578Z'
+        forecastedBy: 5e272d39b78910dd2a1bd8ea
+        id: 5f24af6537794900129b17af
+        forecast: 6285655e2448a0ec88951dba
+        phase: oil
+        reviewedAt: '2020-01-31T23:00:00.00Z'
+        reviewedBy: 5e272d38b78910dd2a1bd6b5
+        runDate: '2020-07-31T23:57:20.352Z'
+        status: in_progress
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        well: 5ed67b2ec3629ac71ded298b
+        data_freq: monthly
+      - createdAt: '2020-01-21T16:58:08.986Z'
+        forecasted: true
+        forecastedAt: '2020-01-31T22:58:50.578Z'
+        forecastedBy: 5e272d39b78910dd2a1bd8ea
+        id: 5f24af6537794900129b17af
+        forecast: 6285655e2448a0ec88951dba
+        phase: oil
+        ratio:
+          basePhase: oil
+          segments:
+          - b: 0.5871650672699218
+            diEffSec: 0.5717582558912915
+            diNominal: 0.003009175917809707
+            endDate: '2015-06-16T00:00:00.000Z'
+            qEnd: 92.20980498278352
+            qStart: 423.3332616779596
+            realizedDSwEffSec: 0.07999999999999996
+            segmentIndex: 1
+            segmentType: arps_modified
+            startDate: '2013-03-19T00:00:00.000Z'
+            swDate: '2031-08-05T06:08:36.544Z'
+          eur: 4544.45
+        reviewedAt: '2020-01-31T23:00:00.00Z'
+        reviewedBy: 5e272d38b78910dd2a1bd6b5
+        runDate: '2020-07-31T23:57:20.352Z'
+        status: in_progress
+        typeCurveData:
+          name: applied-type-curve
+          type: ratio
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        well: 5ed67b2ec3629ac71ded298b
+        data_freq: monthly
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

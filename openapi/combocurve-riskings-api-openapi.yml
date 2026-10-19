@@ -1,0 +1,977 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Riskings API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Riskings
+paths:
+  /v1/projects/{projectId}/econ-models/riskings:
+    head:
+      description: Returns metadata about the existing riskings models documents.
+      operationId: head-riskings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Riskings
+      summary: Head riskings
+      x-summary-source: derived
+    get:
+      description: Returns a list of riskings models documents.
+      operationId: get-riskings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsList'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get riskings
+      x-summary-source: derived
+    post:
+      description: Inserts a list of riskings models documents.
+      operationId: post-riskings
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskingsInputList'
+        description: Riskings Model document(s) to insert. See RiskingsInputList.
+      summary: Post riskings
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of riskings models documents.
+      operationId: put-riskings
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskingsInputList'
+        description: Riskings Model document(s) to replace/create. See RiskingsInputList.
+      summary: Put riskings
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/riskings/{id}:
+    get:
+      description: Returns the riskings model document that matches the given id.
+      operationId: get-risking-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Riskings'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get risking by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-riskings-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Riskings
+      summary: Delete riskings by id
+      x-summary-source: derived
+  /v1/econ-models/riskings:
+    head:
+      description: Returns metadata about the existing riskings models documents.
+      operationId: head-company-riskings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Riskings
+      summary: Head company riskings
+      x-summary-source: derived
+    get:
+      description: Returns a list of riskings models documents.
+      operationId: get-company-riskings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsList'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company riskings
+      x-summary-source: derived
+    post:
+      description: Inserts a list of riskings models documents.
+      operationId: post-company-riskings
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskingsInputList'
+        description: Riskings Model document(s) to insert. See RiskingsInputList.
+      summary: Post company riskings
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of riskings models documents.
+      operationId: put-company-riskings
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RiskingsInputList'
+        description: Riskings Model document(s) to replace/create. See RiskingsInputList.
+      summary: Put company riskings
+      x-summary-source: derived
+  /v1/econ-models/riskings/{id}:
+    get:
+      description: Returns the riskings model document that matches the given id.
+      operationId: get-company-risking-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Riskings'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Riskings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company risking by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-riskings-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Riskings
+      summary: Delete company riskings by id
+      x-summary-source: derived
+components:
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+  schemas:
+    RiskingsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    ShutInDateCriteria:
+      type: object
+      required:
+      - startDate
+      - endDate
+      properties:
+        startDate:
+          type: string
+          format: date
+          description: Start date of shut-in period
+        endDate:
+          type: string
+          format: date
+          description: End date of shut-in period
+    ShutInRow:
+      type: object
+      properties:
+        phase:
+          type: string
+          enum:
+          - all
+          - oil
+          - gas
+          - water
+        offsetToAsOf:
+          $ref: '#/components/schemas/ShutInOffsetToAsOfCriteria'
+        dates:
+          $ref: '#/components/schemas/ShutInDateCriteria'
+        repeatRangeOfDates:
+          type: string
+          enum:
+          - no_repeat
+          - monthly
+          - yearly
+        totalOccurrences:
+          type: integer
+        unit:
+          type: string
+          enum:
+          - day
+          - month
+        multiplier:
+          type: number
+        scalePostShutInEndCriteria:
+          type: string
+          enum:
+          - offset_to_as_of_date
+          - dates
+          - econ_limit
+        scalePostShutInEnd:
+          type: string
+        fixedExpense:
+          type: boolean
+        capex:
+          type: boolean
+    RiskingMultiplierArray:
+      type: object
+      required:
+      - rows
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskingMultiplierRow'
+    RiskingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Riskings'
+      maxItems: 200
+    RiskingsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        risking:
+          $ref: '#/components/schemas/RiskingModel'
+        shutIn:
+          $ref: '#/components/schemas/ShutInModel'
+    RiskingsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/RiskingsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    EntireWellLifeCriteria:
+      type:
+      - string
+      - 'null'
+      enum:
+      - Flat
+    Riskings:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        risking:
+          $ref: '#/components/schemas/RiskingModel'
+        shutIn:
+          $ref: '#/components/schemas/ShutInModel'
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    RiskingsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/RiskingsInput'
+      maxItems: 500
+    RiskingModel:
+      type: object
+      required:
+      - riskProd
+      - riskNglDripCondViaGasRisk
+      - oil
+      - gas
+      - ngl
+      - dripCondensate
+      - water
+      properties:
+        riskProd:
+          type: boolean
+        riskNglDripCondViaGasRisk:
+          type: boolean
+        oil:
+          $ref: '#/components/schemas/RiskingMultiplierArray'
+        gas:
+          $ref: '#/components/schemas/RiskingMultiplierArray'
+        ngl:
+          $ref: '#/components/schemas/RiskingMultiplierArray'
+        dripCondensate:
+          $ref: '#/components/schemas/RiskingMultiplierArray'
+        water:
+          $ref: '#/components/schemas/RiskingMultiplierArray'
+    StartEndPeriodCriteria:
+      type:
+      - number
+      - 'null'
+      description: Interval
+    ShutInOffsetToAsOfCriteria:
+      type: object
+      required:
+      - start
+      - end
+      properties:
+        start:
+          type: number
+        end:
+          type: number
+    ShutInModel:
+      type: object
+      required:
+      - rows
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShutInRow'
+    StartEndDatesCriteria:
+      type:
+      - string
+      - 'null'
+      format: date
+      description: Start date
+    SeasonalCriteria:
+      type:
+      - string
+      - 'null'
+      enum:
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    RiskingMultiplierRow:
+      type: object
+      required:
+      - multiplier
+      properties:
+        multiplier:
+          type: number
+        entireWellLife:
+          $ref: '#/components/schemas/EntireWellLifeCriteria'
+        offsetToFpd:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        offsetToAsOf:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        offsetToFirstSegment:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        offsetToEndHistory:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        dates:
+          $ref: '#/components/schemas/StartEndDatesCriteria'
+        seasonal:
+          $ref: '#/components/schemas/SeasonalCriteria'
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

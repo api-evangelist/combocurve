@@ -1,0 +1,1759 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Monthly Export API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: MonthlyExport
+paths:
+  /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-exports:
+    head:
+      description: Returns metadata about the existing econ monthly documents scoped to projectId project, scenarioId scenario and econRunId econ run.
+      operationId: head-monthly-exports
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: econRunId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParamBQ'
+      - name: comboName
+        in: query
+        description: filter by comboName
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: filter by date
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - MonthlyExport
+      summary: Head monthly exports
+      x-summary-source: derived
+    post:
+      description: Create an monthly export of econ monthly documents scoped to projectId project, scenarioId scenario and econRunId econ run. Response id should be used to get the results.
+      operationId: post-monthly-exports
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: econRunId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: comboName
+        in: query
+        description: filter by comboName
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: filter by date
+        schema:
+          type: string
+          format: date
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonthlyExportJob'
+              example:
+                id: 7a0b236e-4a46-414d-bdf5-08de1d8adff7
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - MonthlyExport
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      summary: Post monthly exports
+      x-summary-source: derived
+  /v1/projects/{projectId}/scenarios/{scenarioId}/econ-runs/{econRunId}/monthly-exports/{id}:
+    get:
+      description: Returns the econ monthly documents that matches the given monthly export id scoped to projectId project, scenarioId scenario and econRunId econ run, monthly export must be created before.
+      operationId: get-monthly-export-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: scenarioId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: econRunId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParamBQ'
+      - in: query
+        name: concurrency
+        description: maximum number of concurrent requests to make to the underlying datastore
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          maximum: 10
+          minimum: 1
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonthlyExport'
+              example:
+                results:
+                - comboName: 01-Default 1
+                  date: '2021-06-01'
+                  output:
+                    adValoremTax: '0'
+                    afitDiscountTableCashFlow_1: -1077.2776735954733
+                    afitDiscountTableCashFlow_2: -1177.8916667963233
+                    afitDiscountTableCashFlow_3: -1291.632368852434
+                    afitDiscountTableCashFlow_4: -1374.7907299881804
+                    afitDiscountTableCashFlow_5: -1418.4083628127848
+                    afitDiscountTableCashFlow_6: -1454.9997174632656
+                    afitDiscountTableCashFlow_7: -1499.8571878846767
+                    afitDiscountTableCashFlow_8: -1555.8681514299367
+                    afitDiscountTableCashFlow_9: -1596.549700339635
+                    afitDiscountTableCashFlow_10: -1627.410427837928
+                    afitDiscountTableCashFlow_11: -1671.2121607239862
+                    afitDiscountTableCashFlow_12: -1700.9582733696332
+                    afitDiscountTableCashFlow_13: -1722.6064371943203
+                    afitDiscountTableCashFlow_14: -1739.1475729988906
+                    afitDiscountTableCashFlow_15: -1752.2489070860915
+                    afitDiscountTableCashFlow_16: -1771.7912851522033
+                    afterIncomeTaxCashFlow: null
+                    beforeIncomeTaxCashFlow: '-8951'
+                    depreciation: null
+                    discountTableCashFlow_1: -1077.2776735954733
+                    discountTableCashFlow_10: -1627.410427837928
+                    discountTableCashFlow_11: -1671.2121607239862
+                    discountTableCashFlow_12: -1700.9582733696332
+                    discountTableCashFlow_13: -1722.6064371943203
+                    discountTableCashFlow_14: -1739.1475729988906
+                    discountTableCashFlow_15: -1752.2489070860915
+                    discountTableCashFlow_16: -1771.7912851522033
+                    discountTableCashFlow_2: -1177.8916667963233
+                    discountTableCashFlow_3: -1291.632368852434
+                    discountTableCashFlow_4: -1374.7907299881804
+                    discountTableCashFlow_5: -1418.4083628127848
+                    discountTableCashFlow_6: -1454.9997174632656
+                    discountTableCashFlow_7: -1499.8571878846767
+                    discountTableCashFlow_8: -1555.8681514299367
+                    discountTableCashFlow_9: -1596.549700339635
+                    dripCondensateDifferentials1: '0'
+                    dripCondensateDifferentials2: '0'
+                    dripCondensateGatheringExpense: '0'
+                    dripCondensateMarketingExpense: '0'
+                    dripCondensateOtherExpense: '0'
+                    dripCondensatePrice: '50'
+                    dripCondensateProcessingExpense: '0'
+                    dripCondensateRevenue: '0'
+                    dripCondensateSeveranceTax: '0'
+                    dripCondensateTransportationExpense: '0'
+                    dripCondensateYield: '0'
+                    federalIncomeTax: null
+                    firstDiscountCashFlow: '-8308.9367'
+                    firstDiscountNetIncome: '0'
+                    firstDiscountedCapex: '0'
+                    gasDifferentials1: '0'
+                    gasDifferentials2: '0'
+                    gasFlare: '0'
+                    gasGatheringExpense: '0'
+                    gasLoss: '0'
+                    gasMarketingExpense: '0'
+                    gasOtherExpense: '0'
+                    gasPrice: '2.5'
+                    gasProcessingExpense: '0'
+                    gasRevenue: '0'
+                    gasSeveranceTax: '0'
+                    gasShrinkage: '0'
+                    gasStartUsingForecastDate: '2021-07-01'
+                    gasTransportationExpense: '0'
+                    grossBoeSalesVolume: '0'
+                    grossBoeWellHeadVolume: '0'
+                    grossDripCondensateSalesVolume: '0'
+                    grossGasSalesVolume: '0'
+                    grossGasWellHeadVolume: '0'
+                    grossMcfeSalesVolume: '0'
+                    grossMcfeWellHeadVolume: '0'
+                    grossNglSalesVolume: '0'
+                    grossOilSalesVolume: '0'
+                    grossOilWellHeadVolume: '0'
+                    grossWaterWellHeadVolume: '0'
+                    grossWellCount: '1'
+                    inputDripCondensatePrice: '0'
+                    inputGasPrice: '0'
+                    inputNglPrice: '0'
+                    inputOilPrice: '0'
+                    intangibleAbandonment: '0'
+                    intangibleAppraisal: '0'
+                    intangibleArtificialLift: '0'
+                    intangibleCompletion: '0'
+                    intangibleDevelopment: '0'
+                    intangibleDrilling: '0'
+                    intangibleExploration: '0'
+                    intangibleFacilities: '0'
+                    intangibleLeasehold: '0'
+                    intangibleLegal: '0'
+                    intangibleOtherInvestment: '8578.5'
+                    intangiblePad: '0'
+                    intangiblePipelines: '0'
+                    intangibleSalvage: '0'
+                    intangibleWaterline: '0'
+                    intangibleWorkover: '0'
+                    leaseNri: '0'
+                    monthlyWellCost: '0'
+                    netBoeSalesVolume: '0'
+                    netDripCondensateSalesVolume: '0'
+                    netGasSalesVolume: '0'
+                    netIncome: '0'
+                    netMcfeSalesVolume: '0'
+                    netNglSalesVolume: '0'
+                    netOilSalesVolume: '0'
+                    netProfit: '0'
+                    nglDifferentials1: '0'
+                    nglDifferentials2: '0'
+                    nglGatheringExpense: '0'
+                    nglMarketingExpense: '0'
+                    nglOtherExpense: '0'
+                    nglPrice: '17.5'
+                    nglProcessingExpense: '0'
+                    nglRevenue: '0'
+                    nglSeveranceTax: '0'
+                    nglTransportationExpense: '0'
+                    nglYield: '0'
+                    nriDripCondensate: '75'
+                    nriGas: '75'
+                    nriNgl: '75'
+                    nriOil: '75'
+                    nriWellCount: '0.75'
+                    oilDifferentials1: '0'
+                    oilDifferentials2: '0'
+                    oilGatheringExpense: '0'
+                    oilLoss: '0'
+                    oilMarketingExpense: '0'
+                    oilOtherExpense: '0'
+                    oilPrice: '50'
+                    oilProcessingExpense: '0'
+                    oilRevenue: '0'
+                    oilSeveranceTax: '0'
+                    oilShrinkage: '0'
+                    oilStartUsingForecastDate: '2021-07-01'
+                    oilTransportationExpense: '0'
+                    otherMonthlyCost_1: '0'
+                    otherMonthlyCost_2: '0'
+                    secondDiscountCashFlow: '-8308.9367'
+                    secondDiscountNetIncome: '0'
+                    secondDiscountedCapex: '0'
+                    stateIncomeTax: null
+                    tangibleAbandonment: '0'
+                    tangibleAppraisal: '0'
+                    tangibleArtificialLift: '0'
+                    tangibleCompletion: '0'
+                    tangibleDevelopment: '0'
+                    tangibleDrilling: '0'
+                    tangibleExploration: '0'
+                    tangibleFacilities: '0'
+                    tangibleLeasehold: '0'
+                    tangibleLegal: '0'
+                    tangibleOtherInvestment: '372.5'
+                    tangiblePad: '0'
+                    tangiblePipelines: '0'
+                    tangibleSalvage: '0'
+                    tangibleWaterline: '0'
+                    tangibleWorkover: '0'
+                    taxableIncome: null
+                    totalAbandonment: '0'
+                    totalAppraisal: '0'
+                    totalArtificialLift: '0'
+                    totalCapex: '8951'
+                    totalCompletion: '0'
+                    totalDevelopment: '0'
+                    totalDrilling: '0'
+                    totalDripCondensateVariableExpense: '0'
+                    totalExpense: '0'
+                    totalExploration: '0'
+                    totalFacilities: '0'
+                    totalFixedExpense: '0'
+                    totalGasVariableExpense: '0'
+                    totalGrossCapex: '0'
+                    totalIntangibleCapex: '8578.5'
+                    totalLeasehold: '0'
+                    totalLegal: '0'
+                    totalNglVariableExpense: '0'
+                    totalOilVariableExpense: '0'
+                    totalOtherInvestment: '8951'
+                    totalPad: '0'
+                    totalPipelines: '0'
+                    totalProductionTax: '0'
+                    totalRevenue: '0'
+                    totalSalvage: '0'
+                    totalSeveranceTax: '0'
+                    totalTangibleCapex: '372.5'
+                    totalVariableExpense: '0'
+                    totalWaterline: '0'
+                    totalWorkover: '0'
+                    waterDisposal: '0'
+                    waterStartUsingForecastDate: '2021-07-01'
+                    wiBoeSalesVolume: '0'
+                    wiDripCondensate: '100'
+                    wiDripCondensateSalesVolume: '0'
+                    wiGas: '100'
+                    wiGasSalesVolume: '0'
+                    wiMcfeSalesVolume: '0'
+                    wiNgl: '100'
+                    wiNglSalesVolume: '0'
+                    wiOil: '100'
+                    wiOilSalesVolume: '0'
+                    wiWellCount: '1'
+                  well: 600b37ac1d671bcf6e24f55f
+                - comboName: 01-Default 1
+                  date: '2020-11-01'
+                  output:
+                    adValoremTax: '0'
+                    afterIncomeTaxCashFlow: null
+                    beforeIncomeTaxCashFlow: '0'
+                    depreciation: null
+                    dripCondensateDifferentials1: '0'
+                    dripCondensateDifferentials2: '0'
+                    dripCondensateGatheringExpense: '0'
+                    dripCondensateMarketingExpense: '0'
+                    dripCondensateOtherExpense: '0'
+                    dripCondensatePrice: '50'
+                    dripCondensateProcessingExpense: '0'
+                    dripCondensateRevenue: '0'
+                    dripCondensateSeveranceTax: '0'
+                    dripCondensateTransportationExpense: '0'
+                    dripCondensateYield: '0'
+                    federalIncomeTax: null
+                    firstDiscountCashFlow: '0'
+                    firstDiscountNetIncome: '0'
+                    firstDiscountedCapex: '0'
+                    gasDifferentials1: '0'
+                    gasDifferentials2: '0'
+                    gasFlare: '0'
+                    gasGatheringExpense: '0'
+                    gasLoss: '0'
+                    gasMarketingExpense: '0'
+                    gasOtherExpense: '0'
+                    gasPrice: '2.5'
+                    gasProcessingExpense: '0'
+                    gasRevenue: '0'
+                    gasSeveranceTax: '0'
+                    gasShrinkage: '0'
+                    gasStartUsingForecastDate: '2021-07-01'
+                    gasTransportationExpense: '0'
+                    grossBoeSalesVolume: '0'
+                    grossBoeWellHeadVolume: '0'
+                    grossDripCondensateSalesVolume: '0'
+                    grossGasSalesVolume: '0'
+                    grossGasWellHeadVolume: '0'
+                    grossMcfeSalesVolume: '0'
+                    grossMcfeWellHeadVolume: '0'
+                    grossNglSalesVolume: '0'
+                    grossOilSalesVolume: '0'
+                    grossOilWellHeadVolume: '0'
+                    grossWaterWellHeadVolume: '0'
+                    grossWellCount: '1'
+                    inputDripCondensatePrice: '0'
+                    inputGasPrice: '0'
+                    inputNglPrice: '0'
+                    inputOilPrice: '0'
+                    intangibleAbandonment: '0'
+                    intangibleAppraisal: '0'
+                    intangibleArtificialLift: '0'
+                    intangibleCompletion: '0'
+                    intangibleDevelopment: '0'
+                    intangibleDrilling: '0'
+                    intangibleExploration: '0'
+                    intangibleFacilities: '0'
+                    intangibleLeasehold: '0'
+                    intangibleLegal: '0'
+                    intangibleOtherInvestment: '0'
+                    intangiblePad: '0'
+                    intangiblePipelines: '0'
+                    intangibleSalvage: '0'
+                    intangibleWaterline: '0'
+                    intangibleWorkover: '0'
+                    leaseNri: '0'
+                    monthlyWellCost: '0'
+                    netBoeSalesVolume: '0'
+                    netDripCondensateSalesVolume: '0'
+                    netGasSalesVolume: '0'
+                    netIncome: '0'
+                    netMcfeSalesVolume: '0'
+                    netNglSalesVolume: '0'
+                    netOilSalesVolume: '0'
+                    netProfit: '0'
+                    nglDifferentials1: '0'
+                    nglDifferentials2: '0'
+                    nglGatheringExpense: '0'
+                    nglMarketingExpense: '0'
+                    nglOtherExpense: '0'
+                    nglPrice: '17.5'
+                    nglProcessingExpense: '0'
+                    nglRevenue: '0'
+                    nglSeveranceTax: '0'
+                    nglTransportationExpense: '0'
+                    nglYield: '0'
+                    nriDripCondensate: '75'
+                    nriGas: '75'
+                    nriNgl: '75'
+                    nriOil: '75'
+                    nriWellCount: '0.75'
+                    oilDifferentials1: '0'
+                    oilDifferentials2: '0'
+                    oilGatheringExpense: '0'
+                    oilLoss: '0'
+                    oilMarketingExpense: '0'
+                    oilOtherExpense: '0'
+                    oilPrice: '50'
+                    oilProcessingExpense: '0'
+                    oilRevenue: '0'
+                    oilShrinkage: '0'
+                    oilSeveranceTax: '0'
+                    oilStartUsingForecastDate: '2021-07-01'
+                    oilTransportationExpense: '0'
+                    otherMonthlyCost_1: '0'
+                    otherMonthlyCost_2: '0'
+                    secondDiscountCashFlow: '0'
+                    secondDiscountNetIncome: '0'
+                    secondDiscountedCapex: '0'
+                    stateIncomeTax: null
+                    tangibleAbandonment: '0'
+                    tangibleAppraisal: '0'
+                    tangibleArtificialLift: '0'
+                    tangibleCompletion: '0'
+                    tangibleDevelopment: '0'
+                    tangibleDrilling: '0'
+                    tangibleExploration: '0'
+                    tangibleFacilities: '0'
+                    tangibleLeasehold: '0'
+                    tangibleLegal: '0'
+                    tangibleOtherInvestment: '0'
+                    tangiblePad: '0'
+                    tangiblePipelines: '0'
+                    tangibleSalvage: '0'
+                    tangibleWaterline: '0'
+                    tangibleWorkover: '0'
+                    taxableIncome: null
+                    totalAbandonment: '0'
+                    totalAppraisal: '0'
+                    totalArtificialLift: '0'
+                    totalCapex: '0'
+                    totalCompletion: '0'
+                    totalDevelopment: '0'
+                    totalDrilling: '0'
+                    totalDripCondensateVariableExpense: '0'
+                    totalExpense: '0'
+                    totalExploration: '0'
+                    totalFacilities: '0'
+                    totalFixedExpense: '0'
+                    totalGasVariableExpense: '0'
+                    totalGrossCapex: '0'
+                    totalIntangibleCapex: '0'
+                    totalLeasehold: '0'
+                    totalLegal: '0'
+                    totalNglVariableExpense: '0'
+                    totalOilVariableExpense: '0'
+                    totalOtherInvestment: '0'
+                    totalPad: '0'
+                    totalPipelines: '0'
+                    totalProductionTax: '0'
+                    totalRevenue: '0'
+                    totalSalvage: '0'
+                    totalSeveranceTax: '0'
+                    totalTangibleCapex: '0'
+                    totalVariableExpense: '0'
+                    totalWaterline: '0'
+                    totalWorkover: '0'
+                    waterDisposal: '0'
+                    waterStartUsingForecastDate: '2021-07-01'
+                    wiBoeSalesVolume: '0'
+                    wiDripCondensate: '100'
+                    wiDripCondensateSalesVolume: '0'
+                    wiGas: '100'
+                    wiGasSalesVolume: '0'
+                    wiMcfeSalesVolume: '0'
+                    wiNgl: '100'
+                    wiNglSalesVolume: '0'
+                    wiOil: '100'
+                    wiOilSalesVolume: '0'
+                    wiWellCount: '1'
+                  well: 600b37ac1d671bcf6e24f55f
+                status: completed
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - MonthlyExport
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get monthly export by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    MonthlyExport:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              comboName:
+                type: string
+                maxLength: 16384
+                description: Combo Name
+              date:
+                type: string
+                format: date
+                description: Date
+              output:
+                type: object
+                properties:
+                  adValoremTax:
+                    type: number
+                    description: Ad Valorem Tax
+                  afterIncomeTaxCashFlow:
+                    type: number
+                    description: After Income Tax Cash Flow
+                  beforeIncomeTaxCashFlow:
+                    type: number
+                    description: Before Income Tax Cash Flow
+                  depreciation:
+                    type: number
+                    description: Depreciation
+                  dripCondensateDifferentials1:
+                    type: number
+                    description: Drip Condensate Differential 1
+                  dripCondensateDifferentials2:
+                    type: number
+                    description: Drip Condensate Differential 2
+                  dripCondensateGatheringExpense:
+                    type: number
+                    description: Drip Condensate G & P Expense
+                  dripCondensateMarketingExpense:
+                    type: number
+                    description: Drip Condensate MKT Expense
+                  dripCondensateOtherExpense:
+                    type: number
+                    description: Drip Condensate Other Expense
+                  dripCondensatePrice:
+                    type: number
+                    description: Realized Drip Condensate Price
+                  dripCondensateProcessingExpense:
+                    type: number
+                    description: Drip Condensate OPC Expense
+                  dripCondensateRevenue:
+                    type: number
+                    description: Net Drip Condensate Revenue
+                  dripCondensateSeveranceTax:
+                    type: number
+                    description: Drip Condensate Severance Tax
+                  dripCondensateTransportationExpense:
+                    type: number
+                    description: Drip Condensate TRN Expense
+                  dripCondensateYield:
+                    type: number
+                    description: Drip Condensate Yield
+                  federalIncomeTax:
+                    type: number
+                    description: Federal Income Tax
+                  firstDiscountCashFlow:
+                    type: number
+                    description: First Discount Cash Flow
+                  firstDiscountNetIncome:
+                    type: number
+                    description: First Discount Net Operating Income
+                  firstDiscountedCapex:
+                    type: number
+                    description: First Discount Total Net CAPEX (First Discount Total Net Investment)
+                  gasDifferentials1:
+                    type: number
+                    description: Gas Differential 1
+                  gasDifferentials2:
+                    type: number
+                    description: Gas Differential 2
+                  gasFlare:
+                    type: number
+                    description: Gas Flare
+                  gasGatheringExpense:
+                    type: number
+                    description: Gas G & P Expense
+                  gasLoss:
+                    type: number
+                    description: Gas Loss
+                  gasMarketingExpense:
+                    type: number
+                    description: Gas MKT Expense
+                  gasOtherExpense:
+                    type: number
+                    description: Gas Other Expense
+                  gasPrice:
+                    type: number
+                    description: Realized Gas Price
+                  gasProcessingExpense:
+                    type: number
+                    description: Gas OPC Expense
+                  gasRevenue:
+                    type: number
+                    description: Net Gas Revenue
+                  gasSeveranceTax:
+                    type: number
+                    description: Gas Severance Tax
+                  gasShrinkage:
+                    type: number
+                    description: Gas Shrinkage
+                  gasStartUsingForecastDate:
+                    type: string
+                    format: date
+                    description: Gas Forecast Volumes Start Date
+                  gasTransportationExpense:
+                    type: number
+                    description: Gas TRN Expense
+                  grossBoeSalesVolume:
+                    type: number
+                    description: Gross BOE Sales Volume
+                  grossBoeWellHeadVolume:
+                    type: number
+                    description: Gross BOE Well Head Volume
+                  grossDripCondensateSalesVolume:
+                    type: number
+                    description: Gross Drip Condensate Sales Volume
+                  grossGasSalesVolume:
+                    type: number
+                    description: Gross Gas Sales Volume
+                  grossGasWellHeadVolume:
+                    type: number
+                    description: Gross Gas Well Head Volume
+                  grossMcfeSalesVolume:
+                    type: number
+                    description: Gross MCFE Sales Volume
+                  grossMcfeWellHeadVolume:
+                    type: number
+                    description: Gross MCFE Well Head Volume
+                  grossNglSalesVolume:
+                    type: number
+                    description: Gross NGL Sales Volume
+                  grossOilSalesVolume:
+                    type: number
+                    description: Gross Oil Sales Volume
+                  grossOilWellHeadVolume:
+                    type: number
+                    description: Gross Oil Well Head Volume
+                  grossWaterWellHeadVolume:
+                    type: number
+                    description: Gross Water Well Head Volume
+                  grossWellCount:
+                    type: number
+                    description: Gross Well Count
+                  inputDripCondensatePrice:
+                    type: number
+                    description: Input Drip Condensate Price
+                  inputGasPrice:
+                    type: number
+                    description: Input Gas Price
+                  inputNglPrice:
+                    type: number
+                    description: Input NGL Price
+                  inputOilPrice:
+                    type: number
+                    description: Input Oil Price
+                  intangibleAbandonment:
+                    type: number
+                    description: Net Intangible Abandonment
+                  intangibleAppraisal:
+                    type: number
+                    description: Net Intangible Appraisal
+                  intangibleArtificialLift:
+                    type: number
+                    description: Net Intangible Artificial Lift
+                  intangibleCompletion:
+                    type: number
+                    description: Net Intangible Completion
+                  intangibleDevelopment:
+                    type: number
+                    description: Net Intangible Development
+                  intangibleDrilling:
+                    type: number
+                    description: Net Intangible Drilling
+                  intangibleExploration:
+                    type: number
+                    description: Net Intangible Exploration
+                  intangibleFacilities:
+                    type: number
+                    description: Net Intangible Facilities
+                  intangibleLeasehold:
+                    type: number
+                    description: Net Intangible Leasehold
+                  intangibleLegal:
+                    type: number
+                    description: Net Intangible Legal
+                  intangibleOtherInvestment:
+                    type: number
+                    description: Net Intangible Other Investment
+                  intangiblePad:
+                    type: number
+                    description: Net Intangible Pad
+                  intangiblePipelines:
+                    type: number
+                    description: Net Intangible Pipelines
+                  intangibleSalvage:
+                    type: number
+                    description: Net Intangible Salvage
+                  intangibleWaterline:
+                    type: number
+                    description: Net Intangible Waterline
+                  intangibleWorkover:
+                    type: number
+                    description: Net Intangible Workover
+                  leaseNri:
+                    type: number
+                    description: Lease NRI
+                  monthlyWellCost:
+                    type: number
+                    description: Fixed Expense 1
+                  netBoeSalesVolume:
+                    type: number
+                    description: Net BOE Sales Volume
+                  netDripCondensateSalesVolume:
+                    type: number
+                    description: Net Drip Condensate Sales Volume
+                  netGasSalesVolume:
+                    type: number
+                    description: Net Gas Sales Volume
+                  netIncome:
+                    type: number
+                    description: Net Operating Income
+                  netMcfeSalesVolume:
+                    type: number
+                    description: Net MCFE Sales Volume
+                  netNglSalesVolume:
+                    type: number
+                    description: Net NGL Sales Volume
+                  netOilSalesVolume:
+                    type: number
+                    description: Net Oil Sales Volume
+                  netProfit:
+                    type: number
+                    description: NPI Cash Flow
+                  nglDifferentials1:
+                    type: number
+                    description: NGL Differential 1
+                  nglDifferentials2:
+                    type: number
+                    description: NGL Differential 2
+                  nglGatheringExpense:
+                    type: number
+                    description: NGL G & P Expense
+                  nglMarketingExpense:
+                    type: number
+                    description: NGL MKT Expense
+                  nglOtherExpense:
+                    type: number
+                    description: NGL Other Expense
+                  nglPrice:
+                    type: number
+                    description: Realized NGL Price
+                  nglProcessingExpense:
+                    type: number
+                    description: NGL OPC Expense
+                  nglRevenue:
+                    type: number
+                    description: Net NGL Revenue
+                  nglSeveranceTax:
+                    type: number
+                    description: NGL Severance Tax
+                  nglTransportationExpense:
+                    type: number
+                    description: NGL TRN Expense
+                  nglYield:
+                    type: number
+                    description: NGL Yield
+                  nriDripCondensate:
+                    type: number
+                    description: NRI Drip Condensate
+                  nriGas:
+                    type: number
+                    description: NRI Gas
+                  nriNgl:
+                    type: number
+                    description: NRI NGL
+                  nriOil:
+                    type: number
+                    description: NRI Oil
+                  nriWellCount:
+                    type: number
+                    description: Nri Well Count
+                  oilDifferentials1:
+                    type: number
+                    description: Oil Differential 1
+                  oilDifferentials2:
+                    type: number
+                    description: Oil Differential 2
+                  oilGatheringExpense:
+                    type: number
+                    description: Oil G & P Expense
+                  oilLoss:
+                    type: number
+                    description: Oil Loss
+                  oilMarketingExpense:
+                    type: number
+                    description: Oil MKT Expense
+                  oilOtherExpense:
+                    type: number
+                    description: Oil Other Expense
+                  oilPrice:
+                    type: number
+                    description: Realized Oil Price
+                  oilProcessingExpense:
+                    type: number
+                    description: Oil OPC Expense
+                  oilRevenue:
+                    type: number
+                    description: Net Oil Revenue
+                  oilSeveranceTax:
+                    type: number
+                    description: Oil Severance Tax
+                  oilShrinkage:
+                    type: number
+                    description: Oil Shrinkage
+                  oilStartUsingForecastDate:
+                    type: string
+                    format: date
+                    description: Oil Forecast Volumes Start Date
+                  oilTransportationExpense:
+                    type: number
+                    description: Oil TRN Expense
+                  otherMonthlyCost_1:
+                    type: number
+                    description: Fixed Expense 2
+                  otherMonthlyCost_2:
+                    type: number
+                    description: Fixed Expense 3
+                  secondDiscountCashFlow:
+                    type: number
+                    description: Second Discount Cash Flow
+                  secondDiscountNetIncome:
+                    type: number
+                    description: Second Discount Net Operating Income
+                  secondDiscountedCapex:
+                    type: number
+                    description: Second Discount Total Net CAPEX (Second Discount Total Net Investment)
+                  stateIncomeTax:
+                    type: number
+                    description: State Income Tax
+                  tangibleAbandonment:
+                    type: number
+                    description: Net Tangible Abandonment
+                  tangibleAppraisal:
+                    type: number
+                    description: Net Tangible Appraisal
+                  tangibleArtificialLift:
+                    type: number
+                    description: Net Tangible Artificial Lift
+                  tangibleCompletion:
+                    type: number
+                    description: Net Tangible Completion
+                  tangibleDevelopment:
+                    type: number
+                    description: Net Tangible Development
+                  tangibleDrilling:
+                    type: number
+                    description: Net Tangible Drilling
+                  tangibleExploration:
+                    type: number
+                    description: Net Tangible Exploration
+                  tangibleFacilities:
+                    type: number
+                    description: Net Tangible Facilities
+                  tangibleLeasehold:
+                    type: number
+                    description: Net Tangible Leasehold
+                  tangibleLegal:
+                    type: number
+                    description: Net Tangible Legal
+                  tangibleOtherInvestment:
+                    type: number
+                    description: Net Tangible Other Investment
+                  tangiblePad:
+                    type: number
+                    description: Net Tangible Pad
+                  tangiblePipelines:
+                    type: number
+                    description: Net Tangible Pipelines
+                  tangibleSalvage:
+                    type: number
+                    description: Net Tangible Salvage
+                  tangibleWaterline:
+                    type: number
+                    description: Net Tangible Waterline
+                  tangibleWorkover:
+                    type: number
+                    description: Net Tangible Workover
+                  taxableIncome:
+                    type: number
+                    description: Taxable Income
+                  totalAbandonment:
+                    type: number
+                    description: Total Net Abandonment
+                  totalAppraisal:
+                    type: number
+                    description: Total Net Appraisal
+                  totalArtificialLift:
+                    type: number
+                    description: Total Net Artificial Lift
+                  totalCapex:
+                    type: number
+                    description: Total Net CAPEX
+                  totalCompletion:
+                    type: number
+                    description: Total Net Completion
+                  totalDevelopment:
+                    type: number
+                    description: Total Net Development
+                  totalDrilling:
+                    type: number
+                    description: Total Net Drilling
+                  totalDripCondensateVariableExpense:
+                    type: number
+                    description: Total Drip Condensate Variable Expense
+                  totalExpense:
+                    type: number
+                    description: Total Expense
+                  totalExploration:
+                    type: number
+                    description: Total Net Exploration
+                  totalFacilities:
+                    type: number
+                    description: Total Net Facilities
+                  totalFixedExpense:
+                    type: number
+                    description: Total Fixed Expense
+                  totalGasVariableExpense:
+                    type: number
+                    description: Total Gas Variable Expense
+                  totalGrossCapex:
+                    type: number
+                    description: Total Gross CAPEX
+                  totalIntangibleCapex:
+                    type: number
+                    description: Total Net Intangible CAPEX
+                  totalLeasehold:
+                    type: number
+                    description: Total Net Leasehold
+                  totalLegal:
+                    type: number
+                    description: Total Net Legal
+                  totalNglVariableExpense:
+                    type: number
+                    description: Total NGL Variable Expense
+                  totalOilVariableExpense:
+                    type: number
+                    description: Total Oil Variable Expense
+                  totalOtherInvestment:
+                    type: number
+                    description: Total Net Other Investment
+                  totalPad:
+                    type: number
+                    description: Total Net Pad
+                  totalPipelines:
+                    type: number
+                    description: Total Net Pipelines
+                  totalProductionTax:
+                    type: number
+                    description: Total Production Tax
+                  totalRevenue:
+                    type: number
+                    description: Total Net Revenue
+                  totalSalvage:
+                    type: number
+                    description: Total Net Salvage
+                  totalSeveranceTax:
+                    type: number
+                    description: Total Severance Tax
+                  totalTangibleCapex:
+                    type: number
+                    description: Total Net Tangible CAPEX
+                  totalVariableExpense:
+                    type: number
+                    description: Total Variable Expense
+                  totalWaterline:
+                    type: number
+                    description: Total Net Waterline
+                  totalWorkover:
+                    type: number
+                    description: Total Net Workover
+                  waterDisposal:
+                    type: number
+                    description: Water Disposal Expense
+                  waterStartUsingForecastDate:
+                    type: string
+                    format: date
+                    description: Water Forecast Volumes Start Date
+                  wiBoeSalesVolume:
+                    type: number
+                    description: WI BOE Sales Volume
+                  wiDripCondensate:
+                    type: number
+                    description: WI Drip Condensate
+                  wiDripCondensateSalesVolume:
+                    type: number
+                    description: WI Drip Condensate Sales Volume
+                  wiGas:
+                    type: number
+                    description: WI Gas
+                  wiGasSalesVolume:
+                    type: number
+                    description: WI Gas Sales Volume
+                  wiMcfeSalesVolume:
+                    type: number
+                    description: WI MCFE Sales Volume
+                  wiNgl:
+                    type: number
+                    description: WI NGL
+                  wiNglSalesVolume:
+                    type: number
+                    description: WI NGL Sales Volume
+                  wiOil:
+                    type: number
+                    description: WI Oil
+                  wiOilSalesVolume:
+                    type: number
+                    description: WI Oil Sales Volume
+                  wiWellCount:
+                    type: number
+                    description: Wi Well Count
+                  afitDiscountTableCashFlow1:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 1
+                  afitDiscountTableCashFlow2:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 2
+                  afitDiscountTableCashFlow3:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 3
+                  afitDiscountTableCashFlow4:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 4
+                  afitDiscountTableCashFlow5:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 5
+                  afitDiscountTableCashFlow6:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 6
+                  afitDiscountTableCashFlow7:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 7
+                  afitDiscountTableCashFlow8:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 8
+                  afitDiscountTableCashFlow9:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 9
+                  afitDiscountTableCashFlow10:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 10
+                  afitDiscountTableCashFlow11:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 11
+                  afitDiscountTableCashFlow12:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 12
+                  afitDiscountTableCashFlow13:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 13
+                  afitDiscountTableCashFlow14:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 14
+                  afitDiscountTableCashFlow15:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 15
+                  afitDiscountTableCashFlow16:
+                    type:
+                    - number
+                    - 'null'
+                    description: Afit Discount Table Cash Flow 16
+                  discountTableCashFlow1:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 1
+                  discountTableCashFlow2:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 2
+                  discountTableCashFlow3:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 3
+                  discountTableCashFlow4:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 4
+                  discountTableCashFlow5:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 5
+                  discountTableCashFlow6:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 6
+                  discountTableCashFlow7:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 7
+                  discountTableCashFlow8:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 8
+                  discountTableCashFlow9:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 9
+                  discountTableCashFlow10:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 10
+                  discountTableCashFlow11:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 11
+                  discountTableCashFlow12:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 12
+                  discountTableCashFlow13:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 13
+                  discountTableCashFlow14:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 14
+                  discountTableCashFlow15:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 15
+                  discountTableCashFlow16:
+                    type:
+                    - number
+                    - 'null'
+                    description: Discount Table Cash Flow 16
+              well:
+                type: string
+                description: Well ID
+          maxItems: 200
+        status:
+          type: string
+          description: Status
+      example:
+        results:
+        - comboName: 01-Default 1
+          date: '2021-06-01'
+          output:
+            adValoremTax: '0'
+            afitDiscountTableCashFlow_1: -1077.2776735954733
+            afitDiscountTableCashFlow_2: -1177.8916667963233
+            afitDiscountTableCashFlow_3: -1291.632368852434
+            afitDiscountTableCashFlow_4: -1374.7907299881804
+            afitDiscountTableCashFlow_5: -1418.4083628127848
+            afitDiscountTableCashFlow_6: -1454.9997174632656
+            afitDiscountTableCashFlow_7: -1499.8571878846767
+            afitDiscountTableCashFlow_8: -1555.8681514299367
+            afitDiscountTableCashFlow_9: -1596.549700339635
+            afitDiscountTableCashFlow_10: -1627.410427837928
+            afitDiscountTableCashFlow_11: -1671.2121607239862
+            afitDiscountTableCashFlow_12: -1700.9582733696332
+            afitDiscountTableCashFlow_13: -1722.6064371943203
+            afitDiscountTableCashFlow_14: -1739.1475729988906
+            afitDiscountTableCashFlow_15: -1752.2489070860915
+            afitDiscountTableCashFlow_16: -1771.7912851522033
+            afterIncomeTaxCashFlow: null
+            beforeIncomeTaxCashFlow: '-8951'
+            depreciation: null
+            discountTableCashFlow_1: -1077.2776735954733
+            discountTableCashFlow_10: -1627.410427837928
+            discountTableCashFlow_11: -1671.2121607239862
+            discountTableCashFlow_12: -1700.9582733696332
+            discountTableCashFlow_13: -1722.6064371943203
+            discountTableCashFlow_14: -1739.1475729988906
+            discountTableCashFlow_15: -1752.2489070860915
+            discountTableCashFlow_16: -1771.7912851522033
+            discountTableCashFlow_2: -1177.8916667963233
+            discountTableCashFlow_3: -1291.632368852434
+            discountTableCashFlow_4: -1374.7907299881804
+            discountTableCashFlow_5: -1418.4083628127848
+            discountTableCashFlow_6: -1454.9997174632656
+            discountTableCashFlow_7: -1499.8571878846767
+            discountTableCashFlow_8: -1555.8681514299367
+            discountTableCashFlow_9: -1596.549700339635
+            dripCondensateDifferentials1: '0'
+            dripCondensateDifferentials2: '0'
+            dripCondensateGatheringExpense: '0'
+            dripCondensateMarketingExpense: '0'
+            dripCondensateOtherExpense: '0'
+            dripCondensatePrice: '50'
+            dripCondensateProcessingExpense: '0'
+            dripCondensateRevenue: '0'
+            dripCondensateSeveranceTax: '0'
+            dripCondensateTransportationExpense: '0'
+            dripCondensateYield: '0'
+            federalIncomeTax: null
+            firstDiscountCashFlow: '-8308.9367'
+            firstDiscountNetIncome: '0'
+            firstDiscountedCapex: '0'
+            gasDifferentials1: '0'
+            gasDifferentials2: '0'
+            gasFlare: '0'
+            gasGatheringExpense: '0'
+            gasLoss: '0'
+            gasMarketingExpense: '0'
+            gasOtherExpense: '0'
+            gasPrice: '2.5'
+            gasProcessingExpense: '0'
+            gasRevenue: '0'
+            gasSeveranceTax: '0'
+            gasShrinkage: '0'
+            gasStartUsingForecastDate: '2021-07-01'
+            gasTransportationExpense: '0'
+            grossBoeSalesVolume: '0'
+            grossBoeWellHeadVolume: '0'
+            grossDripCondensateSalesVolume: '0'
+            grossGasSalesVolume: '0'
+            grossGasWellHeadVolume: '0'
+            grossMcfeSalesVolume: '0'
+            grossMcfeWellHeadVolume: '0'
+            grossNglSalesVolume: '0'
+            grossOilSalesVolume: '0'
+            grossOilWellHeadVolume: '0'
+            grossWaterWellHeadVolume: '0'
+            grossWellCount: '1'
+            inputDripCondensatePrice: '0'
+            inputGasPrice: '0'
+            inputNglPrice: '0'
+            inputOilPrice: '0'
+            intangibleAbandonment: '0'
+            intangibleAppraisal: '0'
+            intangibleArtificialLift: '0'
+            intangibleCompletion: '0'
+            intangibleDevelopment: '0'
+            intangibleDrilling: '0'
+            intangibleExploration: '0'
+            intangibleFacilities: '0'
+            intangibleLeasehold: '0'
+            intangibleLegal: '0'
+            intangibleOtherInvestment: '8578.5'
+            intangiblePad: '0'
+            intangiblePipelines: '0'
+            intangibleSalvage: '0'
+            intangibleWaterline: '0'
+            intangibleWorkover: '0'
+            leaseNri: '0'
+            monthlyWellCost: '0'
+            netBoeSalesVolume: '0'
+            netDripCondensateSalesVolume: '0'
+            netGasSalesVolume: '0'
+            netIncome: '0'
+            netMcfeSalesVolume: '0'
+            netNglSalesVolume: '0'
+            netOilSalesVolume: '0'
+            netProfit: '0'
+            nglDifferentials1: '0'
+            nglDifferentials2: '0'
+            nglGatheringExpense: '0'
+            nglMarketingExpense: '0'
+            nglOtherExpense: '0'
+            nglPrice: '17.5'
+            nglProcessingExpense: '0'
+            nglRevenue: '0'
+            nglSeveranceTax: '0'
+            nglTransportationExpense: '0'
+            nglYield: '0'
+            nriDripCondensate: '75'
+            nriGas: '75'
+            nriNgl: '75'
+            nriOil: '75'
+            nriWellCount: '0.75'
+            oilDifferentials1: '0'
+            oilDifferentials2: '0'
+            oilGatheringExpense: '0'
+            oilLoss: '0'
+            oilMarketingExpense: '0'
+            oilOtherExpense: '0'
+            oilPrice: '50'
+            oilProcessingExpense: '0'
+            oilRevenue: '0'
+            oilSeveranceTax: '0'
+            oilShrinkage: '0'
+            oilStartUsingForecastDate: '2021-07-01'
+            oilTransportationExpense: '0'
+            otherMonthlyCost_1: '0'
+            otherMonthlyCost_2: '0'
+            secondDiscountCashFlow: '-8308.9367'
+            secondDiscountNetIncome: '0'
+            secondDiscountedCapex: '0'
+            stateIncomeTax: null
+            tangibleAbandonment: '0'
+            tangibleAppraisal: '0'
+            tangibleArtificialLift: '0'
+            tangibleCompletion: '0'
+            tangibleDevelopment: '0'
+            tangibleDrilling: '0'
+            tangibleExploration: '0'
+            tangibleFacilities: '0'
+            tangibleLeasehold: '0'
+            tangibleLegal: '0'
+            tangibleOtherInvestment: '372.5'
+            tangiblePad: '0'
+            tangiblePipelines: '0'
+            tangibleSalvage: '0'
+            tangibleWaterline: '0'
+            tangibleWorkover: '0'
+            taxableIncome: null
+            totalAbandonment: '0'
+            totalAppraisal: '0'
+            totalArtificialLift: '0'
+            totalCapex: '8951'
+            totalCompletion: '0'
+            totalDevelopment: '0'
+            totalDrilling: '0'
+            totalDripCondensateVariableExpense: '0'
+            totalExpense: '0'
+            totalExploration: '0'
+            totalFacilities: '0'
+            totalFixedExpense: '0'
+            totalGasVariableExpense: '0'
+            totalGrossCapex: '0'
+            totalIntangibleCapex: '8578.5'
+            totalLeasehold: '0'
+            totalLegal: '0'
+            totalNglVariableExpense: '0'
+            totalOilVariableExpense: '0'
+            totalOtherInvestment: '8951'
+            totalPad: '0'
+            totalPipelines: '0'
+            totalProductionTax: '0'
+            totalRevenue: '0'
+            totalSalvage: '0'
+            totalSeveranceTax: '0'
+            totalTangibleCapex: '372.5'
+            totalVariableExpense: '0'
+            totalWaterline: '0'
+            totalWorkover: '0'
+            waterDisposal: '0'
+            waterStartUsingForecastDate: '2021-07-01'
+            wiBoeSalesVolume: '0'
+            wiDripCondensate: '100'
+            wiDripCondensateSalesVolume: '0'
+            wiGas: '100'
+            wiGasSalesVolume: '0'
+            wiMcfeSalesVolume: '0'
+            wiNgl: '100'
+            wiNglSalesVolume: '0'
+            wiOil: '100'
+            wiOilSalesVolume: '0'
+            wiWellCount: '1'
+          well: 600b37ac1d671bcf6e24f55f
+        - comboName: 01-Default 1
+          date: '2020-11-01'
+          output:
+            adValoremTax: '0'
+            afterIncomeTaxCashFlow: null
+            beforeIncomeTaxCashFlow: '0'
+            depreciation: null
+            dripCondensateDifferentials1: '0'
+            dripCondensateDifferentials2: '0'
+            dripCondensateGatheringExpense: '0'
+            dripCondensateMarketingExpense: '0'
+            dripCondensateOtherExpense: '0'
+            dripCondensatePrice: '50'
+            dripCondensateProcessingExpense: '0'
+            dripCondensateRevenue: '0'
+            dripCondensateSeveranceTax: '0'
+            dripCondensateTransportationExpense: '0'
+            dripCondensateYield: '0'
+            federalIncomeTax: null
+            firstDiscountCashFlow: '0'
+            firstDiscountNetIncome: '0'
+            firstDiscountedCapex: '0'
+            gasDifferentials1: '0'
+            gasDifferentials2: '0'
+            gasFlare: '0'
+            gasGatheringExpense: '0'
+            gasLoss: '0'
+            gasMarketingExpense: '0'
+            gasOtherExpense: '0'
+            gasPrice: '2.5'
+            gasProcessingExpense: '0'
+            gasRevenue: '0'
+            gasSeveranceTax: '0'
+            gasShrinkage: '0'
+            gasStartUsingForecastDate: '2021-07-01'
+            gasTransportationExpense: '0'
+            grossBoeSalesVolume: '0'
+            grossBoeWellHeadVolume: '0'
+            grossDripCondensateSalesVolume: '0'
+            grossGasSalesVolume: '0'
+            grossGasWellHeadVolume: '0'
+            grossMcfeSalesVolume: '0'
+            grossMcfeWellHeadVolume: '0'
+            grossNglSalesVolume: '0'
+            grossOilSalesVolume: '0'
+            grossOilWellHeadVolume: '0'
+            grossWaterWellHeadVolume: '0'
+            grossWellCount: '1'
+            inputDripCondensatePrice: '0'
+            inputGasPrice: '0'
+            inputNglPrice: '0'
+            inputOilPrice: '0'
+            intangibleAbandonment: '0'
+            intangibleAppraisal: '0'
+            intangibleArtificialLift: '0'
+            intangibleCompletion: '0'
+            intangibleDevelopment: '0'
+            intangibleDrilling: '0'
+            intangibleExploration: '0'
+            intangibleFacilities: '0'
+            intangibleLeasehold: '0'
+            intangibleLegal: '0'
+            intangibleOtherInvestment: '0'
+            intangiblePad: '0'
+            intangiblePipelines: '0'
+            intangibleSalvage: '0'
+            intangibleWaterline: '0'
+            intangibleWorkover: '0'
+            leaseNri: '0'
+            monthlyWellCost: '0'
+            netBoeSalesVolume: '0'
+            netDripCondensateSalesVolume: '0'
+            netGasSalesVolume: '0'
+            netIncome: '0'
+            netMcfeSalesVolume: '0'
+            netNglSalesVolume: '0'
+            netOilSalesVolume: '0'
+            netProfit: '0'
+            nglDifferentials1: '0'
+            nglDifferentials2: '0'
+            nglGatheringExpense: '0'
+            nglMarketingExpense: '0'
+            nglOtherExpense: '0'
+            nglPrice: '17.5'
+            nglProcessingExpense: '0'
+            nglRevenue: '0'
+            nglSeveranceTax: '0'
+            nglTransportationExpense: '0'
+            nglYield: '0'
+            nriDripCondensate: '75'
+            nriGas: '75'
+            nriNgl: '75'
+            nriOil: '75'
+            nriWellCount: '0.75'
+            oilDifferentials1: '0'
+            oilDifferentials2: '0'
+            oilGatheringExpense: '0'
+            oilLoss: '0'
+            oilMarketingExpense: '0'
+            oilOtherExpense: '0'
+            oilPrice: '50'
+            oilProcessingExpense: '0'
+            oilRevenue: '0'
+            oilShrinkage: '0'
+            oilSeveranceTax: '0'
+            oilStartUsingForecastDate: '2021-07-01'
+            oilTransportationExpense: '0'
+            otherMonthlyCost_1: '0'
+            otherMonthlyCost_2: '0'
+            secondDiscountCashFlow: '0'
+            secondDiscountNetIncome: '0'
+            secondDiscountedCapex: '0'
+            stateIncomeTax: null
+            tangibleAbandonment: '0'
+            tangibleAppraisal: '0'
+            tangibleArtificialLift: '0'
+            tangibleCompletion: '0'
+            tangibleDevelopment: '0'
+            tangibleDrilling: '0'
+            tangibleExploration: '0'
+            tangibleFacilities: '0'
+            tangibleLeasehold: '0'
+            tangibleLegal: '0'
+            tangibleOtherInvestment: '0'
+            tangiblePad: '0'
+            tangiblePipelines: '0'
+            tangibleSalvage: '0'
+            tangibleWaterline: '0'
+            tangibleWorkover: '0'
+            taxableIncome: null
+            totalAbandonment: '0'
+            totalAppraisal: '0'
+            totalArtificialLift: '0'
+            totalCapex: '0'
+            totalCompletion: '0'
+            totalDevelopment: '0'
+            totalDrilling: '0'
+            totalDripCondensateVariableExpense: '0'
+            totalExpense: '0'
+            totalExploration: '0'
+            totalFacilities: '0'
+            totalFixedExpense: '0'
+            totalGasVariableExpense: '0'
+            totalGrossCapex: '0'
+            totalIntangibleCapex: '0'
+            totalLeasehold: '0'
+            totalLegal: '0'
+            totalNglVariableExpense: '0'
+            totalOilVariableExpense: '0'
+            totalOtherInvestment: '0'
+            totalPad: '0'
+            totalPipelines: '0'
+            totalProductionTax: '0'
+            totalRevenue: '0'
+            totalSalvage: '0'
+            totalSeveranceTax: '0'
+            totalTangibleCapex: '0'
+            totalVariableExpense: '0'
+            totalWaterline: '0'
+            totalWorkover: '0'
+            waterDisposal: '0'
+            waterStartUsingForecastDate: '2021-07-01'
+            wiBoeSalesVolume: '0'
+            wiDripCondensate: '100'
+            wiDripCondensateSalesVolume: '0'
+            wiGas: '100'
+            wiGasSalesVolume: '0'
+            wiMcfeSalesVolume: '0'
+            wiNgl: '100'
+            wiNglSalesVolume: '0'
+            wiOil: '100'
+            wiOilSalesVolume: '0'
+            wiWellCount: '1'
+          well: 600b37ac1d671bcf6e24f55f
+        status: completed
+    MonthlyExportJob:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID
+      example:
+        id: 7a0b236e-4a46-414d-bdf5-08de1d8adff7
+  parameters:
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    takeParamBQ:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 100
+        maximum: 2000
+        minimum: 1
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

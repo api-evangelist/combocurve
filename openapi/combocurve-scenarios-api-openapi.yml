@@ -1,0 +1,553 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Scenarios API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Scenarios
+paths:
+  /v1/projects/{projectId}/scenarios:
+    head:
+      description: Returns metadata about the existing scenario documents scoped to projectId project.
+      operationId: head-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Scenarios
+      summary: Head scenarios
+      x-summary-source: derived
+    get:
+      description: Returns a list of scenario documents scoped to projectId project.
+      operationId: get-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioList'
+              example:
+              - createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test scenario
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Scenarios
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get scenarios
+      x-summary-source: derived
+    post:
+      description: Inserts a list of scenario documents.
+      operationId: post-project-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: '[0]'
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: '[2]'
+                results:
+                - status: Success
+                  code: 200
+                  chosenID: 5e5981b9e23dae0012624d72
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Scenarios
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScenarioInputList'
+        description: Scenario document(s) to insert
+      summary: Post project scenarios
+      x-summary-source: derived
+    put:
+      description: Update a list of scenario documents.
+      operationId: put-project-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: '[0]'
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: '[2]'
+                results:
+                - status: Success
+                  code: 200
+                  chosenID: 5e5981b9e23dae0012624d72
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Scenarios
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScenarioInputList'
+        description: Scenario document(s) to insert
+      summary: Put project scenarios
+      x-summary-source: derived
+    delete:
+      operationId: delete-project-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: Project ID
+        schema:
+          type: string
+      - in: query
+        name: name
+        description: The name of the scenario to delete. If this is not provided, the id parameter must be provided.
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 20
+      - in: query
+        name: id
+        description: The id of the scenario to delete. If this is not provided, the name parameter must be provided.
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            x-delete-count:
+              schema:
+                type: integer
+        '400':
+          description: BadRequest Response
+        '404':
+          description: NotFound Response
+      tags:
+      - Scenarios
+      summary: Delete project scenarios
+      x-summary-source: derived
+  /v1/projects/{projectId}/scenarios/head:
+    delete:
+      operationId: delete-scenarios
+      parameters:
+      - in: path
+        name: projectId
+        description: Project ID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: name
+        description: The name of the scenario to delete. If this is not provided, the id parameter must be provided.
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+          maxItems: 20
+      - in: query
+        name: id
+        description: The id of the scenario to delete. If this is not provided, the name parameter must be provided.
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            x-delete-count:
+              schema:
+                type: integer
+        '400':
+          description: BadRequest Response
+        '404':
+          description: NotFound Response
+      tags:
+      - Scenarios
+      summary: Delete scenarios
+      x-summary-source: derived
+  /v1/projects/{projectId}/scenarios/{id}:
+    get:
+      description: Returns the scenario document that matches the given id scoped to projectId project.
+      operationId: get-scenario-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scenario'
+              example:
+                createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test scenario
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Scenarios
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get scenario by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    Scenario:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date
+          description: Scenario Creation Date
+        id:
+          type: string
+          description: ID
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+      example:
+        createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test scenario
+        updatedAt: '2020-01-21T17:58:08.986Z'
+    ScenarioStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        chosenID:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ScenarioPayload:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID (for updates)
+        name:
+          type: string
+          description: Scenario Name
+      example:
+        name: Test scenario
+        id: 5e5981b9e23dae0012624d72
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    ScenarioInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScenarioPayload'
+      maxItems: 200
+      example:
+      - name: Test scenario
+        id: 5e5981b9e23dae0012624d72
+    ScenarioMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScenarioStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: '[0]'
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: '[2]'
+        results:
+        - status: Success
+          code: 200
+          chosenID: 5e5981b9e23dae0012624d72
+        failedCount: 2
+        successCount: 2
+    ScenarioList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Scenario'
+      maxItems: 200
+      example:
+      - createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test scenario
+        updatedAt: '2020-01-21T17:58:08.986Z'
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

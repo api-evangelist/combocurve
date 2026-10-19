@@ -1,0 +1,403 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Qualifiers API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Qualifiers
+paths:
+  /v1/projects/{projectId}/scenarios/{scenarioId}/qualifiers:
+    get:
+      operationId: get-qualifiers-read
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: econName
+        x-allow-multiple: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualifiersReadOKResponse'
+        '404':
+          description: NotFound Response
+      tags:
+      - Qualifiers
+      summary: Get qualifiers read
+      x-summary-source: derived
+    post:
+      operationId: post-qualifiers-upsert
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualifiersUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - Qualifiers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualifierUpsertPayloadList'
+        required: true
+      summary: Post qualifiers upsert
+      x-summary-source: derived
+    put:
+      operationId: put-qualifiers-upsert
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualifiersUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - Qualifiers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QualifierUpsertPayloadList'
+        required: true
+      summary: Put qualifiers upsert
+      x-summary-source: derived
+    delete:
+      operationId: delete-qualifiers-delete
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: econNames
+        required: true
+        x-allow-multiple: true
+        schema:
+          type: string
+      - in: query
+        name: qualifierNames
+        required: true
+        x-allow-multiple: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            x-delete-count:
+              schema:
+                type: number
+        '400':
+          description: BadRequest Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QualifiersDeleteBadRequestResponse'
+        '404':
+          description: NotFound Response
+      tags:
+      - Qualifiers
+      summary: Delete qualifiers delete
+      x-summary-source: derived
+components:
+  schemas:
+    QualifiersDeleteBadRequestResponse:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        location:
+          type: string
+          description: location
+        message:
+          type: string
+          description: message
+        name:
+          type: string
+          description: name
+      example:
+        chosenID: chosen_id
+        location: people.age
+        message: The field age is required
+        name: ValidationError
+    QualifierUpsertPayloadList:
+      type: array
+      items:
+        $ref: '#/components/schemas/QualifierUpsertPayload'
+    QualifiersUpsertMultiStatusResponse:
+      type: object
+      properties:
+        failedCount:
+          type: integer
+          description: failedCount
+        generalErrors:
+          type: array
+          description: generalErrors
+          items:
+            $ref: '#/components/schemas/QualifiersUpsertGeneralErrorsOutput'
+        results:
+          type: array
+          description: results
+          items:
+            $ref: '#/components/schemas/QualifiersUpsertResultsOutput'
+        successCount:
+          type: integer
+          description: successCount
+      example:
+        failedCount: 1
+        generalErrors:
+        - chosenID: chosen_id
+          location: .person.name
+          message: The field name is required
+          name: ValidationError
+        results:
+        - chosenID: chosen_id
+          code: 201
+          status: created
+        successCount: 1
+    QualifierUpsertPayload:
+      type: object
+      required:
+      - econModel
+      - name
+      properties:
+        econModel:
+          type: string
+          description: econModel
+        name:
+          type: string
+          description: name
+        newName:
+          type: string
+          description: newName
+      example:
+        econModel: actual-or-forecast
+        name: some_string
+        newName: some_string
+    QualifiersUpsertGeneralErrorsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        location:
+          type: string
+          description: location
+        message:
+          type: string
+          description: message
+        name:
+          type: string
+          description: name
+      example:
+        chosenID: chosen_id
+        location: .person.name
+        message: The field name is required
+        name: ValidationError
+    QualifiersReadOKResponse:
+      type: object
+      properties:
+        actualOrForecast:
+          type: array
+          description: actualOrForecast
+          items:
+            type: string
+        capex:
+          type: array
+          description: capex
+          items:
+            type: string
+        dates:
+          type: array
+          description: dates
+          items:
+            type: string
+        depreciation:
+          type: array
+          description: depreciation
+          items:
+            type: string
+        differentials:
+          type: array
+          description: differentials
+          items:
+            type: string
+        escalation:
+          type: array
+          description: escalation
+          items:
+            type: string
+        expenses:
+          type: array
+          description: expenses
+          items:
+            type: string
+        forecast:
+          type: array
+          description: forecast
+          items:
+            type: string
+        ownershipReversion:
+          type: array
+          description: ownershipReversion
+          items:
+            type: string
+        pricing:
+          type: array
+          description: pricing
+          items:
+            type: string
+        productionTaxes:
+          type: array
+          description: productionTaxes
+          items:
+            type: string
+        reservesCategory:
+          type: array
+          description: reservesCategory
+          items:
+            type: string
+      example:
+        actualOrForecast:
+        - actualOrForecast_qualifier
+        capex:
+        - capex_qualifier
+        dates:
+        - dates_qualifier
+        depreciation:
+        - depreciation_qualifier
+        differentials:
+        - differentials_qualifier
+        escalation:
+        - escalation_qualifier
+        expenses:
+        - expenses_qualifier
+        forecast:
+        - forecast_qualifier
+        ownershipReversion:
+        - ownershipReversion_qualifier
+        pricing:
+        - pricing_qualifier
+        productionTaxes:
+        - productionTaxes_qualifier
+        reservesCategory:
+        - reservesCategory_qualifier
+    QualifiersUpsertResultsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        code:
+          type: integer
+          description: code
+        status:
+          type: string
+          description: status
+      example:
+        chosenID: chosen_id
+        code: 201
+        status: created
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

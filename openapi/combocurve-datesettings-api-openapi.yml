@@ -1,0 +1,1584 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Date Settings API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: DateSettings
+paths:
+  /v1/projects/{projectId}/econ-models/date-settings:
+    head:
+      description: Returns metadata about the existing date-settings documents.
+      operationId: head-date-settings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DateSettings
+      summary: Head date settings
+      x-summary-source: derived
+    get:
+      description: Returns a list of date-settings documents.
+      operationId: get-date-settings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettingsList'
+              example:
+              - id: 648a392e9ed2d2ad372bda84
+                copiedFrom: null
+                name: default
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-19T17:24:17.132Z'
+                updatedAt: '2023-06-19T17:24:17.132Z'
+                dateSetting:
+                  maxWellLife: 50
+                  asOfDate:
+                    fpd: true
+                  discountDate:
+                    aggregationDate: true
+                  cashFlowPriorAsOfDate: false
+                  productionDataResolution: same_as_forecast
+                  fpdSourceHierarchy:
+                    firstFpdSource:
+                      wellHeader: true
+                    secondFpdSource:
+                      linkToWells: INPT.gWmyAymH6i
+                    thirdFpdSource:
+                      linkToWells: INPT.JNE6xtYFJd
+                    fourthFpdSource:
+                      notUsed: true
+                    useForecastSchedule: true
+                cutOff:
+                  maxCumCashFlow: true
+                  minLife:
+                    none: true
+                  triggerEclCapex: false
+                  includeCapex: false
+                  discount: 10
+                  econLimitDelay: 0
+                  alignDependentPhases: true
+                  tolerateNegativeCF: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get date settings
+      x-summary-source: derived
+    post:
+      description: Inserts a list of date-settings documents.
+      operationId: post-date-settings
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DateSettingsInputList'
+        description: DateSettings Model document(s) to insert. See DateSettingsInputList.
+      summary: Post date settings
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of date-settings documents.
+      operationId: put-date-settings
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DateSettingsInputList'
+        description: DateSettings Model document(s) to replace/create. See DateSettingsInputList.
+      summary: Put date settings
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/date-settings/{id}:
+    get:
+      description: Returns the date-settings document that matches the given id.
+      operationId: get-date-settings-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettings'
+              example:
+                id: 648a392e9ed2d2ad372bda84
+                copiedFrom: null
+                name: default
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-19T17:24:17.132Z'
+                updatedAt: '2023-06-19T17:24:17.132Z'
+                dateSetting:
+                  maxWellLife: 50
+                  asOfDate:
+                    fpd: true
+                  discountDate:
+                    majorSegment: true
+                  cashFlowPriorAsOfDate: false
+                  productionDataResolution: same_as_forecast
+                  fpdSourceHierarchy:
+                    firstFpdSource:
+                      wellHeader: true
+                    secondFpdSource:
+                      linkToWells: INPT.gWmyAymH6i
+                    thirdFpdSource:
+                      linkToWells: INPT.JNE6xtYFJd
+                    fourthFpdSource:
+                      notUsed: true
+                    useForecastSchedule: true
+                cutOff:
+                  maxCumCashFlow: true
+                  minLife:
+                    none: true
+                  triggerEclCapex: false
+                  includeCapex: false
+                  discount: 10
+                  econLimitDelay: 0
+                  alignDependentPhases: true
+                  tolerateNegativeCF: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get date settings by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-date-settings-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DateSettings
+      summary: Delete date settings by id
+      x-summary-source: derived
+  /v1/econ-models/date-settings:
+    head:
+      description: Returns metadata about the existing date-settings documents.
+      operationId: head-company-date-settings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DateSettings
+      summary: Head company date settings
+      x-summary-source: derived
+    get:
+      description: Returns a list of date-settings documents.
+      operationId: get-company-date-settings
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDateSettingsList'
+              example:
+              - id: 648a392e9ed2d2ad372bda84
+                copiedFrom: null
+                name: default
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-19T17:24:17.132Z'
+                updatedAt: '2023-06-19T17:24:17.132Z'
+                dateSetting:
+                  maxWellLife: 50
+                  asOfDate:
+                    fpd: true
+                  discountDate:
+                    majorSegment: true
+                  cashFlowPriorAsOfDate: false
+                  productionDataResolution: same_as_forecast
+                  fpdSourceHierarchy:
+                    firstFpdSource:
+                      wellHeader: true
+                    secondFpdSource:
+                      wellHeader: true
+                    thirdFpdSource:
+                      wellHeader: true
+                    fourthFpdSource:
+                      notUsed: true
+                    useForecastSchedule: true
+                cutOff:
+                  maxCumCashFlow: true
+                  minLife:
+                    none: true
+                  triggerEclCapex: false
+                  includeCapex: false
+                  discount: 10
+                  econLimitDelay: 0
+                  alignDependentPhases: true
+                  tolerateNegativeCF: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company date settings
+      x-summary-source: derived
+    post:
+      description: Inserts a list of date-settings documents.
+      operationId: post-company-date-settings
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyDateSettingsInputList'
+        description: DateSettings Model document(s) to insert. See CompanyDateSettingsInputList.
+      summary: Post company date settings
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of date-settings documents.
+      operationId: put-company-date-settings
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DateSettingsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyDateSettingsInputList'
+        description: DateSettings Model document(s) to replace/create. See CompanyDateSettingsInputList.
+      summary: Put company date settings
+      x-summary-source: derived
+  /v1/econ-models/date-settings/{id}:
+    get:
+      description: Returns the date-settings document that matches the given id.
+      operationId: get-company-date-settings-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDateSettings'
+              example:
+                id: 648a392e9ed2d2ad372bda84
+                copiedFrom: null
+                name: default
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-19T17:24:17.132Z'
+                updatedAt: '2023-06-19T17:24:17.132Z'
+                dateSetting:
+                  maxWellLife: 50
+                  asOfDate:
+                    aggregationDate: true
+                  discountDate:
+                    majorSegment: true
+                  cashFlowPriorAsOfDate: false
+                  productionDataResolution: same_as_forecast
+                  fpdSourceHierarchy:
+                    firstFpdSource:
+                      wellHeader: true
+                    secondFpdSource:
+                      wellHeader: true
+                    thirdFpdSource:
+                      wellHeader: true
+                    fourthFpdSource:
+                      notUsed: true
+                    useForecastSchedule: true
+                cutOff:
+                  maxCumCashFlow: true
+                  minLife:
+                    none: true
+                  triggerEclCapex: false
+                  includeCapex: false
+                  discount: 10
+                  econLimitDelay: 0
+                  alignDependentPhases: true
+                  tolerateNegativeCF: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - DateSettings
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company date settings by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to the company level
+      operationId: delete-company-date-settings-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - DateSettings
+      summary: Delete company date settings by id
+      x-summary-source: derived
+components:
+  schemas:
+    CompanyDateSettingsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompanyDateSettingsInput'
+      maxItems: 500
+      example:
+      - name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            aggregationDate: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              wellHeader: true
+            thirdFpdSource:
+              wellHeader: true
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    CompanyDateSettingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompanyDateSettings'
+      maxItems: 200
+      example:
+      - id: 648a392e9ed2d2ad372bda84
+        copiedFrom: null
+        name: default
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-19T17:24:17.132Z'
+        updatedAt: '2023-06-19T17:24:17.132Z'
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              wellHeader: true
+            thirdFpdSource:
+              wellHeader: true
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    CutOffModel:
+      type: object
+      properties:
+        maxCumCashFlow:
+          type: boolean
+        firstNegativeCashFlow:
+          type: boolean
+        lastPositiveCashFlow:
+          type: boolean
+        noCutOff:
+          type: boolean
+        oilRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        gasRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        waterRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        date:
+          type: string
+          format: date
+        yearsFromAsOf:
+          type: number
+          maximum: 1000
+          minimum: 0
+        linkToWells:
+          type: string
+        minLife:
+          $ref: '#/components/schemas/CutOffMinLifeModel'
+        triggerEclCapex:
+          type: boolean
+        includeCapex:
+          type: boolean
+        discount:
+          type: number
+          maximum: 100
+          minimum: 0
+        econLimitDelay:
+          type: number
+          maximum: 100
+          minimum: 0
+        alignDependentPhases:
+          type: boolean
+        tolerateNegativeCF:
+          type: number
+          minimum: 0
+    CutOffMinLifeModel:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        asOf:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        endHist:
+          type: boolean
+        none:
+          type: boolean
+    CompanyDateSettingsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        dateSetting:
+          $ref: '#/components/schemas/CompanyDateSettingsModel'
+        cutOff:
+          $ref: '#/components/schemas/CompanyCutOffModel'
+      example:
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              wellHeader: true
+            thirdFpdSource:
+              wellHeader: true
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    CompanyDateSettings:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        dateSetting:
+          $ref: '#/components/schemas/CompanyDateSettingsModel'
+        cutOff:
+          $ref: '#/components/schemas/CompanyCutOffModel'
+      example:
+        id: 648a392e9ed2d2ad372bda84
+        copiedFrom: null
+        name: default
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-19T17:24:17.132Z'
+        updatedAt: '2023-06-19T17:24:17.132Z'
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            aggregationDate: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              wellHeader: true
+            thirdFpdSource:
+              wellHeader: true
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    CompanyDateSettingsModel:
+      type: object
+      properties:
+        maxWellLife:
+          type: number
+          maximum: 100
+          minimum: 0
+        asOfDate:
+          $ref: '#/components/schemas/AsOfOrDiscountModel'
+        discountDate:
+          $ref: '#/components/schemas/AsOfOrDiscountModel'
+        cashFlowPriorAsOfDate:
+          type: boolean
+        productionDataResolution:
+          type: string
+          enum:
+          - same_as_forecast
+          - monthly
+          - daily
+        fpdSourceHierarchy:
+          $ref: '#/components/schemas/CompanyFpdSourceHierarchyModel'
+      required:
+      - maxWellLife
+      - asOfDate
+      - discountDate
+      - cashFlowPriorAsOfDate
+      - productionDataResolution
+      - fpdSourceHierarchy
+    CompanyFpdSourceHierarchyModel:
+      type: object
+      properties:
+        firstFpdSource:
+          $ref: '#/components/schemas/CompanyFPDSourceModel'
+        secondFpdSource:
+          $ref: '#/components/schemas/CompanyFPDSourceModel'
+        thirdFpdSource:
+          $ref: '#/components/schemas/CompanyFPDSourceModel'
+        fourthFpdSource:
+          $ref: '#/components/schemas/CompanyFPDSourceModel'
+        useForecastSchedule:
+          type: boolean
+      required:
+      - firstFpdSource
+      - secondFpdSource
+      - thirdFpdSource
+      - fourthFpdSource
+      - useForecastSchedule
+    DateSettingsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateSettingsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    AsOfOrDiscountModel:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        dynamic:
+          type: string
+          enum:
+          - first_of_next_year
+          - first_of_next_month
+        fpd:
+          type: boolean
+        majorSegment:
+          type: boolean
+        aggregationDate:
+          type: boolean
+    DateSettingsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DateSettingsInput'
+      maxItems: 500
+      example:
+      - name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              linkToWells: INPT.gWmyAymH6i
+            thirdFpdSource:
+              linkToWells: INPT.JNE6xtYFJd
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    DateSettingsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DateSettings'
+      maxItems: 200
+      example:
+      - id: 648a392e9ed2d2ad372bda84
+        copiedFrom: null
+        name: default
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-19T17:24:17.132Z'
+        updatedAt: '2023-06-19T17:24:17.132Z'
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            aggregationDate: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              linkToWells: INPT.gWmyAymH6i
+            thirdFpdSource:
+              linkToWells: INPT.JNE6xtYFJd
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    FpdSourceHierarchyModel:
+      type: object
+      properties:
+        firstFpdSource:
+          $ref: '#/components/schemas/FPDSourceModel'
+        secondFpdSource:
+          $ref: '#/components/schemas/FPDSourceModel'
+        thirdFpdSource:
+          $ref: '#/components/schemas/FPDSourceModel'
+        fourthFpdSource:
+          $ref: '#/components/schemas/FPDSourceModel'
+        useForecastSchedule:
+          type: boolean
+      required:
+      - firstFpdSource
+      - secondFpdSource
+      - thirdFpdSource
+      - fourthFpdSource
+      - useForecastSchedule
+    CompanyCutOffModel:
+      type: object
+      properties:
+        maxCumCashFlow:
+          type: boolean
+        firstNegativeCashFlow:
+          type: boolean
+        lastPositiveCashFlow:
+          type: boolean
+        noCutOff:
+          type: boolean
+        oilRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        gasRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        waterRate:
+          type: number
+          maximum: 10000000
+          minimum: 0
+        date:
+          type: string
+          format: date
+        yearsFromAsOf:
+          type: number
+          maximum: 1000
+          minimum: 0
+        minLife:
+          $ref: '#/components/schemas/CutOffMinLifeModel'
+        triggerEclCapex:
+          type: boolean
+        includeCapex:
+          type: boolean
+        discount:
+          type: number
+          maximum: 100
+          minimum: 0
+        econLimitDelay:
+          type: number
+          maximum: 100
+          minimum: 0
+        alignDependentPhases:
+          type: boolean
+        tolerateNegativeCF:
+          type: number
+          minimum: 0
+    DateSettingsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    DateSettings:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        dateSetting:
+          $ref: '#/components/schemas/DateSettingsModel'
+        cutOff:
+          $ref: '#/components/schemas/CutOffModel'
+      example:
+        id: 648a392e9ed2d2ad372bda84
+        copiedFrom: null
+        name: default
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-19T17:24:17.132Z'
+        updatedAt: '2023-06-19T17:24:17.132Z'
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            fpd: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              linkToWells: INPT.gWmyAymH6i
+            thirdFpdSource:
+              linkToWells: INPT.JNE6xtYFJd
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+    DateSettingsModel:
+      type: object
+      properties:
+        maxWellLife:
+          type: number
+          maximum: 100
+          minimum: 0
+        asOfDate:
+          $ref: '#/components/schemas/AsOfOrDiscountModel'
+        discountDate:
+          $ref: '#/components/schemas/AsOfOrDiscountModel'
+        cashFlowPriorAsOfDate:
+          type: boolean
+        productionDataResolution:
+          type: string
+          enum:
+          - same_as_forecast
+          - monthly
+          - daily
+        fpdSourceHierarchy:
+          $ref: '#/components/schemas/FpdSourceHierarchyModel'
+      required:
+      - maxWellLife
+      - asOfDate
+      - discountDate
+      - cashFlowPriorAsOfDate
+      - productionDataResolution
+      - fpdSourceHierarchy
+    CompanyFPDSourceModel:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        wellHeader:
+          type: boolean
+        forecast:
+          type: boolean
+        notUsed:
+          type: boolean
+        productionData:
+          type: boolean
+    FPDSourceModel:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        wellHeader:
+          type: boolean
+        forecast:
+          type: boolean
+        notUsed:
+          type: boolean
+        productionData:
+          type: boolean
+        linkToWells:
+          type: string
+    DateSettingsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        dateSetting:
+          $ref: '#/components/schemas/DateSettingsModel'
+        cutOff:
+          $ref: '#/components/schemas/CutOffModel'
+      example:
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        dateSetting:
+          maxWellLife: 50
+          asOfDate:
+            aggregationDate: true
+          discountDate:
+            majorSegment: true
+          cashFlowPriorAsOfDate: false
+          productionDataResolution: same_as_forecast
+          fpdSourceHierarchy:
+            firstFpdSource:
+              wellHeader: true
+            secondFpdSource:
+              linkToWells: INPT.gWmyAymH6i
+            thirdFpdSource:
+              linkToWells: INPT.JNE6xtYFJd
+            fourthFpdSource:
+              notUsed: true
+            useForecastSchedule: true
+        cutOff:
+          maxCumCashFlow: true
+          minLife:
+            none: true
+          triggerEclCapex: false
+          includeCapex: false
+          discount: 10
+          econLimitDelay: 0
+          alignDependentPhases: true
+          tolerateNegativeCF: 0
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

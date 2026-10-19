@@ -57,294 +57,804 @@ tags:
 - Upstream
 - Petroleum Engineering
 apis:
-- aid: combocurve:combocurve-v1-custom-columns-api
-  name: ComboCurve v1 custom-columns API
-  description: custom-columns operations
+- aid: combocurve:combocurve-actualforecast-api
+  name: ComboCurve Actual Forecast API
+  description: The ActualForecast API from ComboCurve — 4 operation(s) for actualforecast.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 custom-columns
+  - ActualForecast
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-custom-columns-api-openapi.yml
+    url: openapi/combocurve-actualforecast-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-daily-productions-api
-  name: ComboCurve v1 daily-productions API
-  description: daily-productions operations
+- aid: combocurve:combocurve-ariesforecast-api
+  name: ComboCurve Aries Forecast API
+  description: The AriesForecast API from ComboCurve — 1 operation(s) for ariesforecast.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 daily-productions
+  - AriesForecast
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-daily-productions-api-openapi.yml
+    url: openapi/combocurve-ariesforecast-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-directional-surveys-api
-  name: ComboCurve v1 directional-surveys API
-  description: directional-surveys operations
+- aid: combocurve:combocurve-capex-api
+  name: ComboCurve Capex API
+  description: The Capex API from ComboCurve — 4 operation(s) for capex.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 directional-surveys
+  - Capex
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-directional-surveys-api-openapi.yml
+    url: openapi/combocurve-capex-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-econ-models-api
-  name: ComboCurve v1 econ-models API
-  description: econ-models operations
+- aid: combocurve:combocurve-companywells-api
+  name: ComboCurve Company Wells API
+  description: The CompanyWells API from ComboCurve — 2 operation(s) for companywells.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 econ-models
+  - CompanyWells
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-econ-models-api-openapi.yml
+    url: openapi/combocurve-companywells-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-econ-runs-api
-  name: ComboCurve v1 econ-runs API
-  description: econ-runs operations
+- aid: combocurve:combocurve-customcolumns-api
+  name: ComboCurve Custom Columns API
+  description: The CustomColumns API from ComboCurve — 1 operation(s) for customcolumns.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 econ-runs
+  - CustomColumns
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-econ-runs-api-openapi.yml
+    url: openapi/combocurve-customcolumns-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-exports-api
-  name: ComboCurve v1 exports API
-  description: exports operations
+- aid: combocurve:combocurve-dailyproductions-api
+  name: ComboCurve Daily Productions API
+  description: The DailyProductions API from ComboCurve — 1 operation(s) for dailyproductions.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 exports
+  - DailyProductions
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-exports-api-openapi.yml
+    url: openapi/combocurve-dailyproductions-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-forecast-configurations-api
-  name: ComboCurve v1 forecast-configurations API
-  description: forecast-configurations operations
+- aid: combocurve:combocurve-dailyvolumes-api
+  name: ComboCurve Daily Volumes API
+  description: The DailyVolumes API from ComboCurve — 2 operation(s) for dailyvolumes.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 forecast-configurations
+  - DailyVolumes
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-forecast-configurations-api-openapi.yml
+    url: openapi/combocurve-dailyvolumes-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-forecast-daily-volumes-api
-  name: ComboCurve v1 forecast-daily-volumes API
-  description: forecast-daily-volumes operations
+- aid: combocurve:combocurve-datesettings-api
+  name: ComboCurve Date Settings API
+  description: The DateSettings API from ComboCurve — 4 operation(s) for datesettings.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 forecast-daily-volumes
+  - DateSettings
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-forecast-daily-volumes-api-openapi.yml
+    url: openapi/combocurve-datesettings-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-forecast-monthly-volumes-api
-  name: ComboCurve v1 forecast-monthly-volumes API
-  description: forecast-monthly-volumes operations
+- aid: combocurve:combocurve-depreciation-api
+  name: ComboCurve Depreciation API
+  description: The Depreciation API from ComboCurve — 4 operation(s) for depreciation.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 forecast-monthly-volumes
+  - Depreciation
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-forecast-monthly-volumes-api-openapi.yml
+    url: openapi/combocurve-depreciation-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-monthly-productions-api
-  name: ComboCurve v1 monthly-productions API
-  description: monthly-productions operations
+- aid: combocurve:combocurve-differentials-api
+  name: ComboCurve Differentials API
+  description: The Differentials API from ComboCurve — 4 operation(s) for differentials.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 monthly-productions
+  - Differentials
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-monthly-productions-api-openapi.yml
+    url: openapi/combocurve-differentials-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-ownership-qualifiers-api
-  name: ComboCurve v1 ownership-qualifiers API
-  description: ownership-qualifiers operations
+- aid: combocurve:combocurve-directionalsurveys-api
+  name: ComboCurve Directional Surveys API
+  description: The DirectionalSurveys API from ComboCurve — 2 operation(s) for directionalsurveys.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 ownership-qualifiers
+  - DirectionalSurveys
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-ownership-qualifiers-api-openapi.yml
+    url: openapi/combocurve-directionalsurveys-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-projects-api
-  name: ComboCurve v1 projects API
-  description: projects operations
+- aid: combocurve:combocurve-econmodels-api
+  name: ComboCurve Econ Models API
+  description: The EconModels API from ComboCurve — 4 operation(s) for econmodels.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1-projects
-  tags_raw:
-  - v1 projects
+  - EconModels
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-projects-api-openapi.yml
+    url: openapi/combocurve-econmodels-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-tags-api
-  name: ComboCurve v1 tags API
-  description: tags operations
+- aid: combocurve:combocurve-econmodelsassignments-api
+  name: ComboCurve Econ Models Assignments API
+  description: >-
+    The EconModelsAssignments API from ComboCurve — 1 operation(s) for econmodelsassignments.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - '[v1] Tags'
-  tags_raw:
-  - v1 tags
+  - EconModelsAssignments
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-tags-api-openapi.yml
+    url: openapi/combocurve-econmodelsassignments-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-users-api
-  name: ComboCurve v1 users API
-  description: users operations
+- aid: combocurve:combocurve-econrunresults-api
+  name: ComboCurve Econ Run Results API
+  description: The EconRunResults API from ComboCurve — 1 operation(s) for econrunresults.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 - Users
-  tags_raw:
-  - v1 users
+  - EconRunResults
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-users-api-openapi.yml
+    url: openapi/combocurve-econrunresults-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-well-comments-api
-  name: ComboCurve v1 well-comments API
-  description: well-comments operations
+- aid: combocurve:combocurve-econruns-api
+  name: ComboCurve Econ Runs API
+  description: The EconRuns API from ComboCurve — 4 operation(s) for econruns.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 well-comments
+  - EconRuns
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-well-comments-api-openapi.yml
+    url: openapi/combocurve-econruns-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-wells-api
-  name: ComboCurve v1 wells API
-  description: wells operations
+- aid: combocurve:combocurve-emissions-api
+  name: ComboCurve Emissions API
+  description: The Emissions API from ComboCurve — 2 operation(s) for emissions.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 wells
+  - Emissions
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-wells-api-openapi.yml
+    url: openapi/combocurve-emissions-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v1-wells-identifiers-api
-  name: ComboCurve v1 wells-identifiers API
-  description: wells-identifiers operations
+- aid: combocurve:combocurve-escalation-api
+  name: ComboCurve Escalation API
+  description: The Escalation API from ComboCurve — 4 operation(s) for escalation.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v1 wells-identifiers
+  - Escalation
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v1-wells-identifiers-api-openapi.yml
+    url: openapi/combocurve-escalation-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference
     url: https://docs.api.combocurve.com/api/getting-started
   - type: GettingStarted
     url: https://docs.api.combocurve.com/api/getting-started
-- aid: combocurve:combocurve-v2-exports-api
-  name: ComboCurve v2 exports API
-  description: exports operations
+- aid: combocurve:combocurve-expenses-api
+  name: ComboCurve Expenses API
+  description: The Expenses API from ComboCurve — 4 operation(s) for expenses.
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
-  - v2 exports
+  - Expenses
   properties:
   - type: OpenAPI
-    url: openapi/combocurve-v2-exports-api-openapi.yml
+    url: openapi/combocurve-expenses-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-exports-api
+  name: ComboCurve Exports API
+  description: The Exports API from ComboCurve — 1 operation(s) for exports.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Exports
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-exports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-fluidmodels-api
+  name: ComboCurve Fluid Models API
+  description: The FluidModels API from ComboCurve — 2 operation(s) for fluidmodels.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - FluidModels
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-fluidmodels-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-forecastoutput-api
+  name: ComboCurve Forecast Output API
+  description: The ForecastOutput API from ComboCurve — 2 operation(s) for forecastoutput.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ForecastOutput
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-forecastoutput-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-forecastparameters-api
+  name: ComboCurve Forecast Parameters API
+  description: The ForecastParameters API from ComboCurve — 2 operation(s) for forecastparameters.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ForecastParameters
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-forecastparameters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-forecasts-api
+  name: ComboCurve Forecasts API
+  description: The Forecasts API from ComboCurve — 3 operation(s) for forecasts.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Forecasts
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-forecasts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-forecastvolumes-api
+  name: ComboCurve Forecast Volumes API
+  description: The ForecastVolumes API from ComboCurve — 2 operation(s) for forecastvolumes.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ForecastVolumes
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-forecastvolumes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-generaloptions-api
+  name: ComboCurve General Options API
+  description: The GeneralOptions API from ComboCurve — 4 operation(s) for generaloptions.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - GeneralOptions
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-generaloptions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-monthlyexport-api
+  name: ComboCurve Monthly Export API
+  description: The MonthlyExport API from ComboCurve — 2 operation(s) for monthlyexport.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - MonthlyExport
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-monthlyexport-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-monthlyproductions-api
+  name: ComboCurve Monthly Productions API
+  description: The MonthlyProductions API from ComboCurve — 1 operation(s) for monthlyproductions.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - MonthlyProductions
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-monthlyproductions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-oneliners-api
+  name: ComboCurve One Liners API
+  description: The OneLiners API from ComboCurve — 3 operation(s) for oneliners.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - OneLiners
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-oneliners-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-ownershipqualifiers-api
+  name: ComboCurve Ownership Qualifiers API
+  description: The OwnershipQualifiers API from ComboCurve — 2 operation(s) for ownershipqualifiers.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - OwnershipQualifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-ownershipqualifiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-ownershipreversion-api
+  name: ComboCurve Ownership Reversion API
+  description: The OwnershipReversion API from ComboCurve — 4 operation(s) for ownershipreversion.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - OwnershipReversion
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-ownershipreversion-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-pricing-api
+  name: ComboCurve Pricing API
+  description: The Pricing API from ComboCurve — 4 operation(s) for pricing.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Pricing
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-pricing-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-productiontaxes-api
+  name: ComboCurve Production Taxes API
+  description: The ProductionTaxes API from ComboCurve — 4 operation(s) for productiontaxes.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ProductionTaxes
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-productiontaxes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-projectcustomcolumns-api
+  name: ComboCurve Project Custom Columns API
+  description: The ProjectCustomColumns API from ComboCurve — 1 operation(s) for projectcustomcolumns.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ProjectCustomColumns
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-projectcustomcolumns-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-projectdailyproductions-api
+  name: ComboCurve Project Daily Productions API
+  description: >-
+    The ProjectDailyProductions API from ComboCurve — 1 operation(s) for projectdailyproductions.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ProjectDailyProductions
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-projectdailyproductions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-projectmonthlyproductions-api
+  name: ComboCurve Project Monthly Productions API
+  description: >-
+    The ProjectMonthlyProductions API from ComboCurve — 1 operation(s) for projectmonthlyproductions.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ProjectMonthlyProductions
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-projectmonthlyproductions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-projects-api
+  name: ComboCurve Projects API
+  description: The Projects API from ComboCurve — 2 operation(s) for projects.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-projectwells-api
+  name: ComboCurve Project Wells API
+  description: The ProjectWells API from ComboCurve — 2 operation(s) for projectwells.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ProjectWells
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-projectwells-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-qualifiers-api
+  name: ComboCurve Qualifiers API
+  description: The Qualifiers API from ComboCurve — 1 operation(s) for qualifiers.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Qualifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-qualifiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-reservescategories-api
+  name: ComboCurve Reserves Categories API
+  description: The ReservesCategories API from ComboCurve — 4 operation(s) for reservescategories.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ReservesCategories
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-reservescategories-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-riskings-api
+  name: ComboCurve Riskings API
+  description: The Riskings API from ComboCurve — 4 operation(s) for riskings.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Riskings
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-riskings-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-scenariocombos-api
+  name: ComboCurve Scenario Combos API
+  description: The ScenarioCombos API from ComboCurve — 1 operation(s) for scenariocombos.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ScenarioCombos
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-scenariocombos-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-scenarios-api
+  name: ComboCurve Scenarios API
+  description: The Scenarios API from ComboCurve — 3 operation(s) for scenarios.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Scenarios
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-scenarios-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-scenariowellassignments-api
+  name: ComboCurve Scenario Well Assignments API
+  description: >-
+    The ScenarioWellAssignments API from ComboCurve — 1 operation(s) for scenariowellassignments.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - ScenarioWellAssignments
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-scenariowellassignments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-streamproperties-api
+  name: ComboCurve Stream Properties API
+  description: The StreamProperties API from ComboCurve — 4 operation(s) for streamproperties.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - StreamProperties
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-streamproperties-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-tags-api
+  name: ComboCurve Tags API
+  description: The Tags API from ComboCurve — 1 operation(s) for tags.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-typecurves-api
+  name: ComboCurve Type Curves API
+  description: The TypeCurves API from ComboCurve — 5 operation(s) for typecurves.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - TypeCurves
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-typecurves-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-userresourceroles-api
+  name: ComboCurve User Resource Roles API
+  description: The UserResourceRoles API from ComboCurve — 1 operation(s) for userresourceroles.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - UserResourceRoles
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-userresourceroles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-wellcomments-api
+  name: ComboCurve Well Comments API
+  description: The WellComments API from ComboCurve — 1 operation(s) for wellcomments.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - WellComments
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-wellcomments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-wellindentifiers-api
+  name: ComboCurve Well Indentifiers API
+  description: The WellIndentifiers API from ComboCurve — 1 operation(s) for wellindentifiers.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - WellIndentifiers
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-wellindentifiers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.api.combocurve.com/
+  - type: APIReference
+    url: https://docs.api.combocurve.com/api/getting-started
+  - type: GettingStarted
+    url: https://docs.api.combocurve.com/api/getting-started
+- aid: combocurve:combocurve-wells-api
+  name: ComboCurve Wells API
+  description: The Wells API from ComboCurve — 2 operation(s) for wells.
+  humanURL: https://docs.api.combocurve.com/
+  baseURL: https://api.combocurve.com
+  tags:
+  - Wells
+  properties:
+  - type: OpenAPI
+    url: openapi/combocurve-wells-api-openapi.yml
   - type: Documentation
     url: https://docs.api.combocurve.com/
   - type: APIReference

@@ -1,0 +1,146 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Project Custom Columns API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: ProjectCustomColumns
+paths:
+  /v1/projects/{projectId}/custom-columns/{customColumn}:
+    get:
+      description: Returns projects custom columns
+      operationId: get-project-custom-columns
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: customColumn
+        required: true
+        description: Project Custom columns to retrieve. Currently only `headers` is supported
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCustomHeaderList'
+              example:
+              - headerName: _project_custom_header_48
+                headerType: string
+                headerLabel: Project Custom Header 48
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ProjectCustomColumns
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get project custom columns
+      x-summary-source: derived
+components:
+  schemas:
+    ProjectCustomHeader:
+      type: object
+      required:
+      - dataSource
+      properties:
+        headerName:
+          type: string
+          description: Project Custom Header Property Name
+        headerType:
+          type: string
+          maxLength: 16384
+          description: Project Custom Header Property Type
+        headerLabel:
+          type: string
+          description: Project Custom Header Label
+      example:
+        headerName: _project_custom_header_48
+        headerType: string
+        headerLabel: Project Custom Header 48
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ProjectCustomHeaderList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProjectCustomHeader'
+      maxItems: 50
+      example:
+      - headerName: _project_custom_header_48
+        headerType: string
+        headerLabel: Project Custom Header 48
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

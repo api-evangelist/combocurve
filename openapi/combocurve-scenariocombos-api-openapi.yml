@@ -1,0 +1,446 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Scenario Combos API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: ScenarioCombos
+paths:
+  /v1/projects/{projectId}/scenarios/{scenarioId}/combos:
+    head:
+      operationId: head-scenario-combos-count
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            X-Query-Count:
+              schema:
+                type: number
+        '400':
+          description: BadRequest Response
+      tags:
+      - ScenarioCombos
+      summary: Head scenario combos count
+      x-summary-source: derived
+    get:
+      operationId: get-scenario-combos-read
+      parameters:
+      - in: query
+        name: skip
+        description: number of items to skip
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: take
+        description: max records to return
+        schema:
+          type: integer
+          format: int32
+          maximum: 200
+          minimum: 1
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: sort
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          enum:
+          - name
+      - in: query
+        name: savedName
+        x-allow-multiple: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          headers:
+            X-Query-Count:
+              schema:
+                type: number
+            Link:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioCombosReadOKResponseList'
+        '404':
+          description: NotFound Response
+      tags:
+      - ScenarioCombos
+      summary: Get scenario combos read
+      x-summary-source: derived
+    post:
+      operationId: post-scenario-combos-upsert
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioCombosUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - ScenarioCombos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCombosPayloadList'
+        required: true
+      summary: Post scenario combos upsert
+      x-summary-source: derived
+    put:
+      operationId: put-scenario-combos-upsert
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioCombosUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - ScenarioCombos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCombosPayloadList'
+        required: true
+      summary: Put scenario combos upsert
+      x-summary-source: derived
+    delete:
+      operationId: delete-scenario-combos-delete
+      parameters:
+      - in: path
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: savedName
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: comboIds
+        x-allow-multiple: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            x-delete-count:
+              schema:
+                type: number
+        '404':
+          description: NotFound Response
+      tags:
+      - ScenarioCombos
+      summary: Delete scenario combos delete
+      x-summary-source: derived
+components:
+  schemas:
+    ScenarioCombosUpsertMultiStatusResponse:
+      type: object
+      properties:
+        failedCount:
+          type: integer
+          description: failedCount
+        generalErrors:
+          type: array
+          description: generalErrors
+          items:
+            $ref: '#/components/schemas/ScenarioCombosUpsertGeneralErrorsOutput'
+        results:
+          type: array
+          description: results
+          items:
+            $ref: '#/components/schemas/ScenarioCombosUpsertResultsOutput'
+        successCount:
+          type: integer
+          description: successCount
+      example:
+        failedCount: 1
+        generalErrors:
+        - chosenID: chosen_id
+          location: .person.name
+          message: The field name is required
+          name: ValidationError
+        results:
+        - chosenID: chosen_id
+          code: 201
+          status: created
+        successCount: 1
+    ScenarioCombosUpsertGeneralErrorsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        location:
+          type: string
+          description: location
+        message:
+          type: string
+          description: message
+        name:
+          type: string
+          description: name
+      example:
+        chosenID: chosen_id
+        location: .person.name
+        message: The field name is required
+        name: ValidationError
+    ScenarioCombosReadQualifiersOutput:
+      type: object
+      properties:
+        assumption:
+          type: string
+          description: assumption
+        qualifierName:
+          type: string
+          description: qualifierName
+      example:
+        assumption: reservesCategory
+        qualifierName: Default
+    SavedCombosPayloadList:
+      type: array
+      items:
+        $ref: '#/components/schemas/SavedCombosPayload'
+    CombosPayload:
+      type: object
+      required:
+      - comboName
+      - qualifiers
+      - selected
+      properties:
+        comboName:
+          type: string
+          description: comboName
+        qualifiers:
+          type: array
+          description: qualifiers
+          items:
+            $ref: '#/components/schemas/QualifierPayload'
+        selected:
+          type: boolean
+          description: selected
+      example:
+        comboName: some_string
+        qualifiers:
+        - assumption: some_string
+          qualifierName: some_string
+        selected: true
+    QualifierPayload:
+      type: object
+      required:
+      - assumption
+      - qualifierName
+      properties:
+        assumption:
+          type: string
+          description: assumption
+        qualifierName:
+          type: string
+          description: qualifierName
+      example:
+        assumption: some_string
+        qualifierName: some_string
+    ScenarioCombosReadCombosOutput:
+      type: object
+      properties:
+        comboName:
+          type: string
+          description: comboName
+        id:
+          type: string
+          description: id
+        qualifiers:
+          type: array
+          description: qualifiers
+          items:
+            $ref: '#/components/schemas/ScenarioCombosReadQualifiersOutput'
+        selected:
+          type: boolean
+          description: selected
+      example:
+        comboName: My combo 1
+        id: 62fc0449133c6c001360278f
+        qualifiers:
+        - assumption: reservesCategory
+          qualifierName: Default
+        selected: true
+    ScenarioCombosReadOKResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ScenarioCombosReadOKResponse'
+    SavedCombosPayload:
+      type: object
+      required:
+      - savedName
+      - combos
+      properties:
+        combos:
+          type: array
+          description: combos
+          items:
+            $ref: '#/components/schemas/CombosPayload'
+            maxItems: 10
+            minItems: 1
+        savedName:
+          type: string
+          description: savedName
+      example:
+        combos:
+        - comboName: some_string
+          qualifiers:
+          - assumption: some_string
+            qualifierName: some_string
+          selected: true
+        savedName: some_string
+    ScenarioCombosUpsertResultsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        code:
+          type: integer
+          description: code
+        status:
+          type: string
+          description: status
+      example:
+        chosenID: chosen_id
+        code: 201
+        status: created
+    ScenarioCombosReadOKResponse:
+      type: object
+      properties:
+        combos:
+          type: array
+          description: combos
+          items:
+            $ref: '#/components/schemas/ScenarioCombosReadCombosOutput'
+        savedName:
+          type: string
+          description: savedName
+      example:
+        combos:
+        - comboName: My combo 1
+          id: 62fc0449133c6c001360278f
+          qualifiers:
+          - assumption: reservesCategory
+            qualifierName: Default
+          selected: true
+        savedName: Combo Group 1
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

@@ -1,0 +1,1781 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST General Options API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: GeneralOptions
+paths:
+  /v1/projects/{projectId}/econ-models/general-options:
+    head:
+      description: Returns metadata about the existing general options documents.
+      operationId: head-general-options
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - GeneralOptions
+      summary: Head general options
+      x-summary-source: derived
+    get:
+      description: Returns a list of general options documents.
+      operationId: get-general-options
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsList'
+              example:
+              - id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                name: general_options
+                scenario: 63b8571d70ed63f50bd6d63f
+                well: 63b85759e1d7eb4e31579f51
+                unique: true
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                mainOptions:
+                  aggregationDate: '2019-01-01'
+                  reportingPeriod: monthly
+                  fiscal: calendar
+                  incomeTax: true
+                  projectType: tertiary_recovery
+                incomeTax:
+                  fifteenDepletion: true
+                  carryForward: true
+                  federalIncomeTax:
+                  - multiplier: 1
+                    offsetToFpd: 1200
+                  - multiplier: 2
+                    offsetToFpd: 1200
+                  stateIncomeTax:
+                  - multiplier: 1
+                    entire_well_life: flat
+                  - multiplier: 2
+                    entire_well_life: flat
+                discountTable:
+                  discountMethod: yearly
+                  cashAccrualTime: end_of_month
+                  firstDiscount: 10
+                  secondDiscount: 15
+                  discounts:
+                  - discountTable: 0
+                  - discountTable: 2
+                  - discountTable: 5
+                  - discountTable: 8
+                  - discountTable: 10
+                  - discountTable: 12
+                  - discountTable: 15
+                  - discountTable: 20
+                  - discountTable: 25
+                  - discountTable: 30
+                  - discountTable: 40
+                  - discountTable: 50
+                  - discountTable: 60
+                  - discountTable: 70
+                  - discountTable: 80
+                  - discountTable: 100
+                boeConversion:
+                  oil: 6
+                  dryGas: 6
+                  wetGas: 6
+                  ngl: 6
+                  dripCondensate: 6
+                reportingUnits:
+                  oil: MBBL
+                  gas: MMCF
+                  ngl: MBBL
+                  dripCondensate: MBBL
+                  water: MBBL
+                  pressure: PSI
+                  cash: M$
+                  gor: CF/BBL
+                  condensateGasRatio: BBL/MMCF
+                  dripCondensateYield: BBL/MMCF
+                  nglYield: BBL/MMCF
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get general options
+      x-summary-source: derived
+    post:
+      description: Inserts a list of general options documents.
+      operationId: post-general-options
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneralOptionsInputList'
+        description: "General Options Model document(s) to insert. See\n GeneralOptionsInputList."
+      summary: Post general options
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of general options documents.
+      operationId: put-general-options
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneralOptionsInputList'
+        description: General Options Model document(s) to replace/create. See GeneralOptionsInputList.
+      summary: Put general options
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/general-options/{id}:
+    get:
+      description: Returns the general options document that matches the given id.
+      operationId: get-general-options-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptions'
+              example:
+                id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                name: general_options
+                scenario: 63b8571d70ed63f50bd6d63f
+                well: 63b85759e1d7eb4e31579f51
+                unique: true
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                mainOptions:
+                  aggregationDate: '2019-01-01'
+                  reportingPeriod: monthly
+                  fiscal: calendar
+                  incomeTax: true
+                  projectType: tertiary_recovery
+                incomeTax:
+                  fifteenDepletion: true
+                  carryForward: true
+                  federalIncomeTax:
+                  - multiplier: 1
+                    offsetToFpd: 1200
+                  - multiplier: 2
+                    offsetToFpd: 1200
+                  stateIncomeTax:
+                  - multiplier: 1
+                    entire_well_life: flat
+                  - multiplier: 2
+                    entire_well_life: flat
+                discountTable:
+                  discountMethod: yearly
+                  cashAccrualTime: end_of_month
+                  firstDiscount: 10
+                  secondDiscount: 15
+                  discounts:
+                  - discountTable: 0
+                  - discountTable: 2
+                  - discountTable: 5
+                  - discountTable: 8
+                  - discountTable: 10
+                  - discountTable: 12
+                  - discountTable: 15
+                  - discountTable: 20
+                  - discountTable: 25
+                  - discountTable: 30
+                  - discountTable: 40
+                  - discountTable: 50
+                  - discountTable: 60
+                  - discountTable: 70
+                  - discountTable: 80
+                  - discountTable: 100
+                boeConversion:
+                  oil: 6
+                  dryGas: 6
+                  wetGas: 6
+                  ngl: 6
+                  dripCondensate: 6
+                reportingUnits:
+                  oil: MBBL
+                  gas: MMCF
+                  ngl: MBBL
+                  dripCondensate: MBBL
+                  water: MBBL
+                  pressure: PSI
+                  cash: M$
+                  gor: CF/BBL
+                  condensateGasRatio: BBL/MMCF
+                  dripCondensateYield: BBL/MMCF
+                  nglYield: BBL/MMCF
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get general options by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-general-options-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - GeneralOptions
+      summary: Delete general options by id
+      x-summary-source: derived
+  /v1/econ-models/general-options:
+    head:
+      description: Returns metadata about the existing general options documents.
+      operationId: head-company-general-options
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - GeneralOptions
+      summary: Head company general options
+      x-summary-source: derived
+    get:
+      description: Returns a list of general options documents.
+      operationId: get-company-general-options
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsList'
+              example:
+              - id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                name: general_options
+                scenario: 63b8571d70ed63f50bd6d63f
+                well: 63b85759e1d7eb4e31579f51
+                unique: true
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                mainOptions:
+                  aggregationDate: '2019-01-01'
+                  reportingPeriod: monthly
+                  fiscal: calendar
+                  incomeTax: true
+                  projectType: tertiary_recovery
+                incomeTax:
+                  fifteenDepletion: true
+                  carryForward: true
+                  federalIncomeTax:
+                  - multiplier: 1
+                    offsetToFpd: 1200
+                  - multiplier: 2
+                    offsetToFpd: 1200
+                  stateIncomeTax:
+                  - multiplier: 1
+                    entire_well_life: flat
+                  - multiplier: 2
+                    entire_well_life: flat
+                discountTable:
+                  discountMethod: yearly
+                  cashAccrualTime: end_of_month
+                  firstDiscount: 10
+                  secondDiscount: 15
+                  discounts:
+                  - discountTable: 0
+                  - discountTable: 2
+                  - discountTable: 5
+                  - discountTable: 8
+                  - discountTable: 10
+                  - discountTable: 12
+                  - discountTable: 15
+                  - discountTable: 20
+                  - discountTable: 25
+                  - discountTable: 30
+                  - discountTable: 40
+                  - discountTable: 50
+                  - discountTable: 60
+                  - discountTable: 70
+                  - discountTable: 80
+                  - discountTable: 100
+                boeConversion:
+                  oil: 6
+                  dryGas: 6
+                  wetGas: 6
+                  ngl: 6
+                  dripCondensate: 6
+                reportingUnits:
+                  oil: MBBL
+                  gas: MMCF
+                  ngl: MBBL
+                  dripCondensate: MBBL
+                  water: MBBL
+                  pressure: PSI
+                  cash: M$
+                  gor: CF/BBL
+                  condensateGasRatio: BBL/MMCF
+                  dripCondensateYield: BBL/MMCF
+                  nglYield: BBL/MMCF
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company general options
+      x-summary-source: derived
+    post:
+      description: Inserts a list of general options documents.
+      operationId: post-company-general-options
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneralOptionsInputList'
+        description: "General Options Model document(s) to insert. See\n GeneralOptionsInputList."
+      summary: Post company general options
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of general options documents.
+      operationId: put-company-general-options
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptionsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GeneralOptionsInputList'
+        description: General Options Model document(s) to replace/create. See GeneralOptionsInputList.
+      summary: Put company general options
+      x-summary-source: derived
+  /v1/econ-models/general-options/{id}:
+    get:
+      description: Returns the general options document that matches the given id.
+      operationId: get-company-general-options-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeneralOptions'
+              example:
+                id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                name: general_options
+                scenario: 63b8571d70ed63f50bd6d63f
+                well: 63b85759e1d7eb4e31579f51
+                unique: true
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                mainOptions:
+                  aggregationDate: '2019-01-01'
+                  reportingPeriod: monthly
+                  fiscal: calendar
+                  incomeTax: true
+                  projectType: tertiary_recovery
+                incomeTax:
+                  fifteenDepletion: true
+                  carryForward: true
+                  federalIncomeTax:
+                  - multiplier: 1
+                    offsetToFpd: 1200
+                  - multiplier: 2
+                    offsetToFpd: 1200
+                  stateIncomeTax:
+                  - multiplier: 1
+                    entire_well_life: flat
+                  - multiplier: 2
+                    entire_well_life: flat
+                discountTable:
+                  discountMethod: yearly
+                  cashAccrualTime: end_of_month
+                  firstDiscount: 10
+                  secondDiscount: 15
+                  discounts:
+                  - discountTable: 0
+                  - discountTable: 2
+                  - discountTable: 5
+                  - discountTable: 8
+                  - discountTable: 10
+                  - discountTable: 12
+                  - discountTable: 15
+                  - discountTable: 20
+                  - discountTable: 25
+                  - discountTable: 30
+                  - discountTable: 40
+                  - discountTable: 50
+                  - discountTable: 60
+                  - discountTable: 70
+                  - discountTable: 80
+                  - discountTable: 100
+                boeConversion:
+                  oil: 6
+                  dryGas: 6
+                  wetGas: 6
+                  ngl: 6
+                  dripCondensate: 6
+                reportingUnits:
+                  oil: MBBL
+                  gas: MMCF
+                  ngl: MBBL
+                  dripCondensate: MBBL
+                  water: MBBL
+                  pressure: PSI
+                  cash: M$
+                  gor: CF/BBL
+                  condensateGasRatio: BBL/MMCF
+                  dripCondensateYield: BBL/MMCF
+                  nglYield: BBL/MMCF
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - GeneralOptions
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company general options by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-general-options-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - GeneralOptions
+      summary: Delete company general options by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    GeneralOptionsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    StartEndPeriodCriteria:
+      type:
+      - number
+      - 'null'
+      description: Interval
+    EntireWellLifeCriteria:
+      type:
+      - string
+      - 'null'
+      enum:
+      - Flat
+    GeneralOptionsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GeneralOptionsInput'
+      maxItems: 500
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: general_options
+        scenario: 63b8571d70ed63f50bd6d63f
+        well: 63b85759e1d7eb4e31579f51
+        unique: true
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        mainOptions:
+          aggregationDate: '2019-01-01'
+          reportingPeriod: monthly
+          fiscal: calendar
+          incomeTax: true
+          projectType: tertiary_recovery
+        incomeTax:
+          fifteenDepletion: true
+          carryForward: true
+          federalIncomeTax:
+          - multiplier: 1
+            offsetToFpd: 1200
+          - multiplier: 2
+            offsetToFpd: 1200
+          stateIncomeTax:
+          - multiplier: 1
+            entire_well_life: flat
+          - multiplier: 2
+            entire_well_life: flat
+        discountTable:
+          discountMethod: yearly
+          cashAccrualTime: end_of_month
+          firstDiscount: 10
+          secondDiscount: 15
+          discounts:
+          - discountTable: 0
+          - discountTable: 2
+          - discountTable: 5
+          - discountTable: 8
+          - discountTable: 10
+          - discountTable: 12
+          - discountTable: 15
+          - discountTable: 20
+          - discountTable: 25
+          - discountTable: 30
+          - discountTable: 40
+          - discountTable: 50
+          - discountTable: 60
+          - discountTable: 70
+          - discountTable: 80
+          - discountTable: 100
+        boeConversion:
+          oil: 6
+          dryGas: 6
+          wetGas: 6
+          ngl: 6
+          dripCondensate: 6
+        reportingUnits:
+          oil: MBBL
+          gas: MMCF
+          ngl: MBBL
+          dripCondensate: MBBL
+          water: MBBL
+          pressure: PSI
+          cash: M$
+          gor: CF/BBL
+          condensateGasRatio: BBL/MMCF
+          dripCondensateYield: BBL/MMCF
+          nglYield: BBL/MMCF
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+    GeneralOptionsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeneralOptionsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    GeneralOptions:
+      type: object
+      properties:
+        copiedFrom:
+          type: string
+          description: Copied From
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+          description: Created By
+        id:
+          type: string
+          description: ID
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        name:
+          type: string
+          description: Name
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        unique:
+          type: boolean
+          description: Unique
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        well:
+          type: string
+          description: Well ID
+        mainOptions:
+          type: object
+          required:
+          - aggregationDate
+          - reportingPeriod
+          - fiscal
+          - incomeTax
+          - projectType
+          - currency
+          properties:
+            aggregationDate:
+              type: string
+              format: date
+            reportingPeriod:
+              type: string
+              enum:
+              - calendar
+              - fiscal
+            fiscal:
+              type: string
+            currency:
+              type: string
+              enum:
+              - USD
+            incomeTax:
+              type: boolean
+            projectType:
+              type: string
+              enum:
+              - primary_recovery
+              - secondary_recovery
+              - tertiary_recovery
+              - water_flood
+              - co2_flood
+              - surfactant_flood
+              - polymer_flood
+              - sagd
+              - thermal
+              - heavy_oil
+              - oil_sand
+              - deep_water
+        incomeTax:
+          type: object
+          required:
+          - federalIncomeTax
+          - stateIncomeTax
+          properties:
+            federalIncomeTax:
+              type: array
+              items:
+                type: object
+                required:
+                - multiplier
+                properties:
+                  multiplier:
+                    type: integer
+                  offsetToFpd:
+                    $ref: '#/components/schemas/StartEndPeriodCriteria'
+                  offsetToAsOf:
+                    $ref: '#/components/schemas/StartEndPeriodCriteria'
+                  dates:
+                    $ref: '#/components/schemas/StartEndDatesCriteria'
+                  entireWellLife:
+                    $ref: '#/components/schemas/EntireWellLifeCriteria'
+            stateIncomeTax:
+              type: array
+              items:
+                type: object
+                required:
+                - multiplier
+                properties:
+                  multiplier:
+                    type: integer
+                  offsetToFpd:
+                    $ref: '#/components/schemas/StartEndPeriodCriteria'
+                  offsetToAsOf:
+                    $ref: '#/components/schemas/StartEndPeriodCriteria'
+                  dates:
+                    $ref: '#/components/schemas/StartEndDatesCriteria'
+                  entireWellLife:
+                    $ref: '#/components/schemas/EntireWellLifeCriteria'
+            fifteenDepletion:
+              type: boolean
+            carryForward:
+              type: boolean
+        discountTable:
+          type: object
+          properties:
+            discountMethod:
+              type: string
+              enum:
+              - yearly
+              - quarterly
+              - monthly
+              - daily
+            cashAccrualTime:
+              type: string
+              enum:
+              - mid_month
+              - end_month
+            firstDiscount:
+              type: integer
+            secondDiscount:
+              type: integer
+            discounts:
+              type: array
+              items:
+                type: object
+                required:
+                - discountTable
+                properties:
+                  discountTable:
+                    type: integer
+        boeConversion:
+          type: object
+          properties:
+            oil:
+              type: number
+            dryGas:
+              type: number
+            wetGas:
+              type: number
+            ngl:
+              type: number
+            dripCondensate:
+              type: number
+        reportingUnits:
+          type: object
+          properties:
+            oil:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            gas:
+              type: string
+              enum:
+              - MCF
+              - MMCF
+              - BCF
+            ngl:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+              - GAL
+              - MGAL
+              - MMGAL
+            dripCondensate:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            water:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            pressure:
+              type: string
+              enum:
+              - PSI
+              - KPSI
+            cash:
+              type: string
+              enum:
+              - $
+              - M$
+              - MM$
+            gor:
+              type: string
+              enum:
+              - CF/BBL
+              - MCF/BBL
+            condensateGasRatio:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+            dripCondensateYield:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+            nglYield:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+              - GAL/MCF
+              - GAL/MMCF
+      example:
+        id: 649a0a00c7852a5f3ad12f64
+        copiedFrom: null
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-26T23:38:24.574Z'
+        updatedAt: '2023-06-26T23:38:24.574Z'
+        name: general_options
+        scenario: 63b8571d70ed63f50bd6d63f
+        well: 63b85759e1d7eb4e31579f51
+        unique: true
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        mainOptions:
+          aggregationDate: '2019-01-01'
+          reportingPeriod: monthly
+          fiscal: calendar
+          incomeTax: true
+          projectType: tertiary_recovery
+        incomeTax:
+          fifteenDepletion: true
+          carryForward: true
+          federalIncomeTax:
+          - multiplier: 1
+            offsetToFpd: 1200
+          - multiplier: 2
+            offsetToFpd: 1200
+          stateIncomeTax:
+          - multiplier: 1
+            entire_well_life: flat
+          - multiplier: 2
+            entire_well_life: flat
+        discountTable:
+          discountMethod: yearly
+          cashAccrualTime: end_of_month
+          firstDiscount: 10
+          secondDiscount: 15
+          discounts:
+          - discountTable: 0
+          - discountTable: 2
+          - discountTable: 5
+          - discountTable: 8
+          - discountTable: 10
+          - discountTable: 12
+          - discountTable: 15
+          - discountTable: 20
+          - discountTable: 25
+          - discountTable: 30
+          - discountTable: 40
+          - discountTable: 50
+          - discountTable: 60
+          - discountTable: 70
+          - discountTable: 80
+          - discountTable: 100
+        boeConversion:
+          oil: 6
+          dryGas: 6
+          wetGas: 6
+          ngl: 6
+          dripCondensate: 6
+        reportingUnits:
+          oil: MBBL
+          gas: MMCF
+          ngl: MBBL
+          dripCondensate: MBBL
+          water: MBBL
+          pressure: PSI
+          cash: M$
+          gor: CF/BBL
+          condensateGasRatio: BBL/MMCF
+          dripCondensateYield: BBL/MMCF
+          nglYield: BBL/MMCF
+    GeneralOptionsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        mainOptions:
+          type: object
+          required:
+          - aggregationDate
+          - reportingPeriod
+          - fiscal
+          - incomeTax
+          - projectType
+          - currency
+          properties:
+            aggregationDate:
+              type: string
+              format: date
+            reportingPeriod:
+              type: string
+              enum:
+              - calendar
+              - fiscal
+            fiscal:
+              type: string
+            currency:
+              type: string
+              enum:
+              - USD
+            incomeTax:
+              type: boolean
+            projectType:
+              type: string
+              enum:
+              - primary_recovery
+              - secondary_recovery
+              - tertiary_recovery
+              - water_flood
+              - co2_flood
+              - surfactant_flood
+              - polymer_flood
+              - sagd
+              - thermal
+              - heavy_oil
+              - oil_sand
+              - deep_water
+        incomeTax:
+          $ref: '#/components/schemas/GeneralOptionsIncomeTax'
+        discountTable:
+          type: object
+          properties:
+            discountMethod:
+              type: string
+              enum:
+              - yearly
+              - quarterly
+              - monthly
+              - daily
+            cashAccrualTime:
+              type: string
+              enum:
+              - mid_month
+              - end_month
+            firstDiscount:
+              type: integer
+            secondDiscount:
+              type: integer
+            discounts:
+              type: array
+              items:
+                type: object
+                required:
+                - discountTable
+                properties:
+                  discountTable:
+                    type: integer
+        boeConversion:
+          type: object
+          properties:
+            oil:
+              type: number
+            dryGas:
+              type: number
+            wetGas:
+              type: number
+            ngl:
+              type: number
+            dripCondensate:
+              type: number
+        reportingUnits:
+          type: object
+          properties:
+            oil:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            gas:
+              type: string
+              enum:
+              - MCF
+              - MMCF
+              - BCF
+            ngl:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+              - GAL
+              - MGAL
+              - MMGAL
+            dripCondensate:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            water:
+              type: string
+              enum:
+              - BBL
+              - MBBL
+              - MMBBL
+            pressure:
+              type: string
+              enum:
+              - PSI
+              - KPSI
+            cash:
+              type: string
+              enum:
+              - $
+              - M$
+              - MM$
+            gor:
+              type: string
+              enum:
+              - CF/BBL
+              - MCF/BBL
+            condensateGasRatio:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+            dripCondensateYield:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+            nglYield:
+              type: string
+              enum:
+              - BBL/MMCF
+              - BBL/MCF
+              - GAL/MCF
+              - GAL/MMCF
+      example:
+        name: general_options
+        scenario: 63b8571d70ed63f50bd6d63f
+        well: 63b85759e1d7eb4e31579f51
+        unique: true
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        mainOptions:
+          aggregationDate: '2019-01-01'
+          reportingPeriod: monthly
+          fiscal: calendar
+          incomeTax: true
+          projectType: tertiary_recovery
+        incomeTax:
+          fifteenDepletion: true
+          carryForward: true
+          federalIncomeTax:
+          - multiplier: 1
+            offsetToFpd: 1200
+          - multiplier: 2
+            offsetToFpd: 1200
+          stateIncomeTax:
+          - multiplier: 1
+            entire_well_life: flat
+          - multiplier: 2
+            entire_well_life: flat
+        discountTable:
+          discountMethod: yearly
+          cashAccrualTime: end_of_month
+          firstDiscount: 10
+          secondDiscount: 15
+          discounts:
+          - discountTable: 0
+          - discountTable: 2
+          - discountTable: 5
+          - discountTable: 8
+          - discountTable: 10
+          - discountTable: 12
+          - discountTable: 15
+          - discountTable: 20
+          - discountTable: 25
+          - discountTable: 30
+          - discountTable: 40
+          - discountTable: 50
+          - discountTable: 60
+          - discountTable: 70
+          - discountTable: 80
+          - discountTable: 100
+        boeConversion:
+          oil: 6
+          dryGas: 6
+          wetGas: 6
+          ngl: 6
+          dripCondensate: 6
+        reportingUnits:
+          oil: MBBL
+          gas: MMCF
+          ngl: MBBL
+          dripCondensate: MBBL
+          water: MBBL
+          pressure: PSI
+          cash: M$
+          gor: CF/BBL
+          condensateGasRatio: BBL/MMCF
+          dripCondensateYield: BBL/MMCF
+          nglYield: BBL/MMCF
+    GeneralOptionsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/GeneralOptions'
+      maxItems: 200
+      example:
+      - id: 649a0a00c7852a5f3ad12f64
+        copiedFrom: null
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-26T23:38:24.574Z'
+        updatedAt: '2023-06-26T23:38:24.574Z'
+        name: general_options
+        scenario: 63b8571d70ed63f50bd6d63f
+        well: 63b85759e1d7eb4e31579f51
+        unique: true
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        mainOptions:
+          aggregationDate: '2019-01-01'
+          reportingPeriod: monthly
+          fiscal: calendar
+          incomeTax: true
+          projectType: tertiary_recovery
+        incomeTax:
+          fifteenDepletion: true
+          carryForward: true
+          federalIncomeTax:
+          - multiplier: 1
+            offsetToFpd: 1200
+          - multiplier: 2
+            offsetToFpd: 1200
+          stateIncomeTax:
+          - multiplier: 1
+            entire_well_life: flat
+          - multiplier: 2
+            entire_well_life: flat
+        discountTable:
+          discountMethod: yearly
+          cashAccrualTime: end_of_month
+          firstDiscount: 10
+          secondDiscount: 15
+          discounts:
+          - discountTable: 0
+          - discountTable: 2
+          - discountTable: 5
+          - discountTable: 8
+          - discountTable: 10
+          - discountTable: 12
+          - discountTable: 15
+          - discountTable: 20
+          - discountTable: 25
+          - discountTable: 30
+          - discountTable: 40
+          - discountTable: 50
+          - discountTable: 60
+          - discountTable: 70
+          - discountTable: 80
+          - discountTable: 100
+        boeConversion:
+          oil: 6
+          dryGas: 6
+          wetGas: 6
+          ngl: 6
+          dripCondensate: 6
+        reportingUnits:
+          oil: MBBL
+          gas: MMCF
+          ngl: MBBL
+          dripCondensate: MBBL
+          water: MBBL
+          pressure: PSI
+          cash: M$
+          gor: CF/BBL
+          condensateGasRatio: BBL/MMCF
+          dripCondensateYield: BBL/MMCF
+          nglYield: BBL/MMCF
+    GeneralOptionsIncomeTax:
+      type: object
+      required:
+      - federalIncomeTax
+      - stateIncomeTax
+      properties:
+        federalIncomeTax:
+          type: array
+          items:
+            type: object
+            required:
+            - multiplier
+            properties:
+              multiplier:
+                type: integer
+              offsetToFpd:
+                $ref: '#/components/schemas/StartEndPeriodCriteria'
+              offsetToAsOf:
+                $ref: '#/components/schemas/StartEndPeriodCriteria'
+              dates:
+                $ref: '#/components/schemas/StartEndDatesCriteria'
+              entireWellLife:
+                $ref: '#/components/schemas/EntireWellLifeCriteria'
+        stateIncomeTax:
+          type: array
+          items:
+            type: object
+            required:
+            - multiplier
+            properties:
+              multiplier:
+                type: integer
+              offsetToFpd:
+                $ref: '#/components/schemas/StartEndPeriodCriteria'
+              offsetToAsOf:
+                $ref: '#/components/schemas/StartEndPeriodCriteria'
+              dates:
+                $ref: '#/components/schemas/StartEndDatesCriteria'
+              entireWellLife:
+                $ref: '#/components/schemas/EntireWellLifeCriteria'
+        fifteenDepletion:
+          type: boolean
+        carryForward:
+          type: boolean
+    StartEndDatesCriteria:
+      type:
+      - string
+      - 'null'
+      format: date
+      description: Start date
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

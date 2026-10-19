@@ -1,0 +1,419 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Econ Models Assignments API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: EconModelsAssignments
+paths:
+  /v1/projects/{projectId}/econ-models/{econName}/{econModelId}/assignments:
+    head:
+      operationId: head-econ-models-assignments-count
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econName
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econModelId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: wells
+        x-allow-multiple: true
+        schema:
+          type: string
+      - in: query
+        name: scenarios
+        x-allow-multiple: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK Response
+          headers:
+            X-Query-Count:
+              schema:
+                type: number
+        '400':
+          description: BadRequest Response
+      tags:
+      - EconModelsAssignments
+      summary: Head econ models assignments count
+      x-summary-source: derived
+    get:
+      operationId: get-econ-models-assignments-read
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econName
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econModelId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: skip
+        description: number of items to skip
+        schema:
+          type: integer
+          format: int32
+      - in: query
+        name: take
+        description: max records to return
+        schema:
+          type: integer
+          format: int32
+          maximum: 200
+          minimum: 1
+      - in: query
+        name: wells
+        x-allow-multiple: true
+        schema:
+          type: string
+      - in: query
+        name: scenarios
+        x-allow-multiple: true
+        schema:
+          type: string
+      - in: query
+        name: sort
+        description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          enum:
+          - scenario
+      responses:
+        '200':
+          description: OK Response
+          headers:
+            X-Query-Count:
+              schema:
+                type: number
+            Link:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconModelsAssignmentsReadOKResponseList'
+        '400':
+          description: BadRequest Response
+      tags:
+      - EconModelsAssignments
+      summary: Get econ models assignments read
+      x-summary-source: derived
+    post:
+      operationId: post-econ-model-assignment-upsert
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econName
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econModelId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconModelAssignmentUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - EconModelsAssignments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EconModelAssignmentUpsertPayloadList'
+        required: true
+      summary: Post econ model assignment upsert
+      x-summary-source: derived
+    put:
+      operationId: put-econ-model-assignment-upsert
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econName
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econModelId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: MultiStatus Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconModelAssignmentUpsertMultiStatusResponse'
+              example:
+                failedCount: 1
+                generalErrors:
+                - chosenID: chosen_id
+                  location: .person.name
+                  message: The field name is required
+                  name: ValidationError
+                results:
+                - chosenID: chosen_id
+                  code: 201
+                  status: created
+                successCount: 1
+        '404':
+          description: NotFound Response
+      tags:
+      - EconModelsAssignments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EconModelAssignmentUpsertPayloadList'
+        required: true
+      summary: Put econ model assignment upsert
+      x-summary-source: derived
+    delete:
+      operationId: delete-econ-model-assignment-delete
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econName
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: econModelId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: scenarioId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: qualifierName
+        schema:
+          type: string
+      - in: query
+        name: wells
+        x-allow-multiple: true
+        schema:
+          type: string
+      - in: query
+        name: allWells
+        schema:
+          type: boolean
+      responses:
+        '204':
+          description: NoContent Response
+          headers:
+            x-delete-count:
+              schema:
+                type: number
+        '404':
+          description: NotFound Response
+      tags:
+      - EconModelsAssignments
+      summary: Delete econ model assignment delete
+      x-summary-source: derived
+components:
+  schemas:
+    EconModelAssignmentUpsertPayloadList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EconModelAssignmentUpsertPayload'
+    EconModelAssignmentUpsertGeneralErrorsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        location:
+          type: string
+          description: location
+        message:
+          type: string
+          description: message
+        name:
+          type: string
+          description: name
+      example:
+        chosenID: chosen_id
+        location: .person.name
+        message: The field name is required
+        name: ValidationError
+    EconModelAssignmentUpsertPayload:
+      type: object
+      required:
+      - scenario
+      properties:
+        scenario:
+          type: string
+          description: scenario
+        allWells:
+          type: boolean
+          description: allWells
+        qualifierName:
+          type: string
+          description: qualifierName
+        wells:
+          type: array
+          description: wells
+          items:
+            type: string
+      example:
+        scenario: 5e276e31876cd70012ddf3f6
+        allWells: true
+        qualifierName: some_string
+        wells:
+        - 5e276e31876cd70012ddf3f6
+    EconModelsAssignmentsReadOKResponse:
+      type: object
+      properties:
+        qualifierName:
+          type: string
+          description: qualifierName
+        scenario:
+          type: string
+          description: scenario
+        wells:
+          type: array
+          description: wells
+          items:
+            type: string
+      example:
+        qualifierName: qualifier_name
+        scenario: 5e276e31876cd70012ddf3f6
+        wells:
+        - 5e272d75b78910dd2a1d8521
+    EconModelAssignmentUpsertResultsOutput:
+      type: object
+      properties:
+        chosenID:
+          type: string
+          description: chosenID
+        code:
+          type: integer
+          description: code
+        status:
+          type: string
+          description: status
+      example:
+        chosenID: chosen_id
+        code: 201
+        status: created
+    EconModelsAssignmentsReadOKResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EconModelsAssignmentsReadOKResponse'
+    EconModelAssignmentUpsertMultiStatusResponse:
+      type: object
+      properties:
+        failedCount:
+          type: integer
+          description: failedCount
+        generalErrors:
+          type: array
+          description: generalErrors
+          items:
+            $ref: '#/components/schemas/EconModelAssignmentUpsertGeneralErrorsOutput'
+        results:
+          type: array
+          description: results
+          items:
+            $ref: '#/components/schemas/EconModelAssignmentUpsertResultsOutput'
+        successCount:
+          type: integer
+          description: successCount
+      example:
+        failedCount: 1
+        generalErrors:
+        - chosenID: chosen_id
+          location: .person.name
+          message: The field name is required
+          name: ValidationError
+        results:
+        - chosenID: chosen_id
+          code: 201
+          status: created
+        successCount: 1
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

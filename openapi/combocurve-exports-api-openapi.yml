@@ -1,0 +1,142 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Exports API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Exports
+paths:
+  /v1/exports:
+    post:
+      description: Generates export links for the given criteria
+      operationId: post-exports
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportResponse'
+              example:
+                exportType: econMonthly
+                fileType: parquet
+                fileUrls:
+                - http://example.com/export/1
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Exports
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportRequest'
+        description: Export operation to request. See ExportRequest.
+      summary: Post exports
+      x-summary-source: derived
+components:
+  schemas:
+    ExportRequest:
+      type: object
+      discriminator:
+        propertyName: exportType
+      required:
+      - exportType
+      properties:
+        exportType:
+          type: string
+          description: Export type
+          enum:
+          - econMonthlyExport
+          - dailyForecastVolumeExport
+          - monthlyForecastVolumeExport
+        expirationHours:
+          type: integer
+          description: Expiration hours for the export links
+          default: 24
+      example:
+        exportType: econMonthlyExport
+    ExportResponse:
+      type: object
+      description: Export response
+      properties:
+        exportType:
+          type: string
+          description: Export Type
+        fileType:
+          type: string
+          description: File Type
+        fileUrls:
+          type: array
+          description: File URLs containing secure links which expire after 24 hours by default
+          items:
+            type: string
+      maxItems: 200
+      example:
+        exportType: econMonthly
+        fileType: parquet
+        fileUrls:
+        - http://example.com/export/1
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

@@ -1,0 +1,1880 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Capex API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Capex
+paths:
+  /v1/projects/{projectId}/econ-models/capex:
+    head:
+      description: Returns metadata about the existing capex documents.
+      operationId: head-capex
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Capex
+      summary: Head capex
+      x-summary-source: derived
+    get:
+      description: Returns a list of capex documents.
+      operationId: get-capex
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                otherCapex:
+                  rows:
+                  - category: pad
+                    description: R Api Desc
+                    tangible: 50
+                    intangible: 10
+                    capexExpense: capex
+                    afterEconLimit: true
+                    calculation: net
+                    escalationModel: none
+                    escalationStart:
+                      applyToCriteria: 10
+                    depreciationModel: none
+                    dealTerms: 1
+                    fromHeaders: offset_to_completion_start_date
+                    refracDate: -200
+                    distributionType: uniform
+                    lowerBound: 78
+                    upperBound: 65
+                    seed: 1
+                drillingCost:
+                  dollarPerFtOfVertical: 25
+                  dollarPerFtOfHorizontal: 1
+                  fixedCost: 88
+                  tangiblePct: 26
+                  calculation: net
+                  escalationModel: 642f2f56670d176d8558ef7b
+                  depreciationModel: 643c2c55ecea760012942188
+                  dealTerms: 445
+                  rows:
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 10
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 20
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 30
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 40
+                completionCost:
+                  dollarPerFtOfVertical: 23
+                  dollarPerFtOfHorizontal:
+                  - propLl: 222
+                    unitCost: 15
+                  - propLl: 77
+                    unitCost: 15
+                  fixedCost: 225
+                  tangiblePct: 80
+                  calculation: net
+                  escalationModel: 62fbcecfcab9dfc5b88427c4
+                  depreciationModel: 643c83a9caa3710012596294
+                  dealTerms: 3
+                  rows:
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 10
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 100
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get capex
+      x-summary-source: derived
+    post:
+      description: Inserts a list of capex documents.
+      operationId: post-capex
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapexInputList'
+        description: Capex document(s) to insert. See CapexInputList.
+      summary: Post capex
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of capex documents.
+      operationId: put-capex
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapexInputList'
+        description: Capex document(s) to replace/create. See CapexInputList.
+      summary: Put capex
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/capex/{id}:
+    get:
+      description: Returns the capex document that matches the given id.
+      operationId: get-capex-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capex'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                otherCapex:
+                  rows:
+                  - category: pad
+                    description: R Api Desc
+                    tangible: 50
+                    intangible: 10
+                    capexExpense: capex
+                    afterEconLimit: true
+                    calculation: net
+                    escalationModel: none
+                    escalationStart:
+                      applyToCriteria: 10
+                    depreciationModel: none
+                    dealTerms: 1
+                    fromHeaders: offset_to_completion_start_date
+                    refracDate: -200
+                    distributionType: uniform
+                    lowerBound: 78
+                    upperBound: 65
+                    seed: 1
+                drillingCost:
+                  dollarPerFtOfVertical: 25
+                  dollarPerFtOfHorizontal: 1
+                  fixedCost: 88
+                  tangiblePct: 26
+                  calculation: net
+                  escalationModel: 642f2f56670d176d8558ef7b
+                  depreciationModel: 643c2c55ecea760012942188
+                  dealTerms: 445
+                  rows:
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 10
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 20
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 30
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 40
+                completionCost:
+                  dollarPerFtOfVertical: 23
+                  dollarPerFtOfHorizontal:
+                  - propLl: 222
+                    unitCost: 15
+                  - propLl: 77
+                    unitCost: 15
+                  fixedCost: 225
+                  tangiblePct: 80
+                  calculation: net
+                  escalationModel: 62fbcecfcab9dfc5b88427c4
+                  depreciationModel: 643c83a9caa3710012596294
+                  dealTerms: 3
+                  rows:
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 10
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 100
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get capex by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-capex-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Capex
+      summary: Delete capex by id
+      x-summary-source: derived
+  /v1/econ-models/capex:
+    head:
+      description: Returns metadata about the existing capex documents.
+      operationId: head-company-capex
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Capex
+      summary: Head company capex
+      x-summary-source: derived
+    get:
+      description: Returns a list of capex documents.
+      operationId: get-company-capex
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                otherCapex:
+                  rows:
+                  - category: pad
+                    description: R Api Desc
+                    tangible: 50
+                    intangible: 10
+                    capexExpense: capex
+                    afterEconLimit: true
+                    calculation: net
+                    escalationModel: none
+                    escalationStart:
+                      applyToCriteria: 10
+                    depreciationModel: none
+                    dealTerms: 1
+                    fromHeaders: offset_to_completion_start_date
+                    refracDate: -200
+                    distributionType: uniform
+                    lowerBound: 78
+                    upperBound: 65
+                    seed: 1
+                drillingCost:
+                  dollarPerFtOfVertical: 25
+                  dollarPerFtOfHorizontal: 1
+                  fixedCost: 88
+                  tangiblePct: 26
+                  calculation: net
+                  escalationModel: 642f2f56670d176d8558ef7b
+                  depreciationModel: 643c2c55ecea760012942188
+                  dealTerms: 445
+                  rows:
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 10
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 20
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 30
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 40
+                completionCost:
+                  dollarPerFtOfVertical: 23
+                  dollarPerFtOfHorizontal:
+                  - propLl: 222
+                    unitCost: 15
+                  - propLl: 77
+                    unitCost: 15
+                  fixedCost: 225
+                  tangiblePct: 80
+                  calculation: net
+                  escalationModel: 62fbcecfcab9dfc5b88427c4
+                  depreciationModel: 643c83a9caa3710012596294
+                  dealTerms: 3
+                  rows:
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 10
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 100
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company capex
+      x-summary-source: derived
+    post:
+      description: Inserts a list of capex documents.
+      operationId: post-company-capex
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapexInputList'
+        description: Capex document(s) to insert. See CapexInputList.
+      summary: Post company capex
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of capex documents.
+      operationId: put-company-capex
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CapexMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CapexInputList'
+        description: Capex document(s) to replace/create. See CapexInputList.
+      summary: Put company capex
+      x-summary-source: derived
+  /v1/econ-models/capex/{id}:
+    get:
+      description: Returns the capex document that matches the given id.
+      operationId: get-company-capex-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capex'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                otherCapex:
+                  rows:
+                  - category: pad
+                    description: R Api Desc
+                    tangible: 50
+                    intangible: 10
+                    capexExpense: capex
+                    afterEconLimit: true
+                    calculation: net
+                    escalationModel: none
+                    escalationStart:
+                      applyToCriteria: 10
+                    depreciationModel: none
+                    dealTerms: 1
+                    fromHeaders: offset_to_completion_start_date
+                    refracDate: -200
+                    distributionType: uniform
+                    lowerBound: 78
+                    upperBound: 65
+                    seed: 1
+                drillingCost:
+                  dollarPerFtOfVertical: 25
+                  dollarPerFtOfHorizontal: 1
+                  fixedCost: 88
+                  tangiblePct: 26
+                  calculation: net
+                  escalationModel: 642f2f56670d176d8558ef7b
+                  depreciationModel: 643c2c55ecea760012942188
+                  dealTerms: 445
+                  rows:
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 10
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 20
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 30
+                  - pctOfTotalCost: 25
+                    scheduleEnd: 40
+                completionCost:
+                  dollarPerFtOfVertical: 23
+                  dollarPerFtOfHorizontal:
+                  - propLl: 222
+                    unitCost: 15
+                  - propLl: 77
+                    unitCost: 15
+                  fixedCost: 225
+                  tangiblePct: 80
+                  calculation: net
+                  escalationModel: 62fbcecfcab9dfc5b88427c4
+                  depreciationModel: 643c83a9caa3710012596294
+                  dealTerms: 3
+                  rows:
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 10
+                  - pctOfTotalCost: 50
+                    offsetToAsOf: 100
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Capex
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company capex by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-capex-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Capex
+      summary: Delete company capex by id
+      x-summary-source: derived
+components:
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+  schemas:
+    CapexStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    DollarPerFtOfHorizontalRow:
+      type: object
+      properties:
+        propLl:
+          type: number
+          minimum: 0
+          maximum: 20000
+        unitCost:
+          type: number
+          minimum: 0
+          maximum: 100000
+      required:
+      - propLl
+      - unitCost
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    CapexMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CapexStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    OtherCapex:
+      type: object
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/OtherCapexRow'
+      required:
+      - rows
+    OtherCapexRowEscalationStart:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        applyToCriteria:
+          type: number
+          minimum: -2000
+          maximum: 2000
+        fpd:
+          type: number
+          minimum: -2000
+          maximum: 2000
+        asOfDate:
+          type: number
+          minimum: -2000
+          maximum: 2000
+        econLimit:
+          type: number
+          minimum: -2000
+          maximum: 2000
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    CapexInput:
+      type: object
+      required:
+      - name
+      - unique
+      - otherCapex
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        otherCapex:
+          $ref: '#/components/schemas/OtherCapex'
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        drillingCost:
+          $ref: '#/components/schemas/DrillingCost'
+        completionCost:
+          $ref: '#/components/schemas/CompletionCost'
+      example:
+        name: Test
+        unique: true
+        otherCapex:
+          rows:
+          - category: pad
+            description: R Api Desc
+            tangible: 50
+            intangible: 10
+            capexExpense: capex
+            afterEconLimit: true
+            calculation: net
+            escalationModel: none
+            escalationStart:
+              applyToCriteria: 10
+            depreciationModel: none
+            dealTerms: 1
+            fromHeaders: offset_to_completion_start_date
+            refracDate: -200
+            distributionType: uniform
+            lowerBound: 78
+            upperBound: 65
+            seed: 1
+        drillingCost:
+          dollarPerFtOfVertical: 25
+          dollarPerFtOfHorizontal: 1
+          fixedCost: 88
+          tangiblePct: 26
+          calculation: net
+          escalationModel: 642f2f56670d176d8558ef7b
+          depreciationModel: 643c2c55ecea760012942188
+          dealTerms: 445
+          rows:
+          - pctOfTotalCost: 25
+            scheduleEnd: 10
+          - pctOfTotalCost: 25
+            scheduleEnd: 20
+          - pctOfTotalCost: 25
+            scheduleEnd: 30
+          - pctOfTotalCost: 25
+            scheduleEnd: 40
+        completionCost:
+          dollarPerFtOfVertical: 23
+          dollarPerFtOfHorizontal:
+          - propLl: 222
+            unitCost: 15
+          - propLl: 77
+            unitCost: 15
+          fixedCost: 225
+          tangiblePct: 80
+          calculation: net
+          escalationModel: 62fbcecfcab9dfc5b88427c4
+          depreciationModel: 643c83a9caa3710012596294
+          dealTerms: 3
+          rows:
+          - pctOfTotalCost: 50
+            offsetToAsOf: 10
+          - pctOfTotalCost: 50
+            offsetToAsOf: 100
+    CapexList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Capex'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        otherCapex:
+          rows:
+          - category: pad
+            description: R Api Desc
+            tangible: 50
+            intangible: 10
+            capexExpense: capex
+            afterEconLimit: true
+            calculation: net
+            escalationModel: none
+            escalationStart:
+              applyToCriteria: 10
+            depreciationModel: none
+            dealTerms: 1
+            fromHeaders: offset_to_completion_start_date
+            refracDate: -200
+            distributionType: uniform
+            lowerBound: 78
+            upperBound: 65
+            seed: 1
+        drillingCost:
+          dollarPerFtOfVertical: 25
+          dollarPerFtOfHorizontal: 1
+          fixedCost: 88
+          tangiblePct: 26
+          calculation: net
+          escalationModel: 642f2f56670d176d8558ef7b
+          depreciationModel: 643c2c55ecea760012942188
+          dealTerms: 445
+          rows:
+          - pctOfTotalCost: 25
+            scheduleEnd: 10
+          - pctOfTotalCost: 25
+            scheduleEnd: 20
+          - pctOfTotalCost: 25
+            scheduleEnd: 30
+          - pctOfTotalCost: 25
+            scheduleEnd: 40
+        completionCost:
+          dollarPerFtOfVertical: 23
+          dollarPerFtOfHorizontal:
+          - propLl: 222
+            unitCost: 15
+          - propLl: 77
+            unitCost: 15
+          fixedCost: 225
+          tangiblePct: 80
+          calculation: net
+          escalationModel: 62fbcecfcab9dfc5b88427c4
+          depreciationModel: 643c83a9caa3710012596294
+          dealTerms: 3
+          rows:
+          - pctOfTotalCost: 50
+            offsetToAsOf: 10
+          - pctOfTotalCost: 50
+            offsetToAsOf: 100
+    DrillingOrCompletionCostRow:
+      type: object
+      properties:
+        pctOfTotalCost:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToFpd:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToAsOf:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToDiscountDate:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToFirstSegment:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        scheduleStart:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        scheduleEnd:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        date:
+          type: string
+          format: date
+      required:
+      - pctOfTotalCost
+    Capex:
+      type: object
+      required:
+      - name
+      - unique
+      - otherCapex
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        otherCapex:
+          $ref: '#/components/schemas/OtherCapex'
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+          x-something: xablau
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        drillingCost:
+          $ref: '#/components/schemas/DrillingCost'
+        completionCost:
+          $ref: '#/components/schemas/CompletionCost'
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        otherCapex:
+          rows:
+          - category: pad
+            description: R Api Desc
+            tangible: 50
+            intangible: 10
+            capexExpense: capex
+            afterEconLimit: true
+            calculation: net
+            escalationModel: none
+            escalationStart:
+              applyToCriteria: 10
+            depreciationModel: none
+            dealTerms: 1
+            fromHeaders: offset_to_completion_start_date
+            refracDate: -200
+            distributionType: uniform
+            lowerBound: 78
+            upperBound: 65
+            seed: 1
+        drillingCost:
+          dollarPerFtOfVertical: 25
+          dollarPerFtOfHorizontal: 1
+          fixedCost: 88
+          tangiblePct: 26
+          calculation: net
+          escalationModel: 642f2f56670d176d8558ef7b
+          depreciationModel: 643c2c55ecea760012942188
+          dealTerms: 445
+          rows:
+          - pctOfTotalCost: 25
+            scheduleEnd: 10
+          - pctOfTotalCost: 25
+            scheduleEnd: 20
+          - pctOfTotalCost: 25
+            scheduleEnd: 30
+          - pctOfTotalCost: 25
+            scheduleEnd: 40
+        completionCost:
+          dollarPerFtOfVertical: 23
+          dollarPerFtOfHorizontal:
+          - propLl: 222
+            unitCost: 15
+          - propLl: 77
+            unitCost: 15
+          fixedCost: 225
+          tangiblePct: 80
+          calculation: net
+          escalationModel: 62fbcecfcab9dfc5b88427c4
+          depreciationModel: 643c83a9caa3710012596294
+          dealTerms: 3
+          rows:
+          - pctOfTotalCost: 50
+            offsetToAsOf: 10
+          - pctOfTotalCost: 50
+            offsetToAsOf: 100
+    DrillingCost:
+      type: object
+      properties:
+        tangiblePct:
+          type: number
+          minimum: 1
+          maximum: 100
+        calculation:
+          type: string
+          enum:
+          - net
+          - gross
+        escalationModel:
+          type: string
+        depreciationModel:
+          type: string
+        dealTerms:
+          type: number
+          minimum: 0
+          maximum: 1000
+        fixedCost:
+          type: number
+          minimum: 0
+          maximum: 100000000
+        dollarPerFtOfVertical:
+          type: number
+          minimum: 0
+          maximum: 100000
+        dollarPerFtOfHorizontal:
+          type: number
+          minimum: 0
+          maximum: 100000
+        rows:
+          type: array
+          maxItems: 100
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DrillingOrCompletionCostRow'
+      required:
+      - tangiblePct
+      - calculation
+      - escalationModel
+      - depreciationModel
+      - fixedCost
+      - dealTerms
+      - dollarPerFtOfVertical
+      - dollarPerFtOfHorizontal
+      - rows
+    OtherCapexRow:
+      type: object
+      required:
+      - category
+      - tangible
+      - intangible
+      - afterEconLimit
+      - escalationStart
+      - calculation
+      - escalationModel
+      - depreciationModel
+      - dealTerms
+      properties:
+        category:
+          type: string
+          enum:
+          - drilling
+          - completion
+          - legal
+          - pad
+          - facilities
+          - artificial_lift
+          - workover
+          - development
+          - pipelines
+          - exploration
+          - waterline
+          - appraisal
+          - other_investment
+          - abandonment
+          - salvage
+        tangible:
+          type: number
+          minimum: -10000000000
+          maximum: 10000000000
+        intangible:
+          type: number
+          minimum: -10000000000
+          maximum: 10000000000
+        afterEconLimit:
+          type: boolean
+        escalationStart:
+          $ref: '#/components/schemas/OtherCapexRowEscalationStart'
+        calculation:
+          type: string
+          enum:
+          - net
+          - gross
+        escalationModel:
+          type: string
+        depreciationModel:
+          type: string
+        dealTerms:
+          type: number
+          minimum: 0
+          maximum: 1000
+        description:
+          type: string
+          maxLength: 20
+        capexExpense:
+          type: string
+          enum:
+          - capex
+        fromHeaders:
+          type: string
+          enum:
+          - offset_to_refrac_date
+          - offset_to_completion_end_date
+          - offset_to_completion_start_date
+          - offset_to_date_rig_release
+          - offset_to_drill_end_date
+          - offset_to_drill_start_date
+          - offset_to_first_prod_date
+          - offset_to_permit_date
+          - offset_to_spud_date
+          - offset_to_til
+          - offset_to_first_prod_date_daily_calc
+          - offset_to_first_prod_date_monthly_calc
+          - offset_to_last_prod_date_monthly
+          - offset_to_last_prod_date_daily
+          - customDateHeader0
+          - customDateHeader1
+          - customDateHeader2
+          - customDateHeader3
+          - customDateHeader4
+          - customDateHeader5
+          - customDateHeader6
+          - customDateHeader7
+          - customDateHeader8
+          - customDateHeader9
+        refracDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionEndDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionStartDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        dateRigRelease:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillEndDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillStartDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        firstProdDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        permitDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudDate:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        til:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader0:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader1:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader2:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader3:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader4:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader5:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader6:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader7:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader8:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        customDateHeader9:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        firstProdDateDaily:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        firstProdDateMonthly:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        lastProdDateDaily:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        lastProdDateMonthly:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        fromSchedule:
+          type: string
+          enum:
+          - offset_to_pad_preparation_mob_start
+          - offset_to_pad_preparation_mob_end
+          - offset_to_pad_preparation_start
+          - offset_to_pad_preparation_end
+          - offset_to_pad_preparation_demob_start
+          - offset_to_pad_preparation_demob_end
+          - offset_to_spud_mob_start
+          - offset_to_spud_mob_end
+          - offset_to_spud_start
+          - offset_to_spud_end
+          - offset_to_spud_demob_start
+          - offset_to_spud_demob_end
+          - offset_to_drill_mob_start
+          - offset_to_drill_mob_end
+          - offset_to_drill_start
+          - offset_to_drill_end
+          - offset_to_drill_demob_start
+          - offset_to_drill_demob_end
+          - offset_to_completion_mob_start
+          - offset_to_completion_mob_end
+          - offset_to_completion_start
+          - offset_to_completion_end
+          - offset_to_completion_demob_start
+          - offset_to_completion_demob_end
+        padPreparationMobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        padPreparationMobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        padPreparationStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        padPreparationEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        padPreparationDemobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        padPreparationDemobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudMobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudMobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudDemobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        spudDemobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillMobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillMobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillDemobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        drillDemobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionMobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionMobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionDemobStart:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        completionDemobEnd:
+          type: number
+          maximum: 2000
+          minimum: -2000
+        offsetToAsOf:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToDiscountDate:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToFpd:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToMajorSegment:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        offsetToEconLimit:
+          type: number
+          maximum: 20000
+          minimum: -20000
+        oilRate:
+          type: number
+          maximum: 10000000000
+          minimum: 0
+        gasRate:
+          type: number
+          maximum: 10000000000
+          minimum: 0
+        waterRate:
+          type: number
+          maximum: 10000000000
+          minimum: 0
+        totalFluidRate:
+          type: number
+          maximum: 10000000000
+          minimum: 0
+        date:
+          type: string
+          format: date
+    CapexInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CapexInput'
+      maxItems: 500
+      example:
+      - name: Test
+        unique: true
+        otherCapex:
+          rows:
+          - category: pad
+            description: R Api Desc
+            tangible: 50
+            intangible: 10
+            capexExpense: capex
+            afterEconLimit: true
+            calculation: net
+            escalationModel: none
+            escalationStart:
+              applyToCriteria: 10
+            depreciationModel: none
+            dealTerms: 1
+            fromHeaders: offset_to_completion_start_date
+            refracDate: -200
+            distributionType: uniform
+            lowerBound: 78
+            upperBound: 65
+            seed: 1
+        drillingCost:
+          dollarPerFtOfVertical: 25
+          dollarPerFtOfHorizontal: 1
+          fixedCost: 88
+          tangiblePct: 26
+          calculation: net
+          escalationModel: 642f2f56670d176d8558ef7b
+          depreciationModel: 643c2c55ecea760012942188
+          dealTerms: 445
+          rows:
+          - pctOfTotalCost: 25
+            scheduleEnd: 10
+          - pctOfTotalCost: 25
+            scheduleEnd: 20
+          - pctOfTotalCost: 25
+            scheduleEnd: 30
+          - pctOfTotalCost: 25
+            scheduleEnd: 40
+        completionCost:
+          dollarPerFtOfVertical: 23
+          dollarPerFtOfHorizontal:
+          - propLl: 222
+            unitCost: 15
+          - propLl: 77
+            unitCost: 15
+          fixedCost: 225
+          tangiblePct: 80
+          calculation: net
+          escalationModel: 62fbcecfcab9dfc5b88427c4
+          depreciationModel: 643c83a9caa3710012596294
+          dealTerms: 3
+          rows:
+          - pctOfTotalCost: 50
+            offsetToAsOf: 10
+          - pctOfTotalCost: 50
+            offsetToAsOf: 100
+    CompletionCost:
+      type: object
+      properties:
+        tangiblePct:
+          type: number
+          minimum: 1
+          maximum: 100
+        calculation:
+          type: string
+          enum:
+          - net
+          - gross
+        escalationModel:
+          type: string
+        depreciationModel:
+          type: string
+        dealTerms:
+          type: number
+          minimum: 0
+          maximum: 1000
+        fixedCost:
+          type: number
+          minimum: 0
+          maximum: 100000000
+        dollarPerFtOfVertical:
+          type: number
+          minimum: 0
+          maximum: 100000
+        dollarPerFtOfHorizontal:
+          type: array
+          maxItems: 100
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DollarPerFtOfHorizontalRow'
+        rows:
+          type: array
+          maxItems: 100
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/DrillingOrCompletionCostRow'
+      required:
+      - tangiblePct
+      - calculation
+      - escalationModel
+      - depreciationModel
+      - fixedCost
+      - dealTerms
+      - dollarPerFtOfVertical
+      - dollarPerFtOfHorizontal
+      - rows
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

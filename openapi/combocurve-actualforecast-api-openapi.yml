@@ -1,0 +1,994 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Actual Forecast API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: ActualForecast
+paths:
+  /v1/projects/{projectId}/econ-models/actual-forecast:
+    head:
+      description: Returns metadata about the existing actual or forecast documents.
+      operationId: head-actual-forecast
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - ActualForecast
+      summary: Head actual forecast
+      x-summary-source: derived
+    get:
+      description: Returns a list of actual of forecast documents.
+      operationId: get-actual-forecast
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastResponseList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                actualOrForecast: null
+                ignoreHistoryProd: false
+                replaceActualWithForecast:
+                  oil:
+                    asOfDate: true
+                  gas:
+                    never: true
+                  water:
+                    date: '2020-05-05'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get actual forecast
+      x-summary-source: derived
+    post:
+      description: Inserts a list of actual or forecast documents.
+      operationId: post-actual-forecast
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                - status: Success
+                  code: 200
+                failedCount: 2
+                successCount: 2
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActualForecastInputList'
+        description: Actual Forecast Model document(s) to insert. See ActualForecastInputList.
+      summary: Post actual forecast
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of actual or forecast documents.
+      operationId: put-actual-forecast
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                - status: Success
+                  code: 200
+                failedCount: 2
+                successCount: 2
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActualForecastInputList'
+        description: Actual Forecast Model document(s) to replace/create. See ActualForecastInputList.
+      summary: Put actual forecast
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/actual-forecast/{id}:
+    get:
+      description: Returns the actual forecast document that matches the given id.
+      operationId: get-actual-forecast-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastResponse'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                actualOrForecast: null
+                ignoreHistoryProd: false
+                replaceActualWithForecast:
+                  oil:
+                    asOfDate: true
+                  gas:
+                    never: true
+                  water:
+                    date: '2020-05-05'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get actual forecast by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-actual-forecast-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - ActualForecast
+      summary: Delete actual forecast by id
+      x-summary-source: derived
+  /v1/econ-models/actual-forecast:
+    head:
+      description: Returns metadata about the existing actual or forecast documents.
+      operationId: head-company-actual-forecast
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - ActualForecast
+      summary: Head company actual forecast
+      x-summary-source: derived
+    get:
+      description: Returns a list of actual of forecast documents.
+      operationId: get-company-actual-forecast
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastResponseList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                actualOrForecast: null
+                ignoreHistoryProd: false
+                replaceActualWithForecast:
+                  oil:
+                    asOfDate: true
+                  gas:
+                    never: true
+                  water:
+                    date: '2020-05-05'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company actual forecast
+      x-summary-source: derived
+    post:
+      description: Inserts a list of actual or forecast documents.
+      operationId: post-company-actual-forecast
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                - status: Success
+                  code: 200
+                failedCount: 2
+                successCount: 2
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActualForecastInputList'
+        description: Actual Forecast Model document(s) to insert. See ActualForecastInputList.
+      summary: Post company actual forecast
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of actual or forecast documents.
+      operationId: put-company-actual-forecast
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                - status: Success
+                  code: 200
+                failedCount: 2
+                successCount: 2
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActualForecastInputList'
+        description: Actual Forecast Model document(s) to replace/create. See ActualForecastInputList.
+      summary: Put company actual forecast
+      x-summary-source: derived
+  /v1/econ-models/actual-forecast/{id}:
+    get:
+      description: Returns the actual forecast document that matches the given id.
+      operationId: get-company-actual-forecast-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActualForecastResponse'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                actualOrForecast: null
+                ignoreHistoryProd: false
+                replaceActualWithForecast:
+                  oil:
+                    asOfDate: true
+                  gas:
+                    never: true
+                  water:
+                    date: '2020-05-05'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - ActualForecast
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company actual forecast by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-actual-forecast-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - ActualForecast
+      summary: Delete company actual forecast by id
+      x-summary-source: derived
+components:
+  schemas:
+    ActualForecastResponse:
+      type: object
+      properties:
+        copiedFrom:
+          type: string
+          description: Copied From
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+          description: Created By
+        id:
+          type: string
+          description: ID
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        name:
+          type: string
+          description: Name
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        unique:
+          type: boolean
+          description: Unique
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        actualOrForecast:
+          $ref: '#/components/schemas/ActualForecastModel'
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        actualOrForecast: null
+        ignoreHistoryProd: false
+        replaceActualWithForecast:
+          oil:
+            asOfDate: true
+          gas:
+            never: true
+          water:
+            date: '2020-05-05'
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ActualForecastStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ActualForecastInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ActualForecastInput'
+      maxItems: 500
+      example:
+      - name: example
+        unique: false
+        actualOrForecast:
+          ignoreHistoryProd: false
+          replaceActualWithForecast:
+            oil:
+              asOfDate: true
+            gas:
+              never: true
+            water:
+              date: '2020-05-05'
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    ActualForecastResponseList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ActualForecastResponse'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        actualOrForecast: null
+        ignoreHistoryProd: false
+        replaceActualWithForecast:
+          oil:
+            asOfDate: true
+          gas:
+            never: true
+          water:
+            date: '2020-05-05'
+    ActualForecastMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActualForecastStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+        - status: Success
+          code: 200
+        failedCount: 2
+        successCount: 2
+    ActualForecastModel:
+      type: object
+      required:
+      - ignoreHistoryProd
+      properties:
+        ignoreHistoryProd:
+          type: boolean
+          description: Ignore History Production | 'true' or 'false'
+        replaceActualWithForecast:
+          type: object
+          required:
+          - oil
+          - gas
+          - water
+          properties:
+            oil:
+              type: object
+              properties:
+                asOfDate:
+                  type: boolean
+                never:
+                  type: boolean
+                date:
+                  type: string
+                  format: date
+            gas:
+              type: object
+              properties:
+                asOfDate:
+                  type: boolean
+                never:
+                  type: boolean
+                date:
+                  type: string
+                  format: date
+            water:
+              type: object
+              properties:
+                asOfDate:
+                  type: boolean
+                never:
+                  type: boolean
+                date:
+                  type: string
+                  format: date
+    ActualForecastInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        well:
+          type: string
+          description: Well ID
+        scenario:
+          type: string
+          description: Scenario ID
+        actualOrForecast:
+          $ref: '#/components/schemas/ActualForecastModel'
+      example:
+        name: example
+        unique: false
+        actualOrForecast:
+          ignoreHistoryProd: false
+          replaceActualWithForecast:
+            oil:
+              asOfDate: true
+            gas:
+              never: true
+            water:
+              date: '2020-05-05'
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

@@ -1,0 +1,1064 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Escalation API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Escalation
+paths:
+  /v1/projects/{projectId}/econ-models/escalations:
+    head:
+      description: Returns metadata about the existing escalation models documents.
+      operationId: head-escalations
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Escalation
+      summary: Head escalations
+      x-summary-source: derived
+    get:
+      description: Returns a list of escalation models documents.
+      operationId: get-escalations
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                escalation:
+                  rows:
+                  - pctPerYear: 5
+                    monthPeriod:
+                      start: 1
+                      end: 24
+                      period: 24
+                  - pctPerYear: 0
+                    monthPeriod:
+                      start: 25
+                      end: 30
+                      period: 6
+                  escalationFrequency: monthly
+                  calculationMethod: compound
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get escalations
+      x-summary-source: derived
+    post:
+      description: Inserts a list of escalation models documents.
+      operationId: post-escalations
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationsInputList'
+        description: Escalations Model document(s) to insert. See EscalationsInputList.
+      summary: Post escalations
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of escalation models documents.
+      operationId: put-escalations
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationsInputList'
+        description: Escalations Model document(s) to replace/create. See EscalationsInputList.
+      summary: Put escalations
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/escalations/{id}:
+    get:
+      description: Returns the escalation model document that matches the given id.
+      operationId: get-escalation-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Escalations'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                escalation:
+                  rows:
+                  - pctPerYear: 5
+                    monthPeriod:
+                      start: 1
+                      end: 24
+                      period: 24
+                  - pctPerYear: 0
+                    monthPeriod:
+                      start: 25
+                      end: 30
+                      period: 6
+                  escalationFrequency: monthly
+                  calculationMethod: compound
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get escalation by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-escalation-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Escalation
+      summary: Delete escalation by id
+      x-summary-source: derived
+  /v1/econ-models/escalations:
+    head:
+      description: Returns metadata about the existing escalation models documents.
+      operationId: head-company-escalations
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Escalation
+      summary: Head company escalations
+      x-summary-source: derived
+    get:
+      description: Returns a list of escalation models documents.
+      operationId: get-company-escalations
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                escalation:
+                  rows:
+                  - pctPerYear: 5
+                    monthPeriod:
+                      start: 1
+                      end: 24
+                      period: 24
+                  - pctPerYear: 0
+                    monthPeriod:
+                      start: 25
+                      end: 30
+                      period: 6
+                  escalationFrequency: monthly
+                  calculationMethod: compound
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company escalations
+      x-summary-source: derived
+    post:
+      description: Inserts a list of escalation models documents.
+      operationId: post-company-escalations
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationsInputList'
+        description: Escalations Model document(s) to insert. See EscalationsInputList.
+      summary: Post company escalations
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of escalation models documents.
+      operationId: put-company-escalations
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EscalationsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EscalationsInputList'
+        description: Escalations Model document(s) to replace/create. See EscalationsInputList.
+      summary: Put company escalations
+      x-summary-source: derived
+  /v1/econ-models/escalations/{id}:
+    get:
+      description: Returns the escalation model document that matches the given id.
+      operationId: get-company-escalation-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Escalations'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                escalation:
+                  rows:
+                  - pctPerYear: 5
+                    monthPeriod:
+                      start: 1
+                      end: 24
+                      period: 24
+                  - pctPerYear: 0
+                    monthPeriod:
+                      start: 25
+                      end: 30
+                      period: 6
+                  escalationFrequency: monthly
+                  calculationMethod: compound
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Escalation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company escalation by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-escalation-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Escalation
+      summary: Delete company escalation by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    EscalationsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EscalationsInput'
+      maxItems: 500
+      example:
+      - name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        escalation:
+          rows:
+          - pctPerYear: 5
+            monthPeriod:
+              start: 1
+              end: 24
+              period: 24
+          - pctPerYear: 0
+            monthPeriod:
+              start: 25
+              end: 30
+              period: 6
+          escalationFrequency: monthly
+          calculationMethod: compound
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    EscalationsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Escalations'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        escalation:
+          rows:
+          - pctPerYear: 5
+            monthPeriod:
+              start: 1
+              end: 24
+              period: 24
+          - pctPerYear: 0
+            monthPeriod:
+              start: 25
+              end: 30
+              period: 6
+          escalationFrequency: monthly
+          calculationMethod: compound
+    StartEndPeriodCriteria:
+      type:
+      - number
+      - 'null'
+      description: Interval
+    EscalationsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EscalationsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    EscalationModel:
+      type: object
+      required:
+      - rows
+      - escalationFrequency
+      properties:
+        rows:
+          type: array
+          items:
+            $ref: '#/components/schemas/EscalationRow'
+        escalationFrequency:
+          type: string
+          description: Frequency of escalation interval
+        calculationMethod:
+          type: string
+          description: How the escalation is calculated
+        adjustFromDate:
+          type: string
+          description: Reference date for escalation adjustment (optional). Controls how start dates are interpreted for escalation calculations.
+          enum:
+          - date
+          - fpd
+          - asOf
+        adjustStartDate:
+          type: string
+          format: date
+          description: Custom start date for escalation. REQUIRED when adjustFromDate is 'date', and not allowed otherwise.
+    StartEndDatesCriteria:
+      type:
+      - string
+      - 'null'
+      format: date
+      description: Start date
+    Escalations:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        escalation:
+          $ref: '#/components/schemas/EscalationModel'
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        escalation:
+          rows:
+          - pctPerYear: 5
+            monthPeriod:
+              start: 1
+              end: 24
+              period: 24
+          - pctPerYear: 0
+            monthPeriod:
+              start: 25
+              end: 30
+              period: 6
+          escalationFrequency: monthly
+          calculationMethod: compound
+    EscalationRow:
+      type: object
+      properties:
+        pctPerYear:
+          type: number
+          description: '%/year (APY)'
+        dollarPerYear:
+          type: number
+          description: $/year
+        entireWellLife:
+          type: string
+          description: 'Entire well life: ''Flat'''
+        monthPeriod:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        dates:
+          $ref: '#/components/schemas/StartEndDatesCriteria'
+    EscalationsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        escalation:
+          $ref: '#/components/schemas/EscalationModel'
+      example:
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        escalation:
+          rows:
+          - pctPerYear: 5
+            monthPeriod:
+              start: 1
+              end: 24
+              period: 24
+          - pctPerYear: 0
+            monthPeriod:
+              start: 25
+              end: 30
+              period: 6
+          escalationFrequency: monthly
+          calculationMethod: compound
+    EscalationsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

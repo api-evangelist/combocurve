@@ -1,0 +1,1132 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Depreciation API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Depreciation
+paths:
+  /v1/projects/{projectId}/econ-models/depreciation:
+    head:
+      description: Returns metadata about the existing depreciation documents.
+      operationId: head-depreciation
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Depreciation
+      summary: Head depreciation
+      x-summary-source: derived
+    get:
+      description: Returns a list of depreciation documents.
+      operationId: get-depreciation
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationList'
+              example:
+              - id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                name: rest-api-test
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                depreciation:
+                  modelType: depletion
+                  prebuilt: custom
+                  taxCredit: 0
+                  tangibleImmediateDepletion: 45
+                  intangibleImmediateDepletion: 98
+                  tangibleDepletionModel: unit_of_production_major
+                  intangibleDepletionModel: fpd
+                  tcjaBonus: false
+                  bonusDepreciation:
+                  - tangibleBonusDepreciation: 0
+                    intangibleBonusDepreciation: 0
+                  depreciation:
+                  - year: 1
+                    tanFactor: 0
+                    tanCumulative: 0
+                    intanFactor: 0
+                    intanCumulative: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get depreciation
+      x-summary-source: derived
+    post:
+      description: Inserts a list of depreciation documents.
+      operationId: post-depreciation
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepreciationInputList'
+        description: Depreciation Model document(s) to insert. See DepreciationInputList.
+      summary: Post depreciation
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of depreciation documents.
+      operationId: put-depreciation
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepreciationInputList'
+        description: Depreciation Model document(s) to replace/create. See DepreciationInputList.
+      summary: Put depreciation
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/depreciation/{id}:
+    get:
+      description: Returns the depreciation document that matches the given id.
+      operationId: get-depreciation-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Depreciation'
+              example:
+                id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                name: rest-api-test
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                depreciation:
+                  modelType: depletion
+                  prebuilt: custom
+                  taxCredit: 0
+                  tangibleImmediateDepletion: 45
+                  intangibleImmediateDepletion: 98
+                  tangibleDepletionModel: unit_of_production_major
+                  intangibleDepletionModel: fpd
+                  tcjaBonus: false
+                  bonusDepreciation:
+                  - tangibleBonusDepreciation: 0
+                    intangibleBonusDepreciation: 0
+                  depreciation:
+                  - year: 1
+                    tanFactor: 0
+                    tanCumulative: 0
+                    intanFactor: 0
+                    intanCumulative: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get depreciation by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-depreciation-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Depreciation
+      summary: Delete depreciation by id
+      x-summary-source: derived
+  /v1/econ-models/depreciation:
+    head:
+      description: Returns metadata about the existing depreciation documents.
+      operationId: head-company-depreciation
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Depreciation
+      summary: Head company depreciation
+      x-summary-source: derived
+    get:
+      description: Returns a list of depreciation documents.
+      operationId: get-company-depreciation
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationList'
+              example:
+              - id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                name: rest-api-test
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                depreciation:
+                  modelType: depletion
+                  prebuilt: custom
+                  taxCredit: 0
+                  tangibleImmediateDepletion: 45
+                  intangibleImmediateDepletion: 98
+                  tangibleDepletionModel: unit_of_production_major
+                  intangibleDepletionModel: fpd
+                  tcjaBonus: false
+                  bonusDepreciation:
+                  - tangibleBonusDepreciation: 0
+                    intangibleBonusDepreciation: 0
+                  depreciation:
+                  - year: 1
+                    tanFactor: 0
+                    tanCumulative: 0
+                    intanFactor: 0
+                    intanCumulative: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company depreciation
+      x-summary-source: derived
+    post:
+      description: Inserts a list of depreciation documents.
+      operationId: post-company-depreciation
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepreciationInputList'
+        description: Depreciation Model document(s) to insert. See DepreciationInputList.
+      summary: Post company depreciation
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of depreciation documents.
+      operationId: put-company-depreciation
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DepreciationMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepreciationInputList'
+        description: Depreciation Model document(s) to replace/create. See DepreciationInputList.
+      summary: Put company depreciation
+      x-summary-source: derived
+  /v1/econ-models/depreciation/{id}:
+    get:
+      description: Returns the depreciation document that matches the given id.
+      operationId: get-company-depreciation-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Depreciation'
+              example:
+                id: 649a0a00c7852a5f3ad12f64
+                copiedFrom: null
+                name: rest-api-test
+                tags: []
+                unique: false
+                createdBy: 6234d6677118ecb7e6fd699a
+                lastUpdatedBy: 6234d6677118ecb7e6fd699a
+                createdAt: '2023-06-26T23:38:24.574Z'
+                updatedAt: '2023-06-26T23:38:24.574Z'
+                depreciation:
+                  modelType: depletion
+                  prebuilt: custom
+                  taxCredit: 0
+                  tangibleImmediateDepletion: 45
+                  intangibleImmediateDepletion: 98
+                  tangibleDepletionModel: unit_of_production_major
+                  intangibleDepletionModel: fpd
+                  tcjaBonus: false
+                  bonusDepreciation:
+                  - tangibleBonusDepreciation: 0
+                    intangibleBonusDepreciation: 0
+                  depreciation:
+                  - year: 1
+                    tanFactor: 0
+                    tanCumulative: 0
+                    intanFactor: 0
+                    intanCumulative: 0
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Depreciation
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company depreciation by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-depreciation-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Depreciation
+      summary: Delete company depreciation by id
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    DepreciationModel:
+      type: object
+      required:
+      - modelType
+      properties:
+        modelType:
+          type: string
+          enum:
+          - depletion
+          - depreciation
+        prebuilt:
+          type: string
+        taxCredit:
+          type: number
+        tangibleImmediateDepletion:
+          type: number
+        intangibleImmediateDepletion:
+          type: number
+        tangibleDepletionModel:
+          type: string
+          enum:
+          - unit_of_production_major
+          - unit_of_production_BOE
+          - ecl
+          - fpd
+          - never
+        intangibleDepletionModel:
+          type: string
+          enum:
+          - unit_of_production_major
+          - unit_of_production_BOE
+          - ecl
+          - fpd
+          - never
+        tcjaBonus:
+          type: boolean
+        bonusDepreciation:
+          type: array
+          maxItems: 1
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/BonusDepreciationObject'
+        depreciation:
+          type: array
+          maxItems: 1
+          minItems: 100
+          items:
+            $ref: '#/components/schemas/DepreciationObject'
+    DepreciationInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        depreciation:
+          $ref: '#/components/schemas/InputDepreciationModel'
+      example:
+        name: rest-api-test
+        unique: false
+        depreciation:
+          modelType: depreciation
+          taxCredit: 0
+          tcjaBonus: false
+          bonusDepreciation:
+          - tangibleBonusDepreciation: 0
+            intangibleBonusDepreciation: 0
+          depreciation:
+          - tanFactor: 0
+            intanFactor: 0
+    DepreciationObject:
+      type: object
+      properties:
+        year:
+          type: number
+        tanFactor:
+          type: number
+        tanCumulative:
+          type: number
+        intanFactor:
+          type: number
+        intanCumulative:
+          type: number
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    InputDepreciationModel:
+      type: object
+      required:
+      - modelType
+      properties:
+        modelType:
+          type: string
+          enum:
+          - depletion
+          - depreciation
+        taxCredit:
+          type: number
+        tangibleImmediateDepletion:
+          type: number
+        intangibleImmediateDepletion:
+          type: number
+        tangibleDepletionModel:
+          type: string
+          enum:
+          - unit_of_production_major
+          - unit_of_production_BOE
+          - ecl
+          - fpd
+          - never
+        intangibleDepletionModel:
+          type: string
+          enum:
+          - unit_of_production_major
+          - unit_of_production_BOE
+          - ecl
+          - fpd
+          - never
+        tcjaBonus:
+          type: boolean
+        bonusDepreciation:
+          type: array
+          maxItems: 1
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/BonusDepreciationObject'
+        depreciation:
+          type: array
+          maxItems: 1
+          minItems: 100
+          items:
+            $ref: '#/components/schemas/InputDepreciationObject'
+    InputDepreciationObject:
+      type: object
+      required:
+      - intanFactor
+      - tanFactor
+      properties:
+        intanFactor:
+          type: number
+        tanFactor:
+          type: number
+    DepreciationStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    DepreciationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Depreciation'
+      maxItems: 200
+      example:
+      - id: 649a0a00c7852a5f3ad12f64
+        copiedFrom: null
+        name: rest-api-test
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-26T23:38:24.574Z'
+        updatedAt: '2023-06-26T23:38:24.574Z'
+        depreciation:
+          modelType: depletion
+          prebuilt: custom
+          taxCredit: 0
+          tangibleImmediateDepletion: 45
+          intangibleImmediateDepletion: 98
+          tangibleDepletionModel: unit_of_production_major
+          intangibleDepletionModel: fpd
+          tcjaBonus: false
+          bonusDepreciation:
+          - tangibleBonusDepreciation: 0
+            intangibleBonusDepreciation: 0
+          depreciation:
+          - year: 1
+            tanFactor: 0
+            tanCumulative: 0
+            intanFactor: 0
+            intanCumulative: 0
+    DepreciationMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepreciationStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    BonusDepreciationObject:
+      type: object
+      required:
+      - tangibleBonusDepreciation
+      - intangibleBonusDepreciation
+      properties:
+        tangibleBonusDepreciation:
+          type: number
+        intangibleBonusDepreciation:
+          type: number
+    DepreciationInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DepreciationInput'
+      maxItems: 200
+      minItems: 1
+      example:
+      - name: rest-api-test
+        unique: false
+        depreciation:
+          modelType: depreciation
+          taxCredit: 0
+          tcjaBonus: false
+          bonusDepreciation:
+          - tangibleBonusDepreciation: 0
+            intangibleBonusDepreciation: 0
+          depreciation:
+          - tanFactor: 0
+            intanFactor: 0
+    Depreciation:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        depreciation:
+          $ref: '#/components/schemas/DepreciationModel'
+      example:
+        id: 649a0a00c7852a5f3ad12f64
+        copiedFrom: null
+        name: rest-api-test
+        tags: []
+        unique: false
+        createdBy: 6234d6677118ecb7e6fd699a
+        lastUpdatedBy: 6234d6677118ecb7e6fd699a
+        createdAt: '2023-06-26T23:38:24.574Z'
+        updatedAt: '2023-06-26T23:38:24.574Z'
+        depreciation:
+          modelType: depletion
+          prebuilt: custom
+          taxCredit: 0
+          tangibleImmediateDepletion: 45
+          intangibleImmediateDepletion: 98
+          tangibleDepletionModel: unit_of_production_major
+          intangibleDepletionModel: fpd
+          tcjaBonus: false
+          bonusDepreciation:
+          - tangibleBonusDepreciation: 0
+            intangibleBonusDepreciation: 0
+          depreciation:
+          - year: 1
+            tanFactor: 0
+            tanCumulative: 0
+            intanFactor: 0
+            intanCumulative: 0
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

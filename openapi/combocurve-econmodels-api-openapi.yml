@@ -1,0 +1,680 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Econ Models API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: EconModels
+paths:
+  /v1/projects/{projectId}/econ-models:
+    head:
+      description: Returns metadata about the existing econ model documents.
+      operationId: head-econ-models
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - EconModels
+      summary: Head econ models
+      x-summary-source: derived
+    get:
+      description: Returns a list of econ model documents.
+      operationId: get-econ-models
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconModelList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                assumptionKey: OwnershipReversion
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconModels
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get econ models
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/{id}:
+    get:
+      description: Returns the econ model document that matches the given id.
+      operationId: get-econ-model-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EconModel'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                assumptionKey: OwnershipReversion
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconModels
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get econ model by id
+      x-summary-source: derived
+  /v1/econ-models:
+    head:
+      description: Returns metadata about the existing econ model documents.
+      operationId: head-company-econ-models
+      parameters:
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - EconModels
+      summary: Head company econ models
+      x-summary-source: derived
+    get:
+      description: Returns a list of econ model documents.
+      operationId: get-company-econ-models
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyEconModelList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                assumptionKey: OwnershipReversion
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconModels
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company econ models
+      x-summary-source: derived
+  /v1/econ-models/{id}:
+    get:
+      description: Returns the econ model document that matches the given id.
+      operationId: get-company-econ-model-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyEconModel'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                assumptionKey: OwnershipReversion
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - EconModels
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company econ model by id
+      x-summary-source: derived
+components:
+  schemas:
+    EconModel:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        econModelType:
+          type: string
+          description: Econ Model Type
+          enum:
+          - ActualOrForecast
+          - Capex
+          - Dates
+          - Depreciation
+          - Differentials
+          - Emission
+          - Escalation
+          - Expenses
+          - FluidModel
+          - GeneralOptions
+          - OwnershipReversion
+          - Pricing
+          - ProductionTaxes
+          - ReservesCategory
+          - Risking
+          - StreamProperties
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        assumptionKey: OwnershipReversion
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    EconModelList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EconModel'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        assumptionKey: OwnershipReversion
+    CompanyEconModel:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        econModelType:
+          type: string
+          description: Econ Model Type
+          enum:
+          - ActualOrForecast
+          - Capex
+          - Dates
+          - Depreciation
+          - Differentials
+          - Escalation
+          - Expenses
+          - GeneralOptions
+          - OwnershipReversion
+          - Pricing
+          - ProductionTaxes
+          - ReservesCategory
+          - Risking
+          - StreamProperties
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        assumptionKey: OwnershipReversion
+    CompanyEconModelList:
+      type: array
+      items:
+        $ref: '#/components/schemas/CompanyEconModel'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        assumptionKey: OwnershipReversion
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

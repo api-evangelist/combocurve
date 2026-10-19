@@ -1,0 +1,797 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Forecasts API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Forecasts
+paths:
+  /v1/projects/{projectId}/forecasts:
+    head:
+      description: Returns metadata about the existing forecast documents scoped to projectId project.
+      operationId: head-forecasts
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        x-example: f1
+        schema:
+          type: string
+      - name: runDate
+        in: query
+        description: filter by runDate
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: type
+        in: query
+        description: filter by type
+        x-example: deterministic
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Forecasts
+      summary: Head forecasts
+      x-summary-source: derived
+    get:
+      description: Returns a list of forecast documents scoped to projectId project.
+      operationId: get-forecasts
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        x-example: default1
+        schema:
+          type: string
+      - name: runDate
+        in: query
+        description: filter by runDate, can be used for incremental pull
+        schema:
+          type: string
+          format: date
+      - name: type
+        in: query
+        description: filter by type
+        x-example: probabilistic
+        schema:
+          type: string
+      - name: tag
+        in: query
+        description: filter by tag
+        x-example: tagName
+        x-allow-multiple: true
+        schema:
+          type: string
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastList'
+              example:
+              - createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test forecast
+                runDate: '2020-06-08T19:14:22.012Z'
+                running: false
+                type: probabilistic
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Forecasts
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get forecasts
+      x-summary-source: derived
+    post:
+      description: Inserts a list of forecasts documents in projectId scope.
+      operationId: post-forecasts
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForecastsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Forecasts
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForecastInputList'
+        description: Forecasts to insert. See ForecastInputList.
+      summary: Post forecasts
+      x-summary-source: derived
+  /v1/projects/{projectId}/forecasts/{id}:
+    get:
+      description: Returns the forecast document that matches the given id scoped to projectId project.
+      operationId: get-forecast-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Forecast'
+              example:
+                createdAt: '2020-01-21T16:58:08.986Z'
+                id: 5e5981b9e23dae0012624d72
+                name: Test forecast
+                runDate: '2020-06-08T19:14:22.012Z'
+                running: false
+                type: probabilistic
+                updatedAt: '2020-01-21T17:58:08.986Z'
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Forecasts
+      summary: Get forecast by id
+      x-summary-source: derived
+    delete:
+      description: Delete the Forecast that matches the given id scoped to projectId project.
+      operationId: delete-forecast-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: deleteTypeCurves
+        in: query
+        description: deletes all type-curves associated with the forecastId
+        schema:
+          type: boolean
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Forecasts
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Delete forecast by id
+      x-summary-source: derived
+    patch:
+      description: Updates Forecast.
+      operationId: patch-forecast
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: The project's id.
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: The forecast's id.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Patch Status
+          content:
+            application/json:
+              schema:
+                $ref: '#definitions/ForecastsStatus'
+              example:
+                status: Success
+                code: 200
+                name: test
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#definitions/ForecastsStatus'
+              example:
+                status: Success
+                code: 200
+                name: test
+      tags:
+      - Forecasts
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      x-is-patch: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForecastPatchInput'
+        description: Forecast information to replace. See ForecastPatchInput.
+      summary: Patch forecast
+      x-summary-source: derived
+  /v1/projects/{projectId}/forecasts/{id}/wells:
+    post:
+      description: Inserts a list of well into a forecast.
+      operationId: post-wells-to-forecast
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WellMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'id' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'dataSource' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  id: 62b1c13e2750169012ee4515
+                  chosenID: abc1234567890
+                  dataSource: di
+                  createdAt: '2023-01-01T00:00:00.000Z'
+                  updatedAt: '2023-01-01T00:00:00.000Z'
+                - status: Success
+                  code: 200
+                  id: 62b1c13e4857169000ee4613
+                  chosenID: 1234567891
+                  dataSource: internal
+                  createdAt: '2023-01-01T00:00:00.000Z'
+                  updatedAt: '2023-01-01T00:00:00.000Z'
+                failedCount: 2
+                successCount: 2
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Forecasts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WellIdInput'
+        description: WellIds documents to insert. See WellInputList.
+        required: true
+      summary: Post wells to forecast
+      x-summary-source: derived
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    TagList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+      maxItems: 200
+      example:
+      - createdAt: '2021-07-27T17:52:28.791Z'
+        name: Test tag
+        description: Test tag description
+        updatedAt: '2021-07-27T17:52:28.791Z'
+      - createdAt: '2021-07-27T17:52:28.791Z'
+        name: Test tag 2
+        description: Test tag 2 description
+        updatedAt: '2021-07-27T17:52:28.791Z'
+    Tag:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date
+          description: Tag Creation Date
+        description:
+          type: string
+          maxLength: 16384
+          description: Description
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+      example:
+        createdAt: '2021-07-27T17:52:28.791Z'
+        name: Test tag
+        description: Test tag description
+        updatedAt: '2021-07-27T17:52:28.791Z'
+    WellIdInput:
+      type: object
+      required:
+      - wellIds
+      properties:
+        wellIds:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 1000
+          description: an array of well IDs
+      example:
+      - wellIds:
+        - 632240de72c6010512780753
+        - 632240b972c6019e7178074e
+    ForecastList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Forecast'
+      maxItems: 200
+      example:
+      - createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test forecast
+        runDate: '2020-06-08T19:14:22.012Z'
+        running: false
+        type: probabilistic
+        updatedAt: '2020-01-21T17:58:08.986Z'
+    ForecastsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        forecastId:
+          type: string
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ForecastPatchInput:
+      type: object
+      x-is-patch: true
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+      example:
+        name: Test forecast
+        type: probabilistic
+    WellStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        id:
+          type: string
+        chosenID:
+          type: string
+        dataSource:
+          type: string
+        createdAt:
+          type: string
+          format: date
+        updatedAt:
+          type: string
+          format: date
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        id: 62b1c13e2750169012ee4515
+        chosenID: abc1234567890
+        dataSource: di
+        createdAt: '2023-01-01T00:00:00.000Z'
+        updatedAt: '2023-01-01T00:00:00.000Z'
+    WellMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/WellStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'id' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'dataSource' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          id: 62b1c13e2750169012ee4515
+          chosenID: abc1234567890
+          dataSource: di
+          createdAt: '2023-01-01T00:00:00.000Z'
+          updatedAt: '2023-01-01T00:00:00.000Z'
+        - status: Success
+          code: 200
+          id: 62b1c13e4857169000ee4613
+          chosenID: 1234567891
+          dataSource: internal
+          createdAt: '2023-01-01T00:00:00.000Z'
+          updatedAt: '2023-01-01T00:00:00.000Z'
+        failedCount: 2
+        successCount: 2
+    ForecastsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ForecastsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    Forecast:
+      type: object
+      properties:
+        createdAt:
+          type: string
+          format: date
+          description: Forecast Creation Date
+        id:
+          type: string
+          description: ID
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+        runDate:
+          type: string
+          format: date
+          description: Run Date
+        running:
+          type: boolean
+          description: Running
+        tags:
+          $ref: '#/components/schemas/TagList'
+        type:
+          type: string
+          description: Type
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+      example:
+        createdAt: '2020-01-21T16:58:08.986Z'
+        id: 5e5981b9e23dae0012624d72
+        name: Test forecast
+        runDate: '2020-06-08T19:14:22.012Z'
+        running: false
+        type: probabilistic
+        updatedAt: '2020-01-21T17:58:08.986Z'
+    ForecastInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ForecastInput'
+      maxItems: 200
+      example:
+      - name: Test forecast
+        type: probabilistic
+    ForecastInput:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          maxLength: 16384
+          description: Name
+        type:
+          type: string
+          description: Type
+      example:
+        name: Test forecast
+        type: probabilistic
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200

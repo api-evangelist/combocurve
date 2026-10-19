@@ -1,0 +1,1550 @@
+openapi: 3.2.0
+info:
+  title: ComboCurve REST Differentials API
+  version: 1.0.0
+servers:
+- url: https://api.combocurve.com
+security:
+- api-key: []
+  service-account-key: []
+tags:
+- name: Differentials
+paths:
+  /v1/projects/{projectId}/econ-models/differentials:
+    head:
+      description: Returns metadata about the existing differentials documents.
+      operationId: head-differentials
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Differentials
+      summary: Head differentials
+      x-summary-source: derived
+    get:
+      description: Returns a list of differentials documents.
+      operationId: get-differentials
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                differentials:
+                  firstDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerBbl: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMcf: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 999999999999999900000
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  secondDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  thirdDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 5
+                        monthPeriod:
+                          start: 1
+                          end: 24
+                          period: 24
+                      - dollarPerMmbtu: 0
+                        monthPeriod:
+                          start: 25
+                          end: 30
+                          period: 6
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get differentials
+      x-summary-source: derived
+    post:
+      description: Inserts a list of differentials documents.
+      operationId: post-differentials
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DifferentialsInputList'
+        description: Differentials Model document(s) to insert. See DifferentialsInputList.
+      summary: Post differentials
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of differentials documents.
+      operationId: put-differentials
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DifferentialsInputList'
+        description: Differentials Model document(s) to replace/create. See DifferentialsInputList.
+      summary: Put differentials
+      x-summary-source: derived
+  /v1/projects/{projectId}/econ-models/differentials/{id}:
+    get:
+      description: Returns the differential document that matches the given id.
+      operationId: get-differential-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Differentials'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                differentials:
+                  firstDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerBbl: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMcf: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 999999999999999900000
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  secondDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  thirdDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 5
+                        monthPeriod:
+                          start: 1
+                          end: 24
+                          period: 24
+                      - dollarPerMmbtu: 0
+                        monthPeriod:
+                          start: 25
+                          end: 30
+                          period: 6
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get differential by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to projectId project.
+      operationId: delete-differential-by-id
+      parameters:
+      - in: path
+        name: projectId
+        required: true
+        description: ''
+        schema:
+          type: string
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Differentials
+      summary: Delete differential by id
+      x-summary-source: derived
+  /v1/econ-models/differentials:
+    head:
+      description: Returns metadata about the existing differentials documents.
+      operationId: head-company-differentials
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+            X-Query-Count:
+              description: The number of records in this resource. When filters are provided only matching records are counted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Differentials
+      summary: Head company differentials
+      x-summary-source: derived
+    get:
+      description: Returns a list of differentials documents.
+      operationId: get-company-differentials
+      parameters:
+      - $ref: '#/components/parameters/skipParam'
+      - $ref: '#/components/parameters/takeParam'
+      - $ref: '#/components/parameters/sortParam'
+      - $ref: '#/components/parameters/cursorParam'
+      - name: createdAt
+        in: query
+        description: filter by createdAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example createdAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      - name: name
+        in: query
+        description: filter by name
+        schema:
+          type: string
+      - name: well
+        in: query
+        description: filter by well
+        schema:
+          type: string
+      - name: unique
+        in: query
+        description: filter by unique
+        schema:
+          type: boolean
+      - name: updatedAt
+        in: query
+        description: filter by updatedAt - Operator values are [lt] = less than, [le] = less than or equal, [gt] = greater than, [ge] = greater than or equal, no operator = equal. Example updatedAt[gt]=2018-01-01T00:00:00Z
+        x-allow-parameter-operator: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          headers:
+            Link:
+              description: Indicates a typed relationship with another resource, where the relation type is defined by RFC 5988. We include the relationships next, prev, first and last, which can be used to move between pages of the list of results.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsList'
+              example:
+              - id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                differentials:
+                  firstDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerBbl: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMcf: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 999999999999999900000
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  secondDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  thirdDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 5
+                        monthPeriod:
+                          start: 1
+                          end: 24
+                          period: 24
+                      - dollarPerMmbtu: 0
+                        monthPeriod:
+                          start: 25
+                          end: 30
+                          period: 6
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company differentials
+      x-summary-source: derived
+    post:
+      description: Inserts a list of differentials documents.
+      operationId: post-company-differentials
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DifferentialsInputList'
+        description: Differentials Model document(s) to insert. See DifferentialsInputList.
+      summary: Post company differentials
+      x-summary-source: derived
+    put:
+      description: Replace or create a list of differentials documents.
+      operationId: put-company-differentials
+      responses:
+        '207':
+          description: Multi-Status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DifferentialsMultiStatusResponse'
+              example:
+                generalErrors:
+                - name: ValidationError
+                  message: The field 'name' is required.
+                  location: In body of request at position [0]
+                - name: ValidationError
+                  message: The field 'unique' is required.
+                  location: In body of request at position [2]
+                results:
+                - status: Success
+                  code: 200
+                  name: test
+                - status: Success
+                  code: 200
+                  name: test1
+                failedCount: 2
+                successCount: 2
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          write-request-rate: 1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DifferentialsInputList'
+        description: Differentials Model document(s) to replace/create. See DifferentialsInputList.
+      summary: Put company differentials
+      x-summary-source: derived
+  /v1/econ-models/differentials/{id}:
+    get:
+      description: Returns the differential document that matches the given id.
+      operationId: get-company-differential-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Differentials'
+              example:
+                id: 5e272d39b78910dd2a1bd8fe
+                copiedFrom: 63b856e816f758cc5b0f1106
+                name: Test
+                scenario: 63b8571d70ed63f50bd6d63f
+                tags:
+                - 63b85737ff846cee7b1f6fdc
+                unique: true
+                well: 63b85759e1d7eb4e31579f51
+                createdAt: '2020-01-21T16:58:08.986Z'
+                updatedAt: '2020-01-21T17:58:08.986Z'
+                createdBy: 63b857cb68f3b96efc700998
+                lastUpdatedBy: 63b857cb68f3b96efc700998
+                differentials:
+                  firstDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerBbl: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMcf: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 999999999999999900000
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  secondDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 0
+                        entireWellLife: Flat
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+                  thirdDifferential:
+                    oil:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 1.0e-07
+                        entireWellLife: Flat
+                    gas:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerMmbtu: 5
+                        monthPeriod:
+                          start: 1
+                          end: 24
+                          period: 24
+                      - dollarPerMmbtu: 0
+                        monthPeriod:
+                          start: 25
+                          end: 30
+                          period: 6
+                    ngl:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - dollarPerGal: 200
+                        entireWellLife: Flat
+                    dripCondensate:
+                      escalationModel: 63b857cb68f3b96efc700998
+                      rows:
+                      - pctOfBasePrice: 25
+                        entireWellLife: Flat
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                name: ValidationError
+                message: The field 'id' is required.
+                details:
+                  location: In body of request at position [0]
+      tags:
+      - Differentials
+      x-google-quota:
+        metricCosts:
+          read-request-rate: 1
+      summary: Get company differential by id
+      x-summary-source: derived
+    delete:
+      description: Delete the assumptions document that matches the given id scoped to company level
+      operationId: delete-company-differential-by-id
+      parameters:
+      - in: path
+        name: id
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '204':
+          description: OK
+          headers:
+            X-Delete-Count:
+              description: The number of records that match the given filters and were deleted.
+              schema:
+                type: integer
+        '400':
+          description: Bad Request. There is something wrong with the request data.
+      tags:
+      - Differentials
+      summary: Delete company differential by id
+      x-summary-source: derived
+components:
+  schemas:
+    DifferentialPhaseRow:
+      type: object
+      properties:
+        dollarPerBbl:
+          type: number
+          description: Dollar per barrel
+        dollarPerMmbtu:
+          type: number
+          description: Dollar per MMBTU
+        dollarPerGal:
+          type: number
+          description: Dollar per gallon
+        dollarPerMcf:
+          type: number
+          description: Dollar per MCF
+        pctOfBasePrice:
+          type: number
+          description: Percentage of base price
+        entireWellLife:
+          type: string
+          description: 'Entire well life: ''Flat'''
+        offsetToAsOf:
+          $ref: '#/components/schemas/StartEndPeriodCriteria'
+        dates:
+          $ref: '#/components/schemas/StartEndDatesCriteria'
+    Error:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The kind of error.
+        message:
+          type: string
+          description: A human-readable description of the problem.
+        details:
+          type: object
+          properties:
+            location:
+              type: string
+              description: The location in the request data that contains the invalid value.
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        details:
+          location: In body of request at position [0]
+    DifferentialsInputList:
+      type: array
+      items:
+        $ref: '#/components/schemas/DifferentialsInput'
+      maxItems: 200
+      example:
+      - name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        differentials:
+          firstDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerBbl: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMcf: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 999999999999999900000
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          secondDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          thirdDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 5
+                monthPeriod:
+                  start: 1
+                  end: 24
+                  period: 24
+              - dollarPerMmbtu: 0
+                monthPeriod:
+                  start: 25
+                  end: 30
+                  period: 6
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+    DifferentialsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Differentials'
+      maxItems: 200
+      example:
+      - id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        differentials:
+          firstDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerBbl: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMcf: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 999999999999999900000
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          secondDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          thirdDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 5
+                monthPeriod:
+                  start: 1
+                  end: 24
+                  period: 24
+              - dollarPerMmbtu: 0
+                monthPeriod:
+                  start: 25
+                  end: 30
+                  period: 6
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+    DifferentialsStatus:
+      type: object
+      required:
+      - status
+      - code
+      properties:
+        status:
+          type: string
+        code:
+          type: integer
+        name:
+          type: string
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+      example:
+        status: Success
+        code: 200
+        name: test
+    ErrorEntry:
+      required:
+      - name
+      - message
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          type: string
+        location:
+          type: string
+      example:
+        name: ValidationError
+        message: The field 'id' is required.
+        location: In body of request at position [0]
+    DifferentialPhase:
+      type: object
+      properties:
+        escalationModel:
+          type: string
+          description: 'Escalation model: ''none'' | ''escalation model ID'''
+        rows:
+          type: array
+          description: Array of objects containing one value property & one time interval interval
+          items:
+            $ref: '#/components/schemas/DifferentialPhaseRow'
+    StartEndPeriodCriteria:
+      type:
+      - number
+      - 'null'
+      description: Interval
+    DifferentialsMultiStatusResponse:
+      type: object
+      properties:
+        generalErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorEntry'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/DifferentialsStatus'
+        failedCount:
+          type: integer
+        successCount:
+          type: integer
+      example:
+        generalErrors:
+        - name: ValidationError
+          message: The field 'name' is required.
+          location: In body of request at position [0]
+        - name: ValidationError
+          message: The field 'unique' is required.
+          location: In body of request at position [2]
+        results:
+        - status: Success
+          code: 200
+          name: test
+        - status: Success
+          code: 200
+          name: test1
+        failedCount: 2
+        successCount: 2
+    DifferentialModel:
+      type: object
+      required:
+      - firstDifferential
+      - secondDifferential
+      - thirdDifferential
+      properties:
+        firstDifferential:
+          $ref: '#/components/schemas/DifferentialPhases'
+        secondDifferential:
+          $ref: '#/components/schemas/DifferentialPhases'
+        thirdDifferential:
+          $ref: '#/components/schemas/DifferentialPhases'
+    DifferentialPhases:
+      type: object
+      required:
+      - oil
+      - gas
+      - ngl
+      - dripCondensate
+      properties:
+        oil:
+          $ref: '#/components/schemas/DifferentialPhase'
+        gas:
+          $ref: '#/components/schemas/DifferentialPhase'
+        ngl:
+          $ref: '#/components/schemas/DifferentialPhase'
+        dripCondensate:
+          $ref: '#/components/schemas/DifferentialPhase'
+    StartEndDatesCriteria:
+      type:
+      - string
+      - 'null'
+      format: date
+      description: Start date
+    Differentials:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        id:
+          type: string
+          description: ID
+        copiedFrom:
+          type: string
+          description: Copied From
+        scenario:
+          type: string
+          description: Scenario ID
+        tags:
+          type: array
+          items:
+            type: string
+            description: Tag ID
+        well:
+          type: string
+          description: Well ID
+        createdAt:
+          type: string
+          format: date
+          description: Creation Date
+        updatedAt:
+          type: string
+          format: date
+          description: Updated At
+        createdBy:
+          type: string
+          description: Created By
+        lastUpdatedBy:
+          type: string
+          description: Last Updated By
+        differentials:
+          $ref: '#/components/schemas/DifferentialModel'
+      example:
+        id: 5e272d39b78910dd2a1bd8fe
+        copiedFrom: 63b856e816f758cc5b0f1106
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        tags:
+        - 63b85737ff846cee7b1f6fdc
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        createdAt: '2020-01-21T16:58:08.986Z'
+        updatedAt: '2020-01-21T17:58:08.986Z'
+        createdBy: 63b857cb68f3b96efc700998
+        lastUpdatedBy: 63b857cb68f3b96efc700998
+        differentials:
+          firstDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerBbl: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMcf: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 999999999999999900000
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          secondDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          thirdDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 5
+                monthPeriod:
+                  start: 1
+                  end: 24
+                  period: 24
+              - dollarPerMmbtu: 0
+                monthPeriod:
+                  start: 25
+                  end: 30
+                  period: 6
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+    DifferentialsInput:
+      type: object
+      required:
+      - name
+      - unique
+      properties:
+        name:
+          type: string
+          description: Name
+        unique:
+          type: boolean
+          description: Unique
+        scenario:
+          type: string
+          description: Scenario ID
+        well:
+          type: string
+          description: Well ID
+        differentials:
+          $ref: '#/components/schemas/DifferentialModel'
+      example:
+        name: Test
+        scenario: 63b8571d70ed63f50bd6d63f
+        unique: true
+        well: 63b85759e1d7eb4e31579f51
+        differentials:
+          firstDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerBbl: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMcf: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 999999999999999900000
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          secondDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 0
+                entireWellLife: Flat
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+          thirdDifferential:
+            oil:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 1.0e-07
+                entireWellLife: Flat
+            gas:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerMmbtu: 5
+                monthPeriod:
+                  start: 1
+                  end: 24
+                  period: 24
+              - dollarPerMmbtu: 0
+                monthPeriod:
+                  start: 25
+                  end: 30
+                  period: 6
+            ngl:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - dollarPerGal: 200
+                entireWellLife: Flat
+            dripCondensate:
+              escalationModel: 63b857cb68f3b96efc700998
+              rows:
+              - pctOfBasePrice: 25
+                entireWellLife: Flat
+  parameters:
+    takeParam:
+      name: take
+      in: query
+      description: max records to return
+      schema:
+        type: integer
+        format: int32
+        default: 25
+        maximum: 200
+        minimum: 1
+    skipParam:
+      name: skip
+      in: query
+      description: number of items to skip
+      schema:
+        type: integer
+        format: int32
+        default: 0
+    cursorParam:
+      name: cursor
+      in: query
+      description: used in pagination to get the next page
+      schema:
+        type: string
+    sortParam:
+      name: sort
+      in: query
+      description: field to sort by, including + or - at the beginning for ascending or descending order, respectively
+      schema:
+        type: string
+  securitySchemes:
+    api-key:
+      type: apiKey
+      name: x-api-key
+      in: header
+x-google-management:
+  metrics:
+  - name: read-request-rate
+    displayName: Read Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  - name: write-request-rate
+    displayName: Write Request Rate
+    valueType: INT64
+    metricKind: DELTA
+  quota:
+    limits:
+    - name: read-request-rate-limit
+      metric: read-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 800
+    - name: write-request-rate-limit
+      metric: write-request-rate
+      unit: 1/min/{project}
+      values:
+        STANDARD: 200
