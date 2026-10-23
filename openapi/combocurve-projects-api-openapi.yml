@@ -424,3 +424,9 @@ x-google-management:
       unit: 1/min/{project}
       values:
         STANDARD: 200
+x-provenance:
+  method: harvested
+  publisher: ComboCurve
+  source: https://storage.googleapis.com/beta-combocurve-api-docs/openapi-spec.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
