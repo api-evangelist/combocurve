@@ -95,6 +95,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - CapEx
+  tags_raw:
   - Capex
   properties:
   - type: OpenAPI
@@ -127,6 +129,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - custom-columns
+  tags_raw:
   - CustomColumns
   properties:
   - type: OpenAPI
@@ -352,6 +356,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - Export
+  tags_raw:
   - Exports
   properties:
   - type: OpenAPI
@@ -416,6 +422,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - Forecast
+  tags_raw:
   - Forecasts
   properties:
   - type: OpenAPI
@@ -448,6 +456,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - General Options
+  tags_raw:
   - GeneralOptions
   properties:
   - type: OpenAPI
@@ -626,6 +636,8 @@ apis:
   humanURL: https://docs.api.combocurve.com/
   baseURL: https://api.combocurve.com
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
