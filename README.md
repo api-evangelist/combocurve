@@ -64,6 +64,146 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ComboCurve is a company surfaced as a portfolio company of bessemer-venture-partners and added to the API Evangelist network as a stub for enrichment. Sector: vertical-software. This profile is a lead awaiting the enrichment pipeline.
+ComboCurve is an oil & gas well forecasting, type-curve, reserves and economics platform used by petroleum engineers, operators, private equity firms, investment banks, and mineral/royalty companies for acquisition-and-divestiture (A&D), upstream asset management, and reserves analysis. Its public REST API at https://api.combocurve.com exposes well headers, daily and monthly production data, directional surveys, forecasts, forecast configurations, econ-models (capex, expenses, differentials, escalations, depreciation, ownership reversions), economics runs, and asynchronous export jobs. Backed by Bessemer Venture Partners.
 
-Backed by: bessemer-venture-partners — https://combocurve.com/
+**Areas:** Company · Vertical Software · Oil and Gas · Energy · Forecasting · Reserves · Economics · Upstream · Petroleum Engineering
+
+## ComboCurve on APIs.io
+
+Everything profiled for ComboCurve is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/combocurve/](https://apis.io/providers/combocurve/)** — or go straight to one of the APIs or properties below.
+
+### APIs (18)
+
+- [ComboCurve v1 custom-columns API](https://apis.io/apis/combocurve/combocurve-v1-custom-columns-api/) — custom-columns operations
+- [ComboCurve v1 daily-productions API](https://apis.io/apis/combocurve/combocurve-v1-daily-productions-api/) — daily-productions operations
+- [ComboCurve v1 directional-surveys API](https://apis.io/apis/combocurve/combocurve-v1-directional-surveys-api/) — directional-surveys operations
+- [ComboCurve v1 econ-models API](https://apis.io/apis/combocurve/combocurve-v1-econ-models-api/) — econ-models operations
+- [ComboCurve v1 econ-runs API](https://apis.io/apis/combocurve/combocurve-v1-econ-runs-api/) — econ-runs operations
+- [ComboCurve v1 exports API](https://apis.io/apis/combocurve/combocurve-v1-exports-api/) — exports operations
+- [ComboCurve v1 forecast-configurations API](https://apis.io/apis/combocurve/combocurve-v1-forecast-configurations-api/) — forecast-configurations operations
+- [ComboCurve v1 forecast-daily-volumes API](https://apis.io/apis/combocurve/combocurve-v1-forecast-daily-volumes-api/) — forecast-daily-volumes operations
+- [ComboCurve v1 forecast-monthly-volumes API](https://apis.io/apis/combocurve/combocurve-v1-forecast-monthly-volumes-api/) — forecast-monthly-volumes operations
+- [ComboCurve v1 monthly-productions API](https://apis.io/apis/combocurve/combocurve-v1-monthly-productions-api/) — monthly-productions operations
+- [ComboCurve v1 ownership-qualifiers API](https://apis.io/apis/combocurve/combocurve-v1-ownership-qualifiers-api/) — ownership-qualifiers operations
+- [ComboCurve v1 projects API](https://apis.io/apis/combocurve/combocurve-v1-projects-api/) — projects operations
+- [ComboCurve v1 tags API](https://apis.io/apis/combocurve/combocurve-v1-tags-api/) — tags operations
+- [ComboCurve v1 users API](https://apis.io/apis/combocurve/combocurve-v1-users-api/) — users operations
+- [ComboCurve v1 well-comments API](https://apis.io/apis/combocurve/combocurve-v1-well-comments-api/) — well-comments operations
+- [ComboCurve v1 wells API](https://apis.io/apis/combocurve/combocurve-v1-wells-api/) — wells operations
+- [ComboCurve v1 wells-identifiers API](https://apis.io/apis/combocurve/combocurve-v1-wells-identifiers-api/) — wells-identifiers operations
+- [ComboCurve v2 exports API](https://apis.io/apis/combocurve/combocurve-v2-exports-api/) — exports operations
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [combocurve](https://apis.io/servers/combocurve/combocurve/)
+
+#### Collections (18)
+
+Postman and Open Collection request collections.
+
+- [ComboCurve REST v1 custom-columns API](https://apis.io/collections/combocurve/open-combocurve-v1-custom-columns-api/)
+- [ComboCurve REST v1 custom-columns v1 daily-productions API](https://apis.io/collections/combocurve/open-combocurve-v1-daily-productions-api/)
+- [ComboCurve REST v1 custom-columns v1 directional-surveys API](https://apis.io/collections/combocurve/open-combocurve-v1-directional-surveys-api/)
+- [ComboCurve REST v1 custom-columns v1 econ-models API](https://apis.io/collections/combocurve/open-combocurve-v1-econ-models-api/)
+- [ComboCurve REST v1 custom-columns v1 econ-runs API](https://apis.io/collections/combocurve/open-combocurve-v1-econ-runs-api/)
+- [ComboCurve REST v1 custom-columns v1 exports API](https://apis.io/collections/combocurve/open-combocurve-v1-exports-api/)
+- [ComboCurve REST v1 custom-columns v1 forecast-configurations API](https://apis.io/collections/combocurve/open-combocurve-v1-forecast-configurations-api/)
+- [ComboCurve REST v1 custom-columns v1 forecast-daily-volumes API](https://apis.io/collections/combocurve/open-combocurve-v1-forecast-daily-volumes-api/)
+- [ComboCurve REST v1 custom-columns v1 forecast-monthly-volumes API](https://apis.io/collections/combocurve/open-combocurve-v1-forecast-monthly-volumes-api/)
+- [ComboCurve REST v1 custom-columns v1 monthly-productions API](https://apis.io/collections/combocurve/open-combocurve-v1-monthly-productions-api/)
+- [ComboCurve REST v1 custom-columns v1 ownership-qualifiers API](https://apis.io/collections/combocurve/open-combocurve-v1-ownership-qualifiers-api/)
+- [ComboCurve REST v1 custom-columns v1 projects API](https://apis.io/collections/combocurve/open-combocurve-v1-projects-api/)
+- [ComboCurve REST v1 custom-columns v1 tags API](https://apis.io/collections/combocurve/open-combocurve-v1-tags-api/)
+- [ComboCurve REST v1 custom-columns v1 users API](https://apis.io/collections/combocurve/open-combocurve-v1-users-api/)
+- [ComboCurve REST v1 custom-columns v1 well-comments API](https://apis.io/collections/combocurve/open-combocurve-v1-well-comments-api/)
+- [ComboCurve REST v1 custom-columns v1 wells API](https://apis.io/collections/combocurve/open-combocurve-v1-wells-api/)
+- [ComboCurve REST v1 custom-columns v1 wells-identifiers API](https://apis.io/collections/combocurve/open-combocurve-v1-wells-identifiers-api/)
+- [ComboCurve REST v1 custom-columns v2 exports API](https://apis.io/collections/combocurve/open-combocurve-v2-exports-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Combocurve Openapi Overlay](https://apis.io/overlays/combocurve/combocurve-openapi-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Combocurve Authentication](https://apis.io/security/combocurve/combocurve-authentication/)
+- [Combocurve Domain Security](https://apis.io/security/combocurve/combocurve-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://combocurve.com/)
+- [Documentation](https://docs.api.combocurve.com/)
+- [Getting started](https://docs.api.combocurve.com/api/getting-started)
+- [API reference](https://docs.api.combocurve.com/api/getting-started)
+- [Support](https://forum.api.combocurve.com/)
+- [Blog](https://combocurve.com/blog/)
+- [Terms of service](https://combocurve.com/terms-of-service/)
+- [Privacy policy](https://combocurve.com/privacy-policy/)
+- [Status](https://status.combocurve.com/)
+
+## API Evangelist rating
+
+**Kin Score 43.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 52.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 63.7 |
+| Access clarity | 27.6 |
+
+**Agent readiness 31.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 20.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/combocurve/](https://apis.io/providers/combocurve/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ComboCurve: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/combocurve/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
